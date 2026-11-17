@@ -24,10 +24,11 @@ def load(path):
     return _cache[path]
 
 
-def music_bed(total, seed):
+def music_bed(total, seed, track=None):
     tracks = sorted(MUSIC_DIR.glob("*.mp3")) + sorted(MUSIC_DIR.glob("*.m4a")) + sorted(MUSIC_DIR.glob("*.wav"))
     if not tracks: return None
-    m = load(tracks[seed % len(tracks)]); n = int(total * SR)
+    pick = [t for t in tracks if t.stem == track]
+    m = load(pick[0] if pick else tracks[seed % len(tracks)]); n = int(total * SR)
     start = int(len(m) * random.Random(seed).uniform(0, .25)) if len(m) > n * 1.4 else 0
     out = np.zeros(n, np.float32); i = 0; src = m[start:]
     while i < n:
@@ -37,13 +38,13 @@ def music_bed(total, seed):
     return out
 
 
-def mix(total, voice_parts, sfx_parts, seed, music_gain=.30):
+def mix(total, voice_parts, sfx_parts, seed, music_gain=.30, track=None):
     N = int(total * SR) + SR
     v = np.zeros(N, np.float32)
     for at, a in voice_parts:
         i = int(at * SR); v[i:i + len(a)] += a[:max(0, N - i)]
     out = v.copy()
-    bed = music_bed(total + 1, seed)
+    bed = music_bed(total + 1, seed, track)
     if bed is not None:
         bed = np.pad(bed, (0, max(0, N - len(bed))))[:N]
         env = np.convolve((np.abs(v) > .02).astype(np.float32), np.ones(int(.35 * SR)) / (.35 * SR), "same")

@@ -38,7 +38,7 @@ def meta_for(v, info, date):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("job"); ap.add_argument("--feed"); ap.add_argument("--out", default="work")
-    ap.add_argument("--only"); ap.add_argument("--check-only", action="store_true"); a = ap.parse_args()
+    ap.add_argument("--only"); ap.add_argument("--style"); ap.add_argument("--check-only", action="store_true"); a = ap.parse_args()
     job = json.loads(pathlib.Path(a.job).read_text())
     feed = json.loads(pathlib.Path(a.feed).read_text()) if a.feed and pathlib.Path(a.feed).exists() else None
     errs, warns = check.problems(job, feed)
@@ -47,16 +47,15 @@ def main():
         print("CHECK_FAILED"); [print("ERROR", e) for e in errs]; sys.exit(2)
     print(f"CHECK_OK {len(job.get('videos', []))} videos")
     if a.check_only: return
-    import compose
+    import world
     out = pathlib.Path(a.out); out.mkdir(parents=True, exist_ok=True); date = job.get("date") or datetime.date.today().isoformat()
     manifest = []
     for v in job["videos"]:
         if a.only and v["id"] != a.only: continue
         proj = out / v["id"]
-        if v["kind"] == "long": info = compose.build_long(v, proj, date, job.get("ticker"))
-        else: info = compose.build_short(v, proj, date)
+        info = world.build(v, proj, date, job.get("ticker"), a.style or job.get("style"))
         m = meta_for(v, info, date); (proj / "meta.json").write_text(json.dumps(m, indent=1, ensure_ascii=False)); manifest.append(m)
-        print(f"built {v['id']} ({v['kind']}) {info['total']:.1f}s · bg={info.get('background')} text={info.get('text')}")
+        print(f"built {v['id']} ({v['kind']}) {info['total']:.1f}s · style={info.get('background')} music={info.get('text')} moves={info.get('transitions')}")
     (out / "manifest.json").write_text(json.dumps(manifest, indent=1, ensure_ascii=False))
 
 

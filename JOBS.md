@@ -32,22 +32,28 @@ A job is `jobs/<YYYY-MM-DD>_<HHMM>.json`. Each video is a list of **beats**; a b
 | arth | economy, RBI, rupee, inflation, policy | | tohfa | bonus issues |
 | katli | stock splits | | wapsi | buybacks |
 
-## Scene kinds (data fields)
-- `headline` {kicker, text (*accent*), sub}
-- `stat` {label, value, prefix, suffix, tone up/down/neutral, delta, note}
-- `facts` {items: [{label, value, tone, note}]} — 2–4
-- `indices` / `world` {items: [{name, value, pct}], asof}
-- `movers` {gainers: [{name, pct}], losers: [...], asof}
-- `flows` {days: [{date: "16 Nov", fii, dii}]} — newest last, up to 8
-- `dividend` {company, amount "₹1", type "Interim", ex_date, record_date}
-- `split` {company, from_fv "₹10", to_fv "₹1", ex_date}
+## Scene kinds (data fields) — v3 illustrated scenes (engine/ill.py)
+Each beat may also carry `title` (on-screen headline for that station, *accent* allowed, max ~40 chars). Beat 1 of a Short uses the video `hook`.
+- `indices` {name, value, pct, points: [{label: "16 Nov", value}] oldest first (last = "Now"), milestone (optional round number), chart_label, extra: [{label, value}] (≤2)}
+  Use the daily closes from `briefs` ledes for `points`. Old board form {items:[{name,value,pct}]} still works (first item = hero).
+- `stat` {label, value, prefix, suffix, tone up/down, note}
+- `facts` {items: [{label, value, tone}]} — 2–4
+- `world` {items: [{name, value, pct}]} — up to 4 (indices abroad, crude, gold, USD/INR)
+- `movers` {gainers: [{name, pct, price}], losers: [...]} — 3 best; shows a podium
+- `flows` {days: [{date: "16 Nov", fii, dii}]} — newest last, up to 8; coins fly between the globe (FII) and the building (DII)
+- `announce` {company, kicker "Fund-raise"/"Order win"/"Acquisition", amount, prefix "₹", suffix " cr", sub, stamp "Launched"/"Won"/"Approved"}
+- `headline` {kicker, text, sub} — newspaper card for news without one key number
+- `dividend` {company, amount "1", type "Interim", ex_date, record_date}
+- `split` {company, from_fv "10", to_fv "2", ex_date}
 - `bonus` {company, ratio "1:1", ex_date, record_date}
-- `buyback` {company, size, price, method, record_date}
-- `ipo` {company, open, close, band, size, lot, listing}
-- `results` {company, period, metrics: [{label, value, prev, unit, chg}]} or upcoming {company, date, purpose}
-- `calendar` {items: [{date: "18 Nov", company, what, type}]} — up to 6
-- `gauge` {name, value, min, max, pct}
-Every scene takes `source` (shown as a chip). Every video needs `sources`.
+- `buyback` {company, size, price, method}
+- `ipo` {company, open, close, band, size, lot}
+- `results` {company, period, metrics: [{label, value, unit "cr", chg}]} or upcoming {company, date, purpose}
+- `calendar` {items: [{date: "18 Nov", company, what}]} — up to 4
+- `gauge` {name, value, min, max}
+Every scene takes `source` (string or list, shown as a tag). Every video needs `sources`.
+The look (fonts, colours, illustration treatment, camera moves, music) is picked from the date: one style per day
+(studio · comic · blueprint · neon · paper). Don't set `style` in jobs unless asked.
 
 ## Rules the build enforces (`engine/check.py`)
 - News only. No buy/sell/hold, targets, stop-loss, ratings/upgrades/downgrades, predictions ("will rise"), upside/downside,

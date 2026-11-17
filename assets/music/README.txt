@@ -1,3 +1,1 @@
-Put 4-8 background music tracks here (.mp3), licensed for YouTube/Instagram use
-(e.g. YouTube Audio Library "no attribution required", or Pixabay Music). The engine picks one per video by seed,
-ducks it under the voices and fades it out. With no tracks here, videos have voice + sound effects only.
+Original background tracks composed for MarketSamachar by tools/music.py (MIDI rendered with FluidSynth + the MIT-licensed FluidR3_GM soundfont). No third-party music. One track per daily style: studio=pulse, comic=funk, blueprint=cinematic, neon=lofi, paper=marimba (bright is a spare). You can drop your own licensed .mp3 files here too; a file named like a style track replaces it.

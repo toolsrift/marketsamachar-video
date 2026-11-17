@@ -1,0 +1,396 @@
+{
+ "date": "2026-11-17",
+ "slot": "v3-sample",
+ "feed": "feed/2026-11-17_1109.json",
+ "ticker": [
+  {
+   "name": "NIFTY 50",
+   "value": "25,424.35",
+   "pct": 0.53
+  },
+  {
+   "name": "SENSEX",
+   "value": "82,529.88",
+   "pct": 0.52
+  },
+  {
+   "name": "NIFTY BANK",
+   "value": "62,292.90",
+   "pct": 1.16
+  },
+  {
+   "name": "INDIA VIX",
+   "value": "15.45",
+   "pct": -1.48
+  },
+  {
+   "name": "GOLD",
+   "value": "3,885.30",
+   "pct": 0.84
+  },
+  {
+   "name": "CRUDE OIL",
+   "value": "84.85",
+   "pct": -1.01
+  },
+  {
+   "name": "USD/INR",
+   "value": "93.575",
+   "pct": -0.7
+  }
+ ],
+ "videos": [
+  {
+   "id": "s-bank-62k",
+   "kind": "short",
+   "stamp": "17 NOV · 11:10 IST",
+   "title": "Nifty Bank crosses 62,000 for the first time",
+   "hook": "Nifty Bank crosses *62,000*",
+   "sources": [
+    "NSE",
+    "NDTV Profit"
+   ],
+   "description": "Nifty Bank crossed 62,000 for the first time on 17 November 2026 and was at 62,292.90 (+1.16%) at 11:09 IST. Daily closes from 5 to 16 November, plus the top gainers at the time.",
+   "caption": "Nifty Bank crossed 62,000 for the first time. Up 13% in November so far (NDTV Profit).",
+   "tags": [
+    "nifty bank",
+    "nifty bank record",
+    "stock market today",
+    "bank nifty 62000",
+    "marketsamachar"
+   ],
+   "beats": [
+    {
+     "host": "ghanti",
+     "say": "Nifty Bank just crossed 62,000 for the first time. It's at 62,292.90 right now, up 1.16 percent.",
+     "scene": {
+      "kind": "indices",
+      "name": "Nifty Bank",
+      "value": "62,292.90",
+      "pct": 1.16,
+      "milestone": "62,000",
+      "chart_label": "Daily close · live now",
+      "points": [
+       {
+        "label": "5 Nov",
+        "value": "57,773.65"
+       },
+       {
+        "label": "6 Nov",
+        "value": "59,086.00"
+       },
+       {
+        "label": "9 Nov",
+        "value": "59,741.25"
+       },
+       {
+        "label": "11 Nov",
+        "value": "60,792.40"
+       },
+       {
+        "label": "12 Nov",
+        "value": "61,518.50"
+       },
+       {
+        "label": "13 Nov",
+        "value": "61,034.10"
+       },
+       {
+        "label": "16 Nov",
+        "value": "61,575.90"
+       },
+       {
+        "label": "Now",
+        "value": "62,292.90"
+       }
+      ],
+      "extra": [
+       {
+        "label": "Day high",
+        "value": "62,324.55"
+       }
+      ],
+      "source": [
+       "NSE",
+       "NDTV Profit"
+      ]
+     }
+    },
+    {
+     "host": "teji",
+     "title": "Up *13%* in November",
+     "say": "According to NDTV Profit, the index is up 13 percent in November so far.",
+     "scene": {
+      "kind": "stat",
+      "label": "Nifty Bank this month",
+      "value": "13",
+      "prefix": "+",
+      "suffix": "%",
+      "tone": "up",
+      "note": "Record high · first time above 62,000",
+      "source": "NDTV Profit"
+     }
+    },
+    {
+     "host": "teji",
+     "title": "Top gainers *right now*",
+     "say": "The top gainers right now: Asian Paints, up 3.79 percent, Punjab National Bank, up 3.45, and HDFC AMC, up 3.18.",
+     "scene": {
+      "kind": "movers",
+      "gainers": [
+       {
+        "name": "Asian Paints",
+        "pct": 3.79,
+        "price": 2646.6
+       },
+       {
+        "name": "Punjab National Bank",
+        "pct": 3.45,
+        "price": 149.58
+       },
+       {
+        "name": "HDFC AMC",
+        "pct": 3.18,
+        "price": 2734.3
+       }
+      ],
+      "source": "NSE"
+     }
+    }
+   ]
+  },
+  {
+   "id": "long-wrap",
+   "kind": "long",
+   "stamp": "TUE · 17 NOV 2026",
+   "title": "Nifty Bank above 62,000 · FIIs bought ₹4,865 cr · Urban Company QIP | Market Samachar",
+   "hook": "Banks break *62,000*",
+   "sources": [
+    "NSE",
+    "BSE",
+    "NSE (provisional)",
+    "Business Standard",
+    "NDTV Profit"
+   ],
+   "description": "Mid-morning market update for 17 November 2026: the indices, institutional flows, top gainers, Urban Company's QIP and global markets — explained with the MarketSamachar cast.",
+   "tags": [
+    "stock market today",
+    "nifty bank",
+    "fii dii",
+    "market update",
+    "marketsamachar"
+   ],
+   "segments": [
+    {
+     "title": "Markets now",
+     "beats": [
+      {
+       "host": "ghanti",
+       "title": "Nifty at *25,424*",
+       "say": "The Nifty 50 is at 25,424.35 this morning, up 0.53 percent, and Nifty Bank is above 62,000.",
+       "scene": {
+        "kind": "indices",
+        "name": "Nifty 50",
+        "value": "25,424.35",
+        "pct": 0.53,
+        "chart_label": "Daily close · live now",
+        "points": [
+         {
+          "label": "5 Nov",
+          "value": "24,536.60"
+         },
+         {
+          "label": "6 Nov",
+          "value": "25,030.35"
+         },
+         {
+          "label": "9 Nov",
+          "value": "25,044.65"
+         },
+         {
+          "label": "11 Nov",
+          "value": "25,255.05"
+         },
+         {
+          "label": "12 Nov",
+          "value": "25,299.35"
+         },
+         {
+          "label": "13 Nov",
+          "value": "25,144.30"
+         },
+         {
+          "label": "16 Nov",
+          "value": "25,291.10"
+         },
+         {
+          "label": "Now",
+          "value": "25,424.35"
+         }
+        ],
+        "extra": [
+         {
+          "label": "Sensex",
+          "value": "82,529.88 (+0.52%)"
+         },
+         {
+          "label": "Nifty Bank",
+          "value": "62,292.90 (+1.16%)"
+         }
+        ],
+        "source": [
+         "NSE",
+         "BSE"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "title": "Money flows",
+     "beats": [
+      {
+       "host": "videshi",
+       "title": "FIIs bought *₹4,865 cr*",
+       "say": "On Monday, foreign investors bought 4,865 crore rupees of shares. Domestic institutions sold 3,519 crore.",
+       "scene": {
+        "kind": "flows",
+        "days": [
+         {
+          "date": "4 Nov",
+          "fii": 7284.03,
+          "dii": -3712.23
+         },
+         {
+          "date": "5 Nov",
+          "fii": 14974.68,
+          "dii": -10444.54
+         },
+         {
+          "date": "6 Nov",
+          "fii": 13749.82,
+          "dii": -5968.7
+         },
+         {
+          "date": "9 Nov",
+          "fii": 7212.22,
+          "dii": -7172.53
+         },
+         {
+          "date": "11 Nov",
+          "fii": 12563.33,
+          "dii": -8434.53
+         },
+         {
+          "date": "12 Nov",
+          "fii": 7830.6,
+          "dii": -6331.17
+         },
+         {
+          "date": "13 Nov",
+          "fii": 5736.55,
+          "dii": -2253.58
+         },
+         {
+          "date": "16 Nov",
+          "fii": 4864.68,
+          "dii": -3519.05
+         }
+        ],
+        "source": "NSE (provisional)"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Top gainers",
+     "beats": [
+      {
+       "host": "teji",
+       "title": "Leading the Nifty *today*",
+       "say": "Asian Paints leads, up 3.79 percent. Punjab National Bank is up 3.45, and HDFC AMC 3.18.",
+       "scene": {
+        "kind": "movers",
+        "gainers": [
+         {
+          "name": "Asian Paints",
+          "pct": 3.79,
+          "price": 2646.6
+         },
+         {
+          "name": "Punjab National Bank",
+          "pct": 3.45,
+          "price": 149.58
+         },
+         {
+          "name": "HDFC AMC",
+          "pct": 3.18,
+          "price": 2734.3
+         }
+        ],
+        "source": "NSE"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Company news",
+     "beats": [
+      {
+       "host": "bhonpu",
+       "title": "Urban Company opens a *QIP*",
+       "say": "Urban Company launched a 2,500 crore rupee QIP, a share sale to big institutions. Its shares slipped 2 percent.",
+       "scene": {
+        "kind": "announce",
+        "company": "Urban Company",
+        "kicker": "Fund-raise",
+        "amount": "2,500",
+        "prefix": "₹",
+        "suffix": " cr",
+        "sub": "Qualified institutional placement",
+        "stamp": "Launched",
+        "source": "Business Standard"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Global markets",
+     "beats": [
+      {
+       "host": "arth",
+       "title": "US stocks *fell*",
+       "say": "Overseas, the Nasdaq fell 2.49 percent on Monday, and crude oil is down 1.01 percent.",
+       "scene": {
+        "kind": "world",
+        "items": [
+         {
+          "name": "Nasdaq",
+          "value": "24,509.76",
+          "pct": -2.49
+         },
+         {
+          "name": "S&P 500",
+          "value": "7,416.59",
+          "pct": -1.92
+         },
+         {
+          "name": "Crude oil",
+          "value": "$84.85",
+          "pct": -1.01
+         },
+         {
+          "name": "USD/INR",
+          "value": "93.575",
+          "pct": -0.7
+         }
+        ],
+        "source": "Market data via marketsamachar.in"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
