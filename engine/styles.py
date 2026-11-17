@@ -78,7 +78,7 @@ S["paper"] = dict(
            card="#FFFFFF", cardInk="#1E2452", line="rgba(30,36,82,.12)", dk="#1E2452"),
     world="paper",
 )
-ORDER = ["studio", "comic", "blueprint", "neon", "paper"]
+ORDER = ["studio", "comic", "neon", "paper"]   # blueprint kept as an option, not in the daily rotation
 
 
 def pick(date, override=None):
@@ -124,15 +124,16 @@ def page_css(s):
 .tick{{font-family:Num,'DM Sans',sans-serif;color:var(--ink)}}
 .disc{{font-family:Body6;color:var(--sub)}}
 .tcard{{background:var(--card);color:var(--cardInk)}}
+.band{{background:var(--bg);box-shadow:0 18px 40px rgba(0,0,0,.25)}}
 """
     if n == "studio":
         css += """.cap{color:#fff;text-shadow:0 5px 0 rgba(0,0,0,.35)} .cap .on{color:var(--acc)}
 .h{letter-spacing:-1.5px;text-shadow:0 6px 0 rgba(0,0,0,.3)} .chip.k{background:var(--acc);color:#151838;box-shadow:0 6px 0 rgba(0,0,0,.3)}
-.tcard{border-radius:18px;box-shadow:0 10px 0 rgba(0,0,0,.35)}"""
+.tcard{border-radius:18px;box-shadow:0 10px 0 rgba(0,0,0,.35)} .band{border-bottom:4px solid var(--acc)}"""
     elif n == "comic":
         css += """.cap{color:#111;background:#fff;border:6px solid #111;box-shadow:8px 8px 0 #111;padding:10px 20px;display:inline-block;transform:rotate(-1deg)} .cap .on{color:var(--acc)}
 .h{letter-spacing:1px;color:#111;-webkit-text-stroke:0} .h .acc{color:var(--acc)} .chip.k{background:var(--acc);color:#fff;border:5px solid #111;box-shadow:6px 6px 0 #111;border-radius:6px}
-.tcard{border:6px solid #111;box-shadow:10px 10px 0 #111}"""
+.tcard{border:6px solid #111;box-shadow:10px 10px 0 #111} .band{border-bottom:7px solid #111;box-shadow:0 10px 0 rgba(17,17,17,.25)}"""
     elif n == "blueprint":
         css += """.cap{color:var(--ink);text-transform:uppercase;letter-spacing:1px} .cap .on{color:var(--acc)}
 .h{text-transform:uppercase;letter-spacing:-1px} .chip.k{border:3px solid var(--acc);color:var(--acc);border-radius:0}
@@ -140,11 +141,11 @@ def page_css(s):
     elif n == "neon":
         css += """.cap{color:#fff;text-shadow:0 0 18px rgba(0,255,136,.35),0 4px 16px rgba(0,0,0,.8)} .cap .on{color:var(--acc)}
 .h{letter-spacing:1px} .h .acc{text-shadow:0 0 24px rgba(0,255,136,.55)} .chip.k{background:rgba(0,255,136,.12);color:var(--acc);border:1.5px solid rgba(0,255,136,.5)}
-.tcard{border:1.5px solid rgba(0,255,136,.35);border-radius:22px;box-shadow:0 0 40px rgba(0,255,136,.15)}"""
+.tcard{border:1.5px solid rgba(0,255,136,.35);border-radius:22px;box-shadow:0 0 40px rgba(0,255,136,.15)} .band{border-bottom:2px solid rgba(0,255,136,.45);box-shadow:0 0 50px rgba(0,255,136,.12)}"""
     else:
         css += """.cap{color:var(--ink);background:#fff;border-radius:16px;padding:10px 20px;display:inline-block;box-shadow:0 8px 0 rgba(30,36,82,.12)} .cap .on{color:var(--acc)}
 .h{letter-spacing:-1px} .chip.k{background:var(--ink);color:#fff;border-radius:8px}
-.tcard{border-radius:16px;border:3px solid var(--ink);box-shadow:8px 8px 0 rgba(30,36,82,.18)}"""
+.tcard{border-radius:16px;border:3px solid var(--ink);box-shadow:8px 8px 0 rgba(30,36,82,.18)} .band{border-bottom:4px solid var(--ink)}"""
     return css
 
 
@@ -154,7 +155,8 @@ def ill_css(s):
 .ill text{{font-family:Body,'DM Sans',sans-serif}} .ill .tx{{fill:var(--ink)}} .ill .txs{{fill:var(--sub)}} .ill .txa{{fill:var(--acc)}} .ill .txd{{fill:#151838}}
 .ill .h{{font-family:Head,'DM Sans',sans-serif}} .ill .num{{font-family:Num,'DM Sans',sans-serif}}
 .ill .up{{fill:var(--up)}} .ill .dn{{fill:var(--dn)}} .ill .lnU{{stroke:var(--up);fill:none}} .ill .lnD{{stroke:var(--dn);fill:none}}
-.ill .grid{{stroke:var(--line);stroke-width:2;fill:none}}
+.ill .grid{{stroke:var(--line);stroke-width:2;fill:none}} .ill .gridk{{stroke:rgba(255,255,255,.14);stroke-width:2;fill:none}}
+.ill .tdk{{fill:#F3F4F8}} .ill .tdks{{fill:#B8BCD0}}
 .ill .acc{{fill:var(--acc)}} .ill .acc2{{fill:var(--acc2)}}
 .ill .tchip{{fill:{dict(flat="#151838",ink="#FFFFFF",line="#EAF4FF",neon="#07070E",paper="#FFFFFF")[fam]}}}
 """

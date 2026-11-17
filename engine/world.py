@@ -14,10 +14,9 @@ FPS = 30
 DISCLAIMER = "News only · Not investment advice · MarketSamachar is not SEBI-registered"
 GESTURE = dict(ghanti="ring", tohfa="open", katli="split", wapsi="spin", bhonpu="waves", golu="present", teji="cheer",
                mandi="shrug", munshi="point", naya="wave", tareekh="present", desi="point", videshi="wave", arth="point")
-CTA_LINES = ["For the full details, visit marketsamachar.in, and subscribe for every market update.",
-             "Follow MarketSamachar for daily market updates. The full story is on marketsamachar.in.",
-             "Subscribe to MarketSamachar so you never miss a market move. More on marketsamachar.in.",
-             "That's the update. Subscribe for more, and read the details on marketsamachar.in."]
+CTA_LINES = ["Subscribe for every market update. Full story on marketsamachar.in.",
+             "Follow MarketSamachar for daily updates. Details on marketsamachar.in.",
+             "Full story on marketsamachar.in. Subscribe for more."]
 TITLE_IN = dict(studio="rise", comic="rise", blueprint="ink", neon="blur", paper="rise")
 MOVE_SFX = dict(whip="whoosh", crane="swish", zoom="big", arc="whoosh")
 
@@ -96,6 +95,50 @@ def move_js(js, sfx, t, m, x, y, W, H, rnd):
     return d
 
 
+def shots(x, IX, IY, IW, IH, W, H, long_, sfx):
+    """Close-ups inside a station: the camera flies to each focus point the scene marked, synced to the spoken word."""
+    t0, d, out, plan = x["t0"], x["d"], [], []
+    words_ = [(re.sub(r"[^a-z0-9]", "", w.lower()), t0 + .15 + s_) for w, s_, e_ in x["ws"]]
+    for f in x["ev"].get("focus", []):
+        tt = None
+        if f.get("key"):
+            key = re.sub(r"[^a-z0-9]", "", str(f["key"]).lower())
+            for w, ws_ in words_:
+                if key and w.startswith(key) and ws_ > (plan[-1][0] if plan else 0): tt = ws_ - .35; break
+        plan.append([tt if tt is not None else f.get("t"), f])
+    last = t0 + .9
+    for item in plan:
+        if item[0] is None: item[0] = last + 1.6
+        item[0] = max(item[0], last + (1.3 if last > t0 + .9 else 0), t0 + .9); last = item[0]
+    plan = [it for it in plan if it[0] < t0 + d - 1.4]
+    Qx, Qy = (W / 2, IY + IH * .5) if not long_ else (IX + IW / 2, IY + IH * .5)
+    for k_, (tt, f) in enumerate(plan):
+        nxt = plan[k_ + 1][0] if k_ + 1 < len(plan) else t0 + d - .95
+        if nxt - tt > 3.4: out.append(f'tl.to("#shot",{{x:0,y:0,scale:1,duration:.7,ease:"power2.inOut"}},{T(tt + 2.2)})')
+        z = f["z"] * (.85 if long_ else 1.0)
+        px, py = IX + f["x"] * IW / 1200, IY + f["y"] * IH / 800
+        out.append(f'tl.to("#shot",{{x:{Qx - z * px:.0f},y:{Qy - z * py:.0f},scale:{z:.2f},duration:.62,ease:"power3.inOut"}},{T(tt)})')
+        sfx.append((tt, "swish", .28))
+    if plan: out.append(f'tl.to("#shot",{{x:0,y:0,scale:1,duration:.5,ease:"power3.inOut"}},{T(t0 + d - .95)})')
+    return out
+
+
+def market_board(ticker, js, y, W):
+    if not ticker: return ""
+    items = ticker[:4]; n = len(items); tw = (W - 40 - (n - 1) * 14) / n; out = ""
+    for i, it in enumerate(items):
+        pc = it.get("pct") or 0
+        out += (f'<div class="ab tcard" id="mb{i}" style="left:{20 + i * (tw + 14):.0f}px;top:{y}px;width:{tw:.0f}px;height:132px;padding:16px 18px">'
+                f'<div class="disc" style="font-size:17px;letter-spacing:1px;color:var(--cardInk);opacity:.7">{E(it["name"])}</div>'
+                f'<div class="num" style="font-size:31px;color:var(--cardInk);margin-top:6px;white-space:nowrap">{E(str(it["value"]))}</div>'
+                f'<div class="num" style="font-size:21px;margin-top:4px;color:var(--{"up" if pc >= 0 else "dn"})">{"▲" if pc >= 0 else "▼"} {abs(pc):.2f}%</div></div>')
+        js.append(f'tl.fromTo("#mb{i}",{{y:60,opacity:0}},{{y:0,opacity:1,duration:.45,ease:"back.out(1.6)"}},{T(.2 + i * .08)})')
+    out += f'<div class="ab" id="mbg" style="left:20px;top:{y - 6}px;width:{tw:.0f}px;height:144px;border:4px solid var(--acc);border-radius:20px;opacity:.9"></div>'
+    kf = ",".join(f'{{x:{(i % n) * (tw + 14):.0f},duration:.35,ease:"power3.inOut",delay:1.4}}' for i in range(1, n + 1))
+    js.append(f'tl.fromTo("#mbg",{{x:0}},{{keyframes:[{kf}],repeat:30}},0.6)')
+    return out
+
+
 def world_html(S, pos, W, H, stations_html, pad):
     xs = [p[0] for p in pos]; ys = [p[1] for p in pos]
     x0, y0 = min(xs) - pad * W, min(ys) - pad * H; x1, y1 = max(xs) + (1 + pad) * W, max(ys) + (1 + pad) * H
@@ -116,10 +159,10 @@ def deco(S, sx, sy, W, H, word, rnd, vertical):
     out = (f'<div class="ab h" style="left:{sx + (W - 140 if vertical else -60):.0f}px;top:{sy + (H * .2 if vertical else H - 260):.0f}px;'
            f'font-size:{200 if vertical else 240}px;opacity:.07;white-space:nowrap;transform-origin:0 0;{"transform:rotate(90deg)" if vertical else ""}">{E(word.upper())}</div>')
     for k in range(6):
-        g = rnd.choice(["₹", "%", "+", "₹", "%"])
-        gx = sx + (rnd.uniform(-.45, -.12) if k % 2 else rnd.uniform(1.05, 1.3)) * W
-        out += (f'<div class="ab num" style="left:{gx:.0f}px;top:{sy + rnd.uniform(0, 1.0) * H:.0f}px;font-size:{rnd.randint(70, 160)}px;'
-                f'color:var(--acc);opacity:{rnd.uniform(.06, .14):.2f};transform:rotate({rnd.randint(-25, 25)}deg)">{g}</div>')
+        gx = sx + (rnd.uniform(-.45, -.12) if k % 2 else rnd.uniform(1.05, 1.3)) * W; gy = sy + rnd.uniform(0, 1.0) * H; r = rnd.randint(30, 90)
+        shape = rnd.choice(["50%", "18px", "50%"])
+        out += (f'<div class="ab" style="left:{gx:.0f}px;top:{gy:.0f}px;width:{r * 2}px;height:{r * 2}px;border-radius:{shape};'
+                f'border:{rnd.choice([6, 10])}px solid var(--acc);opacity:{rnd.uniform(.08, .16):.2f};transform:rotate({rnd.randint(-25, 25)}deg)"></div>')
     return out
 
 
@@ -167,7 +210,7 @@ def cta(js, htm, sfx, t0, d, W, H, V, host):
     js.append(f'tl.fromTo("#cta-w",{{opacity:0,y:20}},{{opacity:1,y:0,duration:.4}},{T(t0 + .25)})')
     js.append(f'tl.fromTo("#cta-btn",{{scale:.4,opacity:0}},{{scale:1,opacity:1,duration:.45,ease:"back.out(2)"}},{T(t0 + .35)})')
     js.append(f'tl.fromTo("#cta-bell",{{scale:.4,opacity:0}},{{scale:1,opacity:1,duration:.4,ease:"back.out(2)"}},{T(t0 + .45)})')
-    tc = t0 + 1.25
+    tc = t0 + (.95 if V else 1.25)
     js.append(f'tl.fromTo("#cta-cur",{{x:260,y:260,opacity:0}},{{x:0,y:0,opacity:1,duration:.55,ease:"power3.out"}},{T(tc - .55)})')
     js.append(f'tl.to("#cta-cur",{{scale:.82,duration:.07,yoyo:true,repeat:1,transformOrigin:"20% 10%"}},{T(tc)})')
     js.append(f'tl.to("#cta-btn",{{scale:.93,duration:.07,yoyo:true,repeat:1}},{T(tc)})')
@@ -197,7 +240,7 @@ def build(v, proj, date, ticker=None, style=None):
     else:
         beats = [dict(b=b, seg=0, first=False) for b in v["beats"]]
     INTRO = 3.0 if long_ else 0.0
-    t = INTRO + (.3 if long_ else .35); chapters = []
+    t = INTRO + (.3 if long_ else .25); chapters = []
     for i, x in enumerate(beats):
         if long_ and x["first"]:
             if i > 0: t += .7
@@ -207,21 +250,21 @@ def build(v, proj, date, ticker=None, style=None):
     host0 = beats[0]["b"]["host"]
     cta_line = v.get("cta") or (("That's the update. Subscribe to MarketSamachar, and find every story on marketsamachar.in.")
                                 if long_ else CTA_LINES[seed_of(v["id"], "cta") % len(CTA_LINES)])
-    ca, cws = voice.say(host0, cta_line); cta_t0 = t + .1; cta_d = max(4.8, len(ca) / voice.SR + 1.7)
+    ca, cws = voice.say(host0, cta_line); cta_t0 = t + .1; cta_d = max(4.0 if not long_ else 4.8, len(ca) / voice.SR + (1.0 if not long_ else 1.6))
     vparts.append((cta_t0 + .4, ca)); total = round((cta_t0 + cta_d) * FPS) / FPS
     # ---- stations
     pos, mvs = layout(len(beats), S["moves"], W, H, rnd)
     if long_:
-        TX, TY, TW, TF = 90, 104, 1250, 60
-        IX, IY, IW = 60, 196, 1110
+        TX, TY, TW, TF = 60, 94, 1300, 52
+        IX, IY, IW = 60, 222, 1110
     else:
-        TX, TY, TW, TF = 56, 304, 968, 74
-        IX, IY, IW = 48, 470, 984
+        TX, TY, TW, TF = 44, 302, 1000, 66
+        IX, IY, IW = 10, 468, 1060
     IH = IW * 800 / 1200
-    st_html = ""
+    st_html = ""; titles = []
     for i, x in enumerate(beats):
         sx, sy = pos[i]; b = x["b"]; sc = b.get("scene") or {}
-        a0 = x["t0"] + (.15 if i else .1)
+        a0 = x["t0"] + .15 if i else 0.0
         svg, sj, sp, ev = ill.scene(sc.get("kind", "headline"), f"s{i}", a0, x["d"] - .3, sc)
         js += sj; pre += sp; sfx += ev["sfx"]; x["ev"] = ev
         title = _title_of(b, v, i)
@@ -232,9 +275,11 @@ def build(v, proj, date, ticker=None, style=None):
         st_html += deco(S, sx, sy, W, H, sc.get("kind", "news"), rnd, not long_)
         st_html += (f'<div class="ab" style="left:{sx + IX + IW * .1:.0f}px;top:{sy + IY + IH * .05:.0f}px;width:{IW * .8:.0f}px;height:{IH * .9:.0f}px;border-radius:50%;'
                     f'background:radial-gradient(circle,{hc}30,transparent 65%)"></div>')
-        st_html += (f'<div class="ab" style="left:{sx + TX}px;top:{sy + TY}px;width:{TW}px">'
-                    f'<div class="chip k" id="k{i}" style="font-size:{20 if not long_ else 18}px;margin-bottom:12px">{E(cast.CAST[b["host"]]["role"])}</div>'
-                    f'<div class="h" style="font-size:{tf}px">{tw}</div></div>')
+        titles.append(f'<div class="ab" id="tb{i}" style="left:{TX}px;top:{TY}px;width:{TW}px;visibility:{"visible" if i == 0 else "hidden"}">'
+                      f'<div class="chip k" id="k{i}" style="font-size:{20 if not long_ else 17}px;margin-bottom:{12 if not long_ else 8}px">{E(cast.CAST[b["host"]]["role"])}</div>'
+                      f'<div class="h" style="font-size:{tf}px">{tw}</div></div>')
+        js.append(f'tl.set("#tb{i}",{{visibility:"visible"}},{T(0 if i == 0 else x["t0"] - .1)})')
+        if i + 1 < len(beats): js.append(f'tl.set("#tb{i}",{{visibility:"hidden"}},{T(beats[i + 1]["t0"] - .1)})')
         st_html += f'<svg class="ab ill" style="left:{sx + IX}px;top:{sy + IY}px;overflow:visible" width="{IW}" height="{IH:.0f}" viewBox="0 0 1200 800">{svg}</svg>'
         if i == 0 and not long_:
             js.append(f'tl.fromTo("#k{i}",{{opacity:0,y:-10}},{{opacity:1,y:0,duration:.3}},0.05)')   # hook title visible at frame 0
@@ -245,7 +290,11 @@ def build(v, proj, date, ticker=None, style=None):
     htm.append(f'<div class="ab" id="cam" style="left:0;top:0;width:{W}px;height:{H}px;transform-origin:50% 50%">'
                f'<div class="ab" id="drift" style="left:0;top:0;width:{W}px;height:{H}px;transform-origin:50% 50%">'
                f'<div class="ab" id="punch" style="left:0;top:0;width:{W}px;height:{H}px;transform-origin:50% {45 if long_ else 42}%">'
-               f'{far_html}{world}</div></div></div>')
+               f'<div class="ab" id="shot" style="left:0;top:0;width:{W}px;height:{H}px;transform-origin:0 0">{far_html}{world}</div></div></div></div>')
+    BAND = 206 if long_ else 470
+    htm.append(f'<div class="ab band" style="left:0;top:0;width:{W}px;height:{BAND}px;z-index:8"></div>')
+    htm.append(f'<div class="ab" style="left:0;top:0;width:{W}px;height:{BAND}px;z-index:9">{"".join(titles)}</div>')
+    js.append(f'tl.to(".band",{{opacity:0,duration:.3}},{T(cta_t0)})')
     # ---- camera
     cx_all = (box[0] + box[2]) / 2 - W / 2; cy_all = (box[1] + box[3]) / 2 - H / 2
     ov = min(W / (box[2] - box[0]), H / (box[3] - box[1])) * 1.1
@@ -263,7 +312,8 @@ def build(v, proj, date, ticker=None, style=None):
         if i > 0:
             tb = x["t0"] - .55
             move_js(js, sfx, tb, mvs[i - 1], pos[i][0], pos[i][1], W, H, rnd)
-        js.append(f'tl.fromTo("#drift",{{scale:1,x:0}},{{scale:1.04,x:{rnd.choice([-18, 18])},duration:{T(max(.5, x["d"] - .5))},ease:"sine.inOut"}},{T(x["t0"])})')
+        js.append(f'tl.fromTo("#drift",{{scale:1,x:0}},{{scale:1.025,x:{rnd.choice([-12, 12])},duration:{T(max(.5, x["d"] - .5))},ease:"sine.inOut"}},{T(x["t0"])})')
+        js += shots(x, IX, IY, IW, IH, W, H, long_, sfx)
         for pt in x["ev"]["punch"][:1]:
             js.append(f'tl.fromTo("#punch",{{scale:1}},{{scale:1.07,duration:.12,ease:"power3.out"}},{T(pt)})')
             js.append(f'tl.to("#punch",{{scale:1,duration:.9,ease:"power2.inOut"}},{T(pt + .35)})')
@@ -278,14 +328,15 @@ def build(v, proj, date, ticker=None, style=None):
                    f'<div class="ab hud chip k" id="segl" style="right:44px;top:38px;font-size:19px;z-index:9">{E(v.get("stamp", ""))}</div>'
                    f'<div class="ab hud" style="left:560px;top:44px;z-index:9">{index_strip(ticker, 21)}</div>')
         htm.append(ticker_tape(ticker, js, total, 1028, W, 52, 23))
-        hw, hx, hy = 420, 1400, 450; capbox, capfs, capal, capn = (110, 944, 1240, 76), 46, "center", 7
+        hw, hx, hy = 460, 1370, 400; capbox, capfs, capal, capn = (100, 944, 1240, 76), 48, "center", 6
     else:
         htm.append(f'<div class="ab hud" style="left:44px;top:178px;display:flex;align-items:center;gap:14px;z-index:9">{_logo(56)}{_wordmark(30)}</div>'
                    f'<div class="ab hud chip k" style="right:44px;top:186px;font-size:19px;z-index:9">{E(v.get("stamp", ""))}</div>'
                    f'<div class="ab hud" style="left:46px;top:252px;z-index:9">{index_strip(ticker, 19)}</div>')
-        htm.append(ticker_tape(ticker, js, total, 1352, W, 50, 22))
-        htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1414px;font-size:19px;z-index:9">{E(DISCLAIMER)}</div>')
-        hw, hx, hy = 270, 26, 1080; capbox, capfs, capal, capn = (316, 1124, 730, 190), 52, "left", 5
+        htm.append(ticker_tape(ticker, js, total, 1468, W, 50, 22))
+        htm.append(f'<div class="ab hud" style="left:0;top:0;width:{W}px;height:1px;z-index:9">{market_board(ticker, js, 1548, W)}</div>')
+        htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1712px;font-size:19px;z-index:9">{E(DISCLAIMER)}</div>')
+        hw, hx, hy = 360, 0, 1052; capbox, capfs, capal, capn = (366, 1150, 690, 176), 54, "left", 4
     # host (fixed) + captions
     cur = owner = None
     for i, x in enumerate(beats):
@@ -319,6 +370,7 @@ def build(v, proj, date, ticker=None, style=None):
                 sfx.append((tb, "whoosh", .7))
     if owner: js.append(f'tl.set("#{owner}",{{visibility:"hidden"}},{T(cta_t0 + .05)})'); js += cast.js_exit(owner, cta_t0 - .3, "pop")
     js.append(f'tl.to(".hud",{{opacity:0,duration:.3}},{T(cta_t0)})')
+    js.append(f'tl.set("#tb{len(beats) - 1}",{{visibility:"hidden"}},{T(cta_t0)})')
     # intro (long): title card over the map of the day
     if long_:
         hk, hn = words(v.get("hook", v.get("title", "")), "ih")

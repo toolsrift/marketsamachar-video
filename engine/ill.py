@@ -61,7 +61,7 @@ class K:
     """Collects js / counter vars / events for one scene."""
     n = [0]
 
-    def __init__(self, p): self.p, self.js, self.pre, self.ev = p, [], [], dict(punch=[], mood=[], sfx=[])
+    def __init__(self, p): self.p, self.js, self.pre, self.ev = p, [], [], dict(punch=[], mood=[], sfx=[], focus=[])
 
     def add(self, s): self.js.append(s)
 
@@ -90,6 +90,10 @@ class K:
 
     def sfx(self, t, name, g=.6): self.ev["sfx"].append((t, name, g))
 
+    def focus(self, x, y, z=1.8, key=None, t=None):
+        """Camera close-up on (x, y) of the 1200x800 scene; key = a spoken word to sync to, t = fallback time."""
+        self.ev["focus"].append(dict(x=x, y=y, z=z, key=key, t=t))
+
 
 def numtext(k, el_id, raw, t, prefix="", suffix="", dur=1.3, start_frac=0.0):
     """A count-up when the value is numeric, else the plain text. Returns the initial text for the element."""
@@ -115,12 +119,13 @@ def stage_js(k, a, d, cx=600, cy=380):
         k.add(f'tl.fromTo("#{p}-pt{i}",{{y:0,opacity:0}},{{y:{-16 if i % 2 else 16},opacity:1,duration:{1.4 + (i % 3) * .3:.2f},ease:"sine.inOut",repeat:{rep(d, 1.5)},yoyo:true}},{T(a + .2 + i * .06)})')
 
 
-def src_tag(p, text, x=40, y=740):
+def src_tag(p, text, x=None, y=None):
     if not text: return ""
     t = "Source: " + (" · ".join(text) if isinstance(text, list) else str(text))
     w = 22 + len(t) * 12.4
+    x, y = 1180 - w, 40
     return (f'<g id="{p}-src">{R(x, y - 34, w, 48, 24, "dk", " opacity=\".88\"")}'
-            f'{TX(x + 22, y - 2, E(t), 22, "txs", "start")}</g>')
+            f'{TX(x + 22, y - 2, E(t), 22, "tdks", "start")}</g>')
 
 
 def src_js(k, a): k.fade(f"#{k.p}-src", a + .9, .4, 12)
@@ -131,8 +136,8 @@ def confetti(k, t, n=16, x0=200, x1=1000, seed=1):
     r = random.Random(seed); out = ""
     for i in range(n):
         x = r.uniform(x0, x1); c = r.choice(["f1", "f2", "f4", "f5", "acc"])
-        out += f'<g id="{k.p}-cf{i}">{R(x, -30, 14, 24, 3, c + " s")}</g>'
-        k.add(f'tl.fromTo("#{k.p}-cf{i}",{{y:0,rotation:0,opacity:1,svgOrigin:"{x:.0f} -20"}},{{y:{r.uniform(620, 820):.0f},rotation:{r.uniform(-540, 540):.0f},opacity:0,duration:{r.uniform(1.6, 2.4):.2f},ease:"power1.in"}},{T(t + r.uniform(0, .35))})')
+        out += f'<g id="{k.p}-cf{i}" opacity="0">{R(x, -30, 14, 24, 3, c + " s")}</g>'
+        k.add(f'tl.fromTo("#{k.p}-cf{i}",{{y:0,rotation:0,opacity:1,svgOrigin:"{x:.0f} -20"}},{{y:{r.uniform(620, 820):.0f},rotation:{r.uniform(-540, 540):.0f},opacity:0,duration:{r.uniform(1.6, 2.4):.2f},ease:"power1.in",immediateRender:false}},{T(t + r.uniform(0, .35))})')
     k.sfx(t, "sparkle", .5)
     return f'<g opacity="1">{out}</g>'
 
@@ -160,8 +165,8 @@ def sc_index(p, a, d, data):
     bx, by, bw, bh = 60, 130, 720, 500
     svg += f'<g id="{p}-board">{slab(R(bx, by, bw, bh, 30, "{c}"), "dk", 16, 4)}'
     gx0, gx1, gy0, gy1 = bx + 70, bx + bw - 60, by + 80, by + bh - 90
-    svg += "".join(f'<line class="grid" x1="{gx0}" x2="{gx1}" y1="{gy0 + i * (gy1 - gy0) / 3:.0f}" y2="{gy0 + i * (gy1 - gy0) / 3:.0f}"/>' for i in range(4))
-    svg += TX(bx + 34, by + 52, E(str(data.get("chart_label", "Daily close")).upper()), 22, "txs", "start")
+    svg += "".join(f'<line class="gridk" x1="{gx0}" x2="{gx1}" y1="{gy0 + i * (gy1 - gy0) / 3:.0f}" y2="{gy0 + i * (gy1 - gy0) / 3:.0f}"/>' for i in range(4))
+    svg += TX(bx + 34, by + 52, E(str(data.get("chart_label", "Daily close")).upper()), 22, "tdks", "start")
     if len(vals) >= 2:
         lo, hi_ = min(vals + ([mil] if mil else [])), max(vals + ([mil] if mil else []))
         pad = (hi_ - lo) * .15 or 1; lo -= pad; hi_ += pad
@@ -179,7 +184,7 @@ def sc_index(p, a, d, data):
         for i, v in enumerate(vals):
             svg += f'<g id="{p}-dot{i}">{C(X(i), Y(v), 10 if i == len(vals) - 1 else 7, "f3 s")}</g>'
             lab = pts[i].get("label", "")
-            svg += TX(X(i), gy1 + 46, E(lab), 21, "txs", "middle", f' id="{p}-lab{i}"')
+            svg += TX(X(i), gy1 + 46, E(lab), 21, "tdks", "middle", f' id="{p}-lab{i}"')
         lx, ly = X(len(vals) - 1), Y(vals[-1])
         svg += (f'<g id="{p}-flag"><line x1="{lx:.0f}" y1="{ly:.0f}" x2="{lx:.0f}" y2="{ly - 110:.0f}" style="stroke:var(--ink);stroke-width:6"/>'
                 f'<g id="{p}-fl">{P(f"M{lx:.0f},{ly - 110:.0f} L{lx + 70:.0f},{ly - 92:.0f} L{lx:.0f},{ly - 72:.0f} Z", "acc s")}</g></g>')
@@ -214,6 +219,11 @@ def sc_index(p, a, d, data):
     for i in range(len(extra[:2])): k.fade(f"#{p}-ex{i}", a + 2.3 + i * .15, .35, 12)
     if mil and vals and vals[-1] >= mil: svg += confetti(k, a + 2.0, 18, 120, 760, 7)
     src_js(k, a)
+    if len(vals) >= 2:
+        k.focus(420, 390, 1.45, None, a + .9)
+        if mil: k.focus(lx - 40, ly - 30, 2.1, re.sub(r"[^0-9]", "", str(data.get("milestone", "")))[:2] or None, a + 2.2)
+    k.focus(985, 360, 2.0, re.sub(r"[^0-9]", "", str(val))[:2] or None, a + 3.2)
+    if pct is not None: k.focus(990, 410, 2.3, fmt(abs(pct), 2).split(".")[0], a + 4.4)
     return svg, k
 
 
@@ -277,7 +287,7 @@ def sc_flows(p, a, d, data):
     for i in range(6):
         t0 = a + 1.0 + i * per / 6
         kf = ",".join(f'{{x:{x:.0f},y:{y:.0f},duration:{per / steps:.3f},ease:"none"}}' for x, y in pts[1:])
-        k.add(f'tl.fromTo("#{p}-c{i}",{{x:{pts[0][0]:.0f},y:{pts[0][1]:.0f},opacity:1,scale:.7}},{{keyframes:[{kf}],repeat:{loops - 1}}},{T(t0)})')
+        k.add(f'tl.fromTo("#{p}-c{i}",{{x:{pts[0][0]:.0f},y:{pts[0][1]:.0f},opacity:1,scale:.7}},{{keyframes:[{kf}],repeat:{loops - 1},immediateRender:false}},{T(t0)})')
         k.add(f'tl.set("#{p}-c{i}",{{opacity:0}},{T(t0 + loops * per)})')
         if i % 2 == 0: k.sfx(t0 + per, "ping", .25)
     if n >= 2:
@@ -285,6 +295,9 @@ def sc_flows(p, a, d, data):
         k.fade(f"#{p}-strip", a + 1.15, .3)
     k.ev["punch"].append(a + 1.9); k.ev["mood"].append((a + 1.9, "up" if fii >= 0 else "down")); k.sfx(a + 1.9, "impact", .6)
     src_js(k, a)
+    k.focus(gx + 40, 230, 1.75, "foreign", a + 1.0)
+    k.focus(bx - 30, 330, 1.75, "domestic", a + 3.2)
+    if n >= 2: k.focus(615, 640, 2.0, None, None)
     return svg, k
 
 
@@ -298,20 +311,21 @@ def sc_movers(p, a, d, data):
     base = 650; fills = ["f4", "f1", "f5"]
     for slot, idx in enumerate(order):
         it = items[idx]; x = xs[slot]; pc = abs(num(it["pct"]) or 0)
-        h = 140 + 210 * pc / mx
+        h = 240 + 140 * pc / mx
         fn = fills[idx][1]
         svg += (f'<g id="{p}-b{idx}">{slab(R(x - 115, base - h, 230, h, 14, "{c}"), fn, 16, 4)}'
                 f'{R(x - 100, base - h + 12, 26, h - 30, 10, "hi")}'
-                f'{TX(x, base - h + 100, str(idx + 1), 92, "txd", "middle", "", "h")}'
+                f'{slab(C(x, base - h + 82, 52, "{c}"), 3, 6, 2)}{TX(x, base - h + 98, E(_initials(it["name"])), 40 if len(_initials(it["name"])) < 4 else 30, "txd", "middle", "", "h")}'
+                f'{TX(x - 86, base - h + 44, "#" + str(idx + 1), 30, "txd", "start", "", "h")}'
                 + (TX(x, base - 26, "₹" + E(fmt(num(it["price"]), 2)), 24, "txd", "middle", "", "num") if num(it.get("price")) else "") + "</g>"
                 f'<g id="{p}-t{idx}">{chip(x, base - h - 50, "", tone, 210, 64, 32)}'
                 f'{TX(x, base - h - 38, numtext(k, f"{p}-pv{idx}", fmt(pc, 2), a + .7 + idx * .15, "+" if tone == "up" else "−", "%", 1.0), 32, "tchip", "middle", f" id=\"{p}-pv{idx}\"", "num")}'
                 + "".join(TX(x, base - h - 100 - (len(wrap(it["name"], 14)) - 1 - j) * 34, E(line), 30, "tx", "middle", "", "h")
                           for j, line in enumerate(wrap(it["name"], 14)[:2])) + "</g>")
     if tone == "up" and items:
-        x = xs[order.index(0)]; h = 140 + 210 * abs(num(items[0]["pct"]) or 0) / mx
+        x = xs[order.index(0)]; h = 240 + 140 * abs(num(items[0]["pct"]) or 0) / mx
         svg += f'<g id="{p}-star">{P(_star(x + 118, base - h + 26, 34, 15), "f4 s")}</g>'
-    svg += f'<g id="{p}-lbl">{chip(600, 745, "TOP GAINERS" if tone == "up" else "TOP LOSERS", "dk", 290, 50, 24, None, "tx")}</g>'
+    svg += f'<g id="{p}-lbl">{chip(600, 745, "TOP GAINERS" if tone == "up" else "TOP LOSERS", "dk", 290, 50, 24, None, "tdk")}</g>'
     svg += src_tag(p, data.get("source"), 40, 790)
     stage_js(k, a, d, 600, 400)
     for slot, idx in enumerate(reversed(order)):
@@ -324,7 +338,16 @@ def sc_movers(p, a, d, data):
         svg += confetti(k, a + 1.25, 16, 150, 1050, 3)
     k.ev["punch"].append(a + 1.0); k.ev["mood"].append((a + 1.05, "up" if tone == "up" else "down")); k.sfx(a + 1.0, "impact", .6)
     src_js(k, a)
+    for idx, it in enumerate(items):
+        xx = xs[order.index(idx)]; hh = 240 + 140 * abs(num(it["pct"]) or 0) / mx
+        k.focus(xx, base - hh + 10, 1.85, str(it["name"]).split()[0], a + 1.0 + idx * 1.6)
     return svg, k
+
+
+def _initials(name):
+    w = [x for x in str(name).replace("&", " ").split() if x[:1].isalnum()]
+    if w and w[0].isupper() and 2 <= len(w[0]) <= 4: return w[0]
+    return "".join(x[0] for x in w[:3]).upper()
 
 
 def _star(cx, cy, r1, r2):
@@ -375,6 +398,9 @@ def sc_announce(p, a, d, data):
         k.add(f'tl.fromTo("#{p}-stamp",{{scale:2.6,opacity:0,svgOrigin:"{cx + 200} {cy + 150}"}},{{scale:1,opacity:1,duration:.28,ease:"power4.in"}},{T(a + 1.7)})')
         k.sfx(a + 1.98, "impact", .8); k.ev["punch"].append(a + 1.98)
     k.ev["mood"].append((a + 2.1, "up")); src_js(k, a)
+    k.focus(cx - 120, cy - 40, 1.7, str(data.get("company", "")).split()[0] if data.get("company") else None, a + 1.0)
+    k.focus(cx - 60, cy + 60, 1.9, re.sub(r"[^0-9]", "", str(data.get("amount", "")))[:1] or None, a + 2.2)
+    if st: k.focus(cx + 200, cy + 150, 2.0, None, a + 3.6)
     return svg, k
 
 
@@ -400,6 +426,8 @@ def sc_headline(p, a, d, data):
     for i in range(4):
         k.pop(f"#{p}-ic{i}", a + .5 + i * .1, icons[i][2], icons[i][3], 0, .5); k.bob(f"#{p}-ic{i}", a + 1.1, d - 1.1, 12, 1.6 + i * .2)
     k.ev["punch"].append(a + .9); src_js(k, a)
+    k.focus(cx - 60, cy - 90, 1.6, None, a + 1.2)
+    k.focus(cx - 60, cy + 60, 1.6, None, None)
     return svg, k
 
 
@@ -421,8 +449,8 @@ def sc_world(p, a, d, data):
         svg += f'<g id="{p}-pin{i}">{P(f"M{px},{py} q-24,-30 -24,-46 a24,24 0 1 1 48,0 q0,16 -24,46 z", ("up" if up else "dn") + " s")}{C(px, py - 46, 9, "f3")}</g>'
         bl = 30 + 160 * abs(pc) / mx
         svg += (f'<g id="{p}-r{i}">{slab(R(500, y - 50, 640, 104, 20, "{c}"), "dk", 8, 2)}'
-                f'{TX(530, y - 6, E(it["name"]), 30, "tx", "start", "", "h")}'
-                f'{TX(530, y + 32, E(str(it.get("value", ""))), 24, "txs", "start", "", "num")}'
+                f'{TX(530, y - 6, E(it["name"]), 30, "tdk", "start", "", "h")}'
+                f'{TX(530, y + 32, E(str(it.get("value", ""))), 24, "tdks", "start", "", "num")}'
                 f'<g id="{p}-bar{i}">{R(820, y - 18, bl, 36, 18, ("up" if up else "dn") + " s")}</g>'
                 f'{TX(820 + bl + 12, y + 12, numtext(k, f"{p}-pc{i}", fmt(abs(pc), 2), a + .7 + i * .2, "+" if up else "−", "%", .9), 30, "up" if up else "dn", "start", f" id=\"{p}-pc{i}\"", "num")}</g>')
     svg += src_tag(p, data.get("source"))
@@ -440,26 +468,53 @@ def sc_world(p, a, d, data):
         t = a + 1.3 + big * .2; k.ev["punch"].append(t); k.sfx(t, "impact", .5)
         k.ev["mood"].append((t, "up" if (num(items[big].get("pct")) or 0) >= 0 else "down"))
     src_js(k, a)
+    for i, it in enumerate(items[:3]):
+        k.focus(860, 160 + i * 140, 1.8, str(it["name"]).split()[0], a + 1.2 + i * 1.5)
     return svg, k
 
 
 def sc_stat(p, a, d, data):
+    """Big number as a row of 3D tiles; digit tiles roll like a slot machine and land on the value."""
     k = K(p); tone = data.get("tone", "up"); up = tone != "down"
-    svg = stage(p, 600, 360, 330, 720, 430)
-    svg += f'<g id="{p}-pl">{slab(P("M330,560 L870,560 L820,680 L380,680 Z", "{c}"), "dk", 14, 4)}{slab(R(300, 520, 600, 50, 12, "{c}"), 4 if up else 5, 10, 3)}</g>'
-    val = data.get("value", ""); vs = f'{data.get("prefix", "")}{val}{data.get("suffix", "")}'
-    fs = min(170, 980 / (max(4, len(vs)) * .6))
-    svg += f'<g id="{p}-lb">{TX(600, 170, E(str(data.get("label", "")).upper()), 38, "txs", "middle", "", "h")}</g>'
-    svg += TX(600, 470, numtext(k, f"{p}-v", val, a + .5, data.get("prefix", ""), data.get("suffix", ""), 1.4), fs, "up" if up else "dn", "middle", f' id="{p}-v"', "num")
-    svg += f'<g id="{p}-ar">{arrow3d(150, 380, up, 1.0, "up" if up else "dn")}</g>'
-    if data.get("note"): svg += f'<g id="{p}-nt">{TX(600, 625, E(data["note"]), 28, "tx", "middle")}</g>'
+    svg = stage(p, 600, 400, 340, 730, 470)
+    chars = list(f'{data.get("prefix", "")}{data.get("value", "")}{str(data.get("suffix", "")).strip()}')
+    n = len(chars); tw = min(190, 1000 / max(1, n)); th = tw * 1.32; gap = tw * .1
+    x0 = 600 - (n * tw + (n - 1) * gap) / 2; y0 = 300
+    fills = ["f1", "f4", "f2", "f5", "f1", "f4", "f2", "f5", "f1", "f4"]
+    svg += f'<g id="{p}-lb">{TX(600, 210, E(str(data.get("label", "")).upper()), 40, "tx", "middle", "", "h")}</g>'
+    for i, ch in enumerate(chars):
+        x = x0 + i * (tw + gap); cxx = x + tw / 2
+        body = slab(R(x, y0, tw, th, 22, "{c}"), fills[i][1], 16, 4) + R(x + 12, y0 + 12, 16, th - 24, 8, "hi")
+        if ch.isdigit():
+            body += (f'<defs><clipPath id="{p}-cl{i}"><rect x="{x}" y="{y0}" width="{tw}" height="{th}" rx="22"/></clipPath></defs>'
+                     f'<g clip-path="url(#{p}-cl{i})"><g id="{p}-roll{i}">'
+                     + "".join(TX(cxx, y0 + th * .74 + r * th, str((int(ch) + 1 + r) % 10 if r < 9 else ch), th * .72, "txd", "middle", "", "num") for r in range(10))
+                     + '</g></g>')
+        else:
+            body += TX(cxx, y0 + th * .74, E(ch), th * .72, "txd", "middle", "", "num")
+        svg += f'<g id="{p}-tile{i}">{body}</g>'
+    svg += f'<line class="grid" x1="{x0 - 30}" x2="{x0 + n * (tw + gap) + 20}" y1="{y0 + th + 40}" y2="{y0 + th + 40}" style="stroke-width:6"/>'
+    svg += f'<g id="{p}-ar">{arrow3d(x0 - 110 if x0 > 170 else 110, y0 + th / 2, up, .9, "up" if up else "dn")}</g>'
+    if data.get("note"):
+        nt = str(data["note"]); w = 60 + len(nt) * 15
+        svg += f'<g id="{p}-nt">{R(600 - w / 2, y0 + th + 80, w, 64, 32, "f3 s")}{TX(600, y0 + th + 122, E(nt), 28, "txd", "middle")}</g>'
     svg += src_tag(p, data.get("source"))
-    stage_js(k, a, d)
-    k.add(f'tl.fromTo("#{p}-pl",{{y:260,opacity:0}},{{y:0,opacity:1,duration:.55,ease:"back.out(1.4)"}},{T(a + .1)})')
-    k.fade(f"#{p}-lb", a + .3, .35, 14); k.fade(f"#{p}-v", a + .45, .25)
-    k.pop(f"#{p}-ar", a + 1.4, 150, 380, 0, .5); k.bob(f"#{p}-ar", a + 2, d - 2, 14, 1.2)
-    if data.get("note"): k.fade(f"#{p}-nt", a + 1.6, .35, 10)
-    t = a + 1.9; k.ev["punch"].append(t); k.ev["mood"].append((t, "up" if up else "down")); k.sfx(t, "impact", .7)
+    stage_js(k, a, d, 600, 400)
+    k.fade(f"#{p}-lb", a + .1, .35, 14)
+    for i, ch in enumerate(chars):
+        t = a + .25 + i * .12
+        k.add(f'tl.fromTo("#{p}-tile{i}",{{y:-420,rotation:{(-12 if i % 2 else 12)},opacity:0,svgOrigin:"{x0 + i * (tw + gap) + tw / 2:.0f} {y0 + th:.0f}"}},{{y:0,rotation:0,opacity:1,duration:.55,ease:"bounce.out"}},{T(t)})')
+        k.sfx(t + .3, "pop", .3)
+        if ch.isdigit():
+            k.add(f'tl.fromTo("#{p}-roll{i}",{{y:0}},{{y:{-9 * th:.0f},duration:{1.1 + i * .18:.2f},ease:"power3.out"}},{T(t + .2)})')
+    land = a + .45 + n * .12 + 1.1
+    k.pop(f"#{p}-ar", land - .3, x0 - 110 if x0 > 170 else 110, y0 + th / 2, 0, .5)
+    k.bob(f"#{p}-ar", land + .3, d - (land - a) - .3, 16, 1.1)
+    if data.get("note"): k.fade(f"#{p}-nt", land + .2, .4, 14)
+    k.ev["punch"].append(land); k.ev["mood"].append((land, "up" if up else "down")); k.sfx(land, "impact", .7)
+    if up: svg += confetti(k, land, 14, 150, 1050, 11)
+    k.focus(600, y0 + th / 2, 1.35, None, land + .2)
+    if data.get("note"): k.focus(600, y0 + th + 110, 1.9, None, None)
     src_js(k, a)
     return svg, k
 
@@ -468,8 +523,8 @@ def _info_tags(p, k, rows, x, y0, a, w=420):
     out = ""
     for i, (lab, val) in enumerate(rows):
         y = y0 + i * 92
-        out += (f'<g id="{p}-tg{i}">{slab(R(x, y, w, 74, 16, "{c}"), "dk", 6, 2)}{TX(x + 24, y + 30, E(lab.upper()), 20, "txs", "start")}'
-                f'{TX(x + 24, y + 62, E(str(val)), 30, "tx", "start", "", "num")}</g>')
+        out += (f'<g id="{p}-tg{i}">{slab(R(x, y, w, 74, 16, "{c}"), "dk", 6, 2)}{TX(x + 24, y + 30, E(lab.upper()), 20, "tdks", "start")}'
+                f'{TX(x + 24, y + 62, E(str(val)), 30, "tdk", "start", "", "num")}</g>')
         k.add(f'tl.fromTo("#{p}-tg{i}",{{x:200,opacity:0}},{{x:0,opacity:1,duration:.45,ease:"power3.out"}},{T(a + 1.0 + i * .15)})')
         k.sfx(a + 1.0 + i * .15, "click", .3)
     return out
@@ -494,10 +549,13 @@ def sc_dividend(p, a, d, data):
     stage_js(k, a, d, 400, 400)
     k.pop(f"#{p}-pig", a + .05, px, py + 140, .3, .6); k.fade(f"#{p}-r", a + .4, .4, 20)
     for i in range(5):
-        k.add(f'tl.fromTo("#{p}-co{i}",{{y:-200,opacity:1}},{{y:150,opacity:1,duration:.55,ease:"power2.in",repeat:{rep(d - 1, 1.6)},repeatDelay:1.05}},{T(a + .8 + i * .32)})')
+        k.add(f'tl.fromTo("#{p}-co{i}",{{y:-200,opacity:1}},{{y:150,opacity:1,duration:.55,ease:"power2.in",repeat:{rep(d - 1, 1.6)},repeatDelay:1.05,immediateRender:false}},{T(a + .8 + i * .32)})')
         k.sfx(a + 1.35 + i * .32, "ping", .25)
     t = a + 1.8; k.ev["punch"].append(t); k.ev["mood"].append((t, "up")); k.sfx(t, "sparkle", .6)
     src_js(k, a)
+    k.focus(px, py - 80, 1.6, None, a + 1.0)
+    k.focus(870, 310, 1.9, None, a + 2.4)
+    if rows: k.focus(870, 480, 1.8, None, None)
     return svg, k
 
 
@@ -529,6 +587,8 @@ def sc_split(p, a, d, data):
     k.pop(f"#{p}-res", a + 1.8, 600, 580, .3, .45)
     if rows: k.fade(f"#{p}-ex", a + 2.1, .35, 10)
     k.ev["mood"].append((ts + .1, "up")); src_js(k, a)
+    k.focus(600, by + 95, 1.5, None, a + 1.1)
+    k.focus(600, 600, 1.9, None, a + 2.6)
     return svg, k
 
 
@@ -553,10 +613,12 @@ def sc_bonus(p, a, d, data):
     for i in range(6):
         ang = -150 + i * 24
         dx, dy = 300 * math.cos(math.radians(ang)) + 120, 300 * math.sin(math.radians(ang)) - 40
-        k.add(f'tl.fromTo("#{p}-sh{i}",{{x:0,y:40,opacity:1,rotation:0,svgOrigin:"{bx} {by - 128}"}},{{x:{dx:.0f},y:{dy:.0f},rotation:{-30 + i * 12},duration:.8,ease:"power3.out"}},{T(to + .05 + i * .05)})')
+        k.add(f'tl.fromTo("#{p}-sh{i}",{{x:0,y:40,opacity:1,rotation:0,svgOrigin:"{bx} {by - 128}"}},{{x:{dx:.0f},y:{dy:.0f},rotation:{-30 + i * 12},duration:.8,ease:"power3.out",immediateRender:false}},{T(to + .05 + i * .05)})')
     k.fade(f"#{p}-r", a + .5, .4, 20)
     k.ev["punch"].append(to + .1); k.ev["mood"].append((to + .15, "up")); svg += confetti(k, to + .1, 12, 150, 700, 5)
     src_js(k, a)
+    k.focus(bx, by - 120, 1.5, None, a + 1.0)
+    k.focus(870, 320, 1.9, None, a + 2.6)
     return svg, k
 
 
@@ -573,7 +635,7 @@ def sc_buyback(p, a, d, data):
     rows = [(l, data[f]) for l, f in (("Size", "size"), ("Price", "price"), ("Method", "method")) if data.get(f)]
     svg += f'<g id="{p}-hd">{chip(380, 130, "BUYBACK", "f4", 240, 64, 32, None, "txd")}</g>'
     for i, (l, v) in enumerate(rows[:3]):
-        svg += f'<g id="{p}-tg{i}">{chip(240 + i * 300, 690, f"{l}: {v}", "dk", 280, 56, 24, None, "tx")}</g>'
+        svg += f'<g id="{p}-tg{i}">{chip(240 + i * 300, 690, f"{l}: {v}", "dk", 280, 56, 24, None, "tdk")}</g>'
         k.fade(f"#{p}-tg{i}", a + 1.2 + i * .15, .35, 12)
     svg += src_tag(p, data.get("source"), 40, 790)
     stage_js(k, a, d)
@@ -581,8 +643,10 @@ def sc_buyback(p, a, d, data):
     k.pop(f"#{p}-mag", a + .3, mx, my, .2, .5); k.fade(f"#{p}-hd", a + .2)
     k.add(f'tl.fromTo("#{p}-mag",{{rotation:-6,svgOrigin:"{mx} {my}"}},{{rotation:6,duration:.3,ease:"sine.inOut",repeat:{rep(d, .3)},yoyo:true}},{T(a + .8)})')
     for i in range(5):
-        k.add(f'tl.fromTo("#{p}-sh{i}",{{x:0,y:0,opacity:1,scale:1}},{{x:820,y:{-(i * 80) + 100},opacity:0,scale:.5,duration:1.1,ease:"power2.in",repeat:{rep(d - 1, 2.4)},repeatDelay:1.3}},{T(a + .9 + i * .25)})')
+        k.add(f'tl.fromTo("#{p}-sh{i}",{{x:0,y:0,opacity:1,scale:1}},{{x:820,y:{-(i * 80) + 100},opacity:0,scale:.5,duration:1.1,ease:"power2.in",repeat:{rep(d - 1, 2.4)},repeatDelay:1.3,immediateRender:false}},{T(a + .9 + i * .25)})')
     k.sfx(a + .9, "whoosh", .4); k.ev["punch"].append(a + 1.4); src_js(k, a)
+    k.focus(640, 400, 1.5, None, a + 1.0)
+    k.focus(600, 690, 1.9, None, a + 2.6)
     return svg, k
 
 
@@ -603,6 +667,8 @@ def sc_ipo(p, a, d, data):
     k.add(f'tl.fromTo("#{p}-dr",{{scaleX:1,svgOrigin:"{dx + 190} {dy}"}},{{scaleX:.12,duration:.8,ease:"power3.inOut"}},{T(a + .7)})')
     k.sfx(a + .7, "swish", .5); k.ev["punch"].append(a + 1.5); k.ev["mood"].append((a + 1.5, "up")); k.sfx(a + 1.5, "chime", .5)
     src_js(k, a)
+    k.focus(dx, dy, 1.6, None, a + 1.4)
+    k.focus(900, 330, 1.7, None, a + 2.8)
     return svg, k
 
 
@@ -636,6 +702,8 @@ def sc_results(p, a, d, data):
     k.sfx(ts + .26, "impact", .7); k.ev["punch"].append(ts + .26)
     up = all((num(m.get("chg")) or 0) >= 0 for m in mets) if mets else True
     k.ev["mood"].append((ts + .3, "up" if up else "down")); src_js(k, a)
+    for i in range(min(3, len(mets))): k.focus(x0 + 300, y0 + 190 + i * 100, 1.9, str(mets[i]["label"]).split()[0], a + 1.0 + i * 1.4)
+    if not mets: k.focus(cx, y0 + 330, 1.8, None, a + 1.2)
     return svg, k
 
 
@@ -651,12 +719,13 @@ def sc_calendar(p, a, d, data):
         y = 150 + i * 150
         svg += (f'<g id="{p}-r{i}">{slab(R(520, y - 55, 620, 120, 20, "{c}"), "dk", 8, 2)}{R(540, y - 38, 130, 86, 14, "acc")}'
                 f'{TX(605, y + 16, E(str(it.get("date", ""))), 28, "tchip", "middle", "", "num")}'
-                f'{TX(700, y - 2, E(it.get("company", "")), 32, "tx", "start", "", "h")}{TX(700, y + 36, E(it.get("what", "")), 24, "txs", "start")}</g>')
+                f'{TX(700, y - 2, E(it.get("company", "")), 32, "tdk", "start", "", "h")}{TX(700, y + 36, E(it.get("what", "")), 24, "tdks", "start")}</g>')
         k.add(f'tl.fromTo("#{p}-r{i}",{{x:400,opacity:0}},{{x:0,opacity:1,duration:.5,ease:"power3.out"}},{T(a + .5 + i * .2)})'); k.sfx(a + .5 + i * .2, "swish", .3)
     svg += src_tag(p, data.get("source"), 40, 790)
     stage_js(k, a, d, 280, 380)
     k.pop(f"#{p}-cal", a + .05, cx, cy + 180, .3, .6); k.sfx(a + .05, "pop", .5)
     k.ev["punch"].append(a + 1.0); src_js(k, a)
+    for i, it in enumerate(items[:3]): k.focus(830, 150 + i * 150, 1.8, str(it.get("company", "")).split()[0] if it.get("company") else None, a + 1.0 + i * 1.5)
     return svg, k
 
 
@@ -670,11 +739,14 @@ def sc_facts(p, a, d, data):
     for i, it in enumerate(items):
         x = x0 + (i % cols) * (tw + 40); y = y0 + (i // cols) * (th + 40); tone = it.get("tone")
         svg += (f'<g id="{p}-f{i}">{slab(R(x, y, tw, th, 24, "{c}"), "dk", 12, 3)}{R(x, y, 14, th, 7, fills[i][0] + fills[i][1:] + " s")}'
-                f'{TX(x + 40, y + 64, E(str(it["label"]).upper()), 24, "txs", "start")}'
-                f'{TX(x + 40, y + th / 2 + 52, numtext(k, f"{p}-fv{i}", it["value"], a + .5 + i * .2, "", "", 1.1), 70, ("up" if tone == "up" else "dn" if tone == "down" else "tx"), "start", f" id=\"{p}-fv{i}\"", "num")}</g>')
+                f'{TX(x + 40, y + 64, E(str(it["label"]).upper()), 24, "tdks", "start")}'
+                f'{TX(x + 40, y + th / 2 + 52, numtext(k, f"{p}-fv{i}", it["value"], a + .5 + i * .2, "", "", 1.1), 70, ("up" if tone == "up" else "dn" if tone == "down" else "tdk"), "start", f" id=\"{p}-fv{i}\"", "num")}</g>')
         k.pop(f"#{p}-f{i}", a + .2 + i * .15, x + tw / 2, y + th / 2, .5, .5); k.sfx(a + .2 + i * .15, "pop", .35)
     svg += src_tag(p, data.get("source"), 40, 790)
     stage_js(k, a, d); k.ev["punch"].append(a + 1.4)
+    for i in range(min(4, len(items))):
+        x = x0 + (i % cols) * (tw + 40); y = y0 + (i // cols) * (th + 40)
+        k.focus(x + tw / 2, y + th / 2, 1.9, None, a + 1.0 + i * 1.4)
     return svg, k
 
 
@@ -695,6 +767,7 @@ def sc_gauge(p, a, d, data):
     k.add(f'tl.fromTo("#{p}-ga",{{strokeDashoffset:1}},{{strokeDashoffset:{1 - f:.3f},duration:1.3,ease:"power2.out"}},{T(a + .4)})')
     k.add(f'tl.fromTo("#{p}-nd",{{rotation:-90,svgOrigin:"{cx} {cy}"}},{{rotation:{-90 + 180 * f:.1f},duration:1.3,ease:"back.out(1.4)"}},{T(a + .4)})')
     k.ev["punch"].append(a + 1.7); k.sfx(a + 1.7, "impact", .5)
+    k.focus(cx, cy - 140, 1.6, None, a + 1.6)
     return svg, k
 
 
