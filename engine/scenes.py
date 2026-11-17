@@ -25,7 +25,7 @@ from fx import C, E, T, icon, pop, counter, fmt, tone_col, source_chip, words, w
 
 class Ctx:
     def __init__(self, rnd, V):
-        self.rnd, self.V, self.js, self.pre, self.sfx = rnd, V, [], [], []
+        self.rnd, self.V, self.js, self.pre, self.sfx, self.punch, self.mood = rnd, V, [], [], [], [], []
 
 
 def _num(x):
@@ -42,7 +42,7 @@ def _src(data, ctx, pid, w, h, t):
 
 # ---------------------------------------------------------------- headline
 def headline(data, ctx, pid, w, h, t, d):
-    st = ctx.rnd.choice(["rise", "drop", "zoom", "slide"])
+    st = ctx.rnd.choice(["blur", "ink", "line", "rise"])
     txt = data.get("text", ""); n_ch = len(txt.replace("*", ""))
     fs = (104 if n_ch < 28 else 86 if n_ch < 46 else 70) if ctx.V else (96 if n_ch < 34 else 78 if n_ch < 56 else 64)
     hw, n = words(txt, f"{pid}-w")
@@ -63,7 +63,7 @@ def headline(data, ctx, pid, w, h, t, d):
 def stat(data, ctx, pid, w, h, t, d):
     v = _num(data.get("value")); tone = data.get("tone") or ("up" if (v or 0) >= 0 else "down")
     col = C["green"] if tone == "up" else C["red"] if tone == "down" else C["amber"]
-    var = ctx.rnd.choice(["ring", "bar", "plain"] if len(str(data.get("value", ""))) + len(str(data.get("prefix", ""))) <= 5 else ["bar", "plain"])
+    var = ctx.rnd.choice(["bar", "plain"])
     dec = int(data.get("dec", 0 if v is not None and float(v).is_integer() else 2))
     shown = f'{data.get("prefix", "")}{data.get("value")}{data.get("suffix", "")}'
     fs = min(190 if ctx.V else 170, w * 1.55 / max(1, len(shown)))
@@ -93,7 +93,7 @@ def stat(data, ctx, pid, w, h, t, d):
         pop(ctx.js, f"#{pid}-n", t + .15, "scale")
     if data.get("delta"): pop(ctx.js, f"#{pid}-dl", t + 1.3, "scale")
     if data.get("note"): pop(ctx.js, f"#{pid}-nt", t + 1.6, "fade")
-    ctx.sfx.append((t + .15, "riser", .5)); ctx.sfx.append((t + 1.4, "pop", .6))
+    ctx.sfx.append((t + 1.45, "impact", .8)); ctx.punch.append(t + 1.45); ctx.mood.append((t + 1.5, tone))
     return out
 
 
@@ -111,41 +111,37 @@ def facts(data, ctx, pid, w, h, t, d):
                    f'<div style="font-family:Sans;font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:{24 if ctx.V else 22}px;color:{C["sub"]}">{E(it.get("label", ""))}</div>'
                    f'<div class="mono" style="font-size:{vs}px;color:{col};margin-top:14px;letter-spacing:-2px">{E(val)}</div>'
                    + (f'<div style="font-family:SansM;font-size:22px;color:{C["sub"]};margin-top:8px">{E(it["note"])}</div>' if it.get("note") else "") + '</div>')
-        pop(ctx.js, f"#{pid}-f{i}", t + .2 + i * d * .6 / max(1, n), ctx.rnd.choice(["up", "scale", "flip"]))
-        ctx.sfx.append((t + .2 + i * d * .6 / max(1, n), "tick", .7))
+        ti = t + .2 + i * d * .7 / max(1, n)
+        ctx.js.append(f'tl.fromTo("#{pid}-f{i}",{{opacity:0,scale:1.12,filter:"blur(8px)"}},{{opacity:1,scale:1,filter:"blur(0px)",duration:.5,ease:"expo.out"}},{T(ti)})')
+        for j in range(i): ctx.js.append(f'tl.to("#{pid}-f{j}",{{opacity:.38,duration:.3}},{T(ti)})')
+        ctx.sfx.append((ti + .05, "pop", .7))
+    if n > 1: ctx.js.append(f'tl.to("#{pid} .pnl",{{opacity:1,duration:.4}},{T(t + d - .9)})')
     return "".join(out) + _src(data, ctx, pid, w, h, t)
 
 
 # ---------------------------------------------------------------- index board
 def indices(data, ctx, pid, w, h, t, d):
     items = data.get("items", [])[:6]; n = len(items); out = []
-    ladder = ctx.rnd.random() < .5 and n >= 3
-    if ladder:
-        rh = min(130, (h - 80) / n)
-        for i, it in enumerate(items):
-            pc = _num(it.get("pct")) or 0; col = tone_col(pc)
-            out.append(f'<div class="pnl" id="{pid}-i{i}" style="left:0;top:{i * (rh + 10):.0f}px;width:{w}px;height:{rh:.0f}px;display:flex;align-items:center;padding:0 30px;gap:20px">'
-                       f'<span style="flex:1;font-family:Sans;font-weight:800;font-size:{32 if ctx.V else 30}px;letter-spacing:1px">{E(it["name"])}</span>'
-                       f'<span class="mono" id="{pid}-v{i}" style="font-size:{44 if ctx.V else 40}px">{E(str(it.get("value", "")))}</span>'
-                       f'<span class="chip" style="background:{col}22;color:{col};font-size:26px;min-width:150px;justify-content:center">{"▲" if pc > 0 else "▼" if pc < 0 else "■"} {abs(pc):.2f}%</span></div>')
-            pop(ctx.js, f"#{pid}-i{i}", t + .1 + i * .18, "left")
-            vv = _num(it.get("value"))
-            if vv is not None: counter(ctx.js, ctx.pre, f"{pid}-v{i}", vv, t + .1 + i * .18, 2, "", "", 1.0)
-    else:
-        cols = 2 if ctx.V else (3 if n in (3, 5, 6) else 2); rows = math.ceil(n / cols); g = 22
-        bw = (w - g * (cols - 1)) / cols; bh = min(250, (h - 70 - g * (rows - 1)) / rows)
-        for i, it in enumerate(items):
-            r, c = divmod(i, cols); pc = _num(it.get("pct")) or 0; col = tone_col(pc)
-            out.append(f'<div class="pnl{" glow" if i == 0 else ""}" id="{pid}-i{i}" style="left:{c * (bw + g):.0f}px;top:{r * (bh + g):.0f}px;width:{bw:.0f}px;height:{bh:.0f}px;padding:24px 28px">'
-                       f'<div style="font-family:Sans;font-weight:800;font-size:{26 if ctx.V else 24}px;letter-spacing:2px;color:{C["sub"]}">{E(it["name"])}</div>'
-                       f'<div class="mono" id="{pid}-v{i}" style="font-size:{60 if ctx.V else 56}px;margin-top:10px;letter-spacing:-2px">{E(str(it.get("value", "")))}</div>'
-                       f'<div class="chip" style="margin-top:10px;background:{col}22;color:{col};font-size:26px">{"▲" if pc > 0 else "▼" if pc < 0 else "■"} {abs(pc):.2f}%</div>'
-                       f'<div class="ab" id="{pid}-b{i}" style="left:0;bottom:0;height:6px;width:{min(100, 30 + abs(pc) * 40):.0f}%;background:{col};border-radius:0 6px 0 26px"></div></div>')
-            pop(ctx.js, f"#{pid}-i{i}", t + .1 + i * .16, "scale")
-            ctx.js.append(f'tl.fromTo("#{pid}-b{i}",{{scaleX:0,transformOrigin:"0% 50%"}},{{scaleX:1,duration:.8,ease:"power3.out"}},{T(t + .4 + i * .16)})')
-            vv = _num(it.get("value"))
-            if vv is not None: counter(ctx.js, ctx.pre, f"{pid}-v{i}", vv, t + .1 + i * .16, 2, "", "", 1.0)
-    for i in range(n): ctx.sfx.append((t + .1 + i * .17, "tick", .6))
+    hero = items[0]; rest = items[1:]
+    pc = _num(hero.get("pct")) or 0; col = tone_col(pc); vv = _num(hero.get("value"))
+    hs = min(200 if ctx.V else 190, w * 1.5 / max(6, len(str(hero.get("value", "")))))
+    out.append(f'<div class="ab" style="left:0;top:{h * .02:.0f}px;width:{w}px;text-align:center">'
+               f'<div class="chip" id="{pid}-hn" style="background:rgba(255,255,255,.07);color:{C["ink"]};font-size:{30 if ctx.V else 28}px">{E(hero["name"])}</div>'
+               f'<div class="mono" id="{pid}-hv" style="font-size:{hs:.0f}px;letter-spacing:-6px;line-height:1.05;margin-top:10px">{E(str(hero.get("value", "")))}</div>'
+               f'<div class="chip" id="{pid}-hp" style="margin-top:8px;background:{col}22;color:{col};font-size:{40 if ctx.V else 36}px">{"▲" if pc > 0 else "▼" if pc < 0 else "■"} {abs(pc):.2f}%</div></div>')
+    pop(ctx.js, f"#{pid}-hn", t, "fade")
+    if vv is not None: counter(ctx.js, ctx.pre, f"{pid}-hv", vv, t + .1, 2, "", "", 1.4)
+    pop(ctx.js, f"#{pid}-hp", t + 1.5, "scale"); ctx.sfx.append((t + 1.5, "impact", .7)); ctx.punch.append(t + 1.5); ctx.mood.append((t + 1.55, "up" if pc >= 0 else "down"))
+    if rest:
+        rw = (w - 20 * (len(rest) - 1)) / len(rest); ry = h * (.62 if ctx.V else .64)
+        for i, it in enumerate(rest):
+            p2 = _num(it.get("pct")) or 0; c2 = tone_col(p2)
+            out.append(f'<div class="pnl" id="{pid}-i{i}" style="left:{i * (rw + 20):.0f}px;top:{ry:.0f}px;width:{rw:.0f}px;padding:18px 22px">'
+                       f'<div style="font-family:Sans;font-weight:800;font-size:{24 if ctx.V else 22}px;letter-spacing:2px;color:{C["sub"]};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{E(it["name"])}</div>'
+                       f'<div class="mono" style="font-size:{min(48, rw / 6.5):.0f}px;margin-top:6px">{E(str(it.get("value", "")))}</div>'
+                       f'<div class="mono" style="font-size:28px;color:{c2}">{"▲" if p2 > 0 else "▼" if p2 < 0 else "■"} {abs(p2):.2f}%</div></div>')
+            ctx.js.append(f'tl.fromTo("#{pid}-i{i}",{{opacity:0,y:40,filter:"blur(6px)"}},{{opacity:1,y:0,filter:"blur(0px)",duration:.5,ease:"expo.out"}},{T(t + d * .45 + i * .12)})')
+            ctx.sfx.append((t + d * .45 + i * .12, "tick", .6))
     if data.get("asof"):
         out.append(f'<div class="ab" id="{pid}-as" style="right:0;bottom:-4px;font-family:SansM;font-size:20px;color:{C["sub"]}">{E(data["asof"])}</div>')
         pop(ctx.js, f"#{pid}-as", t + .8, "fade")
@@ -190,6 +186,7 @@ def movers(data, ctx, pid, w, h, t, d):
                 ctx.sfx.append((tt, "tick", .5))
             out.append('</div>')
             pop(ctx.js, f"#{pid}-p{pi}", t + (0 if pi == 0 else d * .45) - .05, "left" if pi == 0 else "right")
+            ctx.mood.append((t + (.3 if pi == 0 else d * .45 + .3), "up" if sg > 0 else "down"))
     if data.get("asof"):
         out.append(f'<div class="ab" style="right:0;bottom:-4px;font-family:SansM;font-size:20px;color:{C["sub"]}">{E(data["asof"])}</div>')
     return "".join(out) + _src(data, ctx, pid, w, h, t)
@@ -251,7 +248,7 @@ def dividend(data, ctx, pid, w, h, t, d):
                    f'<div class="mono" style="font-size:36px;margin-top:6px">{E(str(val))}</div></div>')
         ctx.js.append(f'tl.fromTo("#{pid}-d{i}",{{scale:2.2,opacity:0}},{{scale:1,opacity:1,duration:.35,ease:"power4.in"}},{T(t + 1.2 + i * .35)})')
         ctx.sfx.append((t + 1.5 + i * .35, "pop", .7))
-    for k in range(3): ctx.sfx.append((t + .3 + k * .25, "coin", .5))
+    ctx.sfx.append((t + .3, "sparkle", .8)); ctx.mood.append((t + .5, "up"))
     return "".join(out) + _src(data, ctx, pid, w, h, t)
 
 
@@ -301,7 +298,7 @@ def bonus(data, ctx, pid, w, h, t, d):
                    f'<span style="font-size:22px">{"BONUS" if new else "HELD"}</span><span class="mono" style="font-size:44px">1</span></div>')
         if new:
             ctx.js.append(f'tl.fromTo("#{pid}-k{i}",{{y:-160,scale:0,rotation:-20}},{{y:0,scale:1,rotation:0,duration:.55,ease:"back.out(2)"}},{T(t + 1.0 + (i - nb) * .25)})')
-            ctx.sfx.append((t + 1.0 + (i - nb) * .25, "pop", .7))
+            ctx.sfx.append((t + 1.0 + (i - nb) * .25, "pop", .7)); ctx.mood.append((t + 1.0, "up"))
         else: pop(ctx.js, f"#{pid}-k{i}", t + .5 + i * .1, "up")
     out.append(f'<div class="ab" id="{pid}-x" style="left:0;top:{y + chh + 36:.0f}px;width:{w}px;text-align:center;font-family:SansM;font-size:{30 if ctx.V else 26}px;color:{C["sub"]}">'
                f'{nb} bonus share{"s" if nb > 1 else ""} for every {na} held'

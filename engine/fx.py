@@ -121,19 +121,18 @@ def words(text, pid, cls=""):
     return " ".join(out), i
 
 
-def words_in(pid, n, t, style, gap=.06):
-    if style == "rise":
-        return [f'tl.fromTo("#{pid}-{k}",{{y:60,opacity:0,rotation:4}},{{y:0,opacity:1,rotation:0,duration:.45,ease:"back.out(2)"}},{T(t + k * gap)})' for k in range(n)]
-    if style == "drop":
-        return [f'tl.fromTo("#{pid}-{k}",{{y:-80,opacity:0,scale:1.4}},{{y:0,opacity:1,scale:1,duration:.4,ease:"bounce.out"}},{T(t + k * gap)})' for k in range(n)]
-    if style == "zoom":
-        return [f'tl.fromTo("#{pid}-{k}",{{scale:2.4,opacity:0,filter:"blur(8px)"}},{{scale:1,opacity:1,filter:"blur(0px)",duration:.35,ease:"expo.out"}},{T(t + k * gap)})' for k in range(n)]
-    if style == "type":
-        return [f'tl.fromTo("#{pid}-{k}",{{opacity:0}},{{opacity:1,duration:.05}},{T(t + k * gap * 1.4)})' for k in range(n)]
-    return [f'tl.fromTo("#{pid}-{k}",{{x:-40,opacity:0,skewX:-12}},{{x:0,opacity:1,skewX:0,duration:.4,ease:"power3.out"}},{T(t + k * gap)})' for k in range(n)]
+def words_in(pid, n, t, style, gap=.067):
+    """Title entrances from the HyperFrames motion guide: land, then hold dead still."""
+    if style == "blur":   # per word: blur 6px -> 0 and opacity, no translate
+        return [f'tl.fromTo("#{pid}-{k}",{{opacity:0,filter:"blur(6px)"}},{{opacity:1,filter:"blur(0px)",duration:.14,ease:"power2.out"}},{T(t + k * gap)})' for k in range(n)]
+    if style == "ink":    # per word from light grey to ink
+        return [f'tl.fromTo("#{pid}-{k}",{{opacity:.18}},{{opacity:1,duration:.12,ease:"none"}},{T(t + k * .085)})' for k in range(n)]
+    if style == "line":   # whole line blurs in
+        return [f'tl.fromTo("#{pid}-{k}",{{opacity:0,filter:"blur(8px)"}},{{opacity:1,filter:"blur(0px)",duration:.18,ease:"power2.out"}},{T(t)})' for k in range(n)]
+    return [f'tl.fromTo("#{pid}-{k}",{{opacity:0,y:28,filter:"blur(4px)"}},{{opacity:1,y:0,filter:"blur(0px)",duration:.42,ease:"expo.out"}},{T(t + k * .08)})' for k in range(n)]
 
 
-TEXT_STYLES = ["rise", "drop", "zoom", "slide", "type"]
+TEXT_STYLES = ["blur", "ink", "line", "rise"]
 
 
 def pop(js, sel, t, kind="up", d=.45):

@@ -256,13 +256,50 @@ def T(x): return f"{x:.3f}"
 
 
 def js_enter(p, t, how="pop"):
-    sel = f"#{p}"
-    if how == "pop": return [f'tl.fromTo("{sel}",{{scale:0,opacity:0,transformOrigin:"50% 100%"}},{{scale:1,opacity:1,duration:.55,ease:"back.out(2.2)"}},{T(t)})']
-    if how == "drop": return [f'tl.fromTo("{sel}",{{y:-900,opacity:1}},{{y:0,duration:.6,ease:"bounce.out"}},{T(t)})']
-    if how == "left": return [f'tl.fromTo("{sel}",{{x:-700,opacity:1}},{{x:0,duration:.6,ease:"back.out(1.4)"}},{T(t)})']
-    if how == "right": return [f'tl.fromTo("{sel}",{{x:700,opacity:1}},{{x:0,duration:.6,ease:"back.out(1.4)"}},{T(t)})']
-    if how == "rise": return [f'tl.fromTo("{sel}",{{y:500,opacity:1}},{{y:0,duration:.7,ease:"expo.out"}},{T(t)})']
-    return [f'tl.fromTo("{sel}",{{opacity:0}},{{opacity:1,duration:.4}},{T(t)})']
+    """Entrances with anticipation, squash and a settle (acting, not UI motion)."""
+    sel, bob = f"#{p}", f"#{p}-bob"
+    out = []
+    if how == "drop":
+        out.append(f'tl.fromTo("{sel}",{{y:-1000,opacity:1}},{{y:0,duration:.42,ease:"power3.in"}},{T(t)})')
+        t += .42
+    elif how in ("left", "right"):
+        out.append(f'tl.fromTo("{sel}",{{x:{-800 if how == "left" else 800},opacity:1}},{{x:0,duration:.5,ease:"power3.out"}},{T(t)})')
+        out.append(f'tl.fromTo("{bob}",{{rotation:{12 if how == "left" else -12},svgOrigin:"0 0"}},{{rotation:0,svgOrigin:"0 0",duration:.6,ease:"elastic.out(1,.45)"}},{T(t + .35)})')
+        return out
+    elif how == "rise":
+        out.append(f'tl.fromTo("{sel}",{{y:520,opacity:1}},{{y:0,duration:.55,ease:"expo.out"}},{T(t)})')
+        t += .4
+    else:
+        out.append(f'tl.fromTo("{sel}",{{scale:0,opacity:0,transformOrigin:"50% 100%"}},{{scale:1,opacity:1,duration:.35,ease:"power3.out"}},{T(t)})')
+        t += .3
+    # land: squash, stretch, settle
+    out.append(f'tl.fromTo("{bob}",{{scaleX:1.25,scaleY:.72,svgOrigin:"0 0"}},{{scaleX:.94,scaleY:1.08,svgOrigin:"0 0",duration:.12,ease:"power2.out"}},{T(t)})')
+    out.append(f'tl.to("{bob}",{{scaleX:1,scaleY:1,svgOrigin:"0 0",duration:.45,ease:"elastic.out(1,.4)"}},{T(t + .12)})')
+    return out
+
+
+def js_react(p, t, mood):
+    """A take: anticipation, the action, a held reaction, then settle."""
+    bob = f"#{p}-bob"; sh = SHOULDER.get(p, {}); out = []
+    if mood == "up":
+        out.append(f'tl.to("{bob}",{{scaleY:.86,scaleX:1.08,svgOrigin:"0 0",duration:.1,ease:"power2.in"}},{T(t)})')
+        out.append(f'tl.to("{bob}",{{y:-70,scaleY:1.08,scaleX:.95,svgOrigin:"0 0",duration:.22,ease:"power2.out"}},{T(t + .1)})')
+        out.append(f'tl.to("{bob}",{{y:0,scaleY:1,scaleX:1,svgOrigin:"0 0",duration:.4,ease:"bounce.out"}},{T(t + .32)})')
+        for side, deg, dl in (("L", 150, 0), ("R", -140, .07)):
+            if side in sh:
+                x, y = sh[side]
+                out.append(f'tl.to("#{p}-arm{side}",{{rotation:{deg},svgOrigin:"{x} {y}",duration:.22,ease:"back.out(2)"}},{T(t + .1 + dl)})')
+                out.append(f'tl.to("#{p}-arm{side}",{{rotation:0,svgOrigin:"{x} {y}",duration:.4,ease:"power2.inOut"}},{T(t + 1.0 + dl)})')
+    elif mood == "down":
+        out.append(f'tl.to("{bob}",{{scaleY:.9,scaleX:1.05,y:8,svgOrigin:"0 0",duration:.35,ease:"power2.out"}},{T(t)})')
+        out.append(f'tl.to("#{p}-eyes",{{y:6,scaleY:.75,transformOrigin:"50% 50%",duration:.25}},{T(t + .05)})')
+        out.append(f'tl.to("{bob}",{{scaleY:1,scaleX:1,y:0,svgOrigin:"0 0",duration:.5,ease:"power2.inOut"}},{T(t + 1.1)})')
+        out.append(f'tl.to("#{p}-eyes",{{y:0,scaleY:1,duration:.3}},{T(t + 1.1)})')
+    return out
+
+
+def js_look(p, t, dx):
+    return [f'tl.to("#{p}-eyes",{{x:{dx},duration:.25,ease:"power2.out"}},{T(t)})']
 
 
 def js_exit(p, t, how="down"):
@@ -301,14 +338,14 @@ def js_gesture(p, t, kind="wave", name=None):
             out.append(f'tl.to("#{p}-armR",{{rotation:-100,svgOrigin:"{x} {y}",duration:.18,yoyo:true,repeat:3}},{T(t + .3)})')
             out.append(f'tl.to("#{p}-armR",{{rotation:0,svgOrigin:"{x} {y}",duration:.35}},{T(t + 1.1)})')
     elif kind == "cheer":
-        rot("L", 140, back=1.0); rot("R", -140, back=1.0)
+        rot("L", 140, back=1.0); t += .08; rot("R", -125, back=.95)
         out.append(f'tl.to("#{p}-bob",{{y:-40,duration:.22,yoyo:true,repeat:1,ease:"power2.out"}},{T(t)})')
     elif kind == "point":
         rot("R", -95, back=1.4)
     elif kind == "present":
-        rot("L", 70, back=1.6); rot("R", -70, back=1.6)
+        rot("L", 70, back=1.6); t += .1; rot("R", -55, back=1.5)
     elif kind == "shrug":
-        rot("L", 60, back=.9); rot("R", -60, back=.9)
+        rot("L", 60, back=.9); t += .06; rot("R", -48, back=.85)
     elif kind == "jump":
         out.append(f'tl.to("#{p}-bob",{{y:-60,duration:.25,yoyo:true,repeat:1,ease:"power2.out"}},{T(t)})')
     elif kind == "ring":   # Ghanti
