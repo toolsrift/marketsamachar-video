@@ -96,12 +96,16 @@ class K:
 
 
 def numtext(k, el_id, raw, t, prefix="", suffix="", dur=1.3, start_frac=0.0):
-    """A count-up when the value is numeric, else the plain text. Returns the initial text for the element."""
-    v = num(raw)
+    """A count-up when the value holds one number (units around it are kept: "+29%", "₹39.8 cr"), else the plain text."""
+    m = re.fullmatch(r"\s*([^\d\-]*?)\s?(-?[\d,]*\.?\d+)\s?([^\d]*)\s*", str(raw))
+    if not m: return E(f"{prefix}{raw}{suffix}")
+    pre, n, post = m.group(1), m.group(2), m.group(3)
+    v = num(n)
     if v is None: return E(f"{prefix}{raw}{suffix}")
-    dec = decs(raw)
-    k.count(el_id, v, t, dec, prefix, suffix, dur, start=round(abs(v) * start_frac, dec))
-    return E(f"{prefix}{fmt(abs(v) * start_frac, dec)}{suffix}")
+    pre, post = prefix + pre, (" " + post.strip() if post.strip() and not post.strip().startswith("%") else post.strip()) + suffix
+    dec = decs(n)
+    k.count(el_id, v, t, dec, pre, post, dur, start=round(abs(v) * start_frac, dec))
+    return E(f"{pre}{fmt(abs(v) * start_frac, dec)}{post}")
 
 
 def stage(p, cx=600, cy=380, r=330, gy=720, gw=420):
@@ -684,9 +688,10 @@ def sc_results(p, a, d, data):
         for i, m in enumerate(mets):
             y = y0 + 190 + i * 100; ch = num(m.get("chg"))
             unit = m.get("unit", "")
-            svg += (f'<g id="{p}-m{i}">{R(x0 + 30, y - 40, w - 60, 80, 14, "f1", " opacity=\".18\"")}{TX(x0 + 54, y + 10, E(m["label"]), 28, "txd", "start")}'
-                    f'{TX(x0 + 360, y + 12, numtext(k, f"{p}-mv{i}", m["value"], a + .8 + i * .2, "₹" if "cr" in unit else "", " " + unit if unit else "", 1.0), 32, "txd", "end", f" id=\"{p}-mv{i}\"", "num")}'
-                    + (chip(x0 + 470, y, ("▲ " if ch >= 0 else "▼ ") + fmt(abs(ch), 1) + "%", "up" if ch >= 0 else "dn", 160, 52, 26) if ch is not None else "") + "</g>")
+            lab = str(m["label"]); lab = lab if len(lab) <= 30 else lab[:29] + "…"
+            svg += (f'<g id="{p}-m{i}">{R(x0 + 30, y - 44, w - 60, 88, 14, "f1", " opacity=\".16\"")}{TX(x0 + 54, y - 12, E(lab.upper()), 20, "txd", "start", " opacity=\".7\"")}'
+                    f'{TX(x0 + 54, y + 30, numtext(k, f"{p}-mv{i}", m["value"], a + .8 + i * .2, "₹" if "cr" in unit else "", " " + unit if unit else "", 1.0), 36, "txd", "start", f" id=\"{p}-mv{i}\"", "num")}'
+                    + (chip(x0 + w - 120, y, ("▲ " if ch >= 0 else "▼ ") + fmt(abs(ch), 1) + "%", "up" if ch >= 0 else "dn", 160, 52, 26) if ch is not None else "") + "</g>")
             k.add(f'tl.fromTo("#{p}-m{i}",{{x:-80,opacity:0}},{{x:0,opacity:1,duration:.4,ease:"power3.out"}},{T(a + .7 + i * .2)})'); k.sfx(a + .7 + i * .2, "click", .35)
     else:
         svg += f'<g id="{p}-m0">{TX(cx, y0 + 330, E(str(data.get("date", ""))), 90, "txd", "middle", "", "num")}{TX(cx, y0 + 400, "board meeting", 30, "txd", "middle", " opacity=\".6\"")}</g>'

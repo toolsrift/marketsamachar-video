@@ -123,6 +123,18 @@ def shots(x, IX, IY, IW, IH, W, H, long_, sfx):
     return out
 
 
+def story_card(v, js, y, W):
+    """Lower band for Shorts without live prices: source + where to read more."""
+    src = " · ".join(v.get("sources", [])[:3])
+    out = (f'<div class="ab tcard" id="stc" style="left:24px;top:{y}px;width:{W - 48}px;height:150px;padding:22px 28px;z-index:9;display:flex;align-items:center;gap:24px">'
+           f'<img src="assets/logo-icon.png" width="96" height="96" style="border-radius:22px">'
+           f'<div><div class="disc" style="font-size:20px;letter-spacing:2px;color:var(--acc)">SOURCE</div>'
+           f'<div style="font-family:Body;font-size:32px;color:var(--cardInk);margin-top:4px">{E(src)}</div>'
+           f'<div class="num" style="font-size:24px;color:var(--sub);margin-top:6px">Full story · marketsamachar.in</div></div></div>')
+    js.append(f'tl.fromTo("#stc",{{y:60,opacity:0}},{{y:0,opacity:1,duration:.5,ease:"back.out(1.6)"}},.3)')
+    return out
+
+
 def market_board(ticker, js, y, W):
     if not ticker: return ""
     items = ticker[:4]; n = len(items); tw = (W - 40 - (n - 1) * 14) / n; out = ""
@@ -247,7 +259,7 @@ def build(v, proj, date, ticker=None, style=None):
             if i > 0: t += .7
             chapters.append((max(0.0, t - .6), x["segtitle"]))
         a, ws = voice.say(x["b"]["host"], x["b"]["say"]); dur = len(a) / voice.SR
-        x.update(a=a, ws=ws, t0=t, d=max(3.4 if long_ else 3.2, dur + .62)); vparts.append((t + .15, a)); t += x["d"]
+        x.update(a=a, ws=ws, t0=t, d=max(3.2 if long_ else 3.0, dur + .45)); vparts.append((t + .15, a)); t += x["d"]
     host0 = beats[0]["b"]["host"]
     cta_line = v.get("cta") or (("That's the update. Subscribe to MarketSamachar, and find every story on marketsamachar.in.")
                                 if long_ else CTA_LINES[seed_of(v["id"], "cta") % len(CTA_LINES)])
@@ -257,10 +269,10 @@ def build(v, proj, date, ticker=None, style=None):
     pos, mvs = layout(len(beats), S["moves"], W, H, rnd)
     if long_:
         TX, TY, TW, TF = 60, 94, 1300, 52
-        IX, IY, IW = 60, 222, 1110
+        IX, IY, IW = 345, 206, 1230
     else:
         TX, TY, TW, TF = 40, 282, 1000, 70
-        IX, IY, IW = -20, 420, 1120
+        IX, IY, IW = 0, 436, 1080
     IH = IW * 800 / 1200
     st_html = ""; titles = []
     for i, x in enumerate(beats):
@@ -329,24 +341,28 @@ def build(v, proj, date, ticker=None, style=None):
                    f'<div class="ab hud chip k" id="segl" style="right:44px;top:38px;font-size:19px;z-index:9">{E(v.get("stamp", ""))}</div>'
                    f'<div class="ab hud" style="left:560px;top:44px;z-index:9">{index_strip(ticker, 21)}</div>')
         htm.append(ticker_tape(ticker, js, total, 1028, W, 52, 23))
-        hw, hx, hy = 460, 1370, 400; capbox, capfs, capal, capn = (100, 944, 1240, 76), 48, "center", 6
+        capbox, capfs, capal, capn = (330, 928, 1220, 86), 46, "center", 7
     else:
         htm.append(f'<div class="ab hud" style="left:44px;top:178px;display:flex;align-items:center;gap:14px;z-index:9">{_logo(56)}{_wordmark(30)}</div>'
                    f'<div class="ab hud chip k" style="right:44px;top:186px;font-size:19px;z-index:9">{E(v.get("stamp", ""))}</div>'
                    f'<div class="ab hud" style="left:46px;top:252px;z-index:9">{index_strip(ticker, 19)}</div>')
-        htm.append(ticker_tape(ticker, js, total, 1468, W, 50, 22))
-        htm.append(f'<div class="ab hud" style="left:0;top:0;width:{W}px;height:1px;z-index:9">{market_board(ticker, js, 1548, W)}</div>')
-        htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1712px;font-size:19px;z-index:9">{E(DISCLAIMER)}</div>')
-        hw, hx, hy = 360, 0, 1052; capbox, capfs, capal, capn = (366, 1150, 690, 176), 54, "left", 4
+        if ticker:
+            htm.append(f'<div class="ab hud" style="left:0;top:0;width:{W}px;height:1px;z-index:9">{market_board(ticker, js, 1372, W)}</div>')
+            htm.append(ticker_tape(ticker, js, total, 1530, W, 50, 22))
+        else:
+            htm.append(story_card(v, js, 1372, W))
+        htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1610px;font-size:19px;z-index:9">{E(DISCLAIMER)}</div>')
+        capbox, capfs, capal, capn = (36, 1176, 780, 150), 50, "left", 5
     # host: real 3D character (three.js) on a transparent canvas over the host area
-    if long_: RL, RT, RW, RH = 1280, 300, 640, 728; hpos = (320, 610, 520); look = -1
-    else: RL, RT, RW, RH = 0, 940, 1080, 580; hpos = (185, 505, 420); look = 1
+    # small presenter in the bottom-right corner (TV-news inset)
+    if long_: RL, RT, RW, RH = 1560, 600, 360, 428; hpos = (190, 418, 290); look = -1
+    else: RL, RT, RW, RH = 780, 1010, 300, 340; hpos = (150, 326, 250); look = -1
     wins = []; cur = None
     for i, x in enumerate(beats):
         host = x["b"]["host"]
         if host != cur:
             if wins: wins[-1]["t_out"] = x["t0"] - .2
-            wins.append(dict(char=host, x=hpos[0], y=hpos[1], size=hpos[2], t_in=max(0, x["t0"] - .1), t_out=x["t0"] + x["d"],
+            wins.append(dict(char=host, color=styles.ACCENT.get(host, S['v']['acc']), x=hpos[0], y=hpos[1], size=hpos[2], t_in=max(0, x["t0"] - .1), t_out=x["t0"] + x["d"],
                              talk=[], gest=[], moods=[], look=look, seed=len(wins) + 1))
             cur = host; sfx.append((max(0, x["t0"] - .1), "pop", .35))
         wn = wins[-1]; wn["t_out"] = x["t0"] + x["d"]
@@ -389,14 +405,20 @@ def build(v, proj, date, ticker=None, style=None):
         sfx.append((.02, "impact", .6))
     # ---- CTA
     cta(js, htm, sfx, cta_t0, cta_d, W, H, not long_, host0)
-    cx3, cy3, cs3 = (880, 470, 380) if not long_ else (360, 700, 430)
-    wins.append(dict(char=host0, x=cx3, y=cy3, size=cs3, t_in=cta_t0 + .15, t_out=total + 1, look=-1 if not long_ else -1, seed=9,
+    cx3, cy3, cs3 = hpos
+    wins.append(dict(char=host0, color=styles.ACCENT.get(host0, S['v']['acc']), x=cx3, y=cy3, size=cs3, t_in=cta_t0 + .15, t_out=total + 1, look=-1 if not long_ else -1, seed=9,
                      talk=[[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(ca, cta_t0 + .4)], gest=[[round(cta_t0 + .9, 2), "wave"]], moods=[]))
     chars3d.setup(proj)
+    # inset frame behind the presenter (TV-news style), so he never floats over the story
+    ix, iy, iw, ih = (RL + 14, RT + 30, RW - 28, RH - 26) if not long_ else (RL + 20, RT + 20, RW - 50, RH - 30)
+    htm.append(f'<div class="ab" id="inset" style="left:{ix}px;top:{iy}px;width:{iw}px;height:{ih}px;z-index:19;border-radius:28px;'
+               f'background:radial-gradient(circle at 50% 85%,{S["v"]["acc"]}55,transparent 62%),linear-gradient(180deg,#151735,#0B0C1C);'
+               f'border:2px solid {S["v"]["acc"]}88;box-shadow:0 16px 40px rgba(0,0,0,.55)"></div>')
+    js.append('tl.fromTo("#inset",{scale:.6,opacity:0},{scale:1,opacity:1,duration:.5,ease:"back.out(1.6)"},0.05)')
     htm.append(chars3d.html(RL, RT, RW, RH, wins, S["v"]["acc"], 21))
     cwt = [(w, cta_t0 + .4 + s, cta_t0 + .4 + e) for w, s, e in cws]
     htm.append('<div class="ab" style="left:0;top:0;width:1px;height:1px;z-index:22">')
-    captions(js, htm, cwt, "cc", (44, 1080, W - 88 - 360, 220) if not long_ else (110, 880, W - 220 - 440, 110), 50 if not long_ else 44, "left" if not long_ else "center", 5 if not long_ else 7)
+    captions(js, htm, cwt, "cc", (36, 1176, 780, 150) if not long_ else (330, 928, 1220, 86), 50 if not long_ else 46, "left" if not long_ else "center", 5 if not long_ else 7)
     htm.append('</div>')
     mix = audio.mix(total, vparts, sfx, seed_of(v["id"], date), .30 if not long_ else .26, track=S["music"])
     _write(proj, W, H, total, css, htm, js, pre, mix)

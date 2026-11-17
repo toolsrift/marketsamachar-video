@@ -82,90 +82,56 @@ function arm(par, side, x, y, z, mat, len=.55, hand=null){
 }
 function feet(par, mat, sep=.28, y=.07){ for (const sx of [-1,1]){ const f=mesh(S(.17), mat, sx*sep, y, .06); f.scale.set(1.15,.55,1.45); par.add(f); } }
 
-// ---- the 14 characters
-function build(kind){
+// ---- the presenter: one clear 3D news anchor; suit colour + a floating topic icon change per category
+const SKIN = M(0xf1c7a1, {clearcoat:.2, roughness:.55}); const HAIR = M(0x23262f, {roughness:.5, clearcoat:.3});
+const SHIRT = M(0xf7f8fb, {clearcoat:.2, roughness:.5}); const DARK = M(0x12142b, {roughness:.45});
+function icon(kind, col){
+  const g = new THREE.Group(); const C = M(col);
+  if (kind==="ghanti"){ g.add(lathe([[0,.62],[.09,.6],[.15,.5],[.2,.25],[.27,.06],[0,.06]], GOLD)); g.add(mesh(S(.06), GOLD, 0, .02, 0)); }
+  else if (kind==="teji"||kind==="mandi"){ const up=kind==="teji"; const a=extrudeShape(up?[[0,.3],[.27,0],[.11,0],[.11,-.26],[-.11,-.26],[-.11,0],[-.27,0]]:[[0,-.3],[.27,0],[.11,0],[.11,.26],[-.11,.26],[-.11,0],[-.27,0]], .1, M(up?0x00e68a:0xff4d6d)); a.position.y=.3; g.add(a); }
+  else if (kind==="munshi"){ const d=mesh(new RoundedBoxGeometry(.4,.5,.06,3,.03), M(0xf7f8fb), 0, .3, 0); g.add(d); for(let k=0;k<3;k++) d.add(mesh(new THREE.BoxGeometry(.26,.035,.02), C, 0, .12-k*.11, .035)); }
+  else if (kind==="bhonpu"){ const m=lathe([[0,0],[.08,0],[.1,.12],[.24,.42],[.26,.44],[0,.44]], M(0xff8a3d)); m.rotation.z=-1.2; m.position.set(-.12,.3,0); g.add(m); }
+  else if (kind==="golu"||kind==="desi"){ const tex=canvasTex((x,w,h)=>{x.fillStyle="#f5c542";x.fillRect(0,0,w,h);x.fillStyle="#9a6a12";x.font="bold 300px sans-serif";x.textAlign="center";x.textBaseline="middle";x.fillText("₹",w/2,h*.36);});
+    const c=mesh(new THREE.CylinderGeometry(.28,.28,.07,48), [GOLD, M(0xffffff,{map:tex,metalness:.4,roughness:.3}), GOLD], 0, .3, 0); c.rotation.x=Math.PI/2; g.add(c); }
+  else if (kind==="katli"){ for(const sx of [-1,1]){ const h=mesh(new RoundedBoxGeometry(.2,.4,.12,3,.03), M(0xf5b83d), sx*.13, .3, 0); h.rotation.z=sx*.18; g.add(h);} }
+  else if (kind==="tohfa"){ g.add(mesh(new RoundedBoxGeometry(.42,.36,.42,3,.04), M(0x2dd4bf), 0, .22, 0)); g.add(mesh(new THREE.BoxGeometry(.09,.38,.44), M(0xfacc15), 0, .22, 0)); g.add(mesh(new THREE.TorusGeometry(.08,.03,10,24), M(0xfacc15), 0, .46, 0)); }
+  else if (kind==="wapsi"){ const u=mesh(new THREE.TorusGeometry(.17,.08,16,40,Math.PI), M(0xef4444), 0, .36, 0); u.rotation.z=Math.PI; g.add(u); for(const sx of [-1,1]) g.add(mesh(new THREE.CylinderGeometry(.08,.08,.14,20), SILVER, sx*.17, .44, 0)); }
+  else if (kind==="naya"){ g.add(lathe([[0,0],[.12,.03],[.14,.25],[.08,.45],[0,.52]], M(0xf7f8fb))); g.add(mesh(new THREE.ConeGeometry(.08,.16,16), M(0x38bdf8), 0, .48, 0)); }
+  else if (kind==="tareekh"){ g.add(mesh(new RoundedBoxGeometry(.42,.42,.1,3,.04), M(0xf7f8fb), 0, .3, 0)); g.add(mesh(new RoundedBoxGeometry(.43,.12,.11,3,.04), M(0xff4d6d), 0, .47, 0)); }
+  else if (kind==="videshi"){ const tex=canvasTex((x,w,h)=>{x.fillStyle="#2563eb";x.fillRect(0,0,w,h);x.fillStyle="#22c55e";for(const b of [[.2,.4,.12,.15],[.55,.3,.1,.1],[.75,.6,.14,.12]]){x.beginPath();x.ellipse(b[0]*w,b[1]*h,b[2]*w,b[3]*h,0,0,7);x.fill();}},512,256);
+    g.add(mesh(S(.25,40,30), M(0xffffff,{map:tex,roughness:.4}), 0, .3, 0)); }
+  else { for(let k=0;k<3;k++) g.add(mesh(new RoundedBoxGeometry(.11,.18+k*.14,.11,2,.02), M(k===2?0x00e68a:0x2dd4bf), -.15+k*.15, .09+k*.07+.05, 0)); }
+  return g;
+}
+function build(kind, col){
   const root = new THREE.Group(), bob = new THREE.Group(); root.add(bob);
-  let fc, armL, armR, extra = {};
-  const add = o => (bob.add(o), o);
-  if (kind === "ghanti"){            // market bell
-    const b = lathe([[0,2.05],[.22,2.02],[.38,1.9],[.5,1.6],[.58,1.2],[.68,.75],[.86,.42],[.9,.34],[0,.34]], GOLD); add(b);
-    add(mesh(new THREE.TorusGeometry(.17,.06,16,40), GOLD, 0, 2.12, 0));
-    extra.clap = add(mesh(S(.16), M(0xb7791f,{metalness:.8,roughness:.3}), 0, .22, 0));
-    fc = face(bob, 1.12, .62, .95); armL = arm(bob,-1,-.62,1.05,0,GOLD); armR = arm(bob,1,.62,1.05,0,GOLD); feet(bob, INK, .3, .05);
-  } else if (kind === "teji" || kind === "mandi"){   // gainers (green, arrow up) / losers (red, arrow down)
-    const up = kind === "teji", col = up ? 0x00e68a : 0xff4d6d;
-    add(mesh(new THREE.CapsuleGeometry(.62, .55, 16, 32), M(col), 0, 1.0, 0));
-    const ar = extrudeShape(up ? [[0,.55],[.5,0],[.2,0],[.2,-.45],[-.2,-.45],[-.2,0],[-.5,0]] : [[0,-.55],[.5,0],[.2,0],[.2,.45],[-.2,.45],[-.2,0],[-.5,0]], .22, M(up ? 0xffffff : 0xffe2e8));
-    ar.position.set(0, up ? 2.15 : 2.1, 0); ar.scale.setScalar(.9); add(ar); extra.badge = ar;
-    fc = face(bob, 1.18, .6, .95); armL = arm(bob,-1,-.6,1.1,0,M(col)); armR = arm(bob,1,.6,1.1,0,M(col)); feet(bob, INK);
-  } else if (kind === "munshi"){     // results — scholar with glasses and a clipboard
-    add(mesh(S(.78, 48, 32), M(0x8b5cf6), 0, 1.05, 0));
-    const cap = add(mesh(new THREE.BoxGeometry(.9,.08,.9), INK, 0, 1.9, 0)); cap.rotation.y = .5;
-    add(mesh(new THREE.CylinderGeometry(.3,.34,.2,24), INK, 0, 1.8, 0));
-    fc = face(bob, 1.15, .7, .95, {glasses:true}); armL = arm(bob,-1,-.7,1.05,0,M(0x8b5cf6)); armR = arm(bob,1,.7,1.05,0,M(0x8b5cf6));
-    const cb = mesh(new RoundedBoxGeometry(.45,.6,.06,3,.04), M(0xf2f4f8), .05, -.75, .12); armR.add(cb);
-    for (let i=0;i<3;i++) cb.add(mesh(new THREE.BoxGeometry(.3,.04,.02), M(0x8b5cf6), 0, .12-i*.13, .04));
-    feet(bob, INK);
-  } else if (kind === "bhonpu"){     // announcements — megaphone
-    add(lathe([[0,.3],[.42,.3],[.5,.6],[.62,1.3],[.82,1.95],[.86,2.0],[.7,2.0],[.58,1.6],[0,1.6]], M(0xff8a3d)));
-    add(mesh(new THREE.TorusGeometry(.84,.06,16,60), M(0xffffff), 0, 2.0, 0)).rotation.x = Math.PI/2;
-    fc = face(bob, 1.05, .6, .9); armL = arm(bob,-1,-.55,1.05,0,M(0xff8a3d)); armR = arm(bob,1,.55,1.05,0,M(0xff8a3d)); feet(bob, INK);
-  } else if (kind === "golu"){       // dividends — piggy bank
-    const P = M(0xff8fb1); add(mesh(S(.82, 48, 32), P, 0, 1.0, 0)).scale.set(1.08, .95, 1);
-    const sn = add(mesh(new THREE.CylinderGeometry(.22,.25,.2,32), M(0xff6f9c), 0, .82, .8)); sn.rotation.x = Math.PI/2;
-    for (const sx of [-1,1]) add(mesh(S(.045), INK, sx*.08, .82, .91));
-    for (const sx of [-1,1]){ const e=add(mesh(new THREE.ConeGeometry(.17,.3,24), P, sx*.45, 1.75, 0)); e.rotation.z = -sx*.4; }
-    add(mesh(new THREE.BoxGeometry(.4,.05,.1), INK, 0, 1.82, 0));
-    extra.coin = add(mesh(new THREE.CylinderGeometry(.18,.18,.05,32), GOLD, 0, 2.3, 0)); extra.coin.rotation.x = Math.PI/2;
-    fc = face(bob, 1.27, .64, .85); armL = arm(bob,-1,-.78,1.0,0,P,.45); armR = arm(bob,1,.78,1.0,0,P,.45); feet(bob, P, .35);
-  } else if (kind === "katli"){      // splits — diamond sweet with silver leaf
-    const g = add(mesh(new THREE.OctahedronGeometry(1, 0), M(0xf3e3c3, {roughness:.5}), 0, 1.05, 0)); g.scale.set(1.05, .82, .35); g.rotation.y = Math.PI/4;
-    const t = add(mesh(new THREE.OctahedronGeometry(1, 0), SILVER, 0, 1.06, .02)); t.scale.set(1.0, .78, .3); t.rotation.y = Math.PI/4;
-    fc = face(bob, 1.05, .36, .85); armL = arm(bob,-1,-.9,1.0,0,M(0xf3e3c3)); armR = arm(bob,1,.9,1.0,0,M(0xf3e3c3)); feet(bob, INK);
-  } else if (kind === "tohfa"){      // bonus — gift box
-    const B = M(0x2dd4bf); add(mesh(new RoundedBoxGeometry(1.4,1.25,1.2,5,.12), B, 0, .85, 0));
-    const lid = add(mesh(new RoundedBoxGeometry(1.55,.3,1.35,5,.08), B, 0, 1.6, 0)); extra.lid = lid;
-    const Y = M(0xfacc15); add(mesh(new THREE.BoxGeometry(.22,1.27,1.22), Y, 0, .85, 0)); lid.add(mesh(new THREE.BoxGeometry(.24,.32,1.37), Y));
-    for (const sx of [-1,1]){ const bw=mesh(new THREE.TorusGeometry(.2,.07,12,32), Y, sx*.2, .25, 0); bw.scale.set(1,.7,1); lid.add(bw); }
-    fc = face(bob, .95, .62, .85); armL = arm(bob,-1,-.72,1.05,0,B); armR = arm(bob,1,.72,1.05,0,B); feet(bob, INK, .35);
-  } else if (kind === "wapsi"){      // buybacks — magnet
-    const red = M(0xef4444); const u = add(mesh(new THREE.TorusGeometry(.62,.28,24,64,Math.PI), red, 0, 1.25, 0)); u.rotation.z = Math.PI;
-    for (const sx of [-1,1]){ add(mesh(new THREE.CylinderGeometry(.28,.28,.5,32), red, sx*.62, 1.5, 0)); add(mesh(new THREE.CylinderGeometry(.285,.285,.28,32), SILVER, sx*.62, 1.88, 0)); }
-    fc = face(bob, .8, .32, .75); armL = arm(bob,-1,-.95,1.2,0,red); armR = arm(bob,1,.95,1.2,0,red); feet(bob, INK, .3);
-  } else if (kind === "naya"){       // IPOs — rocket
-    const Bm = M(0xf2f4f8); add(lathe([[0,.25],[.5,.3],[.62,.8],[.6,1.4],[.45,1.9],[.2,2.25],[0,2.35]], Bm));
-    add(lathe([[0,1.9],[.46,1.88],[.2,2.25],[0,2.36]], M(0x38bdf8)));
-    for (let i=0;i<3;i++){ const f=extrudeShape([[0,0],[.5,-.2],[.5,-.6],[0,-.3]], .08, M(0x38bdf8)); const g=new THREE.Group(); g.rotation.y=i*2.094+.5; f.position.set(.55,.55,0); g.add(f); bob.add(g); }
-    const win = add(mesh(new THREE.TorusGeometry(.2,.05,12,32), SILVER, 0, 1.55, .58)); add(mesh(S(.18), M(0x38bdf8,{transmission:.3}), 0, 1.55, .52)).scale.z=.4;
-    extra.flame = add(mesh(new THREE.ConeGeometry(.28,.7,24), M(0xff8a3d,{emissive:0xff6a00, emissiveIntensity:.8}), 0, -.1, 0)); extra.flame.rotation.z = Math.PI;
-    fc = face(bob, .95, .62, .75); armL = arm(bob,-1,-.62,1.0,0,Bm); armR = arm(bob,1,.62,1.0,0,Bm);
-  } else if (kind === "tareekh"){    // events — calendar block
-    add(mesh(new RoundedBoxGeometry(1.35,1.5,.55,4,.1), M(0xf2f4f8), 0, 1.0, 0));
-    add(mesh(new RoundedBoxGeometry(1.37,.42,.57,4,.1), M(0xff4d6d), 0, 1.6, 0));
-    for (const sx of [-.35,.35]) add(mesh(new THREE.TorusGeometry(.1,.035,10,24), SILVER, sx, 1.86, 0));
-    fc = face(bob, .95, .3, .8); armL = arm(bob,-1,-.72,1.05,0,M(0xf2f4f8)); armR = arm(bob,1,.72,1.05,0,M(0xf2f4f8)); feet(bob, INK);
-  } else if (kind === "desi"){       // DII — rupee coin
-    const tex = canvasTex((g,w,h)=>{ g.fillStyle="#f5c542"; g.fillRect(0,0,w,h); g.fillStyle="#b7791f"; g.font="bold 300px sans-serif"; g.textAlign="center"; g.textBaseline="middle"; g.fillText("₹", w/2, h*.36); });
-    const c = add(mesh(new THREE.CylinderGeometry(.9,.9,.28,64), [M(0xd4a017,{metalness:.8,roughness:.25}), M(0xffffff,{map:tex, metalness:.5, roughness:.3}), GOLD], 0, 1.1, 0)); c.rotation.x = Math.PI/2;
-    add(mesh(new THREE.TorusGeometry(.9,.05,12,80), GOLD, 0, 1.1, 0));
-    fc = face(bob, .85, .2, .75); armL = arm(bob,-1,-.88,1.1,0,GOLD); armR = arm(bob,1,.88,1.1,0,GOLD); feet(bob, INK);
-  } else if (kind === "videshi"){    // FII — globe with an orbit ring
-    const tex = canvasTex((g,w,h)=>{ g.fillStyle="#2563eb"; g.fillRect(0,0,w,h); g.fillStyle="#22c55e";
-      const blobs=[[.18,.35,.13,.12],[.3,.62,.08,.14],[.52,.3,.1,.09],[.58,.55,.08,.13],[.78,.38,.14,.1],[.85,.7,.06,.06],[.1,.75,.05,.05]];
-      for (const b of blobs){ g.beginPath(); g.ellipse(b[0]*w,b[1]*h,b[2]*w,b[3]*h,0,0,7); g.fill(); } }, 1024, 512);
-    tex.wrapS = THREE.RepeatWrapping;
-    extra.globe = add(mesh(S(.82, 64, 48), M(0xffffff,{map:tex, roughness:.4}), 0, 1.05, 0));
-    const ring = add(mesh(new THREE.TorusGeometry(1.15,.04,12,96), SILVER, 0, 1.05, 0)); ring.rotation.set(1.2, 0, .35); extra.ring = ring;
-    fc = face(bob, 1.05, .72, .85); armL = arm(bob,-1,-.78,1.0,0,M(0x2563eb)); armR = arm(bob,1,.78,1.0,0,M(0x2563eb)); feet(bob, INK);
-  } else {                            // arth — economy professor tortoise
-    const G = M(0x22a06b); add(mesh(S(.62, 40, 32), G, 0, 1.55, .15));
-    const sh = add(mesh(new THREE.SphereGeometry(.85, 48, 24, 0, Math.PI*2, 0, Math.PI/2), M(0x0f766e), 0, .55, -.2)); sh.scale.set(1, .9, .8);
-    add(mesh(new THREE.CylinderGeometry(.86,.86,.12,48), M(0xfacc15), 0, .55, -.2));
-    const cap = add(mesh(new THREE.BoxGeometry(.85,.07,.85), INK, 0, 2.15, .15)); cap.rotation.y = .4;
-    add(mesh(new THREE.CylinderGeometry(.28,.32,.18,24), INK, 0, 2.05, .15));
-    fc = face(bob, 1.58, .66, .8, {glasses:true}); armL = arm(bob,-1,-.6,1.15,0,G); armR = arm(bob,1,.6,1.15,0,G); feet(bob, G, .35);
-  }
-  return {root, bob, fc, armL, armR, extra, kind};
+  const add = o => (bob.add(o), o); const SUIT = M(col, {clearcoat:.35, roughness:.5}); const extra = {};
+  // legs + shoes
+  for (const sx of [-1,1]){ add(mesh(new THREE.CapsuleGeometry(.13,.32,8,16), DARK, sx*.17, .32, 0)); const sh=add(mesh(S(.15), DARK, sx*.18, .08, .07)); sh.scale.set(1,.5,1.5); }
+  // torso (blazer), shirt V, tie, lapels
+  const tor = add(mesh(new THREE.CapsuleGeometry(.42,.45,12,32), SUIT, 0, .98, 0)); tor.scale.set(1.08, 1, .78);
+  const v = extrudeShape([[-.17,.2],[.17,.2],[0,-.2]], .02, SHIRT); v.position.set(0, 1.27, .32); add(v);
+  const tie = extrudeShape([[0,.1],[.06,.04],[.045,-.26],[0,-.32],[-.045,-.26],[-.06,.04]], .03, M(0x12142b)); tie.position.set(0, 1.2, .35); add(tie);
+  for (const sx of [-1,1]){ const l = extrudeShape([[0,.22],[sx*.16,.0],[sx*.06,-.22]], .03, M(col,{roughness:.4})); l.position.set(sx*.13, 1.2, .33); add(l); }
+  add(mesh(new THREE.CylinderGeometry(.11,.12,.14,20), SKIN, 0, 1.47, 0));
+  // head
+  const head = new THREE.Group(); head.position.set(0, 1.86, 0); bob.add(head);
+  const hd = mesh(S(.42,48,36), SKIN); hd.scale.set(1,1.05,.95); head.add(hd);
+  for (const sx of [-1,1]) head.add(mesh(S(.08), SKIN, sx*.41, -.02, 0));
+  const hair = mesh(new THREE.SphereGeometry(.445,48,24,0,Math.PI*2,0,Math.PI*.42), HAIR, 0, .1, -.04); hair.rotation.x=.75; head.add(hair);
+  head.add(mesh(S(.15), HAIR, .1, .36, .14)).scale.set(1.6,.55,1);
+  const fc = face(head, -.03, .37, .7);
+  for (const sx of [-1,1]){ const b=mesh(new THREE.CapsuleGeometry(.026,.12,6,10), HAIR, sx*.19, .2, .38); b.rotation.z=Math.PI/2+sx*.15; head.add(b); fc["brow"+(sx<0?"L":"R")]=b; }
+  // arms: left free for gestures, right holds the branded mic in front of the chest
+  const armL = arm(bob,-1,-.5,1.32,0,SUIT,.5,SKIN), armR = arm(bob,1,.5,1.32,0,SUIT,.5,SKIN);
+  armR.userData.rest = .55; armR.userData.restX = -1.05;
+  const mic = new THREE.Group(); mic.position.set(0,-.62,0); mic.rotation.x = 1.3; armR.add(mic);
+  mic.add(mesh(new THREE.CylinderGeometry(.035,.045,.32,16), DARK, 0, .1, 0));
+  mic.add(mesh(S(.075,20,16), M(0x8b93a7,{metalness:.6,roughness:.35}), 0, .3, 0));
+  mic.add(mesh(new RoundedBoxGeometry(.12,.08,.12,2,.02), M(0x00ff88), 0, .17, 0));
+  // topic icon floating beside the head
+  const ic = icon(kind, col); ic.position.set(.72, 1.95, .1); ic.scale.setScalar(1.05); bob.add(ic); extra.icon = ic;
+  return {root, bob, fc, head, armL, armR, extra, kind};
 }
 
 // ---- motion helpers (pure functions of time)
@@ -176,7 +142,7 @@ const pulse = (t,a,d)=> (t<a||t>a+d)?0:Math.sin(Math.PI*(t-a)/d);
 function amp(win, t){ const T=win.talk; if(!T||!T.length) return 0; const dt=T.length>1?(T[1][0]-T[0][0]):.066;
   const i=Math.round((t-T[0][0])/dt); return (i<0||i>=T.length)?0:T[i][1]; }
 
-const chars = D.windows.map(w=>{ const c=build(w.char); c.win=w; c.root.visible=false; scene.add(c.root); return c; });
+const chars = D.windows.map(w=>{ const c=build(w.char, w.color||D.accent); c.win=w; c.root.visible=false; scene.add(c.root); return c; });
 
 function pose(c, t){
   const w=c.win, lt=t-w.t_in, out=t-w.t_out;
@@ -190,31 +156,34 @@ function pose(c, t){
   // reactions
   for (const [mt,mood] of (w.moods||[])){
     const k=t-mt; if(k<0||k>1.4) continue;
-    if(mood==="up"){ const pre=pulse(k,0,.14), air=pulse(k,.12,.5), post=pulse(k,.6,.22); sy+=-pre*.18+air*.08-post*.15; sx+=pre*.12+post*.1; y+=air*.75; }
+    if(mood==="up"){ const pre=pulse(k,0,.14), air=pulse(k,.12,.5), post=pulse(k,.6,.22); sy+=-pre*.18+air*.08-post*.15; sx+=pre*.12+post*.1; y+=air*.35; }
     else { const d=ease(k/.35)*(1-ease((k-1.0)/.35)); sy-=d*.1; y-=d*.06; rz+=d*.08; }
   }
   b.position.y=y; b.scale.set(sx,sy,sx); b.rotation.z=rz + Math.sin(t*1.3)*.035;
-  b.rotation.y = (w.look||0)*.35 + Math.sin(t*.8)*.22;     // turn to show the 3D form
+  b.rotation.y = (w.look||0)*.3 + Math.sin(t*.8)*.12;     // turn to show the 3D form
   // arms: rest + gestures
-  let aL=c.armL.userData.rest, aR=c.armR.userData.rest, xL=0, xR=0;
+  let aL=c.armL.userData.rest, aR=c.armR.userData.rest, xL=0, xR=c.armR.userData.restX||0;
   for (const [gt,kind] of (w.gest||[])){
     const k=t-gt; if(k<0||k>1.6) continue; const e=ease(k/.25)*(1-ease((k-1.25)/.3));
-    if(kind==="wave"){ aR = aR + e*(2.5-aR) + e*Math.sin(k*14)*.35; }
+    if(kind==="wave"){ aL = aL + e*(-2.5-aL) - e*Math.sin(k*14)*.35; }
     else if(kind==="cheer"){ aR=aR+e*(2.7-aR); aL=aL+e*(-2.7-aL); }
     else if(kind==="present"||kind==="open"||kind==="split"){ aR=aR+e*(1.4-aR); aL=aL+e*(-1.4-aL); }
     else if(kind==="shrug"){ aR=aR+e*(1.0-aR); aL=aL+e*(-1.0-aL); xL=xR=e*.5; }
-    else if(kind==="ring"){ b.rotation.z += e*Math.sin(k*16)*.18; aR=aR+e*(1.9-aR); }
-    else { const dir=(w.look||1)>=0?1:-1; if(dir>0) aR=aR+e*(1.75-aR); else aL=aL+e*(-1.75-aL); }
+    else if(kind==="ring"){ aL=aL+e*(-2.2-aL)-e*Math.sin(k*16)*.25; }
+    else { aL=aL+e*(-1.6-aL); xL=-e*.4; }
   }
-  for (const [mt,mood] of (w.moods||[])){ const k=t-mt; if(mood==="up"&&k>=0&&k<1.1){ const e=ease(k/.15)*(1-ease((k-.8)/.3)); aR=aR+e*(2.6-aR); aL=aL+e*(-2.6-aL);} }
+  for (const [mt,mood] of (w.moods||[])){ const k=t-mt; if(mood==="up"&&k>=0&&k<1.1){ const e=ease(k/.15)*(1-ease((k-.8)/.3)); aL=aL+e*(-2.6-aL);} }
   c.armL.rotation.set(xL,0,aL); c.armR.rotation.set(xR,0,aR);
   // face: blink, look, talk
   const bt=(t+w.seed*.37)%2.9, blink=bt<.12?Math.sin(Math.PI*bt/.12):0;
   for (const e of c.fc.lids) e.scale.y=1-blink*.92;
   c.fc.eyes.position.x=(w.look||0)*.06;
   const a=amp(w,t); c.fc.mouth.scale.set(1, .25+Math.min(1.5,a*10), 1);
+  if(c.head){ c.head.rotation.x = Math.sin(t*5.3)*Math.min(.06,a*.8) - .04; c.head.rotation.z = Math.sin(t*.9)*.05;
+    const br = .2 + Math.min(.04, a*.4); if(c.fc.browL){ c.fc.browL.position.y=br; c.fc.browR.position.y=br; } }
   // character extras
   const X=c.extra;
+  if(X.icon){ X.icon.position.y=1.95+Math.sin(t*2.2)*.06; X.icon.rotation.y=Math.sin(t*1.1)*.6; }
   if(X.clap) X.clap.position.x=Math.sin(t*9)*.08;
   if(X.globe) X.globe.rotation.y=t*.6; if(X.ring) X.ring.rotation.z=.35+t*.4;
   if(X.coin) { X.coin.position.y=2.3+Math.sin(t*3)*.08; X.coin.rotation.z=t*2; }

@@ -148,7 +148,7 @@ def page_css(s):
 .band{{background:var(--bg);box-shadow:0 18px 40px rgba(0,0,0,.25)}}
 """
     if n == "brand":
-        css += """.cap{color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.85)} .cap .on{color:var(--up)}
+        css += """.cap{color:#fff;background:rgba(7,7,14,.78);border:1.5px solid rgba(255,255,255,.08);border-radius:16px;padding:8px 18px;display:inline-block} .cap .on{color:var(--up)}
 .h{letter-spacing:-1.5px} .h .acc{color:var(--acc)} .chip.k{background:var(--acc);color:#07070E}
 .tcard{border:1.5px solid rgba(255,255,255,.10);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
 .band{border-bottom:3px solid var(--acc);box-shadow:0 20px 50px rgba(0,0,0,.6)}"""

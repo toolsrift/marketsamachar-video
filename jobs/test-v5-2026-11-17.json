@@ -1,0 +1,157 @@
+{
+ "date": "2026-11-17",
+ "slot": "1400-v5",
+ "feed": "feed/2026-11-17_1408.json",
+ "videos": [
+  {
+   "id": "s1-senco-festive-v5",
+   "kind": "short",
+   "stamp": "17 NOV · 2 PM IST",
+   "title": "Senco Gold reports record festive retail sales of over ₹2,426 crore",
+   "hook": "Senco's best festive season *ever*",
+   "thumb": "Senco *record* festive sales",
+   "sources": [
+    "Business Standard"
+   ],
+   "beats": [
+    {
+     "host": "bhonpu",
+     "say": "Senco Gold just had its best festive season ever, with over 2,426 crore rupees in retail sales.",
+     "scene": {
+      "kind": "announce",
+      "company": "Senco Gold",
+      "kicker": "Festive sales",
+      "amount": "2,426",
+      "prefix": "₹",
+      "suffix": " cr",
+      "sub": "Highest-ever retail NSV",
+      "stamp": "Record",
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "bhonpu",
+     "title": "In just *41 days*",
+     "say": "That came in a 41-day window, from 1 Oct to 11 Nov.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {
+        "label": "Period",
+        "value": "41 days"
+       },
+       {
+        "label": "From",
+        "value": "1 Oct 2026"
+       },
+       {
+        "label": "To",
+        "value": "11 Nov 2026"
+       }
+      ],
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "bhonpu",
+     "title": "Company *update*",
+     "say": "The jeweller shared the figure in an update reported by Business Standard.",
+     "scene": {
+      "kind": "headline",
+      "kicker": "Senco Gold",
+      "text": "Record festive retail NSV of over ₹2,426 crore",
+      "sub": "As reported by the company",
+      "source": "Business Standard"
+     }
+    }
+   ],
+   "description": "Senco Gold says it recorded its highest-ever retail net sales value of over ₹2,426 crore in the 41-day festive period from 1 October to 11 November 2026, as reported by Business Standard.",
+   "caption": "Senco Gold reports record festive retail sales of over ₹2,426 crore for 1 Oct to 11 Nov 2026 (Business Standard).",
+   "tags": [
+    "senco gold",
+    "festive sales",
+    "jewellery",
+    "company news",
+    "stock market today",
+    "marketsamachar"
+   ]
+  },
+  {
+   "id": "s2-kaynes-q2-v5",
+   "kind": "short",
+   "stamp": "17 NOV · 2 PM IST",
+   "title": "Kaynes Technology Q2 FY27: net profit ₹39.8 crore vs ₹115.7 crore a year ago",
+   "hook": "Kaynes profit *falls*",
+   "thumb": "Kaynes *Q2* profit",
+   "sources": [
+    "Business Standard"
+   ],
+   "beats": [
+    {
+     "host": "munshi",
+     "say": "Kaynes Technology's quarterly profit fell to 39.8 crore rupees.",
+     "scene": {
+      "kind": "results",
+      "company": "Kaynes Technology",
+      "period": "Q2 FY27",
+      "metrics": [
+       {
+        "label": "Net profit, Q2 FY27",
+        "value": "39.8",
+        "unit": "cr"
+       },
+       {
+        "label": "Same quarter last year",
+        "value": "115.7",
+        "unit": "cr"
+       }
+      ],
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "munshi",
+     "title": "A year *ago*",
+     "say": "A year ago, the same quarter made 115.7 crore.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {
+        "label": "Q2 FY27",
+        "value": "₹39.8 cr",
+        "tone": "down"
+       },
+       {
+        "label": "Q2 FY26",
+        "value": "₹115.7 cr"
+       }
+      ],
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "munshi",
+     "title": "Shares *slipped*",
+     "say": "Business Standard says the shares fell over two sessions after the results.",
+     "scene": {
+      "kind": "headline",
+      "kicker": "Market reaction",
+      "text": "Kaynes shares fell over two sessions after its results",
+      "sub": "Reported by Business Standard",
+      "source": "Business Standard"
+     }
+    }
+   ],
+   "description": "Kaynes Technology reported a consolidated net profit of ₹39.8 crore for Q2 FY27, compared with ₹115.7 crore in the corresponding quarter of the previous year, per Business Standard.",
+   "caption": "Kaynes Technology Q2 FY27 consolidated net profit: ₹39.8 crore vs ₹115.7 crore a year earlier (Business Standard).",
+   "tags": [
+    "kaynes technology",
+    "q2 results",
+    "q2fy27",
+    "earnings",
+    "stock market today",
+    "marketsamachar"
+   ]
+  }
+ ]
+}

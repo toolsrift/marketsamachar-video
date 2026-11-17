@@ -55,6 +55,21 @@ Every scene takes `source` (string or list, shown as a tag). Every video needs `
 The look (fonts, colours, illustration treatment, camera moves, music) is picked from the date: one style per day
 (studio · comic · blueprint · neon · paper). Don't set `style` in jobs unless asked.
 
+## Narration — how to write `say` (this is what viewers hear; it matters most)
+Write like a TV business-news anchor talking to one viewer: plain words, short sentences (8–18 words), active voice.
+- Beat 1 = the news itself in one sentence, with the key number. e.g. "Senco Gold just had its best festive season ever — over 2,426 crore rupees in sales."
+- Every later beat adds ONE new fact: the comparison, the period, the context the source gives, or what happens next. Never repeat a number already said.
+- One number per sentence. Simple words: "profit" (not "consolidated net profit"), "a year ago" (not "the corresponding quarter of the previous fiscal").
+  Write dates and quarters as you like ("Q2 FY27", "11 Nov") — the engine speaks them naturally ("the September quarter", "November 11") and drops paise on big levels.
+- Attribute once, naturally: "Business Standard reports…", "the company says…". Not in every beat.
+- Never speak disclaimers or meta lines ("this is news, not advice", "these are the company's own numbers") — the disclaimer is on screen.
+- Don't read the on-screen text back: the visual carries the detail, the voice tells the story.
+- One topic per Short. Never bundle unrelated items (no "economy desk" of three stories) — make separate Shorts or skip the weaker ones.
+- 2–3 beats per Short, 20–35 seconds of speech. End on a crisp fact (what's next / the date), never on a teaser about where a price may go.
+- Bad: "Kaynes Technology reported a Q2 FY27 consolidated net profit of 39.8 crore rupees, against 115.7 crore in the same quarter last year."
+  Good: "Kaynes Technology's quarterly profit fell to 39.8 crore rupees." → "A year ago, the same quarter made 115.7 crore." → "Business Standard says the shares fell for two straight sessions after the results."
+All hosts speak with one channel voice; the host only picks the presenter's suit colour and topic icon.
+
 ## Rules the build enforces (`engine/check.py`)
 - News only. No buy/sell/hold, targets, stop-loss, ratings/upgrades/downgrades, predictions ("will rise"), upside/downside,
   support/resistance, bullish/bearish, IPO GMP or listing gains, "stocks to buy/watch", tips, crypto/forex trading promotion,
