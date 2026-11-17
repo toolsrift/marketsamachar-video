@@ -103,34 +103,45 @@ function icon(kind, col){
   else { for(let k=0;k<3;k++) g.add(mesh(new RoundedBoxGeometry(.11,.18+k*.14,.11,2,.02), M(k===2?0x00e68a:0x2dd4bf), -.15+k*.15, .09+k*.07+.05, 0)); }
   return g;
 }
-function build(kind, col){
+const ANCHOR = {   // three co-anchors: suit colour, hair, extras
+  A: {suit:0x2f6fed, hair:0x23262f, style:"short", tie:0x12142b},
+  B: {suit:0xe2557a, hair:0x3b2416, style:"bob", tie:null},
+  C: {suit:0x64748b, hair:0xc9ccd3, style:"side", tie:0xf5b83d, glasses:true},
+};
+function build(kind, col, who){
+  const P = ANCHOR[who] || ANCHOR.A;
   const root = new THREE.Group(), bob = new THREE.Group(); root.add(bob);
-  const add = o => (bob.add(o), o); const SUIT = M(col, {clearcoat:.35, roughness:.5}); const extra = {};
-  // legs + shoes
-  for (const sx of [-1,1]){ add(mesh(new THREE.CapsuleGeometry(.13,.32,8,16), DARK, sx*.17, .32, 0)); const sh=add(mesh(S(.15), DARK, sx*.18, .08, .07)); sh.scale.set(1,.5,1.5); }
-  // torso (blazer), shirt V, tie, lapels
-  const tor = add(mesh(new THREE.CapsuleGeometry(.42,.45,12,32), SUIT, 0, .98, 0)); tor.scale.set(1.08, 1, .78);
-  const v = extrudeShape([[-.17,.2],[.17,.2],[0,-.2]], .02, SHIRT); v.position.set(0, 1.27, .32); add(v);
-  const tie = extrudeShape([[0,.1],[.06,.04],[.045,-.26],[0,-.32],[-.045,-.26],[-.06,.04]], .03, M(0x12142b)); tie.position.set(0, 1.2, .35); add(tie);
-  for (const sx of [-1,1]){ const l = extrudeShape([[0,.22],[sx*.16,.0],[sx*.06,-.22]], .03, M(col,{roughness:.4})); l.position.set(sx*.13, 1.2, .33); add(l); }
-  add(mesh(new THREE.CylinderGeometry(.11,.12,.14,20), SKIN, 0, 1.47, 0));
-  // head
+  const add = o => (bob.add(o), o); const SUIT = M(P.suit, {clearcoat:.35, roughness:.5}); const HR = M(P.hair, {roughness:.5, clearcoat:.3}); const extra = {};
+  // short legs + shoes (chunky, friendly proportions)
+  for (const sx of [-1,1]){ add(mesh(new THREE.CapsuleGeometry(.14,.16,8,16), DARK, sx*.18, .26, 0)); const sh=add(mesh(S(.16), DARK, sx*.19, .08, .07)); sh.scale.set(1.1,.5,1.5); }
+  // torso: wide, short
+  const tor = add(mesh(new THREE.CapsuleGeometry(.48,.18,12,32), SUIT, 0, .86, 0)); tor.scale.set(1.18, 1, .82);
+  const v = extrudeShape([[-.18,.18],[.18,.18],[0,-.2]], .02, SHIRT); v.position.set(0, 1.16, .37); add(v);
+  if (P.tie){ if (P.style==="side"){ for(const sx of [-1,1]){ const b=extrudeShape([[0,0],[sx*.12,.07],[sx*.12,-.07]], .03, M(P.tie)); b.position.set(0,1.27,.4); add(b);} add(mesh(S(.035), M(P.tie), 0, 1.27, .42)); }
+    else { const tie = extrudeShape([[0,.08],[.06,.03],[.045,-.22],[0,-.27],[-.045,-.22],[-.06,.03]], .03, M(P.tie)); tie.position.set(0, 1.12, .4); add(tie); } }
+  else { add(mesh(new THREE.TorusGeometry(.13,.018,8,32), GOLD, 0, 1.24, .3)).rotation.x = 1.2; }
+  for (const sx of [-1,1]){ const l = extrudeShape([[0,.2],[sx*.17,0],[sx*.06,-.2]], .03, M(P.suit,{roughness:.4})); l.position.set(sx*.14, 1.12, .38); add(l); }
+  add(mesh(new THREE.CylinderGeometry(.12,.13,.1,20), SKIN, 0, 1.38, 0));
+  // big friendly head
   const head = new THREE.Group(); head.position.set(0, 1.86, 0); bob.add(head);
-  const hd = mesh(S(.42,48,36), SKIN); hd.scale.set(1,1.05,.95); head.add(hd);
-  for (const sx of [-1,1]) head.add(mesh(S(.08), SKIN, sx*.41, -.02, 0));
-  const hair = mesh(new THREE.SphereGeometry(.445,48,24,0,Math.PI*2,0,Math.PI*.42), HAIR, 0, .1, -.04); hair.rotation.x=.75; head.add(hair);
-  head.add(mesh(S(.15), HAIR, .1, .36, .14)).scale.set(1.6,.55,1);
-  const fc = face(head, -.03, .37, .7);
-  for (const sx of [-1,1]){ const b=mesh(new THREE.CapsuleGeometry(.026,.12,6,10), HAIR, sx*.19, .2, .38); b.rotation.z=Math.PI/2+sx*.15; head.add(b); fc["brow"+(sx<0?"L":"R")]=b; }
-  // arms: left free for gestures, right holds the branded mic in front of the chest
-  const armL = arm(bob,-1,-.5,1.32,0,SUIT,.5,SKIN), armR = arm(bob,1,.5,1.32,0,SUIT,.5,SKIN);
+  const hd = mesh(S(.5,48,36), SKIN); hd.scale.set(1.04,1,.95); head.add(hd);
+  for (const sx of [-1,1]) head.add(mesh(S(.09), SKIN, sx*.5, -.03, 0));
+  const hair = mesh(new THREE.SphereGeometry(.53,48,24,0,Math.PI*2,0,Math.PI*.42), HR, 0, .1, -.04); hair.rotation.x=.72; head.add(hair);
+  if (P.style==="short") head.add(mesh(S(.17), HR, .12, .43, .16)).scale.set(1.6,.55,1);
+  if (P.style==="side") { const sp=mesh(S(.2), HR, -.18, .4, .18); sp.scale.set(1.5,.45,1); head.add(sp); }
+  if (P.style==="bob") { for (const sx of [-1,1]){ const h=mesh(new THREE.CapsuleGeometry(.17,.42,8,16), HR, sx*.47, -.08, -.04); h.rotation.z = sx*.12; head.add(h); }
+                         const fr=mesh(S(.24), HR, .14, .38, .2); fr.scale.set(1.7,.5,1); head.add(fr); }
+  const fc = face(head, -.04, .44, .82, {glasses:!!P.glasses});
+  for (const sx of [-1,1]){ const b=mesh(new THREE.CapsuleGeometry(.028,.13,6,10), HR, sx*.22, .22, .45); b.rotation.z=Math.PI/2+sx*.15; head.add(b); fc["brow"+(sx<0?"L":"R")]=b; }
+  if (P.style==="bob") for (const sx of [-1,1]) head.add(mesh(new THREE.CapsuleGeometry(.012,.06,4,8), INK, sx*.33, .11, .44)).rotation.z = sx*.9;
+  // arms: free one gestures, the other holds the branded mic
+  const armL = arm(bob,-1,-.58,1.22,0,SUIT,.42,SKIN), armR = arm(bob,1,.58,1.22,0,SUIT,.42,SKIN);
   armR.userData.rest = .55; armR.userData.restX = -1.05;
-  const mic = new THREE.Group(); mic.position.set(0,-.62,0); mic.rotation.x = 1.3; armR.add(mic);
-  mic.add(mesh(new THREE.CylinderGeometry(.035,.045,.32,16), DARK, 0, .1, 0));
-  mic.add(mesh(S(.075,20,16), M(0x8b93a7,{metalness:.6,roughness:.35}), 0, .3, 0));
-  mic.add(mesh(new RoundedBoxGeometry(.12,.08,.12,2,.02), M(0x00ff88), 0, .17, 0));
-  // topic icon floating beside the head
-  const ic = icon(kind, col); ic.position.set(.72, 1.95, .1); ic.scale.setScalar(1.05); bob.add(ic); extra.icon = ic;
+  const mic = new THREE.Group(); mic.position.set(0,-.53,0); mic.rotation.x = 1.3; armR.add(mic);
+  mic.add(mesh(new THREE.CylinderGeometry(.04,.05,.32,16), DARK, 0, .1, 0));
+  mic.add(mesh(S(.085,20,16), M(0x8b93a7,{metalness:.6,roughness:.35}), 0, .3, 0));
+  mic.add(mesh(new RoundedBoxGeometry(.13,.09,.13,2,.02), M(0x00ff88), 0, .17, 0));
+  const ic = icon(kind, col); ic.position.set(.78, 2.05, .1); ic.scale.setScalar(1.0); bob.add(ic); extra.icon = ic;
   return {root, bob, fc, head, armL, armR, extra, kind};
 }
 
@@ -142,7 +153,7 @@ const pulse = (t,a,d)=> (t<a||t>a+d)?0:Math.sin(Math.PI*(t-a)/d);
 function amp(win, t){ const T=win.talk; if(!T||!T.length) return 0; const dt=T.length>1?(T[1][0]-T[0][0]):.066;
   const i=Math.round((t-T[0][0])/dt); return (i<0||i>=T.length)?0:T[i][1]; }
 
-const chars = D.windows.map(w=>{ const c=build(w.char, w.color||D.accent); c.win=w; c.root.visible=false; scene.add(c.root); return c; });
+const chars = D.windows.map(w=>{ const c=build(w.char, w.color||D.accent, w.anchor||"A"); c.win=w; c.root.visible=false; scene.add(c.root); return c; });
 
 function pose(c, t){
   const w=c.win, lt=t-w.t_in, out=t-w.t_out;
@@ -180,10 +191,10 @@ function pose(c, t){
   c.fc.eyes.position.x=(w.look||0)*.06;
   const a=amp(w,t); c.fc.mouth.scale.set(1, .25+Math.min(1.5,a*10), 1);
   if(c.head){ c.head.rotation.x = Math.sin(t*5.3)*Math.min(.06,a*.8) - .04; c.head.rotation.z = Math.sin(t*.9)*.05;
-    const br = .2 + Math.min(.04, a*.4); if(c.fc.browL){ c.fc.browL.position.y=br; c.fc.browR.position.y=br; } }
+    const br = .22 + Math.min(.04, a*.4); if(c.fc.browL){ c.fc.browL.position.y=br; c.fc.browR.position.y=br; } }
   // character extras
   const X=c.extra;
-  if(X.icon){ X.icon.position.y=1.95+Math.sin(t*2.2)*.06; X.icon.rotation.y=Math.sin(t*1.1)*.6; }
+  if(X.icon){ X.icon.position.y=2.05+Math.sin(t*2.2)*.06; X.icon.rotation.y=Math.sin(t*1.1)*.6; }
   if(X.clap) X.clap.position.x=Math.sin(t*9)*.08;
   if(X.globe) X.globe.rotation.y=t*.6; if(X.ring) X.ring.rotation.z=.35+t*.4;
   if(X.coin) { X.coin.position.y=2.3+Math.sin(t*3)*.08; X.coin.rotation.z=t*2; }

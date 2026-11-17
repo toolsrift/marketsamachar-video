@@ -68,7 +68,7 @@ Write like a TV business-news anchor talking to one viewer: plain words, short s
 - 2–3 beats per Short, 20–35 seconds of speech. End on a crisp fact (what's next / the date), never on a teaser about where a price may go.
 - Bad: "Kaynes Technology reported a Q2 FY27 consolidated net profit of 39.8 crore rupees, against 115.7 crore in the same quarter last year."
   Good: "Kaynes Technology's quarterly profit fell to 39.8 crore rupees." → "A year ago, the same quarter made 115.7 crore." → "Business Standard says the shares fell for two straight sessions after the results."
-All hosts speak with one channel voice; the host only picks the presenter's suit colour and topic icon.
+Three 3D co-anchors present, each with their own voice: A (blue suit, markets, voice am_michael), B (rose blazer, company news and corporate actions, af_heart), C (glasses and bow tie, results, economy and events, bm_george). The host you pick decides the anchor and the topic icon; consecutive beats automatically alternate anchors and corners (bottom-left / bottom-right), so write each beat as a hand-off that reads naturally in a new voice.
 
 ## Rules the build enforces (`engine/check.py`)
 - News only. No buy/sell/hold, targets, stop-loss, ratings/upgrades/downgrades, predictions ("will rise"), upside/downside,

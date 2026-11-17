@@ -11,6 +11,7 @@ SR = 24000
 BASE = pathlib.Path(__file__).resolve().parent.parent
 CACHE = BASE / ".ttscache"
 NARRATOR = ("af_heart", 1.04)
+ANCHORS = {"A": ("am_michael", 1.06), "B": ("af_heart", 1.04), "C": ("bm_george", 1.03)}   # the three co-anchors
 VOICES = {   # kept for reference / per-job override; say() uses NARRATOR unless a job sets "voice"
     "ghanti": ("am_michael", 1.04), "teji": ("am_puck", 1.08), "mandi": ("af_nicole", 1.0),
     "munshi": ("bm_george", 1.0), "bhonpu": ("am_fenrir", 1.06), "golu": ("af_bella", 1.05),
@@ -81,8 +82,8 @@ def _trim(a, thr=.004):
     return a[max(0, idx[0] - 240):idx[-1] + 480] if len(idx) else a
 
 
-def say(host, text, voice=None):
-    v, sp = (voice, NARRATOR[1]) if voice else NARRATOR
+def say(host, text, voice=None, anchor=None):
+    v, sp = ANCHORS[anchor] if anchor in ANCHORS else ((voice, NARRATOR[1]) if voice else NARRATOR)
     CACHE.mkdir(exist_ok=True)
     key = hashlib.md5(f"kokoro3|{v}|{sp}|{speakable(text)}".encode()).hexdigest()
     f, m = CACHE / f"{key}.npy", CACHE / f"{key}.json"

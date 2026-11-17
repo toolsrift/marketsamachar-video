@@ -12,6 +12,8 @@ from fx import E, T, fmt, words, words_in
 
 FPS = 30
 DISCLAIMER = "News only · Not investment advice · MarketSamachar is not SEBI-registered"
+TOPIC_ANCHOR = dict(munshi="C", arth="C", tareekh="C", ghanti="A", teji="A", mandi="A", desi="A", videshi="A",
+                    bhonpu="B", golu="B", katli="B", tohfa="B", wapsi="B", naya="B")
 GESTURE = dict(ghanti="ring", tohfa="open", katli="split", wapsi="spin", bhonpu="waves", golu="present", teji="cheer",
                mandi="shrug", munshi="point", naya="wave", tareekh="present", desi="point", videshi="wave", arth="point")
 CTA_LINES = ["Subscribe for every market update. Full story on marketsamachar.in.",
@@ -254,16 +256,23 @@ def build(v, proj, date, ticker=None, style=None):
         beats = [dict(b=b, seg=0, first=False) for b in v["beats"]]
     INTRO = 3.0 if long_ else 0.0
     t = INTRO + (.3 if long_ else .25); chapters = []
+    # co-anchor desk: each update switches anchor (own voice) and corner (left / right)
+    first_side = "L" if seed_of(v["id"], date, "side") % 2 else "R"; prev = None
+    for i, x in enumerate(beats):
+        a_ = TOPIC_ANCHOR.get(x["b"]["host"], "A")
+        if a_ == prev: a_ = "B" if prev in ("A", "C") else "A"
+        x["anchor"], prev = a_, a_
+        x["side"] = first_side if i % 2 == 0 else ("R" if first_side == "L" else "L")
     for i, x in enumerate(beats):
         if long_ and x["first"]:
             if i > 0: t += .7
             chapters.append((max(0.0, t - .6), x["segtitle"]))
-        a, ws = voice.say(x["b"]["host"], x["b"]["say"]); dur = len(a) / voice.SR
+        a, ws = voice.say(x["b"]["host"], x["b"]["say"], anchor=x["anchor"]); dur = len(a) / voice.SR
         x.update(a=a, ws=ws, t0=t, d=max(3.2 if long_ else 3.0, dur + .45)); vparts.append((t + .15, a)); t += x["d"]
     host0 = beats[0]["b"]["host"]
     cta_line = v.get("cta") or (("That's the update. Subscribe to MarketSamachar, and find every story on marketsamachar.in.")
                                 if long_ else CTA_LINES[seed_of(v["id"], "cta") % len(CTA_LINES)])
-    ca, cws = voice.say(host0, cta_line); cta_t0 = t + .1; cta_d = max(4.0 if not long_ else 4.8, len(ca) / voice.SR + (1.0 if not long_ else 1.6))
+    ca, cws = voice.say(host0, cta_line, anchor=beats[0]["anchor"]); cta_t0 = t + .1; cta_d = max(4.0 if not long_ else 4.8, len(ca) / voice.SR + (1.0 if not long_ else 1.6))
     vparts.append((cta_t0 + .4, ca)); total = round((cta_t0 + cta_d) * FPS) / FPS
     # ---- stations
     pos, mvs = layout(len(beats), S["moves"], W, H, rnd)
@@ -353,28 +362,23 @@ def build(v, proj, date, ticker=None, style=None):
             htm.append(story_card(v, js, 1372, W))
         htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1610px;font-size:19px;z-index:9">{E(DISCLAIMER)}</div>')
         capbox, capfs, capal, capn = (36, 1176, 780, 150), 50, "left", 5
-    # host: real 3D character (three.js) on a transparent canvas over the host area
-    # small presenter in the bottom-right corner (TV-news inset)
-    if long_: RL, RT, RW, RH = 1560, 600, 360, 428; hpos = (190, 418, 290); look = -1
-    else: RL, RT, RW, RH = 780, 1010, 300, 340; hpos = (150, 326, 250); look = -1
-    wins = []; cur = None
+    # hosts: 3D co-anchors docked at the bottom-left / bottom-right edge, one per update
+    if long_: RL, RT, RW, RH = 0, 600, W, 428; SX = dict(L=170, R=W - 170); FY, SZ = 418, 300
+    else: RL, RT, RW, RH = 0, 990, W, 370; SX = dict(L=138, R=W - 138); FY, SZ = 352, 262
+    wins = []
     for i, x in enumerate(beats):
-        host = x["b"]["host"]
-        if host != cur:
-            if wins: wins[-1]["t_out"] = x["t0"] - .2
-            wins.append(dict(char=host, color=styles.ACCENT.get(host, S['v']['acc']), x=hpos[0], y=hpos[1], size=hpos[2], t_in=max(0, x["t0"] - .1), t_out=x["t0"] + x["d"],
-                             talk=[], gest=[], moods=[], look=look, seed=len(wins) + 1))
-            cur = host; sfx.append((max(0, x["t0"] - .1), "pop", .35))
-        wn = wins[-1]; wn["t_out"] = x["t0"] + x["d"]
-        wn["talk"] += [[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(x["a"], x["t0"] + .15)]
-        g = GESTURE.get(host, "point") if i == 0 or beats[i - 1]["b"]["host"] != host else rnd.choice(["point", "present"])
-        wn["gest"].append([round(x["t0"] + .35, 2), "wave" if g in ("waves",) else g])
-        for mt, mood in x["ev"]["mood"][:1]: wn["moods"].append([round(mt, 2), mood])
-    if wins: wins[-1]["t_out"] = cta_t0 - .1
+        host = x["b"]["host"]; side = x["side"]
+        wins.append(dict(char=host, anchor=x["anchor"], color=styles.ACCENT.get(host, S['v']['acc']), x=SX[side], y=FY, size=SZ,
+                         t_in=max(0, x["t0"] - .12), t_out=(beats[i + 1]["t0"] - .2) if i + 1 < len(beats) else cta_t0 - .1,
+                         talk=[[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(x["a"], x["t0"] + .15)],
+                         gest=[[round(x["t0"] + .35, 2), "wave" if GESTURE.get(host) == "waves" else GESTURE.get(host, "point")]],
+                         moods=[[round(mt, 2), mood] for mt, mood in x["ev"]["mood"][:1]], look=1 if side == "L" else -1, seed=i + 1))
+        sfx.append((max(0, x["t0"] - .1), "pop", .35))
     for i, x in enumerate(beats):
         host = x["b"]["host"]
         wt = [(w, x["t0"] + .15 + s, x["t0"] + .15 + e) for w, s, e in x["ws"]]
-        captions(js, htm, wt, f"c{i}", capbox, capfs, capal, capn)
+        cb = capbox if long_ else ((300, 1176, 756, 150) if x["side"] == "L" else (24, 1176, 756, 150))
+        captions(js, htm, wt, f"c{i}", cb, capfs, capal, capn)
         if long_ and x["first"]:
             js.append(f'tl.set("#segl",{{textContent:{json.dumps(x["segtitle"].upper())}}},{T(x["t0"] - .3)})')
             if i > 0:   # desk banner in the host's colour while the camera travels
@@ -405,16 +409,26 @@ def build(v, proj, date, ticker=None, style=None):
         sfx.append((.02, "impact", .6))
     # ---- CTA
     cta(js, htm, sfx, cta_t0, cta_d, W, H, not long_, host0)
-    cx3, cy3, cs3 = hpos
-    wins.append(dict(char=host0, color=styles.ACCENT.get(host0, S['v']['acc']), x=cx3, y=cy3, size=cs3, t_in=cta_t0 + .15, t_out=total + 1, look=-1 if not long_ else -1, seed=9,
-                     talk=[[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(ca, cta_t0 + .4)], gest=[[round(cta_t0 + .9, 2), "wave"]], moods=[]))
+    co = beats[1] if len(beats) > 1 else beats[0]
+    for k_, bx in enumerate([beats[0], co] if co is not beats[0] else [beats[0]]):
+        wins.append(dict(char=bx["b"]["host"], anchor=bx["anchor"], color=styles.ACCENT.get(bx["b"]["host"], S['v']['acc']), x=SX[bx["side"]], y=FY, size=SZ,
+                         t_in=cta_t0 + .15 + k_ * .2, t_out=total + 1, look=1 if bx["side"] == "L" else -1, seed=9 + k_, moods=[],
+                         talk=[[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(ca, cta_t0 + .4)] if k_ == 0 else [],
+                         gest=[[round(cta_t0 + .9 + k_ * .3, 2), "wave"]]))
     chars3d.setup(proj)
-    # inset frame behind the presenter (TV-news style), so he never floats over the story
-    ix, iy, iw, ih = (RL + 14, RT + 30, RW - 28, RH - 26) if not long_ else (RL + 20, RT + 20, RW - 50, RH - 30)
-    htm.append(f'<div class="ab" id="inset" style="left:{ix}px;top:{iy}px;width:{iw}px;height:{ih}px;z-index:19;border-radius:28px;'
-               f'background:radial-gradient(circle at 50% 85%,{S["v"]["acc"]}55,transparent 62%),linear-gradient(180deg,#151735,#0B0C1C);'
-               f'border:2px solid {S["v"]["acc"]}88;box-shadow:0 16px 40px rgba(0,0,0,.55)"></div>')
-    js.append('tl.fromTo("#inset",{scale:.6,opacity:0},{scale:1,opacity:1,duration:.5,ease:"back.out(1.6)"},0.05)')
+    cw, chh = (270, 300) if not long_ else (330, 388)
+    ctop = RT + RH - chh - (10 if not long_ else 0)
+    acc = S["v"]["acc"]
+    for sd in ("L", "R"):
+        rad = "0 30px 30px 0" if sd == "L" else "30px 0 0 30px"; bd = "border-left:none" if sd == "L" else "border-right:none"
+        htm.append(f'<div class="ab" id="inset{sd}" style="left:{0 if sd == "L" else W - cw}px;top:{ctop}px;width:{cw}px;height:{chh}px;z-index:19;border-radius:{rad};'
+                   f'background:radial-gradient(circle at 50% 88%,{acc}55,transparent 64%),linear-gradient(180deg,#151735,#0B0C1C);border:2px solid {acc}88;{bd};'
+                   f'box-shadow:0 16px 40px rgba(0,0,0,.55);opacity:0"></div>')
+    for i, x in enumerate(beats):
+        t_in = max(0, x["t0"] - .15); t_out = (beats[i + 1]["t0"] - .2) if i + 1 < len(beats) else cta_t0
+        dx = -60 if x["side"] == "L" else 60
+        js.append(f'tl.fromTo("#inset{x["side"]}",{{opacity:0,x:{dx}}},{{opacity:1,x:0,duration:.3,ease:"power3.out"}},{T(t_in)})')
+        js.append(f'tl.to("#inset{x["side"]}",{{opacity:0,x:{dx},duration:.22,ease:"power2.in"}},{T(t_out)})')
     htm.append(chars3d.html(RL, RT, RW, RH, wins, S["v"]["acc"], 21))
     cwt = [(w, cta_t0 + .4 + s, cta_t0 + .4 + e) for w, s, e in cws]
     htm.append('<div class="ab" style="left:0;top:0;width:1px;height:1px;z-index:22">')
