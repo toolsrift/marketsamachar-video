@@ -62,7 +62,7 @@ jobs:
       - name: Thumbnail + preview
         run: |
           python3 engine/thumb.py "${{ inputs.job }}" work
-          ffmpeg -v error -y -i "work/${{ matrix.id }}/video.mp4" -vf "scale='if(gt(iw,ih),854,480)':-2" -c:v libx264 -crf 30 -preset veryfast -c:a aac -b:a 64k "work/${{ matrix.id }}/preview.mp4"
+          ffmpeg -v error -y -i "work/${{ matrix.id }}/video.mp4" -vf "scale='if(gt(iw,ih),1280,720)':-2" -c:v libx264 -crf 26 -preset veryfast -c:a aac -b:a 128k "work/${{ matrix.id }}/preview.mp4"
       - uses: actions/upload-artifact@v4
         with:
           name: v-${{ matrix.id }}
