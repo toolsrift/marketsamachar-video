@@ -127,7 +127,9 @@ function build(kind, col, who){
   const hd = mesh(S(.5,48,36), SKIN); hd.scale.set(1.04,1,.95); head.add(hd);
   for (const sx of [-1,1]) head.add(mesh(S(.09), SKIN, sx*.5, -.03, 0));
   const hair = mesh(new THREE.SphereGeometry(.53,48,24,0,Math.PI*2,0,Math.PI*.42), HR, 0, .1, -.04); hair.rotation.x=.72; head.add(hair);
-  if (P.style==="short") head.add(mesh(S(.17), HR, .12, .43, .16)).scale.set(1.6,.55,1);
+  if (P.style==="short") { hair.rotation.x = .95; hair.position.y = .14;
+    const q = mesh(S(.19), HR, .08, .47, .12); q.scale.set(1.35,.55,1); q.rotation.z = -.25; head.add(q);
+    for (const sx of [-1,1]){ const sd = mesh(new THREE.CapsuleGeometry(.1,.16,8,12), HR, sx*.46, .14, -.06); sd.rotation.z = sx*.18; head.add(sd); } }
   if (P.style==="side") { const sp=mesh(S(.2), HR, -.18, .4, .18); sp.scale.set(1.5,.45,1); head.add(sp); }
   if (P.style==="bob") { for (const sx of [-1,1]){ const h=mesh(new THREE.CapsuleGeometry(.17,.42,8,16), HR, sx*.47, -.08, -.04); h.rotation.z = sx*.12; head.add(h); }
                          const fr=mesh(S(.24), HR, .14, .38, .2); fr.scale.set(1.7,.5,1); head.add(fr); }

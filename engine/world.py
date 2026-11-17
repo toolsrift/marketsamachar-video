@@ -356,15 +356,15 @@ def build(v, proj, date, ticker=None, style=None):
                    f'<div class="ab hud chip k" style="right:44px;top:186px;font-size:19px;z-index:9">{E(v.get("stamp", ""))}</div>'
                    f'<div class="ab hud" style="left:46px;top:252px;z-index:9">{index_strip(ticker, 19)}</div>')
         if ticker:
-            htm.append(f'<div class="ab hud" style="left:0;top:0;width:{W}px;height:1px;z-index:9">{market_board(ticker, js, 1372, W)}</div>')
-            htm.append(ticker_tape(ticker, js, total, 1530, W, 50, 22))
+            htm.append(f'<div class="ab hud" style="left:0;top:0;width:{W}px;height:1px;z-index:9">{market_board(ticker, js, 1340, W)}</div>')
+            htm.append(ticker_tape(ticker, js, total, 1484, W, 48, 22))
         else:
             htm.append(story_card(v, js, 1372, W))
-        htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1610px;font-size:19px;z-index:9">{E(DISCLAIMER)}</div>')
-        capbox, capfs, capal, capn = (36, 1176, 780, 150), 50, "left", 5
+        if not ticker: htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1536px;font-size:19px;z-index:9;text-align:center">{E(DISCLAIMER)}</div>')
+        capbox, capfs, capal, capn = (40, 1176, 1000, 150), 52, "center", 5
     # hosts: 3D co-anchors docked at the bottom-left / bottom-right edge, one per update
     if long_: RL, RT, RW, RH = 0, 600, W, 428; SX = dict(L=170, R=W - 170); FY, SZ = 418, 300
-    else: RL, RT, RW, RH = 0, 990, W, 370; SX = dict(L=138, R=W - 138); FY, SZ = 352, 262
+    else: RL, RT, RW, RH = 0, 1530, W, 390; SX = dict(L=150, R=W - 150); FY, SZ = 378, 300
     wins = []
     for i, x in enumerate(beats):
         host = x["b"]["host"]; side = x["side"]
@@ -377,7 +377,7 @@ def build(v, proj, date, ticker=None, style=None):
     for i, x in enumerate(beats):
         host = x["b"]["host"]
         wt = [(w, x["t0"] + .15 + s, x["t0"] + .15 + e) for w, s, e in x["ws"]]
-        cb = capbox if long_ else ((300, 1176, 756, 150) if x["side"] == "L" else (24, 1176, 756, 150))
+        cb = capbox
         captions(js, htm, wt, f"c{i}", cb, capfs, capal, capn)
         if long_ and x["first"]:
             js.append(f'tl.set("#segl",{{textContent:{json.dumps(x["segtitle"].upper())}}},{T(x["t0"] - .3)})')
@@ -416,11 +416,12 @@ def build(v, proj, date, ticker=None, style=None):
                          talk=[[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(ca, cta_t0 + .4)] if k_ == 0 else [],
                          gest=[[round(cta_t0 + .9 + k_ * .3, 2), "wave"]]))
     chars3d.setup(proj)
-    cw, chh = (270, 300) if not long_ else (330, 388)
-    ctop = RT + RH - chh - (10 if not long_ else 0)
+    cw, chh = (300, 330) if not long_ else (330, 388)
+    ctop = RT + RH - chh
     acc = S["v"]["acc"]
     for sd in ("L", "R"):
-        rad = "0 30px 30px 0" if sd == "L" else "30px 0 0 30px"; bd = "border-left:none" if sd == "L" else "border-right:none"
+        if long_: rad = "0 30px 30px 0" if sd == "L" else "30px 0 0 30px"; bd = "border-left:none" if sd == "L" else "border-right:none"
+        else: rad = "0 34px 0 0" if sd == "L" else "34px 0 0 0"; bd = ("border-left:none;" if sd == "L" else "border-right:none;") + "border-bottom:none"
         htm.append(f'<div class="ab" id="inset{sd}" style="left:{0 if sd == "L" else W - cw}px;top:{ctop}px;width:{cw}px;height:{chh}px;z-index:19;border-radius:{rad};'
                    f'background:radial-gradient(circle at 50% 88%,{acc}55,transparent 64%),linear-gradient(180deg,#151735,#0B0C1C);border:2px solid {acc}88;{bd};'
                    f'box-shadow:0 16px 40px rgba(0,0,0,.55);opacity:0"></div>')
@@ -432,7 +433,7 @@ def build(v, proj, date, ticker=None, style=None):
     htm.append(chars3d.html(RL, RT, RW, RH, wins, S["v"]["acc"], 21))
     cwt = [(w, cta_t0 + .4 + s, cta_t0 + .4 + e) for w, s, e in cws]
     htm.append('<div class="ab" style="left:0;top:0;width:1px;height:1px;z-index:22">')
-    captions(js, htm, cwt, "cc", (36, 1176, 780, 150) if not long_ else (330, 928, 1220, 86), 50 if not long_ else 46, "left" if not long_ else "center", 5 if not long_ else 7)
+    captions(js, htm, cwt, "cc", (40, 1176, 1000, 150) if not long_ else (330, 928, 1220, 86), 52 if not long_ else 46, "center", 5 if not long_ else 7)
     htm.append('</div>')
     mix = audio.mix(total, vparts, sfx, seed_of(v["id"], date), .30 if not long_ else .26, track=S["music"])
     _write(proj, W, H, total, css, htm, js, pre, mix)
