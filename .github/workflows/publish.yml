@@ -1,0 +1,19 @@
+name: publish
+# Publishes (or schedules) Zernio drafts of a job — run ONLY after the owner approves.
+on:
+  workflow_dispatch:
+    inputs:
+      job: {description: "job name, e.g. 2026-11-17_1600", required: true}
+      args: {description: "e.g. '--spread 30' or '--at \"2026-11-17 18:30\" --spread 30' or video ids", required: false, default: "--spread 30"}
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git fetch -q origin out --depth=1 && git show "origin/out:out/${{ inputs.job }}/drafts.json" > drafts.json
+      - name: Publish
+        env: {ZERNIO_API_KEY: "${{ secrets.ZERNIO_API_KEY }}"}
+        run: |
+          eval "set -- ${{ inputs.args }}"
+          python3 engine/zernio.py publish drafts.json "$@"
+          sleep 20; python3 engine/zernio.py status drafts.json

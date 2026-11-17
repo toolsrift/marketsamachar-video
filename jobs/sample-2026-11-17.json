@@ -1,0 +1,95 @@
+{
+ "date": "2026-11-17",
+ "slot": "test",
+ "feed": "feed/latest.json",
+ "ticker": [
+  {"name": "NIFTY 50", "value": "25,291.10", "pct": 0.58},
+  {"name": "SENSEX", "value": "82,104.79", "pct": 0.63},
+  {"name": "NIFTY BANK", "value": "61,575.90", "pct": 0.89}
+ ],
+ "videos": [
+  {
+   "id": "s1-flows", "kind": "short", "stamp": "17 NOV · 11:30 IST",
+   "title": "FIIs bought ₹4,865 crore on Monday, DIIs sold ₹3,519 crore",
+   "hook": "Foreign money keeps *coming in*",
+   "sources": ["NSE provisional data via marketsamachar.in"],
+   "beats": [
+    {"host": "videshi", "say": "Foreign investors were net buyers of 4,865 crore rupees in the cash market on Monday.",
+     "scene": {"kind": "stat", "label": "FII net · 16 Nov", "value": "4,865", "prefix": "+₹", "suffix": " cr", "tone": "up", "source": "NSE (provisional)"}},
+    {"host": "desi", "say": "Domestic institutions were net sellers of 3,519 crore rupees the same day.",
+     "scene": {"kind": "stat", "label": "DII net · 16 Nov", "value": "3,519", "prefix": "-₹", "suffix": " cr", "tone": "down", "source": "NSE (provisional)"}},
+    {"host": "videshi", "say": "Here are the last eight sessions. Foreign investors were net buyers on every one of them.",
+     "scene": {"kind": "flows", "source": "NSE (provisional)", "days": [
+       {"date": "04 Nov", "fii": 7284.03, "dii": -3712.23}, {"date": "05 Nov", "fii": 14974.68, "dii": -10444.54},
+       {"date": "06 Nov", "fii": 13749.82, "dii": -5968.7}, {"date": "09 Nov", "fii": 7212.22, "dii": -7172.53},
+       {"date": "11 Nov", "fii": 12563.33, "dii": -8434.53}, {"date": "12 Nov", "fii": 7830.6, "dii": -6331.17},
+       {"date": "13 Nov", "fii": 5736.55, "dii": -2253.58}, {"date": "16 Nov", "fii": 4864.68, "dii": -3519.05}]}}
+   ],
+   "description": "Institutional cash-market flows for Monday, 16 November 2026 (provisional), and the last eight sessions.",
+   "caption": "FIIs net buyers of ₹4,865 cr, DIIs net sellers of ₹3,519 cr on 16 Nov (provisional).",
+   "tags": ["fii dii data", "fii dii today", "stock market india", "nifty", "sensex"]
+  },
+  {
+   "id": "s2-urbanco", "kind": "short", "stamp": "17 NOV · 11:30 IST",
+   "title": "Urban Company launches ₹2,500 crore QIP",
+   "hook": "Urban Company opens a *₹2,500 crore* QIP",
+   "sources": ["Business Standard"],
+   "beats": [
+    {"host": "bhonpu", "say": "Big announcement! Urban Company has launched a qualified institutional placement to raise 2,500 crore rupees.",
+     "scene": {"kind": "headline", "kicker": "Fund-raise", "text": "Urban Company launches a *₹2,500 crore* QIP", "sub": "Qualified institutional placement", "source": "Business Standard"}},
+    {"host": "bhonpu", "say": "The company said 600 crore rupees of the money will go to InstaHelp, its home cleaning and housekeeping business.",
+     "scene": {"kind": "facts", "source": "Business Standard", "items": [
+       {"label": "QIP size", "value": "₹2,500 cr", "tone": "neutral"},
+       {"label": "For InstaHelp", "value": "₹600 cr", "tone": "neutral", "note": "home cleaning & housekeeping"}]}},
+    {"host": "bhonpu", "say": "The shares slipped about 2 percent in morning trade after the news.",
+     "scene": {"kind": "stat", "label": "Urban Company · morning trade", "value": "2", "prefix": "-", "suffix": "%", "tone": "down", "note": "as reported", "source": "Business Standard"}}
+   ],
+   "description": "Urban Company launched a ₹2,500 crore QIP; ₹600 crore is earmarked for its InstaHelp business, as reported by Business Standard.",
+   "caption": "Urban Company launches ₹2,500 crore QIP; ₹600 crore for InstaHelp.",
+   "tags": ["urban company", "qip", "stock market news", "corporate announcements"]
+  },
+  {
+   "id": "long-wrap", "kind": "long", "stamp": "TUE · 17 NOV 2026",
+   "title": "Nifty Bank crosses 62,000 · FIIs keep buying · Urban Company QIP | Market Samachar Daily",
+   "hook": "Where the money moved *today*",
+   "sources": ["NSE", "BSE", "NSE (provisional)", "Business Standard", "NDTV Profit", "Reserve Bank of India"],
+   "segments": [
+    {"title": "Closing Bell", "beats": [
+      {"host": "ghanti", "say": "Ding ding! On Monday the Nifty 50 closed at 25,291.10, up 0.58 percent, and the Sensex ended at 82,104.79.",
+       "scene": {"kind": "indices", "source": "NSE, BSE", "asof": "Close · 16 Nov 2026", "items": [
+         {"name": "NIFTY 50", "value": "25,291.10", "pct": 0.58}, {"name": "SENSEX", "value": "82,104.79", "pct": 0.63}, {"name": "NIFTY BANK", "value": "61,575.90", "pct": 0.89}]}},
+      {"host": "ghanti", "say": "And this morning, Nifty Bank crossed 62,000 for the first time.",
+       "scene": {"kind": "headline", "kicker": "Record", "text": "Nifty Bank crosses *62,000* for the first time", "source": "NDTV Profit"}}
+    ]},
+    {"title": "Money Flows", "beats": [
+      {"host": "videshi", "say": "Foreign investors bought a net 4,865 crore rupees on Monday, and they have been net buyers for eight sessions in a row.",
+       "scene": {"kind": "flows", "source": "NSE (provisional)", "days": [
+         {"date": "04 Nov", "fii": 7284.03, "dii": -3712.23}, {"date": "05 Nov", "fii": 14974.68, "dii": -10444.54},
+         {"date": "06 Nov", "fii": 13749.82, "dii": -5968.7}, {"date": "09 Nov", "fii": 7212.22, "dii": -7172.53},
+         {"date": "11 Nov", "fii": 12563.33, "dii": -8434.53}, {"date": "12 Nov", "fii": 7830.6, "dii": -6331.17},
+         {"date": "13 Nov", "fii": 5736.55, "dii": -2253.58}, {"date": "16 Nov", "fii": 4864.68, "dii": -3519.05}]}},
+      {"host": "desi", "say": "Domestic institutions were on the other side, net sellers of 3,519 crore rupees.",
+       "scene": {"kind": "stat", "label": "DII net · 16 Nov", "value": "3,519", "prefix": "-₹", "suffix": " cr", "tone": "down", "source": "NSE (provisional)"}}
+    ]},
+    {"title": "Corporate Desk", "beats": [
+      {"host": "bhonpu", "say": "Urban Company launched a 2,500 crore rupee QIP. It says 600 crore rupees will go to its InstaHelp business.",
+       "scene": {"kind": "facts", "source": "Business Standard", "items": [
+         {"label": "QIP size", "value": "₹2,500 cr"}, {"label": "For InstaHelp", "value": "₹600 cr"}]}}
+    ]},
+    {"title": "Economy Desk", "beats": [
+      {"host": "arth", "say": "The RBI ran a two day reverse repo auction. It notified 50,000 crore rupees, received offers of 7,627 crore, and accepted all of them at a cut off of 5.49 percent.",
+       "scene": {"kind": "facts", "source": "Reserve Bank of India", "items": [
+         {"label": "Notified", "value": "₹50,000 cr"}, {"label": "Offers received", "value": "₹7,627 cr"}, {"label": "Cut-off rate", "value": "5.49%"}]}}
+    ]},
+    {"title": "Corporate Actions", "beats": [
+      {"host": "tohfa", "say": "From the events calendar: Concord Biotech's 1:1 bonus. One bonus share for every share held.",
+       "scene": {"kind": "bonus", "company": "Concord Biotech", "ratio": "1:1", "ex_date": "04 Nov 2026", "source": "NSE"}},
+      {"host": "golu", "say": "And Ksolves India paid an interim dividend of 1 rupee per share.",
+       "scene": {"kind": "dividend", "company": "Ksolves India", "amount": "₹1", "type": "Interim", "ex_date": "29 Oct 2026", "record_date": "29 Oct 2026", "source": "NSE"}}
+    ]}
+   ],
+   "description": "Monday's close, institutional flows, Urban Company's QIP, RBI's reverse repo auction and corporate actions — explained with the MarketSamachar cast.",
+   "tags": ["stock market today", "nifty bank", "fii dii", "market wrap", "marketsamachar"]
+  }
+ ]
+}

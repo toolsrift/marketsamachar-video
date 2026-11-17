@@ -5,3 +5,5 @@ work/
 __pycache__/
 *.mp4
 .ttscache/
+kokoro-v1.0.onnx
+voices-v1.0.bin

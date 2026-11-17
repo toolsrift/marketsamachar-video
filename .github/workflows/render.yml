@@ -1,0 +1,96 @@
+name: render
+# Renders every video in a job file in parallel, makes thumbnails + small previews, optionally creates Zernio DRAFTS,
+# and saves previews/meta/drafts.json to the `out` branch (out/<job>/) for the daily Claude task to show the owner.
+on:
+  workflow_dispatch:
+    inputs:
+      job: {description: "job file path, e.g. jobs/2026-11-17_1600.json", required: true}
+      drafts: {description: "create Zernio drafts (yes/no)", required: true, default: "yes"}
+permissions:
+  contents: write
+concurrency:
+  group: render-${{ inputs.job }}
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      ids: ${{ steps.p.outputs.ids }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: p
+        run: echo "ids=$(python3 -c "import json;print(json.dumps([v['id'] for v in json.load(open('${{ inputs.job }}'))['videos']]))")" >> "$GITHUB_OUTPUT"
+  render:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        id: ${{ fromJson(needs.plan.outputs.ids) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - name: Install
+        run: |
+          npm install --no-audit --no-fund --loglevel=error
+          pip install -q edge-tts soundfile numpy playwright kokoro-onnx
+          command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          python3 -c "import asyncio,edge_tts;asyncio.run(edge_tts.Communicate('test','en-IN-NeerjaNeural').save('t.mp3'))" && echo "edge-tts ok" || {
+            echo "edge-tts unavailable, fetching Kokoro fallback";
+            R=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0;
+            curl -sSL -o kokoro-v1.0.onnx $R/kokoro-v1.0.onnx; curl -sSL -o voices-v1.0.bin $R/voices-v1.0.bin; }
+      - name: Feed snapshot for the number check
+        run: |
+          F=$(python3 -c "import json;print(json.load(open('${{ inputs.job }}')).get('feed','feed/latest.json'))")
+          git fetch -q origin feed --depth=1 && git show "origin/feed:$F" > feed.json || echo '{}' > feed.json
+      - name: Build
+        run: python3 engine/build.py "${{ inputs.job }}" --feed feed.json --out work --only "${{ matrix.id }}"
+      - name: Render
+        env: {DO_NOT_TRACK: "1", HYPERFRAMES_NO_TELEMETRY: "1", HYPERFRAMES_BROWSER_PATH: /usr/bin/google-chrome}
+        run: |
+          cd "work/${{ matrix.id }}"
+          for try in 1 2; do npx -y hyperframes@0.9.59 render --quality looks --no-low-memory-mode -o video.mp4 > render.log 2>&1 && break; tail -20 render.log; done
+          test -s video.mp4
+          ffprobe -v error -show_entries format=duration -of csv=p=0 video.mp4
+      - name: Thumbnail + preview
+        run: |
+          python3 engine/thumb.py "${{ inputs.job }}" work
+          ffmpeg -v error -y -i "work/${{ matrix.id }}/video.mp4" -vf "scale='if(gt(iw,ih),854,480)':-2" -c:v libx264 -crf 30 -preset veryfast -c:a aac -b:a 64k "work/${{ matrix.id }}/preview.mp4"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v-${{ matrix.id }}
+          path: |
+            work/${{ matrix.id }}/video.mp4
+            work/${{ matrix.id }}/preview.mp4
+            work/${{ matrix.id }}/thumb.png
+            work/${{ matrix.id }}/meta.json
+          retention-days: 7
+  finish:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {path: dist, pattern: "v-*"}
+      - name: Arrange
+        run: |
+          mkdir -p videos
+          for d in dist/v-*; do id=${d#dist/v-}; mkdir -p "videos/$id"; cp "$d"/* "videos/$id/"; done
+          ls -R videos | head -50
+      - name: Zernio drafts
+        if: inputs.drafts == 'yes'
+        env: {ZERNIO_API_KEY: "${{ secrets.ZERNIO_API_KEY }}"}
+        run: python3 engine/zernio.py drafts videos videos/drafts.json
+      - name: Save previews to the out branch
+        run: |
+          JOB=$(basename "${{ inputs.job }}" .json)
+          git config user.name "ms-video-bot"; git config user.email "actions@users.noreply.github.com"
+          git fetch -q origin out --depth=1 && git worktree add -q ob origin/out || { git worktree add -q --detach ob; (cd ob && git rm -rqf . && git clean -fdq); }
+          rm -rf "ob/out/$JOB"; mkdir -p "ob/out/$JOB"
+          for d in videos/*/; do id=$(basename "$d"); mkdir -p "ob/out/$JOB/$id"; cp "$d"preview.mp4 "$d"thumb.png "$d"meta.json "ob/out/$JOB/$id/" 2>/dev/null || true; done
+          cp videos/drafts.json "ob/out/$JOB/" 2>/dev/null || true
+          python3 -c "import pathlib,shutil,datetime;c=(datetime.date.today()-datetime.timedelta(days=3)).isoformat();[shutil.rmtree(d) for d in pathlib.Path('ob/out').iterdir() if d.is_dir() and d.name[:10]<c and d.name[:2]=='20']"
+          cd ob && git checkout -q --orphan snap && git add -A && git commit -qm "out: $JOB" && git push -qf origin snap:out
+          echo "OUT_READY out/$JOB"
