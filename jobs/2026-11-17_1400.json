@@ -1,0 +1,60 @@
+{
+ "date": "2026-11-17",
+ "slot": "1400",
+ "feed": "feed/2026-11-17_1408.json",
+ "videos": [
+  {"id": "s1-senco-festive", "kind": "short", "stamp": "17 NOV · 2 PM IST",
+   "title": "Senco Gold reports record festive retail sales of over ₹2,426 crore",
+   "hook": "Senco's record *₹2,426 cr* festive run",
+   "thumb": "Senco *record* festive sales",
+   "sources": ["Business Standard"],
+   "beats": [
+    {"host": "bhonpu", "say": "Senco Gold says its festive season brought in its highest-ever retail net sales value, over 2,426 crore rupees.",
+     "scene": {"kind": "announce", "company": "Senco Gold", "kicker": "Festive sales", "amount": "2,426", "prefix": "₹", "suffix": " cr", "sub": "Highest-ever retail NSV", "stamp": "Record", "source": "Business Standard"}},
+    {"host": "bhonpu", "title": "The *41-day* window",
+     "say": "The company measured the 41-day period from 1 October to 11 November 2026.",
+     "scene": {"kind": "facts", "items": [{"label": "Period", "value": "41 days"}, {"label": "From", "value": "1 Oct 2026"}, {"label": "To", "value": "11 Nov 2026"}], "source": "Business Standard"}},
+    {"host": "bhonpu", "title": "Company-reported *figure*",
+     "say": "These are the company's own numbers, reported by Business Standard. This is a news update, not advice.",
+     "scene": {"kind": "headline", "kicker": "Senco Gold", "text": "Record festive retail NSV of over ₹2,426 crore", "sub": "As reported by the company", "source": "Business Standard"}}
+   ],
+   "description": "Senco Gold says it recorded its highest-ever retail net sales value of over ₹2,426 crore in the 41-day festive period from 1 October to 11 November 2026, as reported by Business Standard.",
+   "caption": "Senco Gold reports record festive retail sales of over ₹2,426 crore for 1 Oct to 11 Nov 2026 (Business Standard).",
+   "tags": ["senco gold", "festive sales", "jewellery", "company news", "stock market today", "marketsamachar"]},
+
+  {"id": "s2-kaynes-q2", "kind": "short", "stamp": "17 NOV · 2 PM IST",
+   "title": "Kaynes Technology Q2 FY27: net profit ₹39.8 crore vs ₹115.7 crore a year ago",
+   "hook": "Kaynes profit: *₹39.8 cr* vs ₹115.7 cr",
+   "thumb": "Kaynes *Q2* profit",
+   "sources": ["Business Standard"],
+   "beats": [
+    {"host": "munshi", "say": "Kaynes Technology reported a Q2 FY27 consolidated net profit of 39.8 crore rupees, against 115.7 crore in the same quarter last year.",
+     "scene": {"kind": "results", "company": "Kaynes Technology", "period": "Q2 FY27", "metrics": [{"label": "Consolidated net profit", "value": "39.8", "unit": "cr"}, {"label": "Year-ago quarter", "value": "115.7", "unit": "cr"}], "source": "Business Standard"}},
+    {"host": "munshi", "title": "Profit *versus* a year ago",
+     "say": "That is a clear drop from the year-ago quarter, and Business Standard reported that the stock fell over two sessions.",
+     "scene": {"kind": "facts", "items": [{"label": "Q2 FY27", "value": "₹39.8 cr", "tone": "down"}, {"label": "Q2 FY26", "value": "₹115.7 cr"}], "source": "Business Standard"}}
+   ],
+   "description": "Kaynes Technology reported a consolidated net profit of ₹39.8 crore for Q2 FY27, compared with ₹115.7 crore in the corresponding quarter of the previous year, per Business Standard.",
+   "caption": "Kaynes Technology Q2 FY27 consolidated net profit: ₹39.8 crore vs ₹115.7 crore a year earlier (Business Standard).",
+   "tags": ["kaynes technology", "q2 results", "q2fy27", "earnings", "stock market today", "marketsamachar"]},
+
+  {"id": "s3-economy-desk", "kind": "short", "stamp": "17 NOV · 2 PM IST",
+   "title": "Retail credit up 18.8% to ₹185.2 trillion; EU steel duty on India",
+   "hook": "Retail credit up *18.8%*",
+   "thumb": "Retail credit *18.8%*",
+   "sources": ["Business Standard"],
+   "beats": [
+    {"host": "arth", "say": "India's retail credit grew 18.8 percent year on year to 185.2 trillion rupees in Q2 FY27, with gold and secured business loans growing strongly.",
+     "scene": {"kind": "stat", "label": "Retail credit, Q2 FY27 (YoY)", "value": "18.8", "suffix": "%", "tone": "up", "note": "₹185.2 trillion portfolio", "source": "Business Standard"}},
+    {"host": "arth", "title": "EU steel *anti-dumping* duty",
+     "say": "The European Union has imposed anti-dumping duty on steel imports from India and four other countries, effective today.",
+     "scene": {"kind": "headline", "kicker": "Trade", "text": "EU imposes anti-dumping duty on steel imports from India", "sub": "Also covers Japan, Taiwan, Türkiye and Vietnam · effective today", "source": "Business Standard"}},
+    {"host": "arth", "title": "Margin funding at *₹1.53 trn*",
+     "say": "Business Standard also reports margin-funded stock purchases reached 1.53 trillion rupees, up 29 percent in a year.",
+     "scene": {"kind": "facts", "items": [{"label": "Margin-funded positions", "value": "₹1.53 trn"}, {"label": "Change in a year", "value": "+29%", "tone": "up"}], "source": "Business Standard"}}
+   ],
+   "description": "Retail credit rose 18.8% year on year to ₹185.2 trillion in Q2 FY27, the EU imposed anti-dumping duty on steel imports from India, and margin-funded stock purchases reached ₹1.53 trillion, per Business Standard.",
+   "caption": "Retail credit up 18.8% to ₹185.2 trillion in Q2 FY27; EU anti-dumping duty on Indian steel takes effect today (Business Standard).",
+   "tags": ["retail credit", "economy", "eu steel duty", "anti-dumping", "margin funding", "marketsamachar"]}
+ ]
+}
