@@ -1,0 +1,22 @@
+name: fetch-feed
+# Snapshots the public marketsamachar.in data and commits it to the `feed` branch (feed/latest.json),
+# where the daily Claude task reads it to write the video scripts.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: feed
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 engine/fetch.py snap.json
+      - name: Commit to feed branch
+        run: |
+          git config user.name "ms-video-bot"; git config user.email "actions@users.noreply.github.com"
+          git fetch origin feed --depth=1 && git switch feed || git switch --orphan feed
+          git rm -rq --cached . 2>/dev/null || true
+          mkdir -p feed && mv snap.json feed/latest.json && cp feed/latest.json "feed/$(TZ=Asia/Kolkata date +%Y-%m-%d_%H%M).json"
+          find feed -name '20*.json' -mtime +7 -delete || true
+          git add feed && git commit -qm "feed $(TZ=Asia/Kolkata date '+%d %b %H:%M')" && git push -q origin feed
