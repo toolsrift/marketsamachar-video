@@ -1,0 +1,7 @@
+node_modules/
+out/
+proj/
+work/
+__pycache__/
+*.mp4
+.ttscache/

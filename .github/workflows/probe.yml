@@ -1,0 +1,33 @@
+name: probe-site
+# One-off diagnostics: which marketsamachar.in API endpoints are public, and does the Zernio key work.
+on:
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find API paths used by the web app
+        run: |
+          set +e
+          curl -sL https://www.marketsamachar.in/ -o home.html
+          echo "home: $(wc -c < home.html) bytes"
+          for js in $(grep -o 'src="/assets/[^"]*\.js"' home.html | cut -d'"' -f2); do
+            curl -sL "https://www.marketsamachar.in$js" >> bundle.js
+          done
+          echo "bundle: $(wc -c < bundle.js) bytes"
+          grep -o '"/api/[A-Za-z0-9_/\-]*' bundle.js | sort -u | head -120
+          grep -o '`/api/[A-Za-z0-9_/\-${}.?=&]*' bundle.js | sort -u | head -120
+      - name: Try likely public endpoints
+        run: |
+          set +e
+          for p in /api/news /api/news?limit=3 /api/articles /api/events /api/corporate-events /api/results /api/market /api/market/indices /api/indices /api/pulse /api/market-move /api/fii-dii /api/ipos /api/social/articles /sitemap.xml /rss.xml /feed; do
+            code=$(curl -s -o body.txt -w '%{http_code} %{content_type}' "https://www.marketsamachar.in$p")
+            echo "== $p -> $code"; head -c 400 body.txt; echo
+          done
+      - name: Zernio accounts (names only)
+        env:
+          ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
+        run: |
+          if [ -z "$ZERNIO_API_KEY" ]; then echo "ZERNIO_API_KEY secret not set yet"; exit 0; fi
+          curl -s -H "Authorization: Bearer $ZERNIO_API_KEY" https://zernio.com/api/v1/accounts \
+            | python3 -c "import sys,json;d=json.load(sys.stdin);d=d if isinstance(d,list) else d.get('accounts') or d.get('data') or [];[print(a.get('platform'),a.get('_id') or a.get('id'),a.get('username') or a.get('displayName') or a.get('name')) for a in d]"

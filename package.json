@@ -1,0 +1,11 @@
+{
+  "name": "marketsamachar-video",
+  "private": true,
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "@fontsource/dm-sans": "^5.0.0",
+    "@fontsource/dm-mono": "^5.0.0",
+    "@fontsource/alfa-slab-one": "^5.0.0",
+    "lucide-static": "^0.460.0"
+  }
+}
