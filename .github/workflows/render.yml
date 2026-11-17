@@ -1,6 +1,8 @@
 name: render
-# Renders every video in a job file in parallel, makes thumbnails + small previews, optionally creates Zernio DRAFTS,
-# and saves previews/meta/drafts.json to the `out` branch (out/<job>/) for the daily Claude task to show the owner.
+# Builds every video in a job file once (voices, mix, HyperFrames projects, thumbnails), renders each video in
+# ~15-second chunks on parallel runners (so long wraps with 3D characters stay fast), joins the chunks with the
+# original audio mix, makes previews, optionally creates Zernio DRAFTS, and saves previews/meta/drafts.json to the
+# `out` branch (out/<job>/) for the daily Claude task to show the owner.
 on:
   workflow_dispatch:
     inputs:
@@ -11,22 +13,11 @@ permissions:
 concurrency:
   group: render-${{ inputs.job }}
 jobs:
-  plan:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     outputs:
-      ids: ${{ steps.p.outputs.ids }}
-    steps:
-      - uses: actions/checkout@v4
-      - id: p
-        run: echo "ids=$(python3 -c "import json;print(json.dumps([v['id'] for v in json.load(open('${{ inputs.job }}'))['videos']]))")" >> "$GITHUB_OUTPUT"
-  render:
-    needs: plan
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
-    strategy:
-      fail-fast: false
-      matrix:
-        id: ${{ fromJson(needs.plan.outputs.ids) }}
+      chunks: ${{ steps.p.outputs.chunks }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -50,41 +41,75 @@ jobs:
         run: |
           F=$(python3 -c "import json;print(json.load(open('${{ inputs.job }}')).get('feed','feed/latest.json'))")
           git fetch -q origin feed --depth=1 && git show "origin/feed:$F" > feed.json || echo '{}' > feed.json
-      - name: Build
-        run: python3 engine/build.py "${{ inputs.job }}" --feed feed.json --out work --only "${{ matrix.id }}"
-      - name: Render
+      - name: Build projects + thumbnails
+        run: |
+          python3 engine/build.py "${{ inputs.job }}" --feed feed.json --out work
+          python3 engine/thumb.py "${{ inputs.job }}" work
+      - id: p
+        name: Plan chunks
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, pathlib, math
+          out = []
+          for m in json.load(open("work/manifest.json")):
+              total = m["seconds"]; n = max(1, math.ceil(total / 15))
+              step = math.ceil(total / n * 30) / 30
+              for i in range(n):
+                  s = round(i * step, 4); e = round(min(total, (i + 1) * step), 4)
+                  if e - s > 0.05: out.append(dict(id=m["id"], i=i, s=s, e=e))
+          print("chunks=" + json.dumps(out))
+          EOF
+      - uses: actions/upload-artifact@v4
+        with: {name: projects, path: work, retention-days: 2}
+  render:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        c: ${{ fromJson(needs.build.outputs.chunks) }}
+    steps:
+      - uses: actions/setup-node@v4
+        with: {node-version: 22}
+      - uses: actions/download-artifact@v4
+        with: {name: projects, path: work}
+      - name: Render chunk
         env: {DO_NOT_TRACK: "1", HYPERFRAMES_NO_TELEMETRY: "1", HYPERFRAMES_BROWSER_PATH: /usr/bin/google-chrome}
         run: |
-          cd "work/${{ matrix.id }}"
-          for try in 1 2; do npx -y hyperframes@0.9.59 render --quality looks --no-low-memory-mode -o video.mp4 > render.log 2>&1 && break; tail -20 render.log; done
-          test -s video.mp4
-          ffprobe -v error -show_entries format=duration -of csv=p=0 video.mp4
-      - name: Thumbnail + preview
-        run: |
-          python3 engine/thumb.py "${{ inputs.job }}" work
-          ffmpeg -v error -y -i "work/${{ matrix.id }}/video.mp4" -vf "scale='if(gt(iw,ih),1280,720)':-2" -c:v libx264 -crf 26 -preset veryfast -c:a aac -b:a 128k "work/${{ matrix.id }}/preview.mp4"
+          command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+          cd "work/${{ matrix.c.id }}"
+          for try in 1 2; do npx -y hyperframes@0.9.59 render --quality looks --no-low-memory-mode --start ${{ matrix.c.s }} --end ${{ matrix.c.e }} -o chunk.mp4 > render.log 2>&1 && break; tail -20 render.log; done
+          test -s chunk.mp4
+          ffprobe -v error -show_entries format=duration -of csv=p=0 chunk.mp4
+          mkdir -p ../../c && cp chunk.mp4 "../../c/${{ matrix.c.id }}__$(printf %03d ${{ matrix.c.i }}).mp4"
       - uses: actions/upload-artifact@v4
-        with:
-          name: v-${{ matrix.id }}
-          path: |
-            work/${{ matrix.id }}/video.mp4
-            work/${{ matrix.id }}/preview.mp4
-            work/${{ matrix.id }}/thumb.png
-            work/${{ matrix.id }}/meta.json
-          retention-days: 7
+        with: {name: "c-${{ matrix.c.id }}-${{ matrix.c.i }}", path: c, retention-days: 2}
   finish:
-    needs: render
-    if: always()
+    needs: [build, render]
+    if: always() && needs.build.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
-        with: {path: dist, pattern: "v-*"}
-      - name: Arrange
+        with: {name: projects, path: work}
+      - uses: actions/download-artifact@v4
+        with: {path: chunks, pattern: "c-*", merge-multiple: true}
+      - name: Join chunks with the original audio, previews
         run: |
+          command -v ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
           mkdir -p videos
-          for d in dist/v-*; do id=${d#dist/v-}; mkdir -p "videos/$id"; cp "$d"/* "videos/$id/"; done
-          ls -R videos | head -50
+          for proj in work/*/; do
+            id=$(basename "$proj"); ls chunks/"$id"__*.mp4 >/dev/null 2>&1 || { echo "no chunks for $id"; continue; }
+            : > list.txt; for f in $(ls chunks/"$id"__*.mp4 | sort); do echo "file '$PWD/$f'" >> list.txt; done
+            mkdir -p "videos/$id"
+            ffmpeg -v error -y -f concat -safe 0 -i list.txt -i "$proj/assets/mix.wav" -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest "videos/$id/video.mp4"
+            ffmpeg -v error -y -i "videos/$id/video.mp4" -vf "scale='if(gt(iw,ih),1280,720)':-2" -c:v libx264 -crf 26 -preset veryfast -c:a aac -b:a 128k "videos/$id/preview.mp4"
+            cp "$proj/meta.json" "videos/$id/"; cp "$proj/thumb.png" "videos/$id/" 2>/dev/null || true
+            echo "$id $(ffprobe -v error -show_entries format=duration -of csv=p=0 videos/$id/video.mp4)s"
+          done
+      - uses: actions/upload-artifact@v4
+        with: {name: videos, path: videos, retention-days: 7}
       - name: Zernio drafts
         if: inputs.drafts == 'yes'
         env: {ZERNIO_API_KEY: "${{ secrets.ZERNIO_API_KEY }}"}
