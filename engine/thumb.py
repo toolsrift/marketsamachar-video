@@ -51,7 +51,7 @@ def main(job_path, work):
     with sync_playwright() as pw:
         b = pw.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
         for v in job["videos"]:
-            d = pathlib.Path(work) / v["id"]
+            d = pathlib.Path(work).resolve() / v["id"]
             if not d.exists(): continue
             W, H = (1280, 720) if v["kind"] == "long" else (1080, 1920)
             f = d / "_thumb.html"; f.write_text(page(v, W, H))
