@@ -7,7 +7,7 @@ Short 1080x1920: everything readable sits inside 168-1330 px. Long 1920x1080: in
 Both end with the spoken CTA (subscribe click, bell, marketsamachar.in) while the camera pulls back over the world.
 """
 import re, json, random, hashlib, pathlib, datetime
-import cast, voice, audio, ill, styles
+import cast, voice, audio, ill, styles, chars3d
 from fx import E, T, fmt, words, words_in
 
 FPS = 30
@@ -17,7 +17,7 @@ GESTURE = dict(ghanti="ring", tohfa="open", katli="split", wapsi="spin", bhonpu=
 CTA_LINES = ["Subscribe for every market update. Full story on marketsamachar.in.",
              "Follow MarketSamachar for daily updates. Details on marketsamachar.in.",
              "Full story on marketsamachar.in. Subscribe for more."]
-TITLE_IN = dict(studio="rise", comic="rise", blueprint="ink", neon="blur", paper="rise")
+TITLE_IN = dict(brand="rise", studio="rise", comic="rise", blueprint="ink", neon="blur", paper="rise")
 MOVE_SFX = dict(whip="whoosh", crane="swish", zoom="big", arc="whoosh")
 
 
@@ -228,7 +228,8 @@ def cta(js, htm, sfx, t0, d, W, H, V, host):
 def build(v, proj, date, ticker=None, style=None):
     long_ = v["kind"] == "long"
     W, H = (1920, 1080) if long_ else (1080, 1920)
-    S = styles.pick(date, style or v.get("style"))
+    host_first = (v["segments"][0]["beats"][0] if long_ else v["beats"][0])["host"]
+    S = styles.pick(date, style or v.get("style"), "ghanti" if long_ else host_first, seed_of(v["id"], date, "music"))
     rnd = random.Random(seed_of(v["id"], date))
     css = styles.setup(proj, S)
     js, pre, sfx, vparts, htm = [], [], [], [], []
@@ -258,8 +259,8 @@ def build(v, proj, date, ticker=None, style=None):
         TX, TY, TW, TF = 60, 94, 1300, 52
         IX, IY, IW = 60, 222, 1110
     else:
-        TX, TY, TW, TF = 44, 302, 1000, 66
-        IX, IY, IW = 10, 468, 1060
+        TX, TY, TW, TF = 40, 282, 1000, 70
+        IX, IY, IW = -20, 420, 1120
     IH = IW * 800 / 1200
     st_html = ""; titles = []
     for i, x in enumerate(beats):
@@ -291,7 +292,7 @@ def build(v, proj, date, ticker=None, style=None):
                f'<div class="ab" id="drift" style="left:0;top:0;width:{W}px;height:{H}px;transform-origin:50% 50%">'
                f'<div class="ab" id="punch" style="left:0;top:0;width:{W}px;height:{H}px;transform-origin:50% {45 if long_ else 42}%">'
                f'<div class="ab" id="shot" style="left:0;top:0;width:{W}px;height:{H}px;transform-origin:0 0">{far_html}{world}</div></div></div></div>')
-    BAND = 206 if long_ else 470
+    BAND = 206 if long_ else 412
     htm.append(f'<div class="ab band" style="left:0;top:0;width:{W}px;height:{BAND}px;z-index:8"></div>')
     htm.append(f'<div class="ab" style="left:0;top:0;width:{W}px;height:{BAND}px;z-index:9">{"".join(titles)}</div>')
     js.append(f'tl.to(".band",{{opacity:0,duration:.3}},{T(cta_t0)})')
@@ -337,23 +338,25 @@ def build(v, proj, date, ticker=None, style=None):
         htm.append(f'<div class="ab hud" style="left:0;top:0;width:{W}px;height:1px;z-index:9">{market_board(ticker, js, 1548, W)}</div>')
         htm.append(f'<div class="ab disc" style="left:44px;right:44px;top:1712px;font-size:19px;z-index:9">{E(DISCLAIMER)}</div>')
         hw, hx, hy = 360, 0, 1052; capbox, capfs, capal, capn = (366, 1150, 690, 176), 54, "left", 4
-    # host (fixed) + captions
-    cur = owner = None
+    # host: real 3D character (three.js) on a transparent canvas over the host area
+    if long_: RL, RT, RW, RH = 1280, 300, 640, 728; hpos = (320, 610, 520); look = -1
+    else: RL, RT, RW, RH = 0, 940, 1080, 580; hpos = (185, 505, 420); look = 1
+    wins = []; cur = None
     for i, x in enumerate(beats):
         host = x["b"]["host"]
         if host != cur:
-            pid = f"h{i}"; kw = dict(day=date[8:10], mon=datetime.date.fromisoformat(date).strftime("%b").upper()) if host == "tareekh" else {}
-            htm.append(f'<div class="ab" id="{pid}" style="left:{hx}px;top:{hy}px;width:{hw}px;visibility:hidden;z-index:10">{cast.svg(host, pid, hw, **kw)}</div>')
-            js.append(f'tl.set("#{pid}",{{visibility:"visible"}},{T(max(0, x["t0"] - .15))})')
-            js += cast.js_enter(pid, max(0, x["t0"] - .1), rnd.choice(["pop", "rise", "right" if long_ else "left"]))
-            if owner: js += cast.js_exit(owner, x["t0"] - .35, "pop"); js.append(f'tl.set("#{owner}",{{visibility:"hidden"}},{T(x["t0"])})')
-            owner, cur = pid, host
-            sfx.append((max(0, x["t0"] - .1), "pop", .35))
-        js += cast.js_idle(owner, x["t0"] + .6, x["t0"] + x["d"], i)
-        js += cast.js_talk(owner, voice.amps(x["a"], x["t0"] + .15))
-        js += cast.js_look(owner, x["t0"] + .3, -6 if long_ else 6)
-        js += cast.js_gesture(owner, x["t0"] + .35, GESTURE.get(host, "point") if i == 0 or beats[i - 1]["b"]["host"] != host else rnd.choice(["point", "present"]))
-        for mt, mood in x["ev"]["mood"][:1]: js += cast.js_react(owner, mt, mood)
+            if wins: wins[-1]["t_out"] = x["t0"] - .2
+            wins.append(dict(char=host, x=hpos[0], y=hpos[1], size=hpos[2], t_in=max(0, x["t0"] - .1), t_out=x["t0"] + x["d"],
+                             talk=[], gest=[], moods=[], look=look, seed=len(wins) + 1))
+            cur = host; sfx.append((max(0, x["t0"] - .1), "pop", .35))
+        wn = wins[-1]; wn["t_out"] = x["t0"] + x["d"]
+        wn["talk"] += [[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(x["a"], x["t0"] + .15)]
+        g = GESTURE.get(host, "point") if i == 0 or beats[i - 1]["b"]["host"] != host else rnd.choice(["point", "present"])
+        wn["gest"].append([round(x["t0"] + .35, 2), "wave" if g in ("waves",) else g])
+        for mt, mood in x["ev"]["mood"][:1]: wn["moods"].append([round(mt, 2), mood])
+    if wins: wins[-1]["t_out"] = cta_t0 - .1
+    for i, x in enumerate(beats):
+        host = x["b"]["host"]
         wt = [(w, x["t0"] + .15 + s, x["t0"] + .15 + e) for w, s, e in x["ws"]]
         captions(js, htm, wt, f"c{i}", capbox, capfs, capal, capn)
         if long_ and x["first"]:
@@ -368,7 +371,6 @@ def build(v, proj, date, ticker=None, style=None):
                 js.append(f'tl.to("#{bid}",{{clipPath:"inset(0 0% 0 100%)",duration:.28,ease:"power3.in"}},{T(tb + 1.0)})')
                 js.append(f'tl.set("#{bid}",{{opacity:0}},{T(tb + 1.3)})')
                 sfx.append((tb, "whoosh", .7))
-    if owner: js.append(f'tl.set("#{owner}",{{visibility:"hidden"}},{T(cta_t0 + .05)})'); js += cast.js_exit(owner, cta_t0 - .3, "pop")
     js.append(f'tl.to(".hud",{{opacity:0,duration:.3}},{T(cta_t0)})')
     js.append(f'tl.set("#tb{len(beats) - 1}",{{visibility:"hidden"}},{T(cta_t0)})')
     # intro (long): title card over the map of the day
@@ -387,12 +389,11 @@ def build(v, proj, date, ticker=None, style=None):
         sfx.append((.02, "impact", .6))
     # ---- CTA
     cta(js, htm, sfx, cta_t0, cta_d, W, H, not long_, host0)
-    chw = 330 if not long_ else 380
-    chx, chy = (W - chw - 40, 1010) if not long_ else (W - chw - 80, H - chw * 1.1 - 30)
-    htm.append(f'<div class="ab" id="hc" style="left:{chx:.0f}px;top:{chy:.0f}px;width:{chw}px;z-index:21;visibility:hidden">{cast.svg(host0, "hc", chw)}</div>')
-    js.append(f'tl.set("#hc",{{visibility:"visible"}},{T(cta_t0 + .1)})')
-    js += cast.js_enter("hc", cta_t0 + .15, "rise") + cast.js_gesture("hc", cta_t0 + .9, "wave") + cast.js_idle("hc", cta_t0 + 1.3, cta_t0 + cta_d, 3)
-    js += cast.js_talk("hc", voice.amps(ca, cta_t0 + .4))
+    cx3, cy3, cs3 = (880, 470, 380) if not long_ else (360, 700, 430)
+    wins.append(dict(char=host0, x=cx3, y=cy3, size=cs3, t_in=cta_t0 + .15, t_out=total + 1, look=-1 if not long_ else -1, seed=9,
+                     talk=[[round(tt, 3), round(aa, 3)] for tt, aa in voice.amps(ca, cta_t0 + .4)], gest=[[round(cta_t0 + .9, 2), "wave"]], moods=[]))
+    chars3d.setup(proj)
+    htm.append(chars3d.html(RL, RT, RW, RH, wins, S["v"]["acc"], 21))
     cwt = [(w, cta_t0 + .4 + s, cta_t0 + .4 + e) for w, s, e in cws]
     htm.append('<div class="ab" style="left:0;top:0;width:1px;height:1px;z-index:22">')
     captions(js, htm, cwt, "cc", (44, 1080, W - 88 - 360, 220) if not long_ else (110, 880, W - 220 - 440, 110), 50 if not long_ else 44, "left" if not long_ else "center", 5 if not long_ else 7)

@@ -29,6 +29,8 @@ FONTFILES = {
     "dmsans6": ("@fontsource/dm-sans/files/dm-sans-latin-600-normal.woff2", 600),
     "dmmono": ("@fontsource/dm-mono/files/dm-mono-latin-500-normal.woff2", 500),
     "archivo": ("@fontsource/archivo-black/files/archivo-black-latin-400-normal.woff2", 400),
+    "jakarta8": ("@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-800-normal.woff2", 800),
+    "jakarta7": ("@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2", 700),
 }
 
 S = {}
@@ -78,13 +80,32 @@ S["paper"] = dict(
            card="#FFFFFF", cardInk="#1E2452", line="rgba(30,36,82,.12)", dk="#1E2452"),
     world="paper",
 )
-ORDER = ["studio", "comic", "neon", "paper"]   # blueprint kept as an option, not in the daily rotation
+ORDER = ["studio", "comic", "neon", "paper"]   # optional looks; the default is the brand look below
+
+# ------------------------------------------------------------------ BRAND — the default: MarketSamachar dark + brand green + one accent per video
+ACCENT = dict(ghanti="#F5B83D", teji="#22D3EE", mandi="#FF6B6B", munshi="#8B5CF6", bhonpu="#FF8A3D", golu="#F472B6",
+              katli="#F5B83D", tohfa="#2DD4BF", wapsi="#FACC15", naya="#38BDF8", tareekh="#8B5CF6", desi="#F5B83D",
+              videshi="#3B82F6", arth="#2DD4BF")
+MUSIC = ["pulse", "lofi", "cinematic", "bright", "marimba", "funk"]
 
 
-def pick(date, override=None):
-    name = override or ORDER[datetime.date.fromisoformat(date).toordinal() % len(ORDER)]
-    s = dict(S[name]); s["name"] = name
-    return s
+def _mix(a, b, f):
+    a, b = a.lstrip("#"), b.lstrip("#")
+    return "#%02x%02x%02x" % tuple(int(int(a[i:i + 2], 16) * (1 - f) + int(b[i:i + 2], 16) * f) for i in (0, 2, 4))
+
+
+def brand(accent, music):
+    return dict(name="brand", family="flat", music=music, moves=["whip", "zoom", "crane", "arc"], world="brand",
+                fonts=dict(Head="jakarta8", Body="jakarta8", Num="grotesk", Body6="jakarta7"),
+                fills=[accent, "#00FF88", "#EEF1F7", _mix(accent, "#ffffff", .35), "#2B3060"],
+                v=dict(bg="#07070E", bg2="#11122A", ink="#F2F4F8", sub="#9AA2B8", acc=accent, acc2="#00FF88", up="#00FF88", dn="#FF4D6D",
+                       card="#12142B", cardInk="#F2F4F8", line="rgba(255,255,255,.08)", dk="#12142B"))
+
+
+def pick(date, override=None, host=None, seed=0):
+    if override and override in S:
+        s = dict(S[override]); s["name"] = override; return s
+    return brand(ACCENT.get(host, "#F5B83D"), MUSIC[seed % len(MUSIC)])
 
 
 def setup(proj, s):
@@ -126,7 +147,12 @@ def page_css(s):
 .tcard{{background:var(--card);color:var(--cardInk)}}
 .band{{background:var(--bg);box-shadow:0 18px 40px rgba(0,0,0,.25)}}
 """
-    if n == "studio":
+    if n == "brand":
+        css += """.cap{color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.85)} .cap .on{color:var(--up)}
+.h{letter-spacing:-1.5px} .h .acc{color:var(--acc)} .chip.k{background:var(--acc);color:#07070E}
+.tcard{border:1.5px solid rgba(255,255,255,.10);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.band{border-bottom:3px solid var(--acc);box-shadow:0 20px 50px rgba(0,0,0,.6)}"""
+    elif n == "studio":
         css += """.cap{color:#fff;text-shadow:0 5px 0 rgba(0,0,0,.35)} .cap .on{color:var(--acc)}
 .h{letter-spacing:-1.5px;text-shadow:0 6px 0 rgba(0,0,0,.3)} .chip.k{background:var(--acc);color:#151838;box-shadow:0 6px 0 rgba(0,0,0,.3)}
 .tcard{border-radius:18px;box-shadow:0 10px 0 rgba(0,0,0,.35)} .band{border-bottom:4px solid var(--acc)}"""
@@ -158,7 +184,7 @@ def ill_css(s):
 .ill .grid{{stroke:var(--line);stroke-width:2;fill:none}} .ill .gridk{{stroke:rgba(255,255,255,.14);stroke-width:2;fill:none}}
 .ill .tdk{{fill:#F3F4F8}} .ill .tdks{{fill:#B8BCD0}}
 .ill .acc{{fill:var(--acc)}} .ill .acc2{{fill:var(--acc2)}}
-.ill .tchip{{fill:{dict(flat="#151838",ink="#FFFFFF",line="#EAF4FF",neon="#07070E",paper="#FFFFFF")[fam]}}}
+.ill .tchip{{fill:{dict(flat="#07070E",ink="#FFFFFF",line="#EAF4FF",neon="#07070E",paper="#FFFFFF")[fam]}}}
 """
     if fam in ("flat", "paper", "neon", "ink"):
         k = [_shade(c, .6) for c in f]
@@ -210,6 +236,10 @@ def world_bg(s, W, H):
     elif n == "neon":
         near = "background:linear-gradient(rgba(255,255,255,.035) 2px,transparent 2px) 0 0/90px 90px,linear-gradient(90deg,rgba(255,255,255,.035) 2px,transparent 2px) 0 0/90px 90px,var(--bg)"
         far = "background:radial-gradient(circle at 25% 30%,rgba(0,255,136,.13),transparent 30%),radial-gradient(circle at 75% 65%,rgba(56,189,248,.12),transparent 30%)"
+    elif n == "brand":
+        near = ("background:radial-gradient(circle,rgba(255,255,255,.07) 1.6px,transparent 2.6px) 0 0/40px 40px,"
+                "linear-gradient(rgba(255,255,255,.025) 2px,transparent 2px) 0 0/200px 200px,linear-gradient(90deg,rgba(255,255,255,.025) 2px,transparent 2px) 0 0/200px 200px,var(--bg)")
+        far = f"background:radial-gradient(circle at 25% 30%,{v['acc']}24,transparent 32%),radial-gradient(circle at 75% 68%,rgba(0,255,136,.12),transparent 30%)"
     else:
         near = "background:radial-gradient(circle,rgba(30,36,82,.10) 2px,transparent 3px) 0 0/40px 40px,var(--bg)"
         far = "background:radial-gradient(circle at 20% 25%,#fff 0,transparent 30%),radial-gradient(circle at 80% 70%,#FFE6CF 0,transparent 30%)"
