@@ -173,7 +173,7 @@ def sc_index(p, a, d, data):
             my = Y(mil)
             svg += (f'<path id="{p}-mil" d="M{gx0 - 20},{my:.0f} L{gx1 + 20},{my:.0f}" pathLength="1" stroke-dasharray="1" '
                     f'style="stroke:var(--acc);stroke-width:4;fill:none"/>'
-                    f'<g id="{p}-milt">{R(gx0 - 10, my - 50, 150, 40, 8, "acc")}{TX(gx0 + 65, my - 21, E(fmt(mil, 0)), 24, "tchip", "middle", "", "num")}</g>')
+                    f'<g id="{p}-milt">{R(gx0 - 10, my - 50, 150, 40, 8, "acc")}{TX(gx0 + 65, my - 21, E(fmt(mil, 0)), 24, "", "middle", " style=\"fill:var(--bg)\"", "num")}</g>')
         svg += f'<path id="{p}-area" d="{area}" class="{tone}" opacity=".22"/>'
         svg += f'<path id="{p}-line" d="{line}" pathLength="1" stroke-dasharray="1" class="ln{"U" if up else "D"}" style="stroke-width:9;stroke-linejoin:round;stroke-linecap:round"/>'
         for i, v in enumerate(vals):
@@ -419,7 +419,7 @@ def sc_world(p, a, d, data):
         pc = num(it.get("pct")) or 0; up = pc >= 0; y = 160 + i * 140
         px, py = pins[i]
         svg += f'<g id="{p}-pin{i}">{P(f"M{px},{py} q-24,-30 -24,-46 a24,24 0 1 1 48,0 q0,16 -24,46 z", ("up" if up else "dn") + " s")}{C(px, py - 46, 9, "f3")}</g>'
-        bl = 40 + 230 * abs(pc) / mx
+        bl = 30 + 160 * abs(pc) / mx
         svg += (f'<g id="{p}-r{i}">{slab(R(500, y - 50, 640, 104, 20, "{c}"), "dk", 8, 2)}'
                 f'{TX(530, y - 6, E(it["name"]), 30, "tx", "start", "", "h")}'
                 f'{TX(530, y + 32, E(str(it.get("value", ""))), 24, "txs", "start", "", "num")}'
