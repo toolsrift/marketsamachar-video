@@ -1,29 +1,48 @@
 name: probe-site
-# One-off diagnostics: which marketsamachar.in API endpoints are public, and does the Zernio key work.
+# Diagnostics: shapes of the public marketsamachar.in endpoints, and whether the Zernio key works.
 on:
   workflow_dispatch:
 jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Find API paths used by the web app
+      - name: Endpoint shapes
         run: |
           set +e
-          curl -sL https://www.marketsamachar.in/ -o home.html
-          echo "home: $(wc -c < home.html) bytes"
-          for js in $(grep -o 'src="/assets/[^"]*\.js"' home.html | cut -d'"' -f2); do
-            curl -sL "https://www.marketsamachar.in$js" >> bundle.js
+          for p in /api/market-data /api/stocks/movers /api/regulatory /api/briefs /api/pulse/recent-results "/api/events?limit=5" /api/market-move; do
+            echo "=================== $p"
+            curl -s "https://www.marketsamachar.in$p" -o b.json -w '%{http_code}\n'
+            python3 - <<'PY'
+          import json
+          try:
+              d = json.load(open("b.json"))
+          except Exception as e:
+              print("not json", open("b.json").read()[:300]); raise SystemExit
+          def shape(x, depth=0):
+              if isinstance(x, dict): return {k: shape(v, depth + 1) for k, v in list(x.items())[:40]} if depth < 4 else "{..}"
+              if isinstance(x, list): return [shape(x[0], depth + 1), f"len={len(x)}"] if x else []
+              return x if not isinstance(x, str) else x[:80]
+          print(json.dumps(shape(d), indent=1)[:3500])
+          PY
           done
-          echo "bundle: $(wc -c < bundle.js) bytes"
-          grep -o '"/api/[A-Za-z0-9_/\-]*' bundle.js | sort -u | head -120
-          grep -o '`/api/[A-Za-z0-9_/\-${}.?=&]*' bundle.js | sort -u | head -120
-      - name: Try likely public endpoints
-        run: |
-          set +e
-          for p in /api/news /api/news?limit=3 /api/articles /api/events /api/corporate-events /api/results /api/market /api/market/indices /api/indices /api/pulse /api/market-move /api/fii-dii /api/ipos /api/social/articles /sitemap.xml /rss.xml /feed; do
-            code=$(curl -s -o body.txt -w '%{http_code} %{content_type}' "https://www.marketsamachar.in$p")
-            echo "== $p -> $code"; head -c 400 body.txt; echo
-          done
+          echo "=================== news categories / sources"
+          curl -s https://www.marketsamachar.in/api/news -o n.json
+          python3 -c "
+          import json,collections
+          d=json.load(open('n.json'));it=d['items'];print('items',len(it))
+          print(collections.Counter(i.get('category') for i in it).most_common())
+          print(collections.Counter(i.get('source') for i in it).most_common(30))
+          print(json.dumps(it[0],indent=1)[:1500])"
+          echo "=================== event types"
+          curl -s "https://www.marketsamachar.in/api/events" -o e.json
+          python3 -c "
+          import json,collections
+          d=json.load(open('e.json'));ev=d.get('events',[]);print('events',len(ev), [k for k in d if k!='events'])
+          print(collections.Counter(e.get('event_type') for e in ev).most_common())
+          print(collections.Counter(e.get('status') for e in ev).most_common())
+          seen=set()
+          for e in ev:
+            if e['event_type'] not in seen: seen.add(e['event_type']); print(json.dumps(e)[:700])"
       - name: Zernio accounts (names only)
         env:
           ZERNIO_API_KEY: ${{ secrets.ZERNIO_API_KEY }}
