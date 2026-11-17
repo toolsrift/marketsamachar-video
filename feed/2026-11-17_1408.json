@@ -1,0 +1,3594 @@
+{
+ "fetched_at": "2026-11-17T14:08:25+05:30",
+ "market_data": [
+  {
+   "symbol": "^NSEI",
+   "name": "NIFTY 50",
+   "price": 25465.35,
+   "change": 174.25039062499854,
+   "changePercent": 0.6889791006177001,
+   "high": 25501.35,
+   "low": 25267.3
+  },
+  {
+   "symbol": "^BSESN",
+   "name": "SENSEX",
+   "price": 82761.03,
+   "change": 656.2409374999988,
+   "changePercent": 0.7992724236834146,
+   "high": 82897.49,
+   "low": 82091.9
+  },
+  {
+   "symbol": "^NSEBANK",
+   "name": "NIFTY BANK",
+   "price": 62378.65,
+   "change": 802.7515625000015,
+   "changePercent": 1.3036781969406428,
+   "high": 62442.2,
+   "low": 61488
+  },
+  {
+   "symbol": "GC=F",
+   "name": "GOLD",
+   "price": 3868.9,
+   "change": 15.900000000000091,
+   "changePercent": 0.41266545548923156,
+   "high": 3889.6,
+   "low": 3845.9
+  },
+  {
+   "symbol": "CL=F",
+   "name": "CRUDE OIL",
+   "price": 85.41,
+   "change": -0.3100012207031284,
+   "changePercent": -0.36164397607154586,
+   "high": 85.59,
+   "low": 84.68
+  },
+  {
+   "symbol": "USDINR=X",
+   "name": "USD/INR",
+   "price": 93.48,
+   "change": -0.7579989624023398,
+   "changePercent": -0.8043453498039095,
+   "high": 93.92,
+   "low": 93.442
+  },
+  {
+   "symbol": "^CNXIT",
+   "name": "NIFTY IT",
+   "price": 31679.8,
+   "change": -261.2507812500007,
+   "changePercent": -0.8179154250096238,
+   "high": 32068.9,
+   "low": 31578.9
+  },
+  {
+   "symbol": "^DJI",
+   "name": "DOW JONES",
+   "price": 51608.17,
+   "change": -739.3807812500017,
+   "changePercent": -1.4124457977790155,
+   "high": 52324,
+   "low": 51511.56
+  },
+  {
+   "symbol": "^GSPC",
+   "name": "S&P 500",
+   "price": 7416.59,
+   "change": -145.07992187499985,
+   "changePercent": -1.9186227827176259,
+   "high": 7515.6,
+   "low": 7400.15
+  },
+  {
+   "symbol": "^IXIC",
+   "name": "NASDAQ",
+   "price": 24509.758,
+   "change": -626.5115312499984,
+   "changePercent": -2.492460269297735,
+   "high": 24882.037,
+   "low": 24460.28
+  },
+  {
+   "symbol": "^INDIAVIX",
+   "name": "INDIA VIX",
+   "price": 15.28,
+   "change": -0.4000003051757819,
+   "changePercent": -2.5510223047874976,
+   "high": 15.677,
+   "low": 14.035
+  },
+  {
+   "symbol": "BTC-USD",
+   "name": "BITCOIN",
+   "price": 64280.94,
+   "change": -574.9037499999977,
+   "changePercent": -0.8864332290796813,
+   "high": 64998.246,
+   "low": 64274.855
+  },
+  {
+   "symbol": "ETH-USD",
+   "name": "ETHEREUM",
+   "price": 1819.64,
+   "change": 0.36412109375010004,
+   "changePercent": 0.02001461669293444,
+   "high": 1839.7104,
+   "low": 1811.6503
+  },
+  {
+   "symbol": "SI=F",
+   "name": "SILVER",
+   "price": 47.435,
+   "change": 0.6500001525878929,
+   "changePercent": 1.3893345189865323,
+   "high": 47.92,
+   "low": 46.755
+  },
+  {
+   "symbol": "NG=F",
+   "name": "NATURAL GAS",
+   "price": 3.116,
+   "change": -0.005999979019164936,
+   "changePercent": -0.19218382637689646,
+   "high": 3.134,
+   "low": 3.08
+  },
+  {
+   "symbol": "^CNXAUTO",
+   "name": "NIFTY AUTO",
+   "price": 27922.95,
+   "change": 352.7000000000007,
+   "changePercent": 1.2792774820685366,
+   "high": 27933.4,
+   "low": 27587.45
+  },
+  {
+   "symbol": "^CNXFMCG",
+   "name": "NIFTY FMCG",
+   "price": 47633,
+   "change": -75.1015625,
+   "changePercent": -0.15741888702406906,
+   "high": 48018.45,
+   "low": 47460.85
+  },
+  {
+   "symbol": "^CNXPHARMA",
+   "name": "NIFTY PHARMA",
+   "price": 28224.05,
+   "change": 125.64960937499927,
+   "changePercent": 0.4471770906109023,
+   "high": 28248.6,
+   "low": 28028.65
+  },
+  {
+   "symbol": "^CNXENERGY",
+   "name": "NIFTY ENERGY",
+   "price": 37177.35,
+   "change": -99.29843750000146,
+   "changePercent": -0.26638241811489694,
+   "high": 37330.7,
+   "low": 37016.15
+  },
+  {
+   "symbol": "^CNXREALTY",
+   "name": "NIFTY REALTY",
+   "price": 925.35,
+   "change": 16.449975585937523,
+   "changePercent": 1.8098773400894421,
+   "high": 936.45,
+   "low": 904.4
+  }
+ ],
+ "movers": {
+  "gainers": [
+   {
+    "symbol": "ASIANPAINT",
+    "companyName": "ASIAN PAINTS LIMITED",
+    "currentPrice": 2647.6,
+    "change": 97.6,
+    "changePercent": 3.83,
+    "high": 2665.5,
+    "low": 2598,
+    "volume": 1101773,
+    "lastUpdated": 1794904305338,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "PNB",
+    "companyName": "PUNJAB NATIONAL BANK",
+    "currentPrice": 149.17,
+    "change": 4.58,
+    "changePercent": 3.17,
+    "high": 151.67,
+    "low": 143.9,
+    "volume": 49340051,
+    "lastUpdated": 1794902929992,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "HDFCAMC",
+    "companyName": "HDFC AMC LIMITED",
+    "currentPrice": 2722.2,
+    "change": 72.2,
+    "changePercent": 2.72,
+    "high": 2758.7,
+    "low": 2651.6,
+    "volume": 608123,
+    "lastUpdated": 1794904669634,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "M&M",
+    "companyName": "MAHINDRA & MAHINDRA LTD",
+    "currentPrice": 3426.8,
+    "change": 87.8,
+    "changePercent": 2.63,
+    "high": 3429,
+    "low": 3341,
+    "volume": 1617836,
+    "lastUpdated": 1794904305333,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "GODREJCP",
+    "companyName": "GODREJ CONSUMER PRODUCTS",
+    "currentPrice": 891,
+    "change": 20.25,
+    "changePercent": 2.33,
+    "high": 907.15,
+    "low": 886.4,
+    "volume": 548571,
+    "lastUpdated": 1794904669646,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "AXISBANK",
+    "companyName": "AXIS BANK LIMITED",
+    "currentPrice": 1370.8,
+    "change": 28.4,
+    "changePercent": 2.12,
+    "high": 1374.8,
+    "low": 1345.4,
+    "volume": 4892335,
+    "lastUpdated": 1794903349995,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "EICHERMOT",
+    "companyName": "EICHER MOTORS LTD",
+    "currentPrice": 7801,
+    "change": 151,
+    "changePercent": 1.97,
+    "high": 7809,
+    "low": 7610.5,
+    "volume": 454834,
+    "lastUpdated": 1794904309611,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "CANBK",
+    "companyName": "CANARA BANK",
+    "currentPrice": 134.96,
+    "change": 2.56,
+    "changePercent": 1.93,
+    "high": 136.8,
+    "low": 132.2,
+    "volume": 32925117,
+    "lastUpdated": 1794904667552,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "HINDPETRO",
+    "companyName": "HINDUSTAN PETROLEUM CORP",
+    "currentPrice": 394.15,
+    "change": 7.2,
+    "changePercent": 1.86,
+    "high": 395.2,
+    "low": 388.3,
+    "volume": 3578334,
+    "lastUpdated": 1794904669656,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ULTRACEMCO",
+    "companyName": "ULTRATECH CEMENT LIMITED",
+    "currentPrice": 12324,
+    "change": 224,
+    "changePercent": 1.85,
+    "high": 12425,
+    "low": 12215,
+    "volume": 95955,
+    "lastUpdated": 1794903352315,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "AMBUJACEM",
+    "companyName": "AMBUJA CEMENTS LTD",
+    "currentPrice": 389,
+    "change": 7,
+    "changePercent": 1.83,
+    "high": 390.45,
+    "low": 380.45,
+    "volume": 2209469,
+    "lastUpdated": 1794904665474,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "CHOLAFIN",
+    "companyName": "CHOLAMANDALAM IN & FIN CO",
+    "currentPrice": 1881.6,
+    "change": 31.6,
+    "changePercent": 1.71,
+    "high": 1884.6,
+    "low": 1844.3,
+    "volume": 854212,
+    "lastUpdated": 1794904667556,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "BPCL",
+    "companyName": "BHARAT PETROLEUM CORP  LT",
+    "currentPrice": 306.45,
+    "change": 4.45,
+    "changePercent": 1.47,
+    "high": 309.25,
+    "low": 305.55,
+    "volume": 2651767,
+    "lastUpdated": 1794904311718,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "SBIN",
+    "companyName": "STATE BANK OF INDIA",
+    "currentPrice": 1106.45,
+    "change": 15.95,
+    "changePercent": 1.46,
+    "high": 1114,
+    "low": 1091.95,
+    "volume": 11748096,
+    "lastUpdated": 1794903347891,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "BANKBARODA",
+    "companyName": "BANK OF BARODA",
+    "currentPrice": 274.06,
+    "change": 3.86,
+    "changePercent": 1.43,
+    "high": 276.2,
+    "low": 269.46,
+    "volume": 13913530,
+    "lastUpdated": 1794904665473,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ADANIENT",
+    "companyName": "ADANI ENTERPRISES LIMITED",
+    "currentPrice": 2695.3,
+    "change": 36.3,
+    "changePercent": 1.37,
+    "high": 2703.9,
+    "low": 2659.1,
+    "volume": 951948,
+    "lastUpdated": 1794903352187,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "ICICIBANK",
+    "companyName": "ICICI BANK LTD.",
+    "currentPrice": 1606.1,
+    "change": 21.1,
+    "changePercent": 1.33,
+    "high": 1613.9,
+    "low": 1578.8,
+    "volume": 9802751,
+    "lastUpdated": 1794903345784,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "INDUSINDBK",
+    "companyName": "INDUSIND BANK LIMITED",
+    "currentPrice": 926.65,
+    "change": 12.1,
+    "changePercent": 1.32,
+    "high": 931.95,
+    "low": 905.2,
+    "volume": 2107680,
+    "lastUpdated": 1794904307422,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "DLF",
+    "companyName": "DLF LIMITED",
+    "currentPrice": 764.55,
+    "change": 9.8,
+    "changePercent": 1.3,
+    "high": 773.65,
+    "low": 752.25,
+    "volume": 2575501,
+    "lastUpdated": 1794904667554,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ADANIGREEN",
+    "companyName": "ADANI GREEN ENERGY LTD",
+    "currentPrice": 1424.7,
+    "change": 18.1,
+    "changePercent": 1.29,
+    "high": 1433.8,
+    "low": 1403,
+    "volume": 1616005,
+    "lastUpdated": 1794904665445,
+    "isMarketOpen": true
+   }
+  ],
+  "losers": [
+   {
+    "symbol": "ICICIPRULI",
+    "companyName": "ICICI LIFE INSURANCE LTD",
+    "currentPrice": 431,
+    "change": -19,
+    "changePercent": -4.22,
+    "high": 432.45,
+    "low": 422.55,
+    "volume": 1258823,
+    "lastUpdated": 1794904669634,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "JINDALSTEL",
+    "companyName": "JINDAL STEEL LIMITED",
+    "currentPrice": 1133.4,
+    "change": -24.4,
+    "changePercent": -2.11,
+    "high": 1141.4,
+    "low": 1118.6,
+    "volume": 1148533,
+    "lastUpdated": 1794904673839,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "POLYCAB",
+    "companyName": "POLYCAB INDIA LIMITED",
+    "currentPrice": 7790,
+    "change": -165.5,
+    "changePercent": -2.08,
+    "high": 7985.5,
+    "low": 7745,
+    "volume": 352976,
+    "lastUpdated": 1794902929977,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "HCLTECH",
+    "companyName": "HCL TECHNOLOGIES LTD",
+    "currentPrice": 1359.6,
+    "change": -25,
+    "changePercent": -1.81,
+    "high": 1381.3,
+    "low": 1350.6,
+    "volume": 2026582,
+    "lastUpdated": 1794903347902,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "HINDALCO",
+    "companyName": "HINDALCO  INDUSTRIES  LTD",
+    "currentPrice": 927.8,
+    "change": -15.8,
+    "changePercent": -1.67,
+    "high": 933.9,
+    "low": 911.85,
+    "volume": 4870143,
+    "lastUpdated": 1794904309617,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "PAGEIND",
+    "companyName": "PAGE INDUSTRIES LTD",
+    "currentPrice": 30940,
+    "change": -525,
+    "changePercent": -1.67,
+    "high": 31825,
+    "low": 30875,
+    "volume": 31984,
+    "lastUpdated": 1794902927899,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "COALINDIA",
+    "companyName": "COAL INDIA LTD",
+    "currentPrice": 390.95,
+    "change": -6.55,
+    "changePercent": -1.65,
+    "high": 398.5,
+    "low": 387.75,
+    "volume": 21143307,
+    "lastUpdated": 1794904307433,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "HDFCLIFE",
+    "companyName": "HDFC LIFE INS CO LTD",
+    "currentPrice": 594.55,
+    "change": -9.95,
+    "changePercent": -1.65,
+    "high": 604.75,
+    "low": 593.65,
+    "volume": 1191024,
+    "lastUpdated": 1794904311706,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "POWERGRID",
+    "companyName": "POWER GRID CORP. LTD.",
+    "currentPrice": 257.95,
+    "change": -4.25,
+    "changePercent": -1.62,
+    "high": 261.75,
+    "low": 257,
+    "volume": 7492609,
+    "lastUpdated": 1794903405578,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "WIPRO",
+    "companyName": "WIPRO LTD",
+    "currentPrice": 191.57,
+    "change": -3.03,
+    "changePercent": -1.56,
+    "high": 193.32,
+    "low": 190.01,
+    "volume": 10104845,
+    "lastUpdated": 1794903352188,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "LTM",
+    "companyName": "LTM LIMITED",
+    "currentPrice": 4141.2,
+    "change": -58.5,
+    "changePercent": -1.39,
+    "high": 4234,
+    "low": 4085.1,
+    "volume": 161297,
+    "lastUpdated": 1794904307412,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ONGC",
+    "companyName": "OIL AND NATURAL GAS CORP.",
+    "currentPrice": 224.04,
+    "change": -2.95,
+    "changePercent": -1.3,
+    "high": 226.35,
+    "low": 223.75,
+    "volume": 6302788,
+    "lastUpdated": 1794903352183,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "LUPIN",
+    "companyName": "LUPIN LIMITED",
+    "currentPrice": 1954.5,
+    "change": -25.8,
+    "changePercent": -1.3,
+    "high": 1984.8,
+    "low": 1952.5,
+    "volume": 388492,
+    "lastUpdated": 1794902925738,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "INFY",
+    "companyName": "INFOSYS LIMITED",
+    "currentPrice": 1130.5,
+    "change": -14.6,
+    "changePercent": -1.27,
+    "high": 1145,
+    "low": 1125.3,
+    "volume": 4499365,
+    "lastUpdated": 1794903345792,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "OFSS",
+    "companyName": "ORACLE FIN SERV SOFT LTD.",
+    "currentPrice": 9788,
+    "change": -124,
+    "changePercent": -1.25,
+    "high": 9988,
+    "low": 9755,
+    "volume": 79678,
+    "lastUpdated": 1794902927906,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "PFC",
+    "companyName": "POWER FIN CORP LTD.",
+    "currentPrice": 329,
+    "change": -3.8,
+    "changePercent": -1.14,
+    "high": 330.65,
+    "low": 327.1,
+    "volume": 4019714,
+    "lastUpdated": 1794902929986,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "BRITANNIA",
+    "companyName": "BRITANNIA INDUSTRIES LTD",
+    "currentPrice": 4697.7,
+    "change": -52.8,
+    "changePercent": -1.11,
+    "high": 4792.3,
+    "low": 4697.2,
+    "volume": 110672,
+    "lastUpdated": 1794904311711,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "SIEMENS",
+    "companyName": "SIEMENS LTD",
+    "currentPrice": 3541.2,
+    "change": -39.7,
+    "changePercent": -1.11,
+    "high": 3608.6,
+    "low": 3526,
+    "volume": 117525,
+    "lastUpdated": 1794902932081,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "JSWENERGY",
+    "companyName": "JSW ENERGY LIMITED",
+    "currentPrice": 509,
+    "change": -5.55,
+    "changePercent": -1.08,
+    "high": 515.75,
+    "low": 507.05,
+    "volume": 620652,
+    "lastUpdated": 1794902925741,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "TORNTPHARM",
+    "companyName": "TORRENT PHARMACEUTICALS L",
+    "currentPrice": 4640.4,
+    "change": -50.8,
+    "changePercent": -1.08,
+    "high": 4686.5,
+    "low": 4638.1,
+    "volume": 139703,
+    "lastUpdated": 1794902932076,
+    "isMarketOpen": true,
+    "staleData": true
+   }
+  ],
+  "mostActive": [
+   {
+    "symbol": "PNB",
+    "companyName": "PUNJAB NATIONAL BANK",
+    "currentPrice": 149.17,
+    "change": 4.58,
+    "changePercent": 3.17,
+    "high": 151.67,
+    "low": 143.9,
+    "volume": 49340051,
+    "lastUpdated": 1794902929992,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "CANBK",
+    "companyName": "CANARA BANK",
+    "currentPrice": 134.96,
+    "change": 2.56,
+    "changePercent": 1.93,
+    "high": 136.8,
+    "low": 132.2,
+    "volume": 32925117,
+    "lastUpdated": 1794904667552,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "HDFCBANK",
+    "companyName": "HDFC BANK LTD",
+    "currentPrice": 816.1,
+    "change": -0.4,
+    "changePercent": -0.05,
+    "high": 821,
+    "low": 810.85,
+    "volume": 25246083,
+    "lastUpdated": 1794903345802,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "ETERNAL",
+    "companyName": "ETERNAL LIMITED",
+    "currentPrice": 374.3,
+    "change": 3.2,
+    "changePercent": 0.86,
+    "high": 378,
+    "low": 369.15,
+    "volume": 21746798,
+    "lastUpdated": 1794902985562,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "COALINDIA",
+    "companyName": "COAL INDIA LTD",
+    "currentPrice": 390.95,
+    "change": -6.55,
+    "changePercent": -1.65,
+    "high": 398.5,
+    "low": 387.75,
+    "volume": 21143307,
+    "lastUpdated": 1794904307433,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "TATASTEEL",
+    "companyName": "TATA STEEL LIMITED",
+    "currentPrice": 182.02,
+    "change": -0.24,
+    "changePercent": -0.13,
+    "high": 183.22,
+    "low": 179.65,
+    "volume": 14854594,
+    "lastUpdated": 1794904305295,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "BANKBARODA",
+    "companyName": "BANK OF BARODA",
+    "currentPrice": 274.06,
+    "change": 3.86,
+    "changePercent": 1.43,
+    "high": 276.2,
+    "low": 269.46,
+    "volume": 13913530,
+    "lastUpdated": 1794904665473,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "TMPV",
+    "companyName": "TATA MOTORS PASS VEH LTD",
+    "currentPrice": 259.85,
+    "change": -2.55,
+    "changePercent": -0.97,
+    "high": 268.5,
+    "low": 259.1,
+    "volume": 13784747,
+    "lastUpdated": 1794903350096,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "SBIN",
+    "companyName": "STATE BANK OF INDIA",
+    "currentPrice": 1106.45,
+    "change": 15.95,
+    "changePercent": 1.46,
+    "high": 1114,
+    "low": 1091.95,
+    "volume": 11748096,
+    "lastUpdated": 1794903347891,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "ITC",
+    "companyName": "ITC LTD",
+    "currentPrice": 293.9,
+    "change": -1.2,
+    "changePercent": -0.41,
+    "high": 296.95,
+    "low": 292.3,
+    "volume": 11428379,
+    "lastUpdated": 1794903347902,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "IRFC",
+    "companyName": "INDIAN RAILWAY FIN CORP L",
+    "currentPrice": 82.42,
+    "change": 0.31,
+    "changePercent": 0.38,
+    "high": 83.95,
+    "low": 81.49,
+    "volume": 10610090,
+    "lastUpdated": 1794904671715,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "WIPRO",
+    "companyName": "WIPRO LTD",
+    "currentPrice": 191.57,
+    "change": -3.03,
+    "changePercent": -1.56,
+    "high": 193.32,
+    "low": 190.01,
+    "volume": 10104845,
+    "lastUpdated": 1794903352188,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "ICICIBANK",
+    "companyName": "ICICI BANK LTD.",
+    "currentPrice": 1606.1,
+    "change": 21.1,
+    "changePercent": 1.33,
+    "high": 1613.9,
+    "low": 1578.8,
+    "volume": 9802751,
+    "lastUpdated": 1794903345784,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "RELIANCE",
+    "companyName": "RELIANCE INDUSTRIES LTD",
+    "currentPrice": 1360.3,
+    "change": 15.5,
+    "changePercent": 1.15,
+    "high": 1363,
+    "low": 1335,
+    "volume": 9244391,
+    "lastUpdated": 1794903345796,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "KOTAKBANK",
+    "companyName": "KOTAK MAHINDRA BANK LTD",
+    "currentPrice": 497.45,
+    "change": 3.25,
+    "changePercent": 0.66,
+    "high": 498.4,
+    "low": 492.2,
+    "volume": 7927694,
+    "lastUpdated": 1794903347861,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "LICI",
+    "companyName": "LIFE INSURA CORP OF INDIA",
+    "currentPrice": 400.1,
+    "change": 0.1,
+    "changePercent": 0.03,
+    "high": 404,
+    "low": 399.15,
+    "volume": 7738976,
+    "lastUpdated": 1794902925724,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "JIOFIN",
+    "companyName": "JIO FIN SERVICES LTD",
+    "currentPrice": 227.77,
+    "change": 1.77,
+    "changePercent": 0.78,
+    "high": 228.7,
+    "low": 225.36,
+    "volume": 7711631,
+    "lastUpdated": 1794904671719,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "POWERGRID",
+    "companyName": "POWER GRID CORP. LTD.",
+    "currentPrice": 257.95,
+    "change": -4.25,
+    "changePercent": -1.62,
+    "high": 261.75,
+    "low": 257,
+    "volume": 7492609,
+    "lastUpdated": 1794903405578,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "SAIL",
+    "companyName": "STEEL AUTHORITY OF INDIA",
+    "currentPrice": 170.14,
+    "change": 1.39,
+    "changePercent": 0.82,
+    "high": 171.3,
+    "low": 166.54,
+    "volume": 7395690,
+    "lastUpdated": 1794902929996,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "IOC",
+    "companyName": "INDIAN OIL CORP LTD",
+    "currentPrice": 145.82,
+    "change": 1.79,
+    "changePercent": 1.24,
+    "high": 146.62,
+    "low": 143.7,
+    "volume": 6678515,
+    "lastUpdated": 1794904671746,
+    "isMarketOpen": true
+   }
+  ],
+  "isMarketOpen": true,
+  "lastUpdated": 1794904673839
+ },
+ "is_market_open": true,
+ "fii_dii": [
+  {
+   "date": "2026-11-16",
+   "fiiCash": 4864.68,
+   "diiCash": -3519.05,
+   "fiiFno": 0,
+   "diiFno": 0
+  },
+  {
+   "date": "2026-11-13",
+   "fiiCash": 5736.55,
+   "diiCash": -2253.58,
+   "fiiFno": 0,
+   "diiFno": 0
+  },
+  {
+   "date": "2026-11-12",
+   "fiiCash": 7830.6,
+   "diiCash": -6331.17,
+   "fiiFno": 0,
+   "diiFno": 0
+  },
+  {
+   "date": "2026-11-11",
+   "fiiCash": 12563.33,
+   "diiCash": -8434.53,
+   "fiiFno": 0,
+   "diiFno": 0
+  },
+  {
+   "date": "2026-11-09",
+   "fiiCash": 7212.22,
+   "diiCash": -7172.53,
+   "fiiFno": 0,
+   "diiFno": 0
+  },
+  {
+   "date": "2026-11-06",
+   "fiiCash": 13749.82,
+   "diiCash": -5968.7,
+   "fiiFno": 0,
+   "diiFno": 0
+  },
+  {
+   "date": "2026-11-05",
+   "fiiCash": 14974.68,
+   "diiCash": -10444.54,
+   "fiiFno": 0,
+   "diiFno": 0
+  },
+  {
+   "date": "2026-11-04",
+   "fiiCash": 7284.03,
+   "diiCash": -3712.23,
+   "fiiFno": 0,
+   "diiFno": 0
+  }
+ ],
+ "news_buzz": [
+  {
+   "symbol": "HDFCBANK",
+   "mentions": 4,
+   "headlines": [
+    "M&M, Airtel, TechM, HDFC Bank lead Nifty's 3100 pts rally; more steam left?",
+    "Nifty Bank hits record high, tops 62,000; HDFC Bank jumps 20% from Oct low",
+    "Jefferies Prefers Large-Caps As FPIs Return To India; HDFC Bank, Adani Ports, Eternal Among Top Picks"
+   ]
+  },
+  {
+   "symbol": "ABB",
+   "mentions": 3,
+   "headlines": [
+    "ABB India Q3 Review: Nomura Upgrades To Neutral As Brokerages See Data Centre Growth | Check Target Price",
+    "ABB India, Relaxo  Footwear And More Q2 Review: Check HDFC Securities Latest Target Prices",
+    "Stock Picks Today: ABB India, Cummins, Ashok Leyland, Tech Mahindra, Astral, And More On Brokerages' Radar"
+   ]
+  },
+  {
+   "symbol": "YESBANK",
+   "mentions": 3,
+   "headlines": [
+    "Stocks to watch: Urban Company, BSE, Tata group, HZL, YES Bank, IHCL",
+    "RBI files review petition in SC over YES Bank's ₹8,415 cr AT-1 bond case",
+    "RBI Goes Back To Supreme Court Over Yes Bank's Rs 8,415-Crore Bond Write-Off"
+   ]
+  },
+  {
+   "symbol": "TATASTEEL",
+   "mentions": 2,
+   "headlines": [
+    "Tata Steel eyes 50 MT capacity, to direct 75% capex to India: TV Narendran",
+    "Tata Steel expects stronger performance in second half of fiscal: CEO"
+   ]
+  },
+  {
+   "symbol": "ASHOKLEY",
+   "mentions": 2,
+   "headlines": [
+    "Ashok Leyland Q2 Review: Kotak Downgrades Stock As Commodity Costs Weigh On Margin | Check Target Price",
+    "Stock Picks Today: ABB India, Cummins, Ashok Leyland, Tech Mahindra, Astral, And More On Brokerages' Radar"
+   ]
+  },
+  {
+   "symbol": "TECHM",
+   "mentions": 2,
+   "headlines": [
+    "Stock Picks Today: ABB India, Cummins, Ashok Leyland, Tech Mahindra, Astral, And More On Brokerages' Radar",
+    "Stocks To Watch Today: Tech Mahindra, BSE, Capri Global, Karnataka Bank And Pace Digitek"
+   ]
+  },
+  {
+   "symbol": "IOC",
+   "mentions": 1,
+   "headlines": [
+    "IOC gets govt nod to supply sustainable aviation fuel for blending target"
+   ]
+  },
+  {
+   "symbol": "PNB",
+   "mentions": 1,
+   "headlines": [
+    "Punjab National Bank share price zooms 31% in 1 month; hits 8-year high"
+   ]
+  },
+  {
+   "symbol": "ASIANPAINT",
+   "mentions": 1,
+   "headlines": [
+    "Stock Market Today: Sensex Rises 600 Points, Nifty Near 25,450; Asian Paints Extends Gains, Brainbees Solutions Zooms 10%"
+   ]
+  },
+  {
+   "symbol": "ITC",
+   "mentions": 1,
+   "headlines": [
+    "ITC stock reclaims 200-DMA after a year; is it a rebound or fresh uptrend?"
+   ]
+  },
+  {
+   "symbol": "BHARTIARTL",
+   "mentions": 1,
+   "headlines": [
+    "M&M, Airtel, TechM, HDFC Bank lead Nifty's 3100 pts rally; more steam left?"
+   ]
+  },
+  {
+   "symbol": "M&M",
+   "mentions": 1,
+   "headlines": [
+    "M&M, Airtel, TechM, HDFC Bank lead Nifty's 3100 pts rally; more steam left?"
+   ]
+  },
+  {
+   "symbol": "TMPV",
+   "mentions": 1,
+   "headlines": [
+    "Tata Chemicals, Tata Motors, TCS, Other Tata Group Stocks Rally Up To 9%. Here's Why"
+   ]
+  },
+  {
+   "symbol": "TCS",
+   "mentions": 1,
+   "headlines": [
+    "Tata Chemicals, Tata Motors, TCS, Other Tata Group Stocks Rally Up To 9%. Here's Why"
+   ]
+  },
+  {
+   "symbol": "ETERNAL",
+   "mentions": 1,
+   "headlines": [
+    "Swiggy Vs Zomato: Bernstein Sees 84% Upside In One Stock, Flags Margin Risks For Both"
+   ]
+  },
+  {
+   "symbol": "GODREJCP",
+   "mentions": 1,
+   "headlines": [
+    "Six Stocks To Buy Today, November 17: Godrej Consumer, Indraprastha Gas, Eternal, And More"
+   ]
+  },
+  {
+   "symbol": "COFORGE",
+   "mentions": 1,
+   "headlines": [
+    "Coforge, Mphasis, Infosys: Which IT Stocks Are Brokerages Betting On Now?"
+   ]
+  },
+  {
+   "symbol": "MPHASIS",
+   "mentions": 1,
+   "headlines": [
+    "Coforge, Mphasis, Infosys: Which IT Stocks Are Brokerages Betting On Now?"
+   ]
+  },
+  {
+   "symbol": "INFY",
+   "mentions": 1,
+   "headlines": [
+    "Coforge, Mphasis, Infosys: Which IT Stocks Are Brokerages Betting On Now?"
+   ]
+  },
+  {
+   "symbol": "COALINDIA",
+   "mentions": 1,
+   "headlines": [
+    "Coal India, NTPC Are On BofA's Beneficiary List As India's Evening Power Gap May Last Till FY29"
+   ]
+  },
+  {
+   "symbol": "NTPC",
+   "mentions": 1,
+   "headlines": [
+    "Coal India, NTPC Are On BofA's Beneficiary List As India's Evening Power Gap May Last Till FY29"
+   ]
+  },
+  {
+   "symbol": "MAXHEALTH",
+   "mentions": 1,
+   "headlines": [
+    "Stock Market Highlights: Nifty Ends Near 25,300, Sensex Settles Over 500 Points Higher; Max Healthcare Top Gainer"
+   ]
+  }
+ ],
+ "events": [
+  {
+   "id": "nse_dividend_KSOLVES_2026-10-29",
+   "symbol": "KSOLVES",
+   "company_name": "Ksolves India Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Re  1 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-29",
+   "event_data": {
+    "type": "interim",
+    "amount": 1,
+    "ex_date": "2026-10-29",
+    "record_date": "2026-10-29"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "722a66d917e0"
+  },
+  {
+   "id": "nse_dividend_KAJARIACER_2026-10-29",
+   "symbol": "KAJARIACER",
+   "company_name": "Kajaria Ceramics Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 12 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-29",
+   "event_data": {
+    "type": "interim",
+    "amount": 12,
+    "ex_date": "2026-10-29",
+    "record_date": "2026-10-29"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "81674448206e"
+  },
+  {
+   "id": "nse_dividend_SHRIRAMFIN_2026-10-29",
+   "symbol": "SHRIRAMFIN",
+   "company_name": "Shriram Finance Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 6.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-29",
+   "event_data": {
+    "type": "interim",
+    "amount": 6.5,
+    "ex_date": "2026-10-29",
+    "record_date": "2026-10-29"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "392b74f759b3"
+  },
+  {
+   "id": "nse_dividend_CRISIL_2026-10-29",
+   "symbol": "CRISIL",
+   "company_name": "Crisil Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 17 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-29",
+   "event_data": {
+    "type": "interim",
+    "amount": 17,
+    "ex_date": "2026-10-29",
+    "record_date": "2026-10-29"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "b9eb05f4cb2c"
+  },
+  {
+   "id": "nse_dividend_CMPDI_2026-10-29",
+   "symbol": "CMPDI",
+   "company_name": "Central Mine Planning & Design Institute Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs  1.05 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-29",
+   "event_data": {
+    "type": "interim",
+    "amount": 1.05,
+    "ex_date": "2026-10-29",
+    "record_date": "2026-10-29"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "cc5d6208d5d9"
+  },
+  {
+   "id": "nse_dividend_CHENNPETRO_2026-10-30",
+   "symbol": "CHENNPETRO",
+   "company_name": "Chennai Petroleum Corporation Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 25 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 25,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "dad54e914562"
+  },
+  {
+   "id": "nse_dividend_CUBEINVIT_2026-10-30",
+   "symbol": "CUBEINVIT",
+   "company_name": "Cube Highways Trust",
+   "event_type": "DIVIDEND",
+   "title": "Distribution - Rs 3.79 Per Unit Consisting Of Rs 1.76 Per Unit As Interest/Re 0.32 Per Unit As Dividend/Rs 1.71 Per Unit As Return Of Capital",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "dividend",
+    "amount": 3.79,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-31"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "40338144d1e8"
+  },
+  {
+   "id": "nse_dividend_SPLPETRO_2026-10-30",
+   "symbol": "SPLPETRO",
+   "company_name": "Supreme Petrochem Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 2.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 2.5,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "020925760cbf"
+  },
+  {
+   "id": "nse_dividend_SAGILITY_2026-10-30",
+   "symbol": "SAGILITY",
+   "company_name": "SAGILITY LIMITED",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Re 0.15 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 0.15,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "43229e04431b"
+  },
+  {
+   "id": "nse_dividend_SIYSIL_2026-10-30",
+   "symbol": "SIYSIL",
+   "company_name": "Siyaram Silk Mills Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 4 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 4,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-31"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "3af8575703b8"
+  },
+  {
+   "id": "nse_dividend_DALBHARAT_2026-10-30",
+   "symbol": "DALBHARAT",
+   "company_name": "Dalmia Bharat Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 4 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 4,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "da762a4adc43"
+  },
+  {
+   "id": "nse_dividend_DCMSHRIRAM_2026-10-30",
+   "symbol": "DCMSHRIRAM",
+   "company_name": "DCM Shriram Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 4 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 4,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "3c90907b498f"
+  },
+  {
+   "id": "nse_dividend_EMBASSY_2026-10-30",
+   "symbol": "EMBASSY",
+   "company_name": "Embassy Office Parks REIT",
+   "event_type": "DIVIDEND",
+   "title": "Distribution - Rs 7.07 Per Unit Consisting Of Re 0.14 Per Unit As Interest/ Re 0.86 Per Unit As Dividend/ Rs 6.07 Per Unit As Repayment Of Spv Level Debt",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "dividend",
+    "amount": 7.07,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-31"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "a9d6cefb9099"
+  },
+  {
+   "id": "nse_dividend_RECLTD_2026-10-30",
+   "symbol": "RECLTD",
+   "company_name": "REC Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 3.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 3.5,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "6f75032c8a74"
+  },
+  {
+   "id": "nse_dividend_SSWL_2026-10-30",
+   "symbol": "SSWL",
+   "company_name": "Steel Strips Wheels Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 1.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 1.5,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "c925e7e111b3"
+  },
+  {
+   "id": "nse_dividend_SUPREMEIND_2026-10-30",
+   "symbol": "SUPREMEIND",
+   "company_name": "Supreme Industries Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 12 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 12,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "50a5cde90b18"
+  },
+  {
+   "id": "nse_dividend_ADOR_2026-10-30",
+   "symbol": "ADOR",
+   "company_name": "Ador Welding Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 7.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 7.5,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "01b1b7dc2e33"
+  },
+  {
+   "id": "nse_dividend_RAILTEL_2026-10-30",
+   "symbol": "RAILTEL",
+   "company_name": "Railtel Corporation Of India Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Re 1 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-10-30",
+   "event_data": {
+    "type": "interim",
+    "amount": 1,
+    "ex_date": "2026-10-30",
+    "record_date": "2026-10-30"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "52184175bd2b"
+  },
+  {
+   "id": "nse_dividend_PITTIENG_2026-11-02",
+   "symbol": "PITTIENG",
+   "company_name": "Pitti Engineering Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 2 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-02",
+   "event_data": {
+    "type": "interim",
+    "amount": 2,
+    "ex_date": "2026-11-02",
+    "record_date": "2026-11-02"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "089820cc2396"
+  },
+  {
+   "id": "nse_dividend_COLPAL_2026-11-02",
+   "symbol": "COLPAL",
+   "company_name": "Colgate Palmolive (India) Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 24 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-02",
+   "event_data": {
+    "type": "interim",
+    "amount": 24,
+    "ex_date": "2026-11-02",
+    "record_date": "2026-11-02"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "0a02b7a8ab20"
+  },
+  {
+   "id": "nse_dividend_TANLA_2026-11-02",
+   "symbol": "TANLA",
+   "company_name": "Tanla Platforms Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 6 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-02",
+   "event_data": {
+    "type": "interim",
+    "amount": 6,
+    "ex_date": "2026-11-02",
+    "record_date": "2026-11-02"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "07d0ea706c94"
+  },
+  {
+   "id": "nse_dividend_ROUTE_2026-11-02",
+   "symbol": "ROUTE",
+   "company_name": "ROUTE MOBILE LIMITED",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 4 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-02",
+   "event_data": {
+    "type": "interim",
+    "amount": 4,
+    "ex_date": "2026-11-02",
+    "record_date": "2026-11-02"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "14afe020688b"
+  },
+  {
+   "id": "nse_dividend_MAZDOCK_2026-11-03",
+   "symbol": "MAZDOCK",
+   "company_name": "Mazagon Dock Shipbuilders Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 5 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-03",
+   "event_data": {
+    "type": "interim",
+    "amount": 5,
+    "ex_date": "2026-11-03",
+    "record_date": "2026-11-03"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "d7c21d7ae7b7"
+  },
+  {
+   "id": "nse_dividend_INFY_2026-11-03",
+   "symbol": "INFY",
+   "company_name": "Infosys Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 26 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-03",
+   "event_data": {
+    "type": "interim",
+    "amount": 26,
+    "ex_date": "2026-11-03",
+    "record_date": "2026-11-03"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "c234c0c67d8a"
+  },
+  {
+   "id": "nse_dividend_RRKABEL_2026-11-03",
+   "symbol": "RRKABEL",
+   "company_name": "R R Kabel Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 6.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-03",
+   "event_data": {
+    "type": "interim",
+    "amount": 6.5,
+    "ex_date": "2026-11-03",
+    "record_date": "2026-11-03"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "477c8eb83f60"
+  },
+  {
+   "id": "nse_dividend_GRAVITA_2026-11-03",
+   "symbol": "GRAVITA",
+   "company_name": "Gravita India Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs   7.70 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-03",
+   "event_data": {
+    "type": "interim",
+    "amount": 7.7,
+    "ex_date": "2026-11-03",
+    "record_date": "2026-11-03"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "7159695bd94f"
+  },
+  {
+   "id": "nse_dividend_SASKEN_2026-11-03",
+   "symbol": "SASKEN",
+   "company_name": "Sasken Technologies Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 12 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-03",
+   "event_data": {
+    "type": "interim",
+    "amount": 12,
+    "ex_date": "2026-11-03",
+    "record_date": "2026-11-03"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "150e6bfd3f04"
+  },
+  {
+   "id": "nse_dividend_ANZEN_2026-11-04",
+   "symbol": "ANZEN",
+   "company_name": "Anzen India Energy Yield Plus Trust",
+   "event_type": "DIVIDEND",
+   "title": "Distribution - Rs 3 Per Unit Consist Of Rs 2.5491 Per Unit As Interest/ Re 0.4139 Per Unit As Dividend/ Re 0.0370 Per Unit As Other Income",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "dividend",
+    "amount": 3,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "895cfe454ace"
+  },
+  {
+   "id": "nse_dividend_SYMPHONY_2026-11-04",
+   "symbol": "SYMPHONY",
+   "company_name": "Symphony Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 2 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "interim",
+    "amount": 2,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "bc51265a2293"
+  },
+  {
+   "id": "nse_dividend_ASIANPAINT_2026-11-04",
+   "symbol": "ASIANPAINT",
+   "company_name": "Asian Paints Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 5.75 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "interim",
+    "amount": 5.75,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "ff95e6597103"
+  },
+  {
+   "id": "nse_dividend_COALINDIA_2026-11-04",
+   "symbol": "COALINDIA",
+   "company_name": "Coal India Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 10.25 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "interim",
+    "amount": 10.25,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "bb8c8ebfbff0"
+  },
+  {
+   "id": "nse_bonus_CONCORDBIO_2026-11-04",
+   "symbol": "CONCORDBIO",
+   "company_name": "Concord Biotech Limited",
+   "event_type": "BONUS",
+   "title": "Bonus 1:1",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "ratio": "1:1",
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "35b081cad997"
+  },
+  {
+   "id": "nse_dividend_SILVERTUC_2026-11-04",
+   "symbol": "SILVERTUC",
+   "company_name": "Silver Touch Technologies Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Re 0.10 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "interim",
+    "amount": 0.1,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "5e124f200c1d"
+  },
+  {
+   "id": "nse_dividend_GODREJCP_2026-11-04",
+   "symbol": "GODREJCP",
+   "company_name": "Godrej Consumer Products Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 5 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "interim",
+    "amount": 5,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "75395e6a0dd1"
+  },
+  {
+   "id": "nse_dividend_PRIVISCL_2026-11-04",
+   "symbol": "PRIVISCL",
+   "company_name": "Privi Speciality Chemicals Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 5 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "interim",
+    "amount": 5,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "cf8a6cebb78d"
+  },
+  {
+   "id": "nse_dividend_VAIBHAVGBL_2026-11-04",
+   "symbol": "VAIBHAVGBL",
+   "company_name": "Vaibhav Global Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 1.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-04",
+   "event_data": {
+    "type": "interim",
+    "amount": 1.5,
+    "ex_date": "2026-11-04",
+    "record_date": "2026-11-04"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793887365975,
+   "url_id": "8f663b441864"
+  },
+  {
+   "id": "nse_dividend_BAGMANE_2026-11-05",
+   "symbol": "BAGMANE",
+   "company_name": "Bagmane Prime Office REIT",
+   "event_type": "DIVIDEND",
+   "title": "Distribution - Rs 1.55 Per Unit Consists Of Rs 1.22 Per Unit As Dividend & Re 0.33 Per Unit As Interest",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "dividend",
+    "amount": 1.55,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "036bb695f86e"
+  },
+  {
+   "id": "nse_dividend_BIRET_2026-11-05",
+   "symbol": "BIRET",
+   "company_name": "Brookfield India Real Estate Trust",
+   "event_type": "DIVIDEND",
+   "title": "Distribution - Rs 5.70 Per Unit Consists Of Rs 1.72 Per Unit As Dividend/ Rs 1.54 Per Unit As Interest/Rs 2.24 Per Unit Repayemt Of Spv And Ncd/ Re 0.20 Per Unit Interest On Fd",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "dividend",
+    "amount": 5.7,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "f5f30802b0e0"
+  },
+  {
+   "id": "nse_dividend_BSOFT_2026-11-05",
+   "symbol": "BSOFT",
+   "company_name": "BIRLASOFT LIMITED",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 3 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 3,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "9d19548c4559"
+  },
+  {
+   "id": "nse_dividend_ENGINERSIN_2026-11-05",
+   "symbol": "ENGINERSIN",
+   "company_name": "Engineers India Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 1.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 1.5,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "964a998a4f4c"
+  },
+  {
+   "id": "nse_split_GNRL_2026-11-05",
+   "symbol": "GNRL",
+   "company_name": "Gujarat Natural Resources Limited",
+   "event_type": "SPLIT",
+   "title": "Face Value Split (Sub-Division) - From Rs 10/- Per Share To Re 1/- Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "ratio": null,
+    "face_value_before": null,
+    "face_value_after": null,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "225fca15f555"
+  },
+  {
+   "id": "nse_dividend_INDTONER_2026-11-05",
+   "symbol": "INDTONER",
+   "company_name": "Indian Toners & Developers Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 1.20 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 1.2,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "87c37e123ff2"
+  },
+  {
+   "id": "nse_dividend_KRISHNADEF_2026-11-05",
+   "symbol": "KRISHNADEF",
+   "company_name": "Krishna Defence and Allied Industries Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Re 0.75 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 0.75,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "7b31b5c95b91"
+  },
+  {
+   "id": "nse_dividend_MINDSPACE_2026-11-05",
+   "symbol": "MINDSPACE",
+   "company_name": "Mindspace Business Parks REIT",
+   "event_type": "DIVIDEND",
+   "title": "Distribution - Rs 6.67 Per Unit Consisting Of Dividend - Rs 4.17 Per Unit/ Repayment Of Spv Debt - Rs 2.50 Per Unit",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "dividend",
+    "amount": 6.67,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "2fdf610d73b4"
+  },
+  {
+   "id": "nse_dividend_NAVINFLUOR_2026-11-05",
+   "symbol": "NAVINFLUOR",
+   "company_name": "Navin Fluorine International Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 8 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 8,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "88bef343cab1"
+  },
+  {
+   "id": "nse_dividend_SANOFI_2026-11-05",
+   "symbol": "SANOFI",
+   "company_name": "Sanofi India Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 75 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 75,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "f1375fd1a9ee"
+  },
+  {
+   "id": "nse_dividend_SHAREINDIA_2026-11-05",
+   "symbol": "SHAREINDIA",
+   "company_name": "Share India Securities Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Re 0.40 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 0.4,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "6824d3040a14"
+  },
+  {
+   "id": "nse_dividend_SUNTV_2026-11-05",
+   "symbol": "SUNTV",
+   "company_name": "Sun TV Network Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Rs 3.75 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 3.75,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "098c52daade5"
+  },
+  {
+   "id": "nse_dividend_VBL_2026-11-05",
+   "symbol": "VBL",
+   "company_name": "Varun Beverages Limited",
+   "event_type": "DIVIDEND",
+   "title": "Interim Dividend - Re 0.50 Per Share",
+   "status": "completed",
+   "announced_at": null,
+   "key_date": "2026-11-05",
+   "event_data": {
+    "type": "interim",
+    "amount": 0.5,
+    "ex_date": "2026-11-05",
+    "record_date": "2026-11-05"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793887365975,
+   "updated_at": 1793928645931,
+   "url_id": "34073445a273"
+  },
+  {
+   "id": "nse_results_3MINDIA_2026-11-06",
+   "symbol": "3MINDIA",
+   "company_name": "3M India Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "c002f1e8bbb7"
+  },
+  {
+   "id": "nse_results_AGIIL_2026-11-06",
+   "symbol": "AGIIL",
+   "company_name": "Agi Infra Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "c9db04be4500"
+  },
+  {
+   "id": "nse_results_AGOL_2026-11-06",
+   "symbol": "AGOL",
+   "company_name": "Ashapuri Gold Ornament Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "9dfae94c0033"
+  },
+  {
+   "id": "nse_results_AGROPHOS_2026-11-06",
+   "symbol": "AGROPHOS",
+   "company_name": "Agro Phos India Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "e3cdfd086c88"
+  },
+  {
+   "id": "nse_results_AJAXENGG_2026-11-06",
+   "symbol": "AJAXENGG",
+   "company_name": "Ajax Engineering Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "13e210c3e768"
+  },
+  {
+   "id": "nse_results_AJRINFRA_2026-11-06",
+   "symbol": "AJRINFRA",
+   "company_name": "AJR INFRA AND TOLLING LIMITED",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "97d88911a0ab"
+  },
+  {
+   "id": "nse_results_AKASH_2026-11-06",
+   "symbol": "AKASH",
+   "company_name": "Akash Infra Projects Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "e12e237a60aa"
+  },
+  {
+   "id": "nse_results_AKI_2026-11-06",
+   "symbol": "AKI",
+   "company_name": "AKI India Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "f7abb4cecbd1"
+  },
+  {
+   "id": "nse_results_ALEMBICLTD_2026-11-06",
+   "symbol": "ALEMBICLTD",
+   "company_name": "Alembic Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "951e5756aeb0"
+  },
+  {
+   "id": "nse_results_ANUP_2026-11-06",
+   "symbol": "ANUP",
+   "company_name": "The Anup Engineering Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "7d10595c85e3"
+  },
+  {
+   "id": "nse_results_ANURAS_2026-11-06",
+   "symbol": "ANURAS",
+   "company_name": "Anupam Rasayan India Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "c9f0fa0dfb35"
+  },
+  {
+   "id": "nse_results_ASTERDM_2026-11-06",
+   "symbol": "ASTERDM",
+   "company_name": "Aster DM Quality Care Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "05f35cb9aec8"
+  },
+  {
+   "id": "nse_results_AUTOIND_2026-11-06",
+   "symbol": "AUTOIND",
+   "company_name": "Autoline Industries Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "fb8bc44f332b"
+  },
+  {
+   "id": "nse_results_AZAD_2026-11-06",
+   "symbol": "AZAD",
+   "company_name": "Azad Engineering Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "683bd9f9e764"
+  },
+  {
+   "id": "nse_results_BAJEL_2026-11-06",
+   "symbol": "BAJEL",
+   "company_name": "Bajel Projects Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "dee0b10484d3"
+  },
+  {
+   "id": "nse_results_BANCOINDIA_2026-11-06",
+   "symbol": "BANCOINDIA",
+   "company_name": "Banco Products (I) Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "12d8ffd9d44e"
+  },
+  {
+   "id": "nse_results_BEDMUTHA_2026-11-06",
+   "symbol": "BEDMUTHA",
+   "company_name": "Bedmutha Industries Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "894b2a73b022"
+  },
+  {
+   "id": "nse_results_BFUTILITIE_2026-11-06",
+   "symbol": "BFUTILITIE",
+   "company_name": "BF Utilities Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "e88acdbfa031"
+  },
+  {
+   "id": "nse_results_BLUEBLENDS_2026-11-06",
+   "symbol": "BLUEBLENDS",
+   "company_name": "Blue Blends (I) Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "6f9087e3d753"
+  },
+  {
+   "id": "nse_results_BLUEDART_2026-11-06",
+   "symbol": "BLUEDART",
+   "company_name": "Blue Dart Express Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "69a0a62c5726"
+  },
+  {
+   "id": "nse_results_BLUSPRING_2026-11-06",
+   "symbol": "BLUSPRING",
+   "company_name": "Bluspring Enterprises Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "aa0352302bda"
+  },
+  {
+   "id": "nse_results_BOMDYEING_2026-11-06",
+   "symbol": "BOMDYEING",
+   "company_name": "Bombay Dyeing & Mfg Company Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "5798fe563195"
+  },
+  {
+   "id": "nse_results_BOSCHLTD_2026-11-06",
+   "symbol": "BOSCHLTD",
+   "company_name": "Bosch Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "77737fd96993"
+  },
+  {
+   "id": "nse_results_CARRARO_2026-11-06",
+   "symbol": "CARRARO",
+   "company_name": "Carraro India Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "73fa48701108"
+  },
+  {
+   "id": "nse_results_CCAVENUE_2026-11-06",
+   "symbol": "CCAVENUE",
+   "company_name": "AvenuesAI Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "561b05614226"
+  },
+  {
+   "id": "nse_results_CHOLAHLDNG_2026-11-06",
+   "symbol": "CHOLAHLDNG",
+   "company_name": "Cholamandalam Financial Holdings Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "f23ed4f5b6e5"
+  },
+  {
+   "id": "nse_results_CIFL_2026-11-06",
+   "symbol": "CIFL",
+   "company_name": "Capital India Finance Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "bb444cfaa7c9"
+  },
+  {
+   "id": "nse_results_CITIUSINVT_2026-11-06",
+   "symbol": "CITIUSINVT",
+   "company_name": "Citius TransNet Investment Trust",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Dividend"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "435f4430b1f6"
+  },
+  {
+   "id": "nse_results_CMRGREEN_2026-11-06",
+   "symbol": "CMRGREEN",
+   "company_name": "CMR Green Technologies Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "2a620b563a8d"
+  },
+  {
+   "id": "nse_results_COFFEEDAY_2026-11-06",
+   "symbol": "COFFEEDAY",
+   "company_name": "Coffee Day Enterprises Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "987f9823f3fb"
+  },
+  {
+   "id": "nse_results_COHANCE_2026-11-06",
+   "symbol": "COHANCE",
+   "company_name": "Cohance Lifesciences Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "912140851d33"
+  },
+  {
+   "id": "nse_results_CORDSCABLE_2026-11-06",
+   "symbol": "CORDSCABLE",
+   "company_name": "Cords Cable Industries Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "ce57083a5ed5"
+  },
+  {
+   "id": "nse_results_COROMANDEL_2026-11-06",
+   "symbol": "COROMANDEL",
+   "company_name": "Coromandel International Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "0d793927a12c"
+  },
+  {
+   "id": "nse_results_CRESTO_2026-11-06",
+   "symbol": "CRESTO",
+   "company_name": "CRESTO TECHNO LIMITED",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "ff04245cfe8e"
+  },
+  {
+   "id": "nse_results_DATAPATTNS_2026-11-06",
+   "symbol": "DATAPATTNS",
+   "company_name": "Data Patterns (India) Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "554d1808c761"
+  },
+  {
+   "id": "nse_results_DENTA_2026-11-06",
+   "symbol": "DENTA",
+   "company_name": "Denta Water and Infra Solutions Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "2a08b657e951"
+  },
+  {
+   "id": "nse_results_DPABHUSHAN_2026-11-06",
+   "symbol": "DPABHUSHAN",
+   "company_name": "D. P. Abhushan Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Other business matters"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "5bd079ac5880"
+  },
+  {
+   "id": "nse_results_DTIL_2026-11-06",
+   "symbol": "DTIL",
+   "company_name": "Dhunseri Tea & Industries Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "7aa5d203badd"
+  },
+  {
+   "id": "nse_results_DVL_2026-11-06",
+   "symbol": "DVL",
+   "company_name": "Dhunseri Ventures Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "b9e58a43edf1"
+  },
+  {
+   "id": "nse_results_DYNAMATECH_2026-11-06",
+   "symbol": "DYNAMATECH",
+   "company_name": "Dynamatic Technologies Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Dividend"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "71a96e67107e"
+  },
+  {
+   "id": "nse_results_ELGIEQUIP_2026-11-06",
+   "symbol": "ELGIEQUIP",
+   "company_name": "Elgi Equipments Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "a6c9e0893852"
+  },
+  {
+   "id": "nse_results_EUROTEXIND_2026-11-06",
+   "symbol": "EUROTEXIND",
+   "company_name": "Eurotex Industries and Exports Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "c7468c0dc017"
+  },
+  {
+   "id": "nse_results_FOSECOIND_2026-11-06",
+   "symbol": "FOSECOIND",
+   "company_name": "Foseco India Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "4df6eeb5271b"
+  },
+  {
+   "id": "nse_results_GAMMONIND_2026-11-06",
+   "symbol": "GAMMONIND",
+   "company_name": "Gammon India Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "597868b66e91"
+  },
+  {
+   "id": "nse_results_GESHIP_2026-11-06",
+   "symbol": "GESHIP",
+   "company_name": "The Great Eastern Shipping Company Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results/Dividend"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "3189cc247cfa"
+  },
+  {
+   "id": "nse_results_GLAND_2026-11-06",
+   "symbol": "GLAND",
+   "company_name": "Gland Pharma Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "9b117a07d11a"
+  },
+  {
+   "id": "nse_results_GLOBALVECT_2026-11-06",
+   "symbol": "GLOBALVECT",
+   "company_name": "Global Vectra Helicorp Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "5c85d4e9d95f"
+  },
+  {
+   "id": "nse_results_GODREJAGRO_2026-11-06",
+   "symbol": "GODREJAGRO",
+   "company_name": "Godrej Agrovet Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "73e602c79870"
+  },
+  {
+   "id": "nse_results_GTLINFRA_2026-11-06",
+   "symbol": "GTLINFRA",
+   "company_name": "GTL Infrastructure Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "70e42e2a7618"
+  },
+  {
+   "id": "nse_results_HINDALCO_2026-11-06",
+   "symbol": "HINDALCO",
+   "company_name": "Hindalco Industries Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "f2da19fc2e27"
+  },
+  {
+   "id": "nse_results_HINDOILEXP_2026-11-06",
+   "symbol": "HINDOILEXP",
+   "company_name": "Hindustan Oil Exploration Company Limited",
+   "event_type": "RESULTS",
+   "title": "Board Meeting — Financial Results (2026-11-06)",
+   "status": "upcoming",
+   "announced_at": null,
+   "key_date": "2026-11-06",
+   "event_data": {
+    "meeting_date": "2026-11-06",
+    "purpose": "Financial Results"
+   },
+   "notes": null,
+   "source": "nse",
+   "created_at": 1793886619335,
+   "updated_at": 1793886619335,
+   "url_id": "021610b84150"
+  }
+ ],
+ "news": [
+  {
+   "id": "d8b5df72ec4a9fdf1659a727a90f9866",
+   "title": "India's retail credit rises 18.8% as gold, business loans gain momentum",
+   "link": "https://www.business-standard.com/finance/news/india-s-retail-credit-rises-18-8-as-gold-business-loans-gain-momentum-126111700524_1.html",
+   "pubDate": "2026-11-17T08:17:56.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "India's retail credit portfolio grew 18.8% year-on-year to ₹185.2 trillion in Q2 FY27, with gold and secured business loans recording strong growth"
+  },
+  {
+   "id": "e3f9e2fc0a7cf96ea3da868318f79c70",
+   "title": "TTK Healthcare zooms 20% as board mulls issuing preference shares via bonus",
+   "link": "https://www.business-standard.com/markets/news/ttk-healthcare-zooms-20-as-board-mulls-issuing-preference-shares-via-bonus-126111700516_1.html",
+   "pubDate": "2026-11-17T08:10:06.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "NCRPS are a type of preference share that carry a fixed dividend entitlement and are redeemable after a specified period, but cannot be converted into ordinary equity shares."
+  },
+  {
+   "id": "6b58a6db4b29005e5defe682327e3d68",
+   "title": "Punjab National Bank share price zooms 31% in 1 month; hits 8-year high",
+   "link": "https://www.business-standard.com/markets/news/punjab-national-bank-share-price-zooms-31-in-1-month-hits-8-year-high-126111700500_1.html",
+   "pubDate": "2026-11-17T08:09:38.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Punjab National Bank: The stock price of public sector bank quoted higher for the sixth straight trading day, surging 21% during the period."
+  },
+  {
+   "id": "3b2e7314c54039911a08ad053cefbe05",
+   "title": "Your home's value may not match the house price index. Here's why",
+   "link": "https://www.business-standard.com/finance/personal-finance/your-home-s-value-may-not-match-the-house-price-index-here-s-why-126111700508_1.html",
+   "pubDate": "2026-11-17T08:08:56.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "How accurately can you track your home's value? India's house price indices face data gaps"
+  },
+  {
+   "id": "bfbe281f8503218557c0a3897c0902a8",
+   "title": "Sebi may limit margin-funded stock purchases as retail leverage hits record",
+   "link": "https://www.business-standard.com/markets/news/sebi-may-limit-margin-funded-stock-purchases-as-retail-leverage-hits-record-126111700421_1.html",
+   "pubDate": "2026-11-17T08:07:32.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Margin-funded bets have climbed to ₹1.53 trillion, up 29% in a year, with nearly two-thirds linked to small- and mid-cap stocks, raising concerns over risks from a market downturn"
+  },
+  {
+   "id": "cd24ed3c79d666756a8e3ed86bc88cf1",
+   "title": "IOC gets govt nod to supply sustainable aviation fuel for blending target",
+   "link": "https://www.business-standard.com/companies/news/ioc-gets-govt-nod-to-supply-sustainable-aviation-fuel-for-blending-target-126111700429_1.html",
+   "pubDate": "2026-11-17T08:05:34.000Z",
+   "source": "Business Standard",
+   "category": "companies",
+   "contentSnippet": "State-owned Indian Oil Corporation (IOC) has secured government approvals to commercially supply sustainable aviation fuel (SAF) from its Panipat refinery in north India, with the facility capable of producing enough fuel to meet the country's 1 per cent blending target for…"
+  },
+  {
+   "id": "e1e5c235a663c2e228a5baffa388ad9e",
+   "title": "NPS KYC rules eased for NRI seafarers: Check new address proof norms",
+   "link": "https://www.business-standard.com/finance/personal-finance/nps-kyc-rules-eased-for-nri-seafarers-check-new-address-proof-norms-126111700504_1.html",
+   "pubDate": "2026-11-17T08:03:21.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "Insurance regulator allows eligible seafarers to use an employment contract or a recent Continuous Discharge Certificate to open NPS Tier I accounts"
+  },
+  {
+   "id": "fef3a2ba3b2cd4f3e3e727e84f92eb24",
+   "title": "Kaynes Tech falls 16% in 2 sessions; Jefferies flags margin pressure",
+   "link": "https://www.business-standard.com/markets/news/kaynes-tech-falls-16-in-2-sessions-jefferies-flags-margin-pressure-126111700486_1.html",
+   "pubDate": "2026-11-17T07:50:11.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Kaynes Technology reported a consolidated net profit of ₹39.8 crore in Q2FY27, compared with ₹115.7 crore in the corresponding quarter of the previous financial year."
+  },
+  {
+   "id": "8e4b8c75778ae8cb3e0aaaba9bfa4189",
+   "title": "Private chef, concierge, spa: Embassy launches 59 luxury homes in Bengaluru",
+   "link": "https://www.business-standard.com/finance/personal-finance/private-chef-concierge-spa-embassy-launches-59-luxury-homes-in-bengaluru-126111700467_1.html",
+   "pubDate": "2026-11-17T07:39:51.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "With a GDV of ₹1,400 crore, the launch takes the company's cumulative GDV launched in\r\nFY27 to around ₹9,000 crore"
+  },
+  {
+   "id": "9040b21e029fb426c06f365af50aa19f",
+   "title": "DP World launches export rail service linking NCR to Mundra Port for ONE",
+   "link": "https://www.business-standard.com/companies/news/dp-world-launches-export-rail-service-linking-ncr-to-mundra-port-for-one-126111601475_1.html",
+   "pubDate": "2026-11-17T07:38:57.000Z",
+   "source": "Business Standard",
+   "category": "companies",
+   "contentSnippet": "Global logistics operator DP World has launched a dedicated export rail freight service for Ocean Network Express (ONE), connecting exporters in the National Capital Region (NCR) to Mundra Port, the company said on Monday. Operating on the Dedicated Freight Corridor (DFC), the…"
+  },
+  {
+   "id": "a9d4d639ef2b44c716ab47f73f4ea13a",
+   "title": "Sensex zooms 800 pts intraday, Nifty tops 25,500: 5 factors behind bull run",
+   "link": "https://www.business-standard.com/markets/news/sensex-zooms-800-pts-intraday-nifty-tops-25-500-5-factors-behind-bull-run-126111700469_1.html",
+   "pubDate": "2026-11-17T07:34:41.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Banks were the top index contributors today, with ICICI Bank leading the charge, followed by Axis Bank, L&T, State Bank of India and Mahindra & Mahindra (M&M)."
+  },
+  {
+   "id": "c0154a3c29853183751cd2d152679cdc",
+   "title": "Tata Steel eyes 50 MT capacity, to direct 75% capex to India: TV Narendran",
+   "link": "https://www.business-standard.com/companies/news/tata-steel-eyes-50-mt-capacity-to-direct-75-capex-to-india-tv-narendran-126111700284_1.html",
+   "pubDate": "2026-11-17T07:23:59.000Z",
+   "source": "Business Standard",
+   "category": "companies",
+   "contentSnippet": "Tata Steel is targeting an ambitious expansion of its annual steelmaking capacity in India to 50 million tonnes over the next decade and is exploring the possibility of setting up a 15 MT greenfield plant in Maharashtra, as it seeks to capitalise on the country's growing steel…"
+  },
+  {
+   "id": "c3750cbed0e6c120b0e3aa3c8c3e8fdf",
+   "title": "Oil seen at $78 by 2027 amid supply glut expectation: Mirae Asset Sharekhan",
+   "link": "https://www.business-standard.com/markets/news/oil-seen-at-78-by-2027-amid-supply-glut-expectation-mirae-asset-sharekhan-126111700435_1.html",
+   "pubDate": "2026-11-17T07:15:21.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Dated premiums have been wiped out since the election outcome, as Gulf crude exports reached 15 mb/d in October and observed inventories rose 52 million barrels."
+  },
+  {
+   "id": "717311510255e1486e2865b6a03a8a88",
+   "title": "Nvidia warns chip buyers of legal risks tied to China AI access, sources tell CNBC",
+   "link": "https://www.cnbc.com/2026/11/17/nvidia-china-cloud-ai-chip-access.html",
+   "pubDate": "2026-11-17T07:07:35.000Z",
+   "source": "CNBC",
+   "category": "global",
+   "contentSnippet": "The U.S. Commerce Department is making moves to tighten export controls."
+  },
+  {
+   "id": "c0b39f56da7739971a6707c510f69083",
+   "title": "U.S. agencies say they initiated investigation into Nvidia partner Megaspeed in 2024",
+   "link": "https://www.cnbc.com/2026/11/17/megaspeed-investigation-nvidia-jensen-huang.html",
+   "pubDate": "2026-11-17T06:59:42.000Z",
+   "source": "CNBC",
+   "category": "global",
+   "contentSnippet": "The Commerce and Justice departments said in a joint statement that U.S. investigations into Megaspeed began in 2024."
+  },
+  {
+   "id": "99848058e73dd719f6b07c3841245b5e",
+   "title": "Nifty Bank hits record high above 62,300; analysts see room for more gains",
+   "link": "https://www.business-standard.com/markets/news/nifty-bank-record-high-62300-technical-outlook-profit-booking-126111700405_1.html",
+   "pubDate": "2026-11-17T06:56:20.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "The banking index has gained about 11.5 per cent over the past month, outperforming the Nifty 50, though analysts cautioned that the sharp rally could trigger consolidation"
+  },
+  {
+   "id": "a0790e82e2e136ffa727f82405457e61",
+   "title": "How Jensen Huang scandal makes Congress a bigger risk to U.S.-China relations",
+   "link": "https://www.cnbc.com/2026/11/17/jensen-nvidia-trump-xi-tech-curbs-congress.html",
+   "pubDate": "2026-11-17T06:51:40.000Z",
+   "source": "CNBC",
+   "category": "global",
+   "contentSnippet": "Jensen Huang's alleged affair with a woman suspected by the U.S. intelligence to be a Chinese spy has spurred efforts seeking stricter curbs on tech exports to Beijing."
+  },
+  {
+   "id": "68be999872108c934c924134d367b1f8",
+   "title": "Capital Market stocks shine: Angel One jumps 6%; Groww, NSE hit new highs",
+   "link": "https://www.business-standard.com/markets/news/capital-market-stocks-shine-angel-one-jumps-6-groww-nse-hit-new-highs-126111700369_1.html",
+   "pubDate": "2026-11-17T06:41:55.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "The Nifty Capital Markets index bounced back 23.4% from its low of 4,875.15 hit on October 26, 2026, against a 13.4% rise in the Nifty 50."
+  },
+  {
+   "id": "14e15a4bf41d85d30275fe53b77a6844",
+   "title": "Brainbees snaps 3-day losing run, jumps 13%; JM Fin says worst over post Q2",
+   "link": "https://www.business-standard.com/markets/news/firstcry-parent-brainbees-shares-jump-13-jm-financial-says-worst-is-over-126111700371_1.html",
+   "pubDate": "2026-11-17T06:35:22.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Brainbees remains sharply lower this year, having lost 39 per cent on a year-to-date (YTD) basis and 47 per cent in one year."
+  },
+  {
+   "id": "4588a1cf544966c33ef3d150adf96d69",
+   "title": "Why Stock Market Is Rising Today? 3 Reasons Explained As Sensex Jumps Over 600 Points, Nifty 50 Above 25,400",
+   "link": "https://www.ndtvprofit.com/markets/why-stock-market-is-rising-today-3-reasons-explained-as-sensex-jumps-nifty-50-above-25-400-12337194",
+   "pubDate": "2026-11-17T06:30:26.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "All the sectoral indices were trading in the green, with Nifty PSU Bank, Nifty Realty, Nifty Auto, Nifty Metal and Nifty IT rising the most."
+  },
+  {
+   "id": "5aba6471673b87e6d9f2a1429f8350e5",
+   "title": "'Largecaps Are The Place To Be': Piper Serica's Abhay Agarwal On India's Next Market Rally",
+   "link": "https://www.ndtvprofit.com/markets/piper-sericas-abhay-agarwal-on-largecaps-stocks-offer-the-best-opportunity-fiis-return-bse-nse-nifty-50-sensex-today-trending-12337143",
+   "pubDate": "2026-11-17T06:17:49.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Agarwal said his investment strategy is currently tilted towards large-cap stocks, particularly those linked to consumption, after the sharp rally in midcap and smallcap stocks earlier in the year."
+  },
+  {
+   "id": "25dbab2173e49638dc6ef32b8bd09f07",
+   "title": "'Bhagwan Ko Bhi Saath Jod Liya': Ayuvedic Healthcare Firm Wants Ayushman Scheme Delay To Be Resolved, With Help From God",
+   "link": "https://www.ndtvprofit.com/business/bhagwan-ko-bhi-saath-jod-liya-ayurvedic-healthcare-firm-awaits-ayushman-scheme-12336973",
+   "pubDate": "2026-11-17T06:16:26.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Jeena Sikho aims to reach 7,000-10,000 beds in three to five years, and he said that could happen in two if the scheme is launched."
+  },
+  {
+   "id": "5d22a0c0c0c618a90e9199e5f87f4c66",
+   "title": "Another Price Shock: Paint Companies Announce Second Hike Amid Rising Costs | Profit Exclusive",
+   "link": "https://www.ndtvprofit.com/business/exclusice-paint-companies-announce-second-round-of-november-price-hikes-as-costs-rise-12337015",
+   "pubDate": "2026-11-17T06:08:51.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Asian Paints, Berger Paints, Birla Opus and Indigo Paints have announced or implemented further price increases, taking cumulative November hikes to around 5%, according to channel checks."
+  },
+  {
+   "id": "ae4566007c3180e9bc84f1ef17e633c7",
+   "title": "India's stock market premium faces test from slower growth, tight rates: UBS",
+   "link": "https://www.business-standard.com/markets/news/india-s-stock-market-premium-faces-test-from-slower-growth-tight-rates-ubs-126111700336_1.html",
+   "pubDate": "2026-11-17T06:05:31.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Globally, however, UBS remains constructive on US equities and expects the S&P 500 to climb around 20 per cent to 8,900 by the fourth quarter of 2027 (Q4-2027)."
+  },
+  {
+   "id": "4d3abc632e8469dfa0c3dca4299cc20a",
+   "title": "Senco Gold shares jump 8% on record festive sales of ₹2,426 crore",
+   "link": "https://www.business-standard.com/markets/news/senco-gold-shares-jump-8-on-record-festive-sales-of-2-426-crore-126111700328_1.html",
+   "pubDate": "2026-11-17T06:05:02.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "The company said that it has delivered a record performance during the 41- day festive period from October 1, 2026, to November 11, 2026, achieving its highest-ever retail NSV of over ₹2,426 crore."
+  },
+  {
+   "id": "1281b5a61e761f66c7cdc13319848696",
+   "title": "IT weight in mutual fund portfolios rises to 7-month high of 6.8%",
+   "link": "https://www.business-standard.com/markets/mutual-fund/mutual-funds-it-sector-weight-october-2026-infosys-hcl-tcs-126111700331_1.html",
+   "pubDate": "2026-11-17T06:04:03.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "The increase was largely driven by mark-to-market gains as the Nifty IT index rallied nearly 17 per cent in October, even as funds sold some large-cap IT stocks"
+  },
+  {
+   "id": "5b3e78b9d0f67e1944a445aaa475bcf2",
+   "title": "EU imposes anti-dumping duty on steel imports from India, 4 other nations",
+   "link": "https://www.business-standard.com/economy/news/eu-imposes-anti-dumping-duty-on-steel-imports-from-india-4-other-nations-126111700316_1.html",
+   "pubDate": "2026-11-17T05:58:47.000Z",
+   "source": "Business Standard",
+   "category": "economy",
+   "contentSnippet": "The duties, which will also apply to imports from Japan, Taiwan, Türkiye and Vietnam, come into effect today"
+  },
+  {
+   "id": "adf4b0c972b745950a23dd3c3683f3e3",
+   "title": "Stock Market Today: Sensex Rises 600 Points, Nifty Near 25,450; Asian Paints Extends Gains, Brainbees Solutions Zooms 10%",
+   "link": "https://www.ndtvprofit.com/markets/stock-market-today-live-updates-november-17-bse-sensex-today-nifty-50-oil-prices-brent-fiis-us-markets-asian-stocks-nikkei-brent-nvidia-earnings-12336548",
+   "pubDate": "2026-11-17T05:58:37.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Brent crude fell below $92 per barrel on Tuesday, extending losses from the previous session as expectations of higher global supply outweighed persistent geopolitical tensions in the Middle East."
+  },
+  {
+   "id": "4e3800b98ee828f0ce6558a1f0169aab",
+   "title": "Iran escalates threats as third U.S. carrier arrives in Middle East, tanker struck in Hormuz",
+   "link": "https://www.cnbc.com/2026/11/17/iran-war-trump-hormuz-oil-.html",
+   "pubDate": "2026-11-17T05:51:13.000Z",
+   "source": "CNBC",
+   "category": "global",
+   "contentSnippet": "Iran has ratcheted up threats against U.S. forces as a third American aircraft carrier arrived in the Gulf, stoking fears of a resumption of military tensions."
+  },
+  {
+   "id": "6f74b14dc6abb89393e60049a6ae47e0",
+   "title": "Who Is Madison Huang? Meet Jensen Huang's Daughter, Her Nvidia Role And Equation With Interim CEO",
+   "link": "https://www.ndtvprofit.com/business/who-is-madison-huang-meet-jensen-huangs-daughter-her-nvidia-role-and-equation-with-interim-ceo-12337001",
+   "pubDate": "2026-11-17T05:49:18.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "More than a dozen current and former employees, speaking anonymously, told the NYT she was known for her temper."
+  }
+ ],
+ "regulatory": [
+  {
+   "id": "b7f9c35b6fa8b704646e6fc2f18d09c8",
+   "title": "Result of the 2-day Variable Rate Reverse Repo (VRRR)  auction held on November 17, 2026",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63986",
+   "pubDate": "2026-11-17T05:05:00.000Z",
+   "source": "rbi"
+  },
+  {
+   "id": "515133957132a482f32bb446051441ca",
+   "title": "Money Market Operations as on November 16, 2026",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63985",
+   "pubDate": "2026-11-17T03:30:00.000Z",
+   "source": "rbi"
+  },
+  {
+   "id": "74ca0ffd5baa11a44f0cc8fe4274265f",
+   "title": "RBI to conduct 2-day Variable Rate Reverse Repo (VRRR) auction under LAF on November 17, 2026",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63984",
+   "pubDate": "2026-11-16T13:55:00.000Z",
+   "source": "rbi"
+  },
+  {
+   "id": "4b3566530116c51fc25ae1e60dff9147",
+   "title": "Auction of Government of India Dated Securities",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63983",
+   "pubDate": "2026-11-16T12:15:00.000Z",
+   "source": "rbi"
+  },
+  {
+   "id": "41d18a2b7621d0d4b202dfa261312420",
+   "title": "Result: Conversion/Switch Auction of Government of India Securities",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63982",
+   "pubDate": "2026-11-16T09:25:00.000Z",
+   "source": "rbi"
+  }
+ ],
+ "briefs": [
+  {
+   "kind": "morning",
+   "date": "2026-11-17",
+   "path": "/brief/2026-11-17",
+   "title": "Stock Market Today, 17 Nov 2026: Morning Brief",
+   "lede": "On Monday, 16 Nov, the Nifty 50 closed at 25,291.10, up 0.58% (+146.80). The Sensex ended at 82,104.79, up 0.63% (+512.34). Nifty Bank ended at 61,575.90, up 0.89% (+541.80).",
+   "updatedAt": 1794884445727
+  },
+  {
+   "kind": "morning",
+   "date": "2026-11-16",
+   "path": "/brief/2026-11-16",
+   "title": "Stock Market Today, 16 Nov 2026: Morning Brief",
+   "lede": "On Friday, 13 Nov, the Nifty 50 closed at 25,144.30, down 0.61% (−155.05). The Sensex ended at 81,592.45, down 0.39% (−318.55). Nifty Bank ended at 61,034.10, down 0.79% (−484.40).",
+   "updatedAt": 1794798045654
+  },
+  {
+   "kind": "evening",
+   "date": "2026-11-16",
+   "path": "/wrap/2026-11-16",
+   "title": "Market Wrap 16 Nov 2026: Nifty, Sensex close, top gainers & losers",
+   "lede": "The Nifty 50 closed at 25,291.10 on Monday, 16 Nov, up 0.58% (+146.80). The Sensex ended at 82,104.79, up 0.63% (+512.34). Nifty Bank ended at 61,575.90, up 0.89% (+541.80).",
+   "updatedAt": 1794835845580
+  },
+  {
+   "kind": "morning",
+   "date": "2026-11-13",
+   "path": "/brief/2026-11-13",
+   "title": "Stock Market Today, 13 Nov 2026: Morning Brief",
+   "lede": "On Thursday, 12 Nov, the Nifty 50 closed at 25,299.35, up 0.18% (+44.30). The Sensex ended at 81,911.01, up 0.04% (+31.61). Nifty Bank ended at 61,518.50, up 1.19% (+726.10).",
+   "updatedAt": 1794538845512
+  },
+  {
+   "kind": "evening",
+   "date": "2026-11-13",
+   "path": "/wrap/2026-11-13",
+   "title": "Market Wrap 13 Nov 2026: Nifty, Sensex close, top gainers & losers",
+   "lede": "The Nifty 50 closed at 25,144.30 on Friday, 13 Nov, down 0.61% (−155.05). The Sensex ended at 81,592.45, down 0.39% (−318.56). Nifty Bank ended at 61,034.10, down 0.79% (−484.40).",
+   "updatedAt": 1794576646002
+  },
+  {
+   "kind": "morning",
+   "date": "2026-11-12",
+   "path": "/brief/2026-11-12",
+   "title": "Stock Market Today, 12 Nov 2026: Morning Brief",
+   "lede": "On Wednesday, 11 Nov, the Nifty 50 closed at 25,255.05, up 0.84% (+210.40). The Sensex ended at 81,879.40, up 0.95% (+772.75). Nifty Bank ended at 60,792.40, up 1.76% (+1,051.15).",
+   "updatedAt": 1794452445937
+  },
+  {
+   "kind": "evening",
+   "date": "2026-11-12",
+   "path": "/wrap/2026-11-12",
+   "title": "Market Wrap 12 Nov 2026: Nifty, Sensex close, top gainers & losers",
+   "lede": "The Nifty 50 closed at 25,299.35 on Thursday, 12 Nov, up 0.18% (+44.30). The Sensex ended at 81,911.01, up 0.04% (+31.61). Nifty Bank ended at 61,518.50, up 1.19% (+726.10).",
+   "updatedAt": 1794490245472
+  },
+  {
+   "kind": "morning",
+   "date": "2026-11-11",
+   "path": "/brief/2026-11-11",
+   "title": "Stock Market Today, 11 Nov 2026: Morning Brief",
+   "lede": "On Monday, 9 Nov, the Nifty 50 closed at 25,044.65, up 0.06% (+14.30). The Sensex ended at 81,106.65, up 0.10% (+78.63). Nifty Bank ended at 59,741.25, up 1.11% (+655.25).",
+   "updatedAt": 1794366045769
+  },
+  {
+   "kind": "evening",
+   "date": "2026-11-11",
+   "path": "/wrap/2026-11-11",
+   "title": "Market Wrap 11 Nov 2026: Nifty, Sensex close, top gainers & losers",
+   "lede": "The Nifty 50 closed at 25,255.05 on Wednesday, 11 Nov, up 0.84% (+210.40). The Sensex ended at 81,879.40, up 0.95% (+772.75). Nifty Bank ended at 60,792.40, up 1.76% (+1,051.15).",
+   "updatedAt": 1794403845113
+  },
+  {
+   "kind": "morning",
+   "date": "2026-11-10",
+   "path": "/brief/2026-11-10",
+   "title": "Stock Market Today, 10 Nov 2026: Morning Brief",
+   "lede": "On Monday, 9 Nov, the Nifty 50 closed at 25,044.65, up 0.06% (+14.30). The Sensex ended at 81,106.65, up 0.10% (+78.63). Nifty Bank ended at 59,741.25, up 1.11% (+655.25).",
+   "updatedAt": 1794279645891
+  },
+  {
+   "kind": "morning",
+   "date": "2026-11-09",
+   "path": "/brief/2026-11-09",
+   "title": "Stock Market Today, 9 Nov 2026: Morning Brief",
+   "lede": "On Sunday, 8 Nov, the Nifty 50 closed at 24,986.40, down 0.18% (−43.95). The Sensex ended at 80,999.40, down 0.04% (−28.62). Nifty Bank ended at 58,850.65, down 0.40% (−235.35).",
+   "updatedAt": 1794193246649
+  },
+  {
+   "kind": "evening",
+   "date": "2026-11-09",
+   "path": "/wrap/2026-11-09",
+   "title": "Market Wrap 9 Nov 2026: Nifty, Sensex close, top gainers & losers",
+   "lede": "The Nifty 50 closed at 25,044.65 on Monday, 9 Nov, up 0.06% (+14.30). The Sensex ended at 81,106.65, up 0.10% (+78.63). Nifty Bank ended at 59,741.25, up 1.11% (+655.25).",
+   "updatedAt": 1794231045668
+  },
+  {
+   "kind": "morning",
+   "date": "2026-11-06",
+   "path": "/brief/2026-11-06",
+   "title": "Stock Market Today, 6 Nov 2026: Morning Brief",
+   "lede": "On Thursday, 5 Nov, the Nifty 50 closed at 24,536.60, up 2.40% (+576.00). The Sensex ended at 79,310.01, up 2.60% (+2,008.61). Nifty Bank ended at 57,773.65, up 3.33% (+1,860.05).",
+   "updatedAt": 1793951849122
+  },
+  {
+   "kind": "evening",
+   "date": "2026-11-06",
+   "path": "/wrap/2026-11-06",
+   "title": "Market Wrap 6 Nov 2026: Nifty, Sensex close, top gainers & losers",
+   "lede": "The Nifty 50 closed at 25,030.35 on Friday, 6 Nov, up 2.01% (+493.75). The Sensex ended at 81,028.02, up 2.17% (+1,718.01). Nifty Bank ended at 59,086.00, up 2.27% (+1,312.35).",
+   "updatedAt": 1793975445959
+  }
+ ]
+}
