@@ -265,7 +265,7 @@ def build(v, proj, date, ticker=None, style=None):
     st_html = ""; titles = []
     for i, x in enumerate(beats):
         sx, sy = pos[i]; b = x["b"]; sc = b.get("scene") or {}
-        a0 = x["t0"] + .15 if i else 0.0
+        a0 = x["t0"] - .3 if i else 0.0
         svg, sj, sp, ev = ill.scene(sc.get("kind", "headline"), f"s{i}", a0, x["d"] - .3, sc)
         js += sj; pre += sp; sfx += ev["sfx"]; x["ev"] = ev
         title = _title_of(b, v, i)
