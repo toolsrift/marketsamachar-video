@@ -1,0 +1,51 @@
+[
+ {
+  "pair": "tcs-infy",
+  "fmt": "reel",
+  "look": "glass",
+  "structure": "chapters",
+  "motion": "cards",
+  "date": "2026-11-18"
+ },
+ {
+  "pair": "tcs-infy",
+  "fmt": "long",
+  "look": "paper",
+  "structure": "rounds",
+  "motion": "canvas",
+  "var": {
+   "size": 1,
+   "returns": 0,
+   "valuation": 0,
+   "revenue": 0,
+   "profit": 1,
+   "quarterly": 1,
+   "roce": 0,
+   "cash": 0,
+   "ownership": 0,
+   "latest": 0
+  },
+  "date": "2026-11-18"
+ },
+ {
+  "pair": "tcs-infy",
+  "fmt": "long",
+  "look": "neon",
+  "structure": "case",
+  "motion": "split",
+  "var": {
+   "size": 1,
+   "returns": 0,
+   "valuation": 2,
+   "revenue": 2,
+   "profit": 0,
+   "quarterly": 2,
+   "roce": 0,
+   "cash": 0,
+   "ownership": 1,
+   "latest": 0
+  },
+  "voice": "af_bella",
+  "date": "2026-11-18"
+ }
+]
