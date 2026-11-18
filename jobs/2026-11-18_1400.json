@@ -1,0 +1,163 @@
+{
+ "date": "2026-11-18",
+ "slot": "1400",
+ "feed": "feed/2026-11-18_1408.json",
+ "videos": [
+  {
+   "id": "s1-acme-ntpc-ppa",
+   "kind": "short",
+   "stamp": "18 NOV · 2 PM IST",
+   "title": "ACME Solar arm signs power purchase agreement with NTPC for 150 MW hybrid project",
+   "hook": "ACME Solar signs *150 MW* deal with NTPC",
+   "thumb": "ACME–NTPC *150 MW* deal",
+   "sources": ["Business Standard"],
+   "beats": [
+    {
+     "host": "bhonpu",
+     "say": "A subsidiary of ACME Solar has signed a power purchase agreement with NTPC for 150 megawatts.",
+     "scene": {
+      "kind": "announce",
+      "company": "ACME Solar",
+      "kicker": "Power purchase agreement",
+      "amount": "150",
+      "prefix": "",
+      "suffix": " MW",
+      "sub": "With NTPC · hybrid power project",
+      "stamp": "Executed",
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "bhonpu",
+     "title": "Signed by *ACME Alpha*",
+     "say": "Business Standard reports the agreement was executed by ACME Alpha Renewables, the company's subsidiary.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {"label": "Signed by", "value": "ACME Alpha Renewables"},
+       {"label": "Counterparty", "value": "NTPC"},
+       {"label": "Project type", "value": "Hybrid power"}
+      ],
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "bhonpu",
+     "title": "A *hybrid* project",
+     "say": "The contract covers a hybrid power project, with the capacity set at 150 megawatts.",
+     "scene": {
+      "kind": "headline",
+      "kicker": "ACME Solar",
+      "text": "PPA executed with NTPC for a hybrid power project",
+      "sub": "Contract capacity: 150 MW",
+      "source": "Business Standard"
+     }
+    }
+   ],
+   "description": "ACME Solar's subsidiary, ACME Alpha Renewables, has executed a power purchase agreement with NTPC for a hybrid power project with a contract capacity of 150 MW, as reported by Business Standard.",
+   "caption": "ACME Solar's subsidiary ACME Alpha Renewables has executed a power purchase agreement with NTPC for a 150 MW hybrid project (Business Standard).",
+   "tags": ["acme solar", "ntpc", "power purchase agreement", "hybrid power", "renewable energy", "company news", "marketsamachar"]
+  },
+  {
+   "id": "s2-sebi-mtf-hours",
+   "kind": "short",
+   "stamp": "18 NOV · 2 PM IST",
+   "title": "SEBI chair: no decision yet on margin trading changes; longer market hours unlikely",
+   "hook": "SEBI: no MTF decision *yet*",
+   "thumb": "SEBI on *MTF* and market hours",
+   "sources": ["NDTV Profit"],
+   "beats": [
+    {
+     "host": "arth",
+     "say": "SEBI says it has not yet decided on proposals to revamp the Margin Trading Facility framework.",
+     "scene": {
+      "kind": "headline",
+      "kicker": "SEBI",
+      "text": "No decision yet on revamping the Margin Trading Facility framework",
+      "sub": "Chairman Tuhin Kanta Pandey",
+      "source": "NDTV Profit"
+     }
+    },
+    {
+     "host": "arth",
+     "title": "Longer hours *unlikely*",
+     "say": "Chairman Tuhin Kanta Pandey also said extending market hours looks unlikely for now.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {"label": "Margin Trading Facility", "value": "No decision yet"},
+       {"label": "Longer market hours", "value": "Unlikely"}
+      ],
+      "source": "NDTV Profit"
+     }
+    },
+    {
+     "host": "arth",
+     "title": "The *cyber* hurdle",
+     "say": "NDTV Profit reports he named cybersecurity risks as the hurdle to longer trading hours.",
+     "scene": {
+      "kind": "headline",
+      "kicker": "Market hours",
+      "text": "Cybersecurity risks cited as a hurdle to extending trading hours",
+      "sub": "SEBI Chairman Tuhin Kanta Pandey",
+      "source": "NDTV Profit"
+     }
+    }
+   ],
+   "description": "SEBI Chairman Tuhin Kanta Pandey said the regulator has not decided on proposals to revamp the Margin Trading Facility framework, and cited cybersecurity risks as a hurdle to extending market hours, as reported by NDTV Profit.",
+   "caption": "SEBI chief says no decision yet on Margin Trading Facility changes, and cybersecurity risks stand in the way of longer market hours (NDTV Profit).",
+   "tags": ["sebi", "margin trading facility", "mtf", "market hours", "tuhin kanta pandey", "regulation", "marketsamachar"]
+  },
+  {
+   "id": "s3-karnataka-bank-ceo",
+   "kind": "short",
+   "stamp": "18 NOV · 2 PM IST",
+   "title": "Karnataka Bank appoints Udaya Kumar Hebbar as MD & CEO for three years",
+   "hook": "Karnataka Bank names a *new CEO*",
+   "thumb": "Karnataka Bank *new MD & CEO*",
+   "sources": ["Business Standard"],
+   "beats": [
+    {
+     "host": "bhonpu",
+     "say": "Karnataka Bank has appointed Udaya Kumar Hebbar as its managing director and CEO for three years.",
+     "scene": {
+      "kind": "headline",
+      "kicker": "Management",
+      "text": "Karnataka Bank appoints Udaya Kumar Hebbar as MD & CEO",
+      "sub": "Term: three years",
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "bhonpu",
+     "title": "Ex-*CreditAccess Grameen* chief",
+     "say": "Business Standard says he is the former head of CreditAccess Grameen.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {"label": "Appointee", "value": "Udaya Kumar Hebbar"},
+       {"label": "Earlier role", "value": "Ex-chief, CreditAccess Grameen"}
+      ],
+      "source": "Business Standard"
+     }
+    },
+    {
+     "host": "bhonpu",
+     "title": "RBI *approval* received",
+     "say": "The appointment already has RBI approval, and it still needs shareholders' approval.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {"label": "RBI approval", "value": "Received", "tone": "up"},
+       {"label": "Shareholders' approval", "value": "Pending"}
+      ],
+      "source": "Business Standard"
+     }
+    }
+   ],
+   "description": "Karnataka Bank has appointed Udaya Kumar Hebbar, former CreditAccess Grameen chief, as MD & CEO for three years. The appointment has RBI approval and is subject to shareholders' approval, as reported by Business Standard.",
+   "caption": "Karnataka Bank appoints Udaya Kumar Hebbar as MD & CEO for three years; RBI approval received, shareholders' approval pending (Business Standard).",
+   "tags": ["karnataka bank", "udaya kumar hebbar", "md and ceo", "bank appointment", "rbi approval", "company news", "marketsamachar"]
+  }
+ ]
+}
