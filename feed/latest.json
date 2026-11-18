@@ -1,75 +1,75 @@
 {
- "fetched_at": "2026-11-18T09:08:14+05:30",
+ "fetched_at": "2026-11-18T14:08:15+05:30",
  "market_data": [
   {
    "symbol": "^NSEI",
    "name": "NIFTY 50",
-   "price": 25323.15,
-   "change": -64.25039062499854,
-   "changePercent": -0.2530798334465343,
-   "high": 25323.15,
-   "low": 25323.15
+   "price": 25223.5,
+   "change": -163.900390625,
+   "changePercent": -0.6455973754820709,
+   "high": 25390.8,
+   "low": 25141.8
   },
   {
    "symbol": "^BSESN",
    "name": "SENSEX",
-   "price": 82532.19,
-   "change": 427.4009375000023,
-   "changePercent": 0.5205554296895583,
-   "high": 82897.49,
-   "low": 82091.9
+   "price": 81975.41,
+   "change": -556.7774999999965,
+   "changePercent": -0.6746186147071365,
+   "high": 82578.87,
+   "low": 81780.47
   },
   {
    "symbol": "^NSEBANK",
    "name": "NIFTY BANK",
-   "price": 62204.1,
-   "change": -69.15000000000146,
-   "changePercent": -0.1110428635088123,
-   "high": 62204.1,
-   "low": 62204.1
+   "price": 61931.5,
+   "change": -341.75,
+   "changePercent": -0.5487910137980594,
+   "high": 62363.75,
+   "low": 61765.45
   },
   {
    "symbol": "GC=F",
    "name": "GOLD",
-   "price": 3792.7,
-   "change": -71.49995117187518,
-   "changePercent": -1.850317066284103,
+   "price": 3769.5,
+   "change": -94.699951171875,
+   "changePercent": -2.4507000768207106,
    "high": 3859.3,
-   "low": 3786.7
+   "low": 3759.5
   },
   {
    "symbol": "CL=F",
    "name": "CRUDE OIL",
-   "price": 85.08,
-   "change": -0.9300021362304705,
-   "changePercent": -1.081272076656211,
+   "price": 84.28,
+   "change": -1.7300021362304676,
+   "changePercent": -2.0113964576937606,
    "high": 85.95,
-   "low": 84.99
+   "low": 83.76
   },
   {
    "symbol": "USDINR=X",
    "name": "USD/INR",
-   "price": 93.36,
-   "change": -0.6030966186523443,
-   "changePercent": -0.6418441285518738,
-   "high": 93.47,
-   "low": 93.35
+   "price": 93.5275,
+   "change": -0.43559661865234034,
+   "changePercent": -0.46358265566768403,
+   "high": 93.545,
+   "low": 93.235
   },
   {
    "symbol": "^CNXIT",
    "name": "NIFTY IT",
-   "price": 31435,
-   "change": -219.099609375,
-   "changePercent": -0.6921681933107623,
-   "high": 31435,
-   "low": 31435
+   "price": 31334.35,
+   "change": -319.74960937500146,
+   "changePercent": -1.0101364857027908,
+   "high": 31605.35,
+   "low": 31247.05
   },
   {
    "symbol": "^DJI",
    "name": "DOW JONES",
-   "price": 50759.42,
-   "change": -848.7518750000017,
-   "changePercent": -1.644607518855272,
+   "price": 50759.4,
+   "change": -848.7718749999985,
+   "changePercent": -1.6446462724078008,
    "high": 51463.53,
    "low": 50566.98
   },
@@ -94,355 +94,343 @@
   {
    "symbol": "^INDIAVIX",
    "name": "INDIA VIX",
-   "price": 15.52,
-   "change": -0.16000030517578168,
-   "changePercent": -1.0204100896794466,
-   "high": 15.677,
-   "low": 14.035
+   "price": 15.802,
+   "change": 0.2819995422363277,
+   "changePercent": 1.8170073061773735,
+   "high": 16.025,
+   "low": 14.587
   },
   {
    "symbol": "BTC-USD",
    "name": "BITCOIN",
-   "price": 64491.35,
-   "change": -364.49375000000146,
-   "changePercent": -0.5620060258640941,
+   "price": 64679.68,
+   "change": -214.2653124999997,
+   "changePercent": -0.3301776636760094,
    "high": 64884.81,
    "low": 64139.688
   },
   {
    "symbol": "ETH-USD",
    "name": "ETHEREUM",
-   "price": 1806.13,
-   "change": -13.14587890624989,
-   "changePercent": -0.7225885341893943,
+   "price": 1809.3,
+   "change": -13.661303710937545,
+   "changePercent": -0.7494017389797423,
    "high": 1823.0618,
    "low": 1797.534
   },
   {
    "symbol": "SI=F",
    "name": "SILVER",
-   "price": 45.895,
-   "change": -1.3929981994628875,
-   "changePercent": -2.9457753605622274,
+   "price": 45.78,
+   "change": -1.5079981994628895,
+   "changePercent": -3.1889660313005543,
    "high": 47.525,
-   "low": 45.685
+   "low": 45.51
   },
   {
    "symbol": "NG=F",
    "name": "NATURAL GAS",
-   "price": 3.177,
-   "change": -0.030999944686889602,
-   "changePercent": -0.9663324570261266,
+   "price": 3.193,
+   "change": -0.014999944686889588,
+   "changePercent": -0.4675793312195218,
    "high": 3.208,
-   "low": 3.173
+   "low": 3.153
   },
   {
    "symbol": "^CNXAUTO",
    "name": "NIFTY AUTO",
-   "price": 27708.4,
-   "change": -60.750390624998545,
-   "changePercent": -0.21876935293457223,
-   "high": 27708.4,
-   "low": 27708.4
+   "price": 27376.5,
+   "change": -392.650390625,
+   "changePercent": -1.413980568730546,
+   "high": 27746.45,
+   "low": 27310.45
   },
   {
    "symbol": "^CNXFMCG",
    "name": "NIFTY FMCG",
-   "price": 47343.15,
-   "change": -268.45156249999854,
-   "changePercent": -0.5638364467693883,
-   "high": 47343.15,
-   "low": 47343.15
+   "price": 47389.1,
+   "change": -222.50156250000146,
+   "changePercent": -0.46732635575789755,
+   "high": 47431.95,
+   "low": 47079.1
   },
   {
    "symbol": "^CNXPHARMA",
    "name": "NIFTY PHARMA",
-   "price": 28201.55,
-   "change": 44.45039062499927,
-   "changePercent": 0.15786565818803072,
-   "high": 28201.55,
-   "low": 28201.55
+   "price": 28343.8,
+   "change": 186.70039062499927,
+   "changePercent": 0.6630668400336118,
+   "high": 28436.65,
+   "low": 28132.2
   },
   {
    "symbol": "^CNXENERGY",
    "name": "NIFTY ENERGY",
-   "price": 37133,
-   "change": -43.69921875,
-   "changePercent": -0.11754464400637371,
-   "high": 37133,
-   "low": 37133
+   "price": 36945.35,
+   "change": -231.34921875000146,
+   "changePercent": -0.6222962866841092,
+   "high": 37226.45,
+   "low": 36763.3
   },
   {
    "symbol": "^CNXREALTY",
    "name": "NIFTY REALTY",
-   "price": 924.15,
-   "change": -2.3500000000000227,
-   "changePercent": -0.2536427415002723,
-   "high": 924.15,
-   "low": 924.15
+   "price": 925.2,
+   "change": -1.2999999999999545,
+   "changePercent": -0.14031300593631457,
+   "high": 931.05,
+   "low": 917.75
   }
  ],
  "movers": {
   "gainers": [
    {
-    "symbol": "PNB",
-    "companyName": "PUNJAB NATIONAL BANK",
-    "currentPrice": 150,
-    "change": 5.41,
-    "changePercent": 3.74,
-    "high": 151.67,
-    "low": 143.9,
-    "volume": 58264395,
-    "lastUpdated": 1794910430050,
-    "isMarketOpen": false,
+    "symbol": "CIPLA",
+    "companyName": "CIPLA LTD",
+    "currentPrice": 1429.6,
+    "change": 41.6,
+    "changePercent": 3,
+    "high": 1435,
+    "low": 1381.3,
+    "volume": 2264111,
+    "lastUpdated": 1794989809755,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "ADANIENT",
-    "companyName": "ADANI ENTERPRISES LIMITED",
-    "currentPrice": 2745.1,
-    "change": 86.1,
-    "changePercent": 3.24,
-    "high": 2757.2,
-    "low": 2659.1,
-    "volume": 2014961,
-    "lastUpdated": 1794910251430,
-    "isMarketOpen": false,
+    "symbol": "DRREDDY",
+    "companyName": "DR. REDDY S LABORATORIES",
+    "currentPrice": 1395.7,
+    "change": 17.8,
+    "changePercent": 1.29,
+    "high": 1397.9,
+    "low": 1376.4,
+    "volume": 609390,
+    "lastUpdated": 1794989811831,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "EICHERMOT",
-    "companyName": "EICHER MOTORS LTD",
-    "currentPrice": 7828,
-    "change": 229,
-    "changePercent": 3.01,
-    "high": 7848,
-    "low": 7610.5,
-    "volume": 742097,
-    "lastUpdated": 1794910309712,
-    "isMarketOpen": false,
-    "staleData": true
+    "symbol": "GAIL",
+    "companyName": "GAIL (INDIA) LTD",
+    "currentPrice": 189.33,
+    "change": 2.33,
+    "changePercent": 1.25,
+    "high": 191.35,
+    "low": 185.73,
+    "volume": 11524124,
+    "lastUpdated": 1794991069633,
+    "isMarketOpen": true
    },
    {
-    "symbol": "OBEROIRLTY",
-    "companyName": "OBEROI REALTY LIMITED",
-    "currentPrice": 1819.7,
-    "change": 46.1,
-    "changePercent": 2.6,
-    "high": 1835,
-    "low": 1761.7,
-    "volume": 409245,
-    "lastUpdated": 1794910427948,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "AMBUJACEM",
-    "companyName": "AMBUJA CEMENTS LTD",
-    "currentPrice": 390.2,
-    "change": 8.2,
-    "changePercent": 2.15,
-    "high": 390.9,
-    "low": 380.45,
-    "volume": 2953137,
-    "lastUpdated": 1794910365498,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "MAXHEALTH",
-    "companyName": "MAX HEALTHCARE INS LTD",
-    "currentPrice": 1030.9,
-    "change": 21,
-    "changePercent": 2.08,
-    "high": 1039,
-    "low": 1013.45,
-    "volume": 5962256,
-    "lastUpdated": 1794910425842,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "ASIANPAINT",
-    "companyName": "ASIAN PAINTS LIMITED",
-    "currentPrice": 2625,
-    "change": 52.1,
-    "changePercent": 2.02,
-    "high": 2665.5,
-    "low": 2598,
-    "volume": 1415033,
-    "lastUpdated": 1794910305417,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "AXISBANK",
-    "companyName": "AXIS BANK LIMITED",
-    "currentPrice": 1369,
-    "change": 26.6,
-    "changePercent": 1.98,
-    "high": 1374.8,
-    "low": 1345.4,
-    "volume": 6981537,
-    "lastUpdated": 1794910249314,
-    "isMarketOpen": false,
+    "symbol": "LUPIN",
+    "companyName": "LUPIN LIMITED",
+    "currentPrice": 1968.6,
+    "change": 18.6,
+    "changePercent": 0.95,
+    "high": 1978,
+    "low": 1946.2,
+    "volume": 350573,
+    "lastUpdated": 1794989325807,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
     "symbol": "CHOLAFIN",
     "companyName": "CHOLAMANDALAM IN & FIN CO",
-    "currentPrice": 1884.7,
-    "change": 34.9,
-    "changePercent": 1.89,
-    "high": 1884.7,
-    "low": 1844.3,
-    "volume": 1231039,
-    "lastUpdated": 1794910367593,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "HDFCAMC",
-    "companyName": "HDFC AMC LIMITED",
-    "currentPrice": 2699,
-    "change": 49,
-    "changePercent": 1.85,
-    "high": 2758.7,
-    "low": 2651.6,
-    "volume": 896404,
-    "lastUpdated": 1794910369671,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "BERGEPAINT",
-    "companyName": "BERGER PAINTS (I) LTD",
-    "currentPrice": 478.9,
-    "change": 8.6,
-    "changePercent": 1.83,
-    "high": 482.8,
-    "low": 470.3,
-    "volume": 427683,
-    "lastUpdated": 1794910365493,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "M&M",
-    "companyName": "MAHINDRA & MAHINDRA LTD",
-    "currentPrice": 3399,
-    "change": 60,
-    "changePercent": 1.8,
-    "high": 3435.4,
-    "low": 3341,
-    "volume": 2572034,
-    "lastUpdated": 1794910305413,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "INDUSINDBK",
-    "companyName": "INDUSIND BANK LIMITED",
-    "currentPrice": 931,
-    "change": 16.45,
-    "changePercent": 1.8,
-    "high": 932.4,
-    "low": 905.2,
-    "volume": 3125622,
-    "lastUpdated": 1794910307497,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "BANKBARODA",
-    "companyName": "BANK OF BARODA",
-    "currentPrice": 274.89,
-    "change": 4.69,
-    "changePercent": 1.74,
-    "high": 276.2,
-    "low": 269.46,
-    "volume": 17390535,
-    "lastUpdated": 1794910365491,
-    "isMarketOpen": false,
-    "staleData": true
+    "currentPrice": 1864.2,
+    "change": 14.4,
+    "changePercent": 0.78,
+    "high": 1869.8,
+    "low": 1835,
+    "volume": 921960,
+    "lastUpdated": 1794991067534,
+    "isMarketOpen": true
    },
    {
     "symbol": "SBIN",
     "companyName": "STATE BANK OF INDIA",
-    "currentPrice": 1108.6,
-    "change": 18.1,
-    "changePercent": 1.66,
-    "high": 1114,
-    "low": 1091.95,
-    "volume": 16307702,
-    "lastUpdated": 1794910247221,
-    "isMarketOpen": false,
-    "staleData": true
+    "currentPrice": 1116.85,
+    "change": 8.25,
+    "changePercent": 0.74,
+    "high": 1118.95,
+    "low": 1105.7,
+    "volume": 14885491,
+    "lastUpdated": 1794990647560,
+    "isMarketOpen": true
    },
    {
-    "symbol": "ADANIGREEN",
-    "companyName": "ADANI GREEN ENERGY LTD",
-    "currentPrice": 1429.9,
-    "change": 23.3,
-    "changePercent": 1.66,
-    "high": 1433.8,
-    "low": 1403,
-    "volume": 2131206,
-    "lastUpdated": 1794910365474,
-    "isMarketOpen": false,
+    "symbol": "TATACONSUM",
+    "companyName": "TATA CONSUMER PRODUCT LTD",
+    "currentPrice": 1119.8,
+    "change": 7.4,
+    "changePercent": 0.67,
+    "high": 1123.7,
+    "low": 1101,
+    "volume": 831607,
+    "lastUpdated": 1794989809754,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
     "symbol": "RELIANCE",
     "companyName": "RELIANCE INDUSTRIES LTD",
-    "currentPrice": 1367,
-    "change": 22.2,
-    "changePercent": 1.65,
-    "high": 1374,
-    "low": 1335,
-    "volume": 15861037,
-    "lastUpdated": 1794910245129,
-    "isMarketOpen": false,
+    "currentPrice": 1374.2,
+    "change": 7.2,
+    "changePercent": 0.53,
+    "high": 1376.5,
+    "low": 1354,
+    "volume": 12676783,
+    "lastUpdated": 1794990645449,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ONGC",
+    "companyName": "OIL AND NATURAL GAS CORP.",
+    "currentPrice": 224.54,
+    "change": 1.02,
+    "changePercent": 0.46,
+    "high": 224.83,
+    "low": 223.06,
+    "volume": 5767151,
+    "lastUpdated": 1794990651822,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "SUNPHARMA",
+    "companyName": "SUN PHARMACEUTICAL IND L",
+    "currentPrice": 1877.1,
+    "change": 7.1,
+    "changePercent": 0.38,
+    "high": 1886,
+    "low": 1857.6,
+    "volume": 1109705,
+    "lastUpdated": 1794990649736,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ULTRACEMCO",
+    "companyName": "ULTRATECH CEMENT LIMITED",
+    "currentPrice": 12332,
+    "change": 42,
+    "changePercent": 0.34,
+    "high": 12402,
+    "low": 12225,
+    "volume": 143931,
+    "lastUpdated": 1794990651823,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "TRENT",
+    "companyName": "TRENT LTD",
+    "currentPrice": 3187.1,
+    "change": 10.8,
+    "changePercent": 0.34,
+    "high": 3251.3,
+    "low": 3146.5,
+    "volume": 959327,
+    "lastUpdated": 1794989332111,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "SAIL",
-    "companyName": "STEEL AUTHORITY OF INDIA",
-    "currentPrice": 171.31,
-    "change": 2.56,
-    "changePercent": 1.52,
-    "high": 171.31,
-    "low": 166.54,
-    "volume": 11107487,
-    "lastUpdated": 1794910430045,
-    "isMarketOpen": false,
-    "staleData": true
+    "symbol": "MARUTI",
+    "companyName": "MARUTI SUZUKI INDIA LTD.",
+    "currentPrice": 12660,
+    "change": 35,
+    "changePercent": 0.28,
+    "high": 12828,
+    "low": 12584,
+    "volume": 449719,
+    "lastUpdated": 1794990649736,
+    "isMarketOpen": true
    },
    {
     "symbol": "DLF",
     "companyName": "DLF LIMITED",
-    "currentPrice": 765.95,
-    "change": 11.2,
-    "changePercent": 1.48,
-    "high": 773.65,
-    "low": 752.25,
-    "volume": 3076256,
-    "lastUpdated": 1794910367600,
-    "isMarketOpen": false,
+    "currentPrice": 768,
+    "change": 2.05,
+    "changePercent": 0.27,
+    "high": 768.5,
+    "low": 756.75,
+    "volume": 1031546,
+    "lastUpdated": 1794991067536,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "BOSCHLTD",
+    "companyName": "BOSCH LIMITED",
+    "currentPrice": 48850,
+    "change": 55,
+    "changePercent": 0.11,
+    "high": 49165,
+    "low": 48660,
+    "volume": 9886,
+    "lastUpdated": 1794991067539,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "PNB",
+    "companyName": "PUNJAB NATIONAL BANK",
+    "currentPrice": 150.16,
+    "change": 0.16,
+    "changePercent": 0.11,
+    "high": 152.59,
+    "low": 148.82,
+    "volume": 27229967,
+    "lastUpdated": 1794989329997,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "JIOFIN",
-    "companyName": "JIO FIN SERVICES LTD",
-    "currentPrice": 228.96,
-    "change": 2.96,
-    "changePercent": 1.31,
-    "high": 230.69,
-    "low": 225.36,
-    "volume": 13454429,
-    "lastUpdated": 1794910371779,
-    "isMarketOpen": false,
+    "symbol": "LICI",
+    "companyName": "LIFE INSURA CORP OF INDIA",
+    "currentPrice": 397.7,
+    "change": 0,
+    "changePercent": 0,
+    "high": 401.85,
+    "low": 395.8,
+    "volume": 6637953,
+    "lastUpdated": 1794989325793,
+    "isMarketOpen": true,
     "staleData": true
+   },
+   {
+    "symbol": "TORNTPHARM",
+    "companyName": "TORRENT PHARMACEUTICALS L",
+    "currentPrice": 4669,
+    "change": 0.2,
+    "changePercent": 0,
+    "high": 4699.5,
+    "low": 4645,
+    "volume": 97048,
+    "lastUpdated": 1794989332124,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "ICICIBANK",
+    "companyName": "ICICI BANK LTD.",
+    "currentPrice": 1597.4,
+    "change": -1.3,
+    "changePercent": -0.08,
+    "high": 1610.1,
+    "low": 1591,
+    "volume": 8004451,
+    "lastUpdated": 1794990645441,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "KOTAKBANK",
+    "companyName": "KOTAK MAHINDRA BANK LTD",
+    "currentPrice": 496.55,
+    "change": -0.7,
+    "changePercent": -0.14,
+    "high": 503.05,
+    "low": 492.2,
+    "volume": 18159310,
+    "lastUpdated": 1794990647639,
+    "isMarketOpen": true
    }
   ],
   "losers": [
@@ -450,529 +438,508 @@
     "symbol": "ICICIPRULI",
     "companyName": "ICICI LIFE INSURANCE LTD",
     "currentPrice": 431,
-    "change": -19,
-    "changePercent": -4.22,
+    "change": -35.95,
+    "changePercent": -7.7,
     "high": 432.45,
     "low": 422.55,
     "volume": 1258823,
-    "lastUpdated": 1794910369682,
-    "isMarketOpen": false,
-    "staleData": true
+    "lastUpdated": 1794991069618,
+    "isMarketOpen": true
    },
    {
     "symbol": "POLYCAB",
     "companyName": "POLYCAB INDIA LIMITED",
-    "currentPrice": 7702,
-    "change": -253.5,
-    "changePercent": -3.19,
-    "high": 7985.5,
-    "low": 7695,
-    "volume": 533529,
-    "lastUpdated": 1794910430025,
-    "isMarketOpen": false,
+    "currentPrice": 7356,
+    "change": -346,
+    "changePercent": -4.49,
+    "high": 7670,
+    "low": 7343,
+    "volume": 573004,
+    "lastUpdated": 1794989329984,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "OFSS",
-    "companyName": "ORACLE FIN SERV SOFT LTD.",
-    "currentPrice": 9741,
-    "change": -222,
-    "changePercent": -2.23,
-    "high": 9988,
-    "low": 9725.5,
-    "volume": 125120,
-    "lastUpdated": 1794910427953,
-    "isMarketOpen": false,
+    "symbol": "TITAN",
+    "companyName": "TITAN COMPANY LIMITED",
+    "currentPrice": 4696.5,
+    "change": -211.5,
+    "changePercent": -4.31,
+    "high": 4881.3,
+    "low": 4675.4,
+    "volume": 934051,
+    "lastUpdated": 1794990649723,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "MOTHERSON",
+    "companyName": "SAMVRDHNA MTHRSN INTL LTD",
+    "currentPrice": 157.71,
+    "change": -6.68,
+    "changePercent": -4.06,
+    "high": 162.56,
+    "low": 157.2,
+    "volume": 9987867,
+    "lastUpdated": 1794989325805,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "HCLTECH",
-    "companyName": "HCL TECHNOLOGIES LTD",
-    "currentPrice": 1355.7,
-    "change": -28.9,
-    "changePercent": -2.09,
-    "high": 1381.3,
-    "low": 1350.6,
-    "volume": 2929047,
-    "lastUpdated": 1794910247221,
-    "isMarketOpen": false,
+    "symbol": "SAIL",
+    "companyName": "STEEL AUTHORITY OF INDIA",
+    "currentPrice": 164.54,
+    "change": -6.77,
+    "changePercent": -3.95,
+    "high": 170.32,
+    "low": 162.8,
+    "volume": 15536198,
+    "lastUpdated": 1794989329996,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "LTM",
-    "companyName": "LTM LIMITED",
-    "currentPrice": 4118,
-    "change": -81.7,
-    "changePercent": -1.95,
-    "high": 4234,
-    "low": 4085.1,
-    "volume": 237357,
-    "lastUpdated": 1794910307590,
-    "isMarketOpen": false,
-    "staleData": true
+    "symbol": "HAVELLS",
+    "companyName": "HAVELLS INDIA LIMITED",
+    "currentPrice": 1138,
+    "change": -37,
+    "changePercent": -3.15,
+    "high": 1175.5,
+    "low": 1135.2,
+    "volume": 633096,
+    "lastUpdated": 1794991069634,
+    "isMarketOpen": true
    },
    {
-    "symbol": "WIPRO",
-    "companyName": "WIPRO LTD",
-    "currentPrice": 189.89,
-    "change": -3.65,
-    "changePercent": -1.89,
-    "high": 193.32,
-    "low": 189.89,
-    "volume": 16656594,
-    "lastUpdated": 1794910251430,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "POWERGRID",
-    "companyName": "POWER GRID CORP. LTD.",
-    "currentPrice": 258,
-    "change": -4.2,
-    "changePercent": -1.6,
-    "high": 261.75,
-    "low": 257,
-    "volume": 10921873,
-    "lastUpdated": 1794910305403,
-    "isMarketOpen": false,
+    "symbol": "VEDL",
+    "companyName": "VEDANTA LIMITED",
+    "currentPrice": 247.13,
+    "change": -7.9,
+    "changePercent": -3.1,
+    "high": 253.75,
+    "low": 246.9,
+    "volume": 6162317,
+    "lastUpdated": 1794989334222,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
     "symbol": "HDFCLIFE",
     "companyName": "HDFC LIFE INS CO LTD",
-    "currentPrice": 595.05,
-    "change": -9.45,
-    "changePercent": -1.56,
-    "high": 604.75,
-    "low": 592.75,
-    "volume": 1897208,
-    "lastUpdated": 1794910311783,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "ONGC",
-    "companyName": "OIL AND NATURAL GAS CORP.",
-    "currentPrice": 223.52,
-    "change": -3.47,
-    "changePercent": -1.53,
-    "high": 226.35,
-    "low": 223.52,
-    "volume": 10459884,
-    "lastUpdated": 1794910251430,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "COALINDIA",
-    "companyName": "COAL INDIA LTD",
-    "currentPrice": 391.55,
-    "change": -5.95,
-    "changePercent": -1.5,
-    "high": 398.5,
-    "low": 387.75,
-    "volume": 25490036,
-    "lastUpdated": 1794910307587,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "PFC",
-    "companyName": "POWER FIN CORP LTD.",
-    "currentPrice": 328,
-    "change": -4.8,
-    "changePercent": -1.44,
-    "high": 330.65,
-    "low": 327.1,
-    "volume": 7094247,
-    "lastUpdated": 1794910430035,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "LUPIN",
-    "companyName": "LUPIN LIMITED",
-    "currentPrice": 1950,
-    "change": -26.7,
-    "changePercent": -1.35,
-    "high": 1984.8,
-    "low": 1947.4,
-    "volume": 664514,
-    "lastUpdated": 1794910425853,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "INFY",
-    "companyName": "INFOSYS LIMITED",
-    "currentPrice": 1130,
-    "change": -15.1,
-    "changePercent": -1.32,
-    "high": 1145,
-    "low": 1125.3,
-    "volume": 7145164,
-    "lastUpdated": 1794910245132,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "TMPV",
-    "companyName": "TATA MOTORS PASS VEH LTD",
-    "currentPrice": 259.2,
-    "change": -3.2,
-    "changePercent": -1.22,
-    "high": 268.5,
-    "low": 259,
-    "volume": 18833168,
-    "lastUpdated": 1794910249335,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "BRITANNIA",
-    "companyName": "BRITANNIA INDUSTRIES LTD",
-    "currentPrice": 4700,
-    "change": -54,
-    "changePercent": -1.14,
-    "high": 4792.3,
-    "low": 4690,
-    "volume": 228243,
-    "lastUpdated": 1794910311812,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "PAGEIND",
-    "companyName": "PAGE INDUSTRIES LTD",
-    "currentPrice": 31105,
-    "change": -360,
-    "changePercent": -1.14,
-    "high": 31825,
-    "low": 30855,
-    "volume": 59815,
-    "lastUpdated": 1794910427946,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "TATAELXSI",
-    "companyName": "TATA ELXSI LIMITED",
-    "currentPrice": 3710.7,
-    "change": -39.3,
-    "changePercent": -1.05,
-    "high": 3770,
-    "low": 3695.1,
-    "volume": 109310,
-    "lastUpdated": 1794910432127,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "GRASIM",
-    "companyName": "GRASIM INDUSTRIES LTD",
-    "currentPrice": 3054.8,
-    "change": -29.6,
-    "changePercent": -0.96,
-    "high": 3105,
-    "low": 3054.8,
-    "volume": 688738,
-    "lastUpdated": 1794910307498,
-    "isMarketOpen": false,
+    "currentPrice": 576.65,
+    "change": -18.4,
+    "changePercent": -3.09,
+    "high": 590.75,
+    "low": 575.7,
+    "volume": 1395760,
+    "lastUpdated": 1794989811829,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
     "symbol": "ICICIGI",
     "companyName": "ICICI LOMBARD GIC LIMITED",
-    "currentPrice": 1693.5,
-    "change": -15.9,
-    "changePercent": -0.93,
-    "high": 1707,
-    "low": 1685.1,
-    "volume": 355784,
-    "lastUpdated": 1794910371773,
-    "isMarketOpen": false,
+    "currentPrice": 1658.6,
+    "change": -50.8,
+    "changePercent": -2.97,
+    "high": 1689.1,
+    "low": 1645.2,
+    "volume": 194403,
+    "lastUpdated": 1794991071706,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "HINDALCO",
+    "companyName": "HINDALCO  INDUSTRIES  LTD",
+    "currentPrice": 902.5,
+    "change": -25.25,
+    "changePercent": -2.72,
+    "high": 916.85,
+    "low": 898.15,
+    "volume": 5245756,
+    "lastUpdated": 1794989809750,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "INDUSTOWER",
-    "companyName": "INDUS TOWERS LIMITED",
-    "currentPrice": 392.6,
-    "change": -3.6,
-    "changePercent": -0.91,
-    "high": 397.35,
-    "low": 391,
-    "volume": 2205804,
-    "lastUpdated": 1794910371770,
-    "isMarketOpen": false,
+    "symbol": "PIIND",
+    "companyName": "PI INDUSTRIES LTD",
+    "currentPrice": 1626.5,
+    "change": -45.5,
+    "changePercent": -2.72,
+    "high": 1676,
+    "low": 1619.7,
+    "volume": 699119,
+    "lastUpdated": 1794989327899,
+    "isMarketOpen": true,
     "staleData": true
+   },
+   {
+    "symbol": "RECLTD",
+    "companyName": "REC LIMITED",
+    "currentPrice": 290.4,
+    "change": -7.6,
+    "changePercent": -2.55,
+    "high": 297.2,
+    "low": 290.2,
+    "volume": 2329938,
+    "lastUpdated": 1794989329991,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "PFC",
+    "companyName": "POWER FIN CORP LTD.",
+    "currentPrice": 319.9,
+    "change": -8.1,
+    "changePercent": -2.47,
+    "high": 328.4,
+    "low": 319.8,
+    "volume": 5713459,
+    "lastUpdated": 1794989329988,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "LTM",
+    "companyName": "LTM LIMITED",
+    "currentPrice": 4096.6,
+    "change": -103.1,
+    "changePercent": -2.45,
+    "high": 4141.2,
+    "low": 4062.6,
+    "volume": 119434,
+    "lastUpdated": 1794989807643,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "TMPV",
+    "companyName": "TATA MOTORS PASS VEH LTD",
+    "currentPrice": 252.95,
+    "change": -6.25,
+    "changePercent": -2.41,
+    "high": 259.3,
+    "low": 252.2,
+    "volume": 9790263,
+    "lastUpdated": 1794990649738,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "JINDALSTEL",
+    "companyName": "JINDAL STEEL LIMITED",
+    "currentPrice": 1112.8,
+    "change": -26.2,
+    "changePercent": -2.3,
+    "high": 1129,
+    "low": 1107.4,
+    "volume": 395493,
+    "lastUpdated": 1794991073813,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ETERNAL",
+    "companyName": "ETERNAL LIMITED",
+    "currentPrice": 366.5,
+    "change": -8.55,
+    "changePercent": -2.28,
+    "high": 377.7,
+    "low": 366.4,
+    "volume": 8457652,
+    "lastUpdated": 1794989385524,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "SIEMENS",
+    "companyName": "SIEMENS LTD",
+    "currentPrice": 3482,
+    "change": -79.9,
+    "changePercent": -2.24,
+    "high": 3565.5,
+    "low": 3472.1,
+    "volume": 116301,
+    "lastUpdated": 1794989332124,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "BAJFINANCE",
+    "companyName": "BAJAJ FINANCE LIMITED",
+    "currentPrice": 1096.05,
+    "change": -25.05,
+    "changePercent": -2.23,
+    "high": 1117.3,
+    "low": 1089.85,
+    "volume": 5941676,
+    "lastUpdated": 1794990649727,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "JIOFIN",
+    "companyName": "JIO FIN SERVICES LTD",
+    "currentPrice": 224,
+    "change": -4.96,
+    "changePercent": -2.17,
+    "high": 228,
+    "low": 222.61,
+    "volume": 8784124,
+    "lastUpdated": 1794991071699,
+    "isMarketOpen": true
    }
   ],
   "mostActive": [
    {
     "symbol": "PNB",
     "companyName": "PUNJAB NATIONAL BANK",
-    "currentPrice": 150,
-    "change": 5.41,
-    "changePercent": 3.74,
-    "high": 151.67,
-    "low": 143.9,
-    "volume": 58264395,
-    "lastUpdated": 1794910430050,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "CANBK",
-    "companyName": "CANARA BANK",
-    "currentPrice": 134,
-    "change": 1.6,
-    "changePercent": 1.21,
-    "high": 136.8,
-    "low": 132.2,
-    "volume": 54603266,
-    "lastUpdated": 1794910367592,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "HDFCBANK",
-    "companyName": "HDFC BANK LTD",
-    "currentPrice": 814.95,
-    "change": -1.55,
-    "changePercent": -0.19,
-    "high": 821,
-    "low": 810.85,
-    "volume": 34908094,
-    "lastUpdated": 1794910245128,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "ETERNAL",
-    "companyName": "ETERNAL LIMITED",
-    "currentPrice": 375.05,
-    "change": 3.95,
-    "changePercent": 1.06,
-    "high": 378,
-    "low": 369.15,
-    "volume": 30475667,
-    "lastUpdated": 1794910485254,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "COALINDIA",
-    "companyName": "COAL INDIA LTD",
-    "currentPrice": 391.55,
-    "change": -5.95,
-    "changePercent": -1.5,
-    "high": 398.5,
-    "low": 387.75,
-    "volume": 25490036,
-    "lastUpdated": 1794910307587,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "TATASTEEL",
-    "companyName": "TATA STEEL LIMITED",
-    "currentPrice": 181.5,
-    "change": -0.76,
-    "changePercent": -0.42,
-    "high": 183.22,
-    "low": 179.65,
-    "volume": 20640625,
-    "lastUpdated": 1794910305411,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "TMPV",
-    "companyName": "TATA MOTORS PASS VEH LTD",
-    "currentPrice": 259.2,
-    "change": -3.2,
-    "changePercent": -1.22,
-    "high": 268.5,
-    "low": 259,
-    "volume": 18833168,
-    "lastUpdated": 1794910249335,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "BANKBARODA",
-    "companyName": "BANK OF BARODA",
-    "currentPrice": 274.89,
-    "change": 4.69,
-    "changePercent": 1.74,
-    "high": 276.2,
-    "low": 269.46,
-    "volume": 17390535,
-    "lastUpdated": 1794910365491,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "WIPRO",
-    "companyName": "WIPRO LTD",
-    "currentPrice": 189.89,
-    "change": -3.65,
-    "changePercent": -1.89,
-    "high": 193.32,
-    "low": 189.89,
-    "volume": 16656594,
-    "lastUpdated": 1794910251430,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "SBIN",
-    "companyName": "STATE BANK OF INDIA",
-    "currentPrice": 1108.6,
-    "change": 18.1,
-    "changePercent": 1.66,
-    "high": 1114,
-    "low": 1091.95,
-    "volume": 16307702,
-    "lastUpdated": 1794910247221,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "ITC",
-    "companyName": "ITC LTD",
-    "currentPrice": 293.3,
-    "change": -1.8,
-    "changePercent": -0.61,
-    "high": 296.95,
-    "low": 292.3,
-    "volume": 15917706,
-    "lastUpdated": 1794910247222,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "RELIANCE",
-    "companyName": "RELIANCE INDUSTRIES LTD",
-    "currentPrice": 1367,
-    "change": 22.2,
-    "changePercent": 1.65,
-    "high": 1374,
-    "low": 1335,
-    "volume": 15861037,
-    "lastUpdated": 1794910245129,
-    "isMarketOpen": false,
+    "currentPrice": 150.16,
+    "change": 0.16,
+    "changePercent": 0.11,
+    "high": 152.59,
+    "low": 148.82,
+    "volume": 27229967,
+    "lastUpdated": 1794989329997,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
     "symbol": "KOTAKBANK",
     "companyName": "KOTAK MAHINDRA BANK LTD",
-    "currentPrice": 497.25,
-    "change": 3.05,
-    "changePercent": 0.62,
-    "high": 499.9,
+    "currentPrice": 496.55,
+    "change": -0.7,
+    "changePercent": -0.14,
+    "high": 503.05,
     "low": 492.2,
-    "volume": 15625466,
-    "lastUpdated": 1794910247232,
-    "isMarketOpen": false,
+    "volume": 18159310,
+    "lastUpdated": 1794990647639,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "CANBK",
+    "companyName": "CANARA BANK",
+    "currentPrice": 132.87,
+    "change": -1.13,
+    "changePercent": -0.84,
+    "high": 134.67,
+    "low": 132.44,
+    "volume": 16501498,
+    "lastUpdated": 1794991067540,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "HDFCBANK",
+    "companyName": "HDFC BANK LTD",
+    "currentPrice": 809.6,
+    "change": -5.35,
+    "changePercent": -0.66,
+    "high": 816.5,
+    "low": 806.7,
+    "volume": 16245253,
+    "lastUpdated": 1794990645451,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "SAIL",
+    "companyName": "STEEL AUTHORITY OF INDIA",
+    "currentPrice": 164.54,
+    "change": -6.77,
+    "changePercent": -3.95,
+    "high": 170.32,
+    "low": 162.8,
+    "volume": 15536198,
+    "lastUpdated": 1794989329996,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "SBIN",
+    "companyName": "STATE BANK OF INDIA",
+    "currentPrice": 1116.85,
+    "change": 8.25,
+    "changePercent": 0.74,
+    "high": 1118.95,
+    "low": 1105.7,
+    "volume": 14885491,
+    "lastUpdated": 1794990647560,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "RELIANCE",
+    "companyName": "RELIANCE INDUSTRIES LTD",
+    "currentPrice": 1374.2,
+    "change": 7.2,
+    "changePercent": 0.53,
+    "high": 1376.5,
+    "low": 1354,
+    "volume": 12676783,
+    "lastUpdated": 1794990645449,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "GAIL",
+    "companyName": "GAIL (INDIA) LTD",
+    "currentPrice": 189.33,
+    "change": 2.33,
+    "changePercent": 1.25,
+    "high": 191.35,
+    "low": 185.73,
+    "volume": 11524124,
+    "lastUpdated": 1794991069633,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "TATASTEEL",
+    "companyName": "TATA STEEL LIMITED",
+    "currentPrice": 180.65,
+    "change": -0.85,
+    "changePercent": -0.47,
+    "high": 181.41,
+    "low": 178.4,
+    "volume": 11383750,
+    "lastUpdated": 1794989805427,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "MOTHERSON",
+    "companyName": "SAMVRDHNA MTHRSN INTL LTD",
+    "currentPrice": 157.71,
+    "change": -6.68,
+    "changePercent": -4.06,
+    "high": 162.56,
+    "low": 157.2,
+    "volume": 9987867,
+    "lastUpdated": 1794989325805,
+    "isMarketOpen": true,
+    "staleData": true
+   },
+   {
+    "symbol": "TMPV",
+    "companyName": "TATA MOTORS PASS VEH LTD",
+    "currentPrice": 252.95,
+    "change": -6.25,
+    "changePercent": -2.41,
+    "high": 259.3,
+    "low": 252.2,
+    "volume": 9790263,
+    "lastUpdated": 1794990649738,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "JIOFIN",
+    "companyName": "JIO FIN SERVICES LTD",
+    "currentPrice": 224,
+    "change": -4.96,
+    "changePercent": -2.17,
+    "high": 228,
+    "low": 222.61,
+    "volume": 8784124,
+    "lastUpdated": 1794991071699,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ETERNAL",
+    "companyName": "ETERNAL LIMITED",
+    "currentPrice": 366.5,
+    "change": -8.55,
+    "changePercent": -2.28,
+    "high": 377.7,
+    "low": 366.4,
+    "volume": 8457652,
+    "lastUpdated": 1794989385524,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
     "symbol": "ICICIBANK",
     "companyName": "ICICI BANK LTD.",
-    "currentPrice": 1598.7,
-    "change": 13.7,
-    "changePercent": 0.86,
-    "high": 1613.9,
-    "low": 1578.8,
-    "volume": 15279818,
-    "lastUpdated": 1794910245126,
-    "isMarketOpen": false,
+    "currentPrice": 1597.4,
+    "change": -1.3,
+    "changePercent": -0.08,
+    "high": 1610.1,
+    "low": 1591,
+    "volume": 8004451,
+    "lastUpdated": 1794990645441,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "ITC",
+    "companyName": "ITC LTD",
+    "currentPrice": 292.8,
+    "change": -0.5,
+    "changePercent": -0.17,
+    "high": 293.65,
+    "low": 288.8,
+    "volume": 7702774,
+    "lastUpdated": 1794990647537,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "BANKBARODA",
+    "companyName": "BANK OF BARODA",
+    "currentPrice": 273.47,
+    "change": -1.42,
+    "changePercent": -0.52,
+    "high": 275.57,
+    "low": 272.04,
+    "volume": 6899898,
+    "lastUpdated": 1794991065443,
+    "isMarketOpen": true
+   },
+   {
+    "symbol": "NHPC",
+    "companyName": "NHPC LTD",
+    "currentPrice": 73.72,
+    "change": -1.08,
+    "changePercent": -1.44,
+    "high": 74.58,
+    "low": 73.56,
+    "volume": 6839646,
+    "lastUpdated": 1794989327900,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "JIOFIN",
-    "companyName": "JIO FIN SERVICES LTD",
-    "currentPrice": 228.96,
-    "change": 2.96,
-    "changePercent": 1.31,
-    "high": 230.69,
-    "low": 225.36,
-    "volume": 13454429,
-    "lastUpdated": 1794910371779,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "IRFC",
-    "companyName": "INDIAN RAILWAY FIN CORP L",
-    "currentPrice": 82.65,
-    "change": 0.54,
-    "changePercent": 0.66,
-    "high": 83.95,
-    "low": 81.49,
-    "volume": 12993936,
-    "lastUpdated": 1794910371778,
-    "isMarketOpen": false,
-    "staleData": true
+    "symbol": "NTPC",
+    "companyName": "NTPC LTD",
+    "currentPrice": 319.15,
+    "change": -2.65,
+    "changePercent": -0.82,
+    "high": 320.75,
+    "low": 317.1,
+    "volume": 6658535,
+    "lastUpdated": 1794990651820,
+    "isMarketOpen": true
    },
    {
     "symbol": "LICI",
     "companyName": "LIFE INSURA CORP OF INDIA",
     "currentPrice": 397.7,
-    "change": -2.3,
-    "changePercent": -0.58,
-    "high": 404,
-    "low": 397.2,
-    "volume": 11625708,
-    "lastUpdated": 1794910425843,
-    "isMarketOpen": false,
+    "change": 0,
+    "changePercent": 0,
+    "high": 401.85,
+    "low": 395.8,
+    "volume": 6637953,
+    "lastUpdated": 1794989325793,
+    "isMarketOpen": true,
     "staleData": true
    },
    {
-    "symbol": "SAIL",
-    "companyName": "STEEL AUTHORITY OF INDIA",
-    "currentPrice": 171.31,
-    "change": 2.56,
-    "changePercent": 1.52,
-    "high": 171.31,
-    "low": 166.54,
-    "volume": 11107487,
-    "lastUpdated": 1794910430045,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "POWERGRID",
-    "companyName": "POWER GRID CORP. LTD.",
-    "currentPrice": 258,
-    "change": -4.2,
-    "changePercent": -1.6,
-    "high": 261.75,
-    "low": 257,
-    "volume": 10921873,
-    "lastUpdated": 1794910305403,
-    "isMarketOpen": false,
-    "staleData": true
-   },
-   {
-    "symbol": "ONGC",
-    "companyName": "OIL AND NATURAL GAS CORP.",
-    "currentPrice": 223.52,
-    "change": -3.47,
-    "changePercent": -1.53,
-    "high": 226.35,
-    "low": 223.52,
-    "volume": 10459884,
-    "lastUpdated": 1794910251430,
-    "isMarketOpen": false,
-    "staleData": true
+    "symbol": "IRFC",
+    "companyName": "INDIAN RAILWAY FIN CORP L",
+    "currentPrice": 81.37,
+    "change": -1.28,
+    "changePercent": -1.55,
+    "high": 82.57,
+    "low": 80.84,
+    "volume": 6542764,
+    "lastUpdated": 1794991071707,
+    "isMarketOpen": true
    }
   ],
-  "isMarketOpen": false,
-  "lastUpdated": 1794910485279
+  "isMarketOpen": true,
+  "lastUpdated": 1794991073813
  },
- "is_market_open": false,
+ "is_market_open": true,
  "fii_dii": [
   {
    "date": "2026-11-17",
@@ -1040,21 +1007,37 @@
  ],
  "news_buzz": [
   {
-   "symbol": "ABB",
+   "symbol": "TITAN",
    "mentions": 3,
    "headlines": [
-    "Stock Picks Today: NSE, ABB India, Lupin, Syrma And More On Brokerages' Radar",
-    "ABB India Q3 Review: Nomura Upgrades To Neutral As Brokerages See Data Centre Growth | Check Target Price",
-    "ABB India, Relaxo  Footwear And More Q2 Review: Check HDFC Securities Latest Target Prices"
+    "Stock Market Today: Sensex Falls 720 Points, Nifty 50 Below 25,200; Titan Tanks 5%",
+    "Nifty Consumer Durables index slides 3%; Titan, Kalyan Jewellers crack 5%",
+    "Jewellery Stocks Decline: Sky Gold, Senco Gold, Kalyan Jewellers, Titan Lead Losses; Fall Up To 4%"
    ]
   },
   {
-   "symbol": "ASHOKLEY",
+   "symbol": "IIFL",
    "mentions": 3,
    "headlines": [
-    "Ashok Leyland flags loan discrepancies at HLF, orders independent review",
-    "Volume outlook remains healthy for Ashok Leyland despite margin pressures",
-    "Ashok Leyland Q2 Review: Kotak Downgrades Stock As Commodity Costs Weigh On Margin | Check Target Price"
+    "IIFL Finance Block Deal: Trade Volume Crosses Two Times Its 30-Day Average; Stock Jumps Over 6%",
+    "IIFL Finance shares gain 6% after block deal; Fairfax likely seller",
+    "IIFL Finance Block Deal: FIH Mauritius To Sell 13% Stake In Rs 3,454-Crore Clean-Out Trade; Check Floor Price"
+   ]
+  },
+  {
+   "symbol": "SBIN",
+   "mentions": 2,
+   "headlines": [
+    "SBI trades firm in down market, stock up 16% in Nov; brokerages stay upbeat",
+    "Buy, Sell Or Hold: Hero MotoCorp, Bosch, SBI, Shriram Finance And Lodha Developers — Ask Profit"
+   ]
+  },
+  {
+   "symbol": "ONGC",
+   "mentions": 2,
+   "headlines": [
+    "ONGC To IGL: Motilal Oswal's Top Oil And Gas Bets; Check Target Prices",
+    "Anil Agarwal warns Vedanta block transfer to ONGC could deter investors"
    ]
   },
   {
@@ -1066,6 +1049,14 @@
    ]
   },
   {
+   "symbol": "ASHOKLEY",
+   "mentions": 2,
+   "headlines": [
+    "Ashok Leyland flags loan discrepancies at HLF, orders independent review",
+    "Volume outlook remains healthy for Ashok Leyland despite margin pressures"
+   ]
+  },
+  {
    "symbol": "ASIANPAINT",
    "mentions": 2,
    "headlines": [
@@ -1074,11 +1065,80 @@
    ]
   },
   {
-   "symbol": "HDFCBANK",
-   "mentions": 2,
+   "symbol": "SAIL",
+   "mentions": 1,
    "headlines": [
-    "M&M, Airtel, TechM, HDFC Bank lead Nifty's 3100 pts rally; more steam left?",
-    "Nifty Bank hits record high, tops 62,000; HDFC Bank jumps 20% from Oct low"
+    "Metal meltdown: SAIL, NALCO, Hindalco drag Nifty Metal 2% lower; here's why"
+   ]
+  },
+  {
+   "symbol": "HINDALCO",
+   "mentions": 1,
+   "headlines": [
+    "Metal meltdown: SAIL, NALCO, Hindalco drag Nifty Metal 2% lower; here's why"
+   ]
+  },
+  {
+   "symbol": "KEI",
+   "mentions": 1,
+   "headlines": [
+    "Polycab, KEI, RR Kabel & others fall up to 3% as copper plunges for 5th day"
+   ]
+  },
+  {
+   "symbol": "IGL",
+   "mentions": 1,
+   "headlines": [
+    "ONGC To IGL: Motilal Oswal's Top Oil And Gas Bets; Check Target Prices"
+   ]
+  },
+  {
+   "symbol": "JINDALSTEL",
+   "mentions": 1,
+   "headlines": [
+    "Jindal Steel, NMDC Among Systematix's Top Metals, Mining Picks After Q2 Results; Check Target Prices"
+   ]
+  },
+  {
+   "symbol": "NMDC",
+   "mentions": 1,
+   "headlines": [
+    "Jindal Steel, NMDC Among Systematix's Top Metals, Mining Picks After Q2 Results; Check Target Prices"
+   ]
+  },
+  {
+   "symbol": "HDFCBANK",
+   "mentions": 1,
+   "headlines": [
+    "Tech view on Axis, ICICI and HDFC Bank as Nifty Bank quotes near new high"
+   ]
+  },
+  {
+   "symbol": "WIPRO",
+   "mentions": 1,
+   "headlines": [
+    "IT Stocks Fall: Wipro, Infosys, Mphasis, LTM, Others Trade Lower; Nifty IT Drops Over 1%"
+   ]
+  },
+  {
+   "symbol": "INFY",
+   "mentions": 1,
+   "headlines": [
+    "IT Stocks Fall: Wipro, Infosys, Mphasis, LTM, Others Trade Lower; Nifty IT Drops Over 1%"
+   ]
+  },
+  {
+   "symbol": "MPHASIS",
+   "mentions": 1,
+   "headlines": [
+    "IT Stocks Fall: Wipro, Infosys, Mphasis, LTM, Others Trade Lower; Nifty IT Drops Over 1%"
+   ]
+  },
+  {
+   "symbol": "BIOCON",
+   "mentions": 1,
+   "headlines": [
+    "Biocon's Pebrilzo gets EU nod for HER2-positive breast cancer treatment"
    ]
   },
   {
@@ -1110,6 +1170,13 @@
    ]
   },
   {
+   "symbol": "ABB",
+   "mentions": 1,
+   "headlines": [
+    "Stock Picks Today: NSE, ABB India, Lupin, Syrma And More On Brokerages' Radar"
+   ]
+  },
+  {
    "symbol": "LUPIN",
    "mentions": 1,
    "headlines": [
@@ -1121,104 +1188,6 @@
    "mentions": 1,
    "headlines": [
     "Buy, Sell Or Hold: Hero MotoCorp, Bosch, SBI, Shriram Finance And Lodha Developers — Ask Profit"
-   ]
-  },
-  {
-   "symbol": "BOSCHLTD",
-   "mentions": 1,
-   "headlines": [
-    "Buy, Sell Or Hold: Hero MotoCorp, Bosch, SBI, Shriram Finance And Lodha Developers — Ask Profit"
-   ]
-  },
-  {
-   "symbol": "SBIN",
-   "mentions": 1,
-   "headlines": [
-    "Buy, Sell Or Hold: Hero MotoCorp, Bosch, SBI, Shriram Finance And Lodha Developers — Ask Profit"
-   ]
-  },
-  {
-   "symbol": "ULTRACEMCO",
-   "mentions": 1,
-   "headlines": [
-    "UltraTech moves Supreme Court against BAI's role in CCI cement cartel probe"
-   ]
-  },
-  {
-   "symbol": "BAJFINANCE",
-   "mentions": 1,
-   "headlines": [
-    "BlackRock, NBIM, and GIC likely to invest in Bajaj Finance share sale"
-   ]
-  },
-  {
-   "symbol": "IIFL",
-   "mentions": 1,
-   "headlines": [
-    "IIFL Finance Block Deal: FIH Mauritius To Sell 13% Stake In Rs 3,454-Crore Clean-Out Trade; Check Floor Price"
-   ]
-  },
-  {
-   "symbol": "ICICIBANK",
-   "mentions": 1,
-   "headlines": [
-    "ICICI Bank hikes NRI savings account charges from December 1: Check rates"
-   ]
-  },
-  {
-   "symbol": "INDUSINDBK",
-   "mentions": 1,
-   "headlines": [
-    "IndusInd Bank partners Mastercard for outbound cross-border payments"
-   ]
-  },
-  {
-   "symbol": "LODHA",
-   "mentions": 1,
-   "headlines": [
-    "Investor Mukul Agrawal buys office unit in Lodha's Worli project for ₹163cr"
-   ]
-  },
-  {
-   "symbol": "VEDL",
-   "mentions": 1,
-   "headlines": [
-    "Anil Agarwal warns Vedanta block transfer to ONGC could deter investors"
-   ]
-  },
-  {
-   "symbol": "ONGC",
-   "mentions": 1,
-   "headlines": [
-    "Anil Agarwal warns Vedanta block transfer to ONGC could deter investors"
-   ]
-  },
-  {
-   "symbol": "IOC",
-   "mentions": 1,
-   "headlines": [
-    "IOC gets govt nod to supply sustainable aviation fuel for blending target"
-   ]
-  },
-  {
-   "symbol": "PNB",
-   "mentions": 1,
-   "headlines": [
-    "Punjab National Bank share price zooms 31% in 1 month; hits 8-year high"
-   ]
-  },
-  {
-   "symbol": "TATASTEEL",
-   "mentions": 1,
-   "headlines": [
-    "Tata Steel eyes 50 MT capacity, to direct 75% capex to India: TV Narendran"
-   ]
-  },
-  {
-   "symbol": "ITC",
-   "mentions": 1,
-   "headlines": [
-    "ITC stock reclaims 200-DMA after a year; is it a rebound or fresh uptrend?"
    ]
   }
  ],
@@ -3224,277 +3193,290 @@
  ],
  "news": [
   {
-   "id": "649afec9e6d9b3b6c08965a2f7f70a03",
-   "title": "Zelenskyy says Starshield speed curbs still in place over 'occupied territories' of Ukraine",
-   "link": "https://www.cnbc.com/2026/11/18/ukraine-starshield-starlink-musk-spacex.html",
-   "pubDate": "2026-11-18T02:50:16.000Z",
-   "source": "CNBC",
-   "category": "global",
-   "contentSnippet": "Ukraine's charge d'affaires to the U.S., Denys Sienik, said that Starshield had been speed-limited for seven days already in Ukraine."
-  },
-  {
-   "id": "882c352df7c9b42354ff75668bee9acf",
-   "title": "Crystal Crop Protection IPO opens today: Check review and other key details",
-   "link": "https://www.business-standard.com/markets/news/crystal-crop-protection-ipo-opens-today-check-review-and-other-key-details-126111800142_1.html",
-   "pubDate": "2026-11-18T02:46:21.000Z",
-   "source": "Business Standard",
-   "category": "ipo",
-   "contentSnippet": "The ₹455.49-crore IPO comprises a fresh issue of 1.31 crore equity shares worth ₹354.77 crore and an OFS of 37.03 lakh shares aggregating to ₹100.71 crore."
-  },
-  {
-   "id": "5c1638eb77bac330d995c79c52547cad",
-   "title": "Stocks to watch: IIFL Finance, Grasim, Axis Bank, HCL Tech, RITES, Airtel",
-   "link": "https://www.business-standard.com/markets/news/stocks-to-watch-iifl-finance-grasim-axis-bank-hcl-tech-rites-airtel-126111800141_1.html",
-   "pubDate": "2026-11-18T02:44:20.000Z",
-   "source": "Business Standard",
-   "category": "indian",
-   "contentSnippet": "Stocks to watch today: IIFL Finance, Grasim Industries, Axis Bank, HCL Tech, RITES, Bharti Airtel, Signature Global, Prestige Estates, among others, will be in action today"
-  },
-  {
-   "id": "5b98cb7a55e6243e96a311f469ff04f1",
-   "title": "Co-Pilot Workspaces To Agent 365 Business Analytics: What Microsoft Unveiled At Ignite 2026",
-   "link": "https://www.ndtvprofit.com/technology/co-pilot-workspaces-to-agent-365-business-analytics-what-microsoft-unveiled-at-ignite-2026-12341579",
-   "pubDate": "2026-11-18T02:37:41.000Z",
+   "id": "bd9254770fbaa3bbd3eec298c8cffa25",
+   "title": "Ramayana Box Office Collection Nears Rs 1,500 Crore. Why Its Production House's Investors Lost Over Rs 2,300 Crore",
+   "link": "https://www.ndtvprofit.com/business/ramayana-box-office-collection-prime-focus-share-price-investors-market-cap-loss-12343061",
+   "pubDate": "2026-11-18T08:16:46.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "Microsoft also introduced new AI models optimised for specific tasks, alongside expanded integrations with business applications."
+   "contentSnippet": "Since the film's release on November 5, Prime Focus shares have declined nearly 10%, erasing around Rs 2,305 crore from the company's market capitalisation in less than two weeks."
   },
   {
-   "id": "621e997b8f6a1d35263da7d4c1f3dd65",
-   "title": "Stock Market LIVE: GIFT Nifty down over 100 pts; Asian markets mixed post Nvidia's Q3 beat",
-   "link": "https://www.business-standard.com/markets/news/stock-market-live-november-18-nse-bse-sensex-today-nifty50-gift-nifty-crude-oil-prices-bond-yields-hero-motocorp-share-price-hcltech-stock-price-today-ipo-today-126111800134_1.html",
-   "pubDate": "2026-11-18T02:31:56.000Z",
+   "id": "d02d3fb33965a9c2f58af6806c589f9e",
+   "title": "Stock Market Today: Sensex Falls 720 Points, Nifty 50 Below 25,200; Titan Tanks 5%",
+   "link": "https://www.ndtvprofit.com/markets/stock-market-today-november-18-sensex-today-nifty-bse-nse-nvidia-q3-results-earnings-it-stocks-ai-oil-prices-us-iran-war-middle-east-conflict-12341992",
+   "pubDate": "2026-11-18T08:12:41.000Z",
+   "source": "NDTV Profit",
+   "category": "indian"
+  },
+  {
+   "id": "d5aec384682dc9f55ce091c67a03a377",
+   "title": "Nifty Consumer Durables index slides 3%; Titan, Kalyan Jewellers crack 5%",
+   "link": "https://www.business-standard.com/markets/news/nifty-consumer-durables-index-slides-3-titan-kalyan-jewellers-crack-5-126111800512_1.html",
+   "pubDate": "2026-11-18T08:12:33.000Z",
    "source": "Business Standard",
    "category": "indian",
-   "contentSnippet": "Sensex Today | Stock Market LIVE Updates Wednesday: The GIFT Nifty indicated a gap-down open for the Nifty50 index. Asian markets were mixed"
+   "contentSnippet": "Among others in the Consumer Durables index, Dixon, Havells India, Voltas, Crompton Greaves Consumer Electricals and Bata India declined in the range of 2-3% in Wednesday's trade."
   },
   {
-   "id": "64c762765ab11193a051cf835c4a275a",
-   "title": "Trump withdraws Heidi Overton as nominee to lead Food and Drug Administration, sources say",
-   "link": "https://www.cnbc.com/2026/11/18/trump-withdraws-heidi-overton-as-nominee-to-lead-fda-sources-say.html",
-   "pubDate": "2026-11-18T02:31:29.000Z",
-   "source": "CNBC",
-   "category": "global",
-   "contentSnippet": "US President Donald Trump has withdrawn the nomination of Heidi Overton to lead the Food and Drug Administration due to insufficient support in Congress."
-  },
-  {
-   "id": "9c93bfd1740889db27d7a9ba2f992b52",
-   "title": "NBFC Sector PAT Jumps 43% In Q2; Aditya Birla Capital, Tata Capital Among Top Picks By Ambit",
-   "link": "https://www.ndtvprofit.com/markets/nbfc-sector-pat-jumps-43-in-q2-aditya-birla-capital-tata-capital-among-top-picks-by-ambit-12341725",
-   "pubDate": "2026-11-18T02:28:48.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "Ambit Capital maintained a Buy' rating on Aditya Birla Capital with a target price of Rs 506 and Tata Capital with a target price of Rs 463."
-  },
-  {
-   "id": "674df0396a8615eed9ad264e75e93fd4",
-   "title": "Gold Rate Today: Check 24K, 22K Gold Prices In Mumbai, Delhi, Chennai, Kolkata, Bengaluru On November 18",
-   "link": "https://www.ndtvprofit.com/markets/gold-rate-today-check-24k-22k-gold-prices-in-mumbai-delhi-chennai-kolkata-bengaluru-on-november-18-12341586",
-   "pubDate": "2026-11-18T02:26:44.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "Gold and silver prices faced renewed pressure on November 18."
-  },
-  {
-   "id": "a2aa998bd03cfb2dd805e54b1567fe99",
-   "title": "Nifty eyes breakout atop 25,500; Analyst flags divergence in market breadth",
-   "link": "https://www.business-standard.com/markets/news/nifty-eyes-breakout-atop-25-500-analyst-flags-divergence-in-market-breadth-126111800133_1.html",
-   "pubDate": "2026-11-18T02:20:36.000Z",
+   "id": "86dfc062c65fd9702bbefad476a2c255",
+   "title": "Multibagger ACME Solar jumps 3% on order win, trades 113% up from Jan lows",
+   "link": "https://www.business-standard.com/markets/news/multibagger-stock-acme-solar-jumps-3-on-order-win-trades-113-up-from-january-lows-126111800524_1.html",
+   "pubDate": "2026-11-18T08:09:56.000Z",
    "source": "Business Standard",
    "category": "indian",
-   "contentSnippet": "The market breadth was negative for last three sessions, indicating a sharp divergence between Nifty performance and broader participation, explains Dharmesh Bhatt of Systematix Institutional Research"
+   "contentSnippet": "ACME Solar's subsidiary, ACME Alpha Renewables, has executed a power purchase agreement (PPA) with NTPC for a Hybrid Power Project for a contract capacity of 150 MW."
   },
   {
-   "id": "a5550ce8202fc59471c71f83af969179",
-   "title": "IT Stocks Have Rallied 20%. Now Currency Risks Could Spoil The Party: HSBC",
-   "link": "https://www.ndtvprofit.com/markets/it-stocks-have-rallied-20-now-currency-risks-could-spoil-the-party-hsbc-november-18-inr-rupee-dollar-usd-margin-markets-forex-12341698",
-   "pubDate": "2026-11-18T02:14:46.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "The Indian rupee has appreciated 1.4% on an average basis and 2.3% on a spot basis relative to the second-quarter average."
-  },
-  {
-   "id": "ce6319a1bd389c2f9f7ac1766aebd113",
-   "title": "Poonawalla Fincorp In Focus: Stronger RoA, Better Profitability Outlook Keep MOSL Bullish; Check Target Price",
-   "link": "https://www.ndtvprofit.com/markets/poonawalla-fincorp-in-focus-stronger-roa-better-profitability-outlook-keep-mosl-bullish-check-target-price-12341663",
-   "pubDate": "2026-11-18T02:11:17.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "According to Motilal Oswal the NBFC is entering an important phase of its business transformation, moving from building a diversified lending franchise and investing in distribution, technology and risk infrastructure toward increasingly monetising these capabilities."
-  },
-  {
-   "id": "d3e7641abf707f671e74cb576eb85462",
-   "title": "AI-Powered Hacking Threat: FBI Warns Cybercriminals Exploiting ARTEX Framework To Target Organisations",
-   "link": "https://www.ndtvprofit.com/technology/ai-powered-hacking-threat-fbi-warns-cybercriminals-exploiting-artex-framework-to-target-organisations-12341683",
-   "pubDate": "2026-11-18T02:05:16.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "The agency said the tool has been used in campaigns across multiple sectors worldwide since at least August 2026."
-  },
-  {
-   "id": "09be17fb80162da40d137c20bb3e6f58",
-   "title": "Apple Works To Restore Systems After Internal Update Causes Outage",
-   "link": "https://www.ndtvprofit.com/technology/apple-works-to-fix-systems-after-update-caused-internal-retail-and-icloud-outages-12341677",
-   "pubDate": "2026-11-18T02:04:30.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "The outages also affected Apple stores around the world, disrupting sales, repairs and customer service."
-  },
-  {
-   "id": "9270f1173e62be9f740129c26d1aeb69",
-   "title": "LeBron James sues startup over viral AI ad allegedly exploiting his likeness",
-   "link": "https://www.cnbc.com/2026/11/18/lebron-james-startup-ai-lawsuit.html",
-   "pubDate": "2026-11-18T02:02:02.000Z",
+   "id": "ee793d44e943f5f531d893da40d5564e",
+   "title": "Southeast Asia’s data center boom leaned on Chinese demand. New U.S. rules put that pipeline at risk",
+   "link": "https://www.cnbc.com/2026/11/18/nvidia-us-ai-chip-export-controls-data-centers-.html",
+   "pubDate": "2026-11-18T08:09:43.000Z",
    "source": "CNBC",
    "category": "global",
-   "contentSnippet": "LeBron James sued an AI-powered sports betting startup over alleged unauthorized use of his likeness."
+   "contentSnippet": "The rules require data centers in Southeast Asia to seek U.S. approval to buy advanced AI chips, threatening to slow a build-out fueled heavily on Chinese demand."
   },
   {
-   "id": "7fe683d3983d903b988db4a9036fcad1",
-   "title": "'Momentum Is Real': What Nvidia's Interim CEO Colette Kress Said In First Earnings Call After Jensen Huang Exit",
-   "link": "https://www.ndtvprofit.com/business/momentum-is-real-what-nvidias-interim-ceo-colette-kress-said-in-first-earnings-call-after-jensen-huang-exit-12341658",
-   "pubDate": "2026-11-18T01:53:16.000Z",
+   "id": "db93a88b3fe7f76890e4ee57912979f2",
+   "title": "Why Stock Market Is Falling Today? Sensex Drops Over 700 Points, Nifty 50 Below 25,200",
+   "link": "https://www.ndtvprofit.com/markets/why-stock-market-is-falling-today-sensex-drops-over-700-points-nifty-50-below-25-200-12343123",
+   "pubDate": "2026-11-18T08:09:15.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "Kress transitioned quickly to expand on the semiconductor giant's financials and highlighted how Nvidia posted another outstanding quarter marked by record revenue, operating income, and Earnings Per Share (EPS)."
+   "contentSnippet": "The 25,500 level remains a crucial near-term resistance for Nifty 50, and a sustained breakout above this hurdle could strengthen the upward momentum, opening the way for further gains towards the 25,80026,000 zone."
   },
   {
-   "id": "a2fd045e1f3e455ea77aeb9c0b367a6f",
-   "title": "Six Stocks To Buy Today, November 18: Bank of Baroda, Reliance Industries, Karnataka Bank, And More",
-   "link": "https://www.ndtvprofit.com/markets/six-stocks-to-buy-today-november-18-bank-of-baroda-prestige-estates-reliance-industries-karnataka-bank-birla-cable-12341653",
-   "pubDate": "2026-11-18T01:51:23.000Z",
+   "id": "fd277b577c4e454510e20591b1d152fc",
+   "title": "Adani Stocks, Private Banks, Real Estate: Where Gautam Shah Sees Big Opportunities",
+   "link": "https://www.ndtvprofit.com/markets/adani-stocks-private-banks-real-estate-where-gautam-shah-sees-big-opportunities-12343118",
+   "pubDate": "2026-11-18T08:07:33.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "Top stock picks feature Bank of Baroda, Prestige Estates, Reliance Industries, Karnataka Bank, Birla Cable, and Nestle India with defined targets and stop-loss levels."
+   "contentSnippet": "Speaking to NDTV Profit, Shah said the Adani Group remains one of his preferred investment themes, reiterating his positive view on the conglomerate."
   },
   {
-   "id": "054f22d07d5dfb672f5d8974079e5e72",
-   "title": "Will Jensen Huang Return To Nvidia As CEO? Board Chair Harvey Jones Says, 'We Will...'",
-   "link": "https://www.ndtvprofit.com/business/will-jensen-huang-return-to-nvidia-as-ceo-board-chair-harvey-jones-says-we-will-12341617",
-   "pubDate": "2026-11-18T01:41:27.000Z",
+   "id": "155fcca6cd7ca6f162d221320e5cd69b",
+   "title": "Your PPF Nominee Is A Minor: Who Can Claim The Money And Who Receives It?",
+   "link": "https://www.ndtvprofit.com/personal-finance/your-ppf-nominee-is-a-minor-who-can-claim-the-money-and-who-receives-it-12342896",
+   "pubDate": "2026-11-18T07:56:29.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "Nvidia announced on November 12 that Huang had resigned as president, CEO and board member after 33 years."
+   "contentSnippet": "PPF scheme allows you to make a minor as the account nominee, but you need to appoint a guardian to handle the claim if you pass away."
   },
   {
-   "id": "4f24ad06c6a2b383f91c8bef769f56e6",
-   "title": "Jensen Huang's Exit: The Questions Nvidia's Board Refused To Answer",
-   "link": "https://www.ndtvprofit.com/markets/jensen-huangs-exit-the-questions-nvidias-board-refused-to-answer-q3-earnings-results-neo-cloud-stocks-technology-ai-wall-street-nasdaq-12341628",
-   "pubDate": "2026-11-18T01:38:47.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "Harvey Jones, NVIDIA's chairman, opened the call by confirming that Huang had voluntarily resigned as president, CEO and board member on November 12, after the disclosure of \"personal behavior inconsistent with the company's code of conduct, standards, and cultural norms\"."
+   "id": "e1c8df012a5967174dcffdc46b5fa0f7",
+   "title": "91-Day, 182-Day and 364-Day T-Bill Auction Result: Cut-off",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63994",
+   "pubDate": "2026-11-18T07:55:00.000Z",
+   "source": "Reserve Bank of India",
+   "category": "economy",
+   "contentSnippet": "T-Bill        91-Day        182-Day        364-Day      \n      \n        I.        Total Face Value Notified        ₹8,000 Crore        ₹8,000 Crore        ₹7,000 Crore      \n      \n        II.        Cut-off Price (₹) and Implicit Yield at Cut-Off Price        98.5600…"
   },
   {
-   "id": "53ca999df13220e717954dad4caa84f8",
-   "title": "Wall Street Highlights: Nasdaq Ends Lower As Nvidia Earnings Take Centre Stage",
-   "link": "https://www.ndtvprofit.com/markets/wall-street-highlights-nasdaq-ends-lower-as-nvidia-earnings-take-centre-stage-12341623",
-   "pubDate": "2026-11-18T01:38:40.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "The S&P 500 fell to its lowest since July."
-  },
-  {
-   "id": "b6e8e57e2efc1f072cd7f1dd240f7d83",
-   "title": "Stock Market Today: Gift Nifty, Nvidia Earnings To Oil Prices; Five Key Factors For Sensex, Nifty 50 On Nov 18",
-   "link": "https://www.ndtvprofit.com/markets/stock-market-today-gift-nifty-nvidia-earnings-to-oil-prices-five-key-factors-that-may-drive-sensex-nifty-50-on-november-18-12341609",
-   "pubDate": "2026-11-18T01:31:44.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "Asian markets rallied, while the US stock market ended sharply lower overnight, weighed down by selling in tech stocks."
-  },
-  {
-   "id": "8f885c933bc8b2897e0795344f7350cf",
-   "title": "OpenAI bugging case defendant Alfozan set for trial in January",
-   "link": "https://www.cnbc.com/2026/11/17/openai-spy-alfozan-trial-saudi.html",
-   "pubDate": "2026-11-18T01:31:37.000Z",
+   "id": "1a871dc94e44e2a7632440e38964e5f2",
+   "title": "Record diesel prices drive UK inflation to 1-year high of 3.6%",
+   "link": "https://www.cnbc.com/2026/11/18/uk-inflation-cpi-fuel-prices.html",
+   "pubDate": "2026-11-18T07:50:26.000Z",
    "source": "CNBC",
    "category": "global",
-   "contentSnippet": "Abdulrahman Alfozan has been held without bail since his arrest in October, after prosecutors said he planted a listening device in an OpenAI conference room."
+   "contentSnippet": "It put the U.K.'s annual inflation rate at a 1-year high."
   },
   {
-   "id": "21abd71262f814983c53e2fed99fdb00",
-   "title": "Stock Picks Today: NSE, ABB India, Lupin, Syrma And More On Brokerages' Radar",
-   "link": "https://www.ndtvprofit.com/markets/stock-picks-today-nse-abb-india-lupin-syrma-sgs-anupam-rasayan-and-more-on-brokerages-radar-12341555",
-   "pubDate": "2026-11-18T01:26:07.000Z",
+   "id": "040f0640659848a23cd150854594b948",
+   "title": "CBIC to seek public feedback on faceless CGST assessment framework",
+   "link": "https://www.business-standard.com/finance/news/cbic-faceless-gst-assessment-framework-public-consultation-126111800509_1.html",
+   "pubDate": "2026-11-18T07:49:22.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "The proposed reforms also include a centralised administrative arrangement for large taxpayers with multiple GST registrations, covering scrutiny, adjudication and appeals"
+  },
+  {
+   "id": "78b69393b95dd8ef99179b88672d4cc7",
+   "title": "Six Days, Four Major Outages: Email, Flights, Banks And Digital Payments; What Caused Disruptions?",
+   "link": "https://www.ndtvprofit.com/business/six-days-four-major-outages-email-flights-banks-and-digital-payments-what-caused-major-disruptions-12342998",
+   "pubDate": "2026-11-18T07:48:16.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "Check out the top stock calls, initiations, upgrades, downgrades, and target price revisions from leading brokerages ahead of today's trade."
+   "contentSnippet": "None of the four was blamed on hackers. Each traced back to routine changes inside complex systems: an upgrade, a network fault, a software bug and an update."
   },
   {
-   "id": "8c980d1749991eae4665b3ec6ba6c678",
-   "title": "Three things to watch as Trump, Xi and Putin meet in China",
-   "link": "https://www.cnbc.com/2026/11/18/apec-trump-xi-putin-shenzhen.html",
-   "pubDate": "2026-11-18T01:23:29.000Z",
+   "id": "004eca11379cbe3915477156c2196f09",
+   "title": "Living abroad? How SPARSH defence pensioners can submit life certificates",
+   "link": "https://www.business-standard.com/finance/personal-finance/living-abroad-how-sparsh-defence-pensioners-can-submit-life-certificates-126111800505_1.html",
+   "pubDate": "2026-11-18T07:47:43.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "SPARSH allows NRI defence and family pensioners to submit manual life certificates attested by authorised bank officials overseas"
+  },
+  {
+   "id": "861e8c5df0b3cd99f706020208b27d86",
+   "title": "Nvidia's Leadership Crisis: Why IBM CEO Arvind Krishna Isn't Worried About Rivals",
+   "link": "https://www.ndtvprofit.com/business/nvidias-leadership-crisis-why-ibm-ceo-arvind-krishna-isnt-worried-about-rivals-12343000",
+   "pubDate": "2026-11-18T07:45:42.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Krishna told NDTV in an interview that Nvidia sold out for the next two years and as long as the engineering talent is there, one leader disappearing is not going to make a big difference to the trajectory for the next two years"
+  },
+  {
+   "id": "aeeea4adcc272e7cf517057701ae4555",
+   "title": "Nvidia's Strong Q3 Results Fail To Ease Investor Concerns; AI Spending, Leadership In Focus, Says Saxo's Charu Chanana",
+   "link": "https://www.ndtvprofit.com/markets/nvidias-strong-q3-results-fail-to-ease-investor-concerns-ai-spending-leadership-in-focus-says-saxos-charu-chanana-12342846",
+   "pubDate": "2026-11-18T07:40:48.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Chanana says Nvidia's strong results have helped address some concerns around business continuity but uncertainty around leadership remains."
+  },
+  {
+   "id": "71f1149311ab782d8eed7de52bdc12a9",
+   "title": "97 Pages Of Doom: The Only IPO That Warns Its AI Might End The World",
+   "link": "https://www.ndtvprofit.com/business/97-pages-of-doom-the-only-ipo-that-warns-its-ai-might-end-the-world-anthropic-12342937",
+   "pubDate": "2026-11-18T07:37:04.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Several risks have already turned into business decisions. Anthropic says it limited the release of Mythos because of the model's advanced cyber capabilities, potentially giving up near-term revenue."
+  },
+  {
+   "id": "cabb682a9dc210b67f4482c606b90824",
+   "title": "Karnataka Bank appoints Udaya Kumar Hebbar as MD & CEO for three years",
+   "link": "https://www.business-standard.com/companies/news/karnataka-bank-appoints-udaya-kumar-hebbar-md-ceo-three-years-126111800470_1.html",
+   "pubDate": "2026-11-18T07:28:25.000Z",
+   "source": "Business Standard",
+   "category": "companies",
+   "contentSnippet": "The appointment of the former CreditAccess Grameen chief has received RBI approval and is subject to shareholders' approval"
+  },
+  {
+   "id": "e4adb5bdf776cde823caf233cfa32c79",
+   "title": "Senators press acting U.S. Navy Secretary on Iran war costs, sailor health in confirmation hearing",
+   "link": "https://www.cnbc.com/2026/11/18/us-iran-navy-hormuz-war-cao.html",
+   "pubDate": "2026-11-18T07:24:06.000Z",
    "source": "CNBC",
    "category": "global",
-   "contentSnippet": "U.S. President Donald Trump, Chinese President Xi Jinping and Russian President Vladimir Putin are set to meet in Shenzhen alongside an APEC leaders' meeting."
+   "contentSnippet": "Acting Navy Secretary Hung Cao told senators the Navy recoded and used munitions he called expired as the Iran war strains weapons stocks and naval deployments."
   },
   {
-   "id": "5048c88ffc2192860cb904d9b82a18d0",
-   "title": "Nvidia’s Kress tells CNBC's Jim Cramer that 'customers continue to be with us’",
-   "link": "https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html",
-   "pubDate": "2026-11-18T01:17:17.000Z",
+   "id": "6cc2b36345fad1c8bae20e4d642b80e0",
+   "title": "Gold, Silver Prices Down To The Price Of iPhone 17 Pro, iPhone 18 Pro; Check Details",
+   "link": "https://www.ndtvprofit.com/markets/gold-silver-prices-down-to-the-price-of-iphone-17-pro-iphone-18-pro-check-details-12342752",
+   "pubDate": "2026-11-18T07:20:15.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "Gold is down 27.5% from its peak and silver has fallen 61% from its record high, putting bullion near iPhone Pro prices: iPhone 17 Pro costs Rs 1.28 lakh-1.75 lakh, while iPhone 18 Pro ranges from Rs 1.65 lakh to Rs 2.40 lakh."
+  },
+  {
+   "id": "c3b816594c9fe867bda40081f2f5db44",
+   "title": "No MTF Decision Yet, Longer Market Hours Unlikely: SEBI Chair Tuhin Kanta Pandey",
+   "link": "https://www.ndtvprofit.com/markets/sebi-has-no-decision-yet-on-mtf-curbs-says-chairman-tuhin-kanta-pandey-12342838",
+   "pubDate": "2026-11-18T07:12:51.000Z",
+   "source": "NDTV Profit",
+   "category": "indian",
+   "contentSnippet": "SEBI Chairman Tuhin Kanta Pandey said the regulator has not decided on proposals to revamp the Margin Trading Facility framework, while citing cybersecurity risks as a hurdle to extending market hours."
+  },
+  {
+   "id": "3eacf278ac7495119678f4d77915515f",
+   "title": "Emergency alerts and $75,000 rewards: South Korea fights high-tech exam cheating",
+   "link": "https://www.cnbc.com/2026/11/18/south-korea-exam-cheating-.html",
+   "pubDate": "2026-11-18T07:00:39.000Z",
    "source": "CNBC",
    "category": "global",
-   "contentSnippet": "Nvidia released fiscal third-quarter 2027 results on Tuesday, followed by its first earnings call since Huang's departure."
+   "contentSnippet": "South Korea moves to crack down on exam cheating with emergency alerts and $75,000 rewards."
   },
   {
-   "id": "4bbad4c3f81330ae2ba5435c83a02c12",
-   "title": "Asian Markets Today: Kospi Jumps 3% As Nvidia's $115.8 Billion Revenue Reignites AI Trade; Japan Exports Hit Record High",
-   "link": "https://www.ndtvprofit.com/markets/asian-markets-today-november-18-kospi-jumps-3-nikkei-nvidia-q3-results-115-8-billion-revenue-reignites-ai-trade-japan-exports-hit-record-high-12341577",
-   "pubDate": "2026-11-18T01:11:31.000Z",
+   "id": "d25ac8d2cca865383787f6a3de8175e2",
+   "title": "SBI trades firm in down market, stock up 16% in Nov; brokerages stay upbeat",
+   "link": "https://www.business-standard.com/markets/news/sbi-trades-firm-in-down-market-stock-up-16-in-nov-brokerages-stay-upbeat-126111800409_1.html",
+   "pubDate": "2026-11-18T06:56:37.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "SBI's share price hit intraday high of ₹1,118.55, trading at its highest level since August 7, 2026 and 10% away from its record high of ₹1,234.80 hit on February 24, 2026."
+  },
+  {
+   "id": "4e89f4657708262e1d25e1efe54532c9",
+   "title": "Metal meltdown: SAIL, NALCO, Hindalco drag Nifty Metal 2% lower; here's why",
+   "link": "https://www.business-standard.com/markets/news/metal-meltdown-sail-nalco-hindalco-drag-nifty-metal-2-lower-here-s-why-126111800417_1.html",
+   "pubDate": "2026-11-18T06:49:29.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "Analyst said that metal stocks were under pressure due to a decline in global commodity prices, as a stronger USD and expectations of higher interest rates weighed on the appeal of non-yielding assets"
+  },
+  {
+   "id": "f207e870d184438c7b49404851ee06b5",
+   "title": "SpiceJet hits 5% upper band as board to mull fundraise; up 30% in 6 days",
+   "link": "https://www.business-standard.com/markets/news/spicejet-hits-5-upper-band-as-board-to-mull-fundraise-up-30-in-6-days-126111800376_1.html",
+   "pubDate": "2026-11-18T06:42:34.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "On a longer time frame of five and 10 years, SpiceJet shares have tanked 87 per cent and 84 per cent, respectively."
+  },
+  {
+   "id": "12d0c5fddc2f782ce367526807dda0bb",
+   "title": "Nifty At 28,400 By December 2027? Gautam Shah Flags These Sectors To Buy",
+   "link": "https://www.ndtvprofit.com/markets/nifty-50-target-at-28-400-by-december-2027-gautam-shah-flags-these-sectors-to-buy-realty-it-stocks-midcaps-small-caps-stocks-sensex-today-12342688",
+   "pubDate": "2026-11-18T06:42:18.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "Nvidia, announcing its first results following Jensen Huang's exit, reported record revenue for the third quarter and forecast fourth-quarter sales above market expectations."
+   "contentSnippet": "Speaking to NDTV Profit, Shah said the Nifty could first move towards 26,200-26,500, although a correction to 25,000-24,800 levels, or slightly lower, cannot be ruled out."
   },
   {
-   "id": "8153068f9bd1f7b05c7f8dddfcd9a659",
-   "title": "Stock Market Today: All You Need To Know Before Going Into Trade On Nov 18",
-   "link": "https://www.ndtvprofit.com/markets/stock-market-today-all-you-need-to-know-going-into-trade-on-nov-18-12340879",
-   "pubDate": "2026-11-18T01:10:00.000Z",
+   "id": "a853752ce44c9699d0b42268f58bc9e3",
+   "title": "Forget Dhurandhar 2. Ramayana's Real Rival Is the Man Who Made It",
+   "link": "https://www.ndtvprofit.com/business/forget-dhurandhar-2-ramayanas-real-rival-is-the-man-who-made-it-box-office-collection-12342669",
+   "pubDate": "2026-11-18T06:37:13.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "Stocks in the news, big brokerage calls of the day, complete trade setup and much more!"
+   "contentSnippet": "Thirteen days after its November 5 release, Ramayana has grossed an estimated Rs 1,483.50 crore worldwide, climbing to fifth among Indian films and leaving RRR, KGF: Chapter 2, Jawan and Pathaan behind."
   },
   {
-   "id": "996bd8dadccd7d664e040b6684c1dd08",
-   "title": "Air Charters To Engineering: How This Stock Turned Rs 1 Lakh Into Rs 4.45 Lakh In 10 Years",
-   "link": "https://www.ndtvprofit.com/markets/multibagger-taal-tech-share-price-how-this-stock-turned-rs-1-lakh-into-rs-4-45-lakh-in-10-years-12338256",
-   "pubDate": "2026-11-18T01:03:58.000Z",
+   "id": "668d664f76c39be6af75247c52705a12",
+   "title": "Caplin Point slides 13% in 3 sessions after US FDA flags plant for action",
+   "link": "https://www.business-standard.com/markets/news/caplin-point-slides-13-in-3-sessions-after-us-fda-flags-plant-for-action-126111800383_1.html",
+   "pubDate": "2026-11-18T06:31:47.000Z",
+   "source": "Business Standard",
+   "category": "indian",
+   "contentSnippet": "US FDA classified the Gummidipoondi facility as OAI, indicating that the FDA believes the inspection findings warrant regulatory action"
+  },
+  {
+   "id": "130cfbb9bbd1af34c83d38748f7ecae0",
+   "title": "South Delhi luxury flat prices up 40%; 2,500 sq ft homes can cost ₹29 cr",
+   "link": "https://www.business-standard.com/finance/personal-finance/south-delhi-luxury-flat-prices-up-40-2-500-sq-ft-homes-can-cost-29-cr-126111800362_1.html",
+   "pubDate": "2026-11-18T06:22:05.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "The price of a 2500 sq. ft. floor rose by 40% from Rs 11-23 crore in Q3 of 2025 to Rs 18.5-29 crore in July-September 2026. The price of a 6000 sq. ft. floor rose from Rs 22-53 crore to Rs 41-5"
+  },
+  {
+   "id": "74f89f5927ac02a3e30abe6b0c76296e",
+   "title": "Gold falls 7.7%, large-caps gain 9.8%: October's big winners and losers",
+   "link": "https://www.business-standard.com/finance/personal-finance/gold-falls-7-7-large-caps-gain-9-8-october-s-big-winners-and-losers-126111800351_1.html",
+   "pubDate": "2026-11-18T06:08:38.000Z",
+   "source": "Business Standard",
+   "category": "banking",
+   "contentSnippet": "From gold to equities: October's market reversal offers investors a portfolio lesson"
+  },
+  {
+   "id": "add1c38fc16f2cfab4b2892c222ad327",
+   "title": "Xiaomi 18 Pro, 18 Pro Max: Price, Camera, Battery Rear Display And More",
+   "link": "https://www.ndtvprofit.com/technology/xiaomi-18-pro-18-pro-max-launched-price-camera-battery-rear-display-and-more-12342470",
+   "pubDate": "2026-11-18T06:06:35.000Z",
    "source": "NDTV Profit",
    "category": "indian",
-   "contentSnippet": "From an entity housing an aircraft charter operation and an engineering-services business, TAAL Tech has evolved into a company increasingly identified with engineering solutions. Its stock rose from Rs 209.05 in January 2016 to Rs 929.60 in November 2026."
-  },
-  {
-   "id": "a8e9fceace660f258415edbd414c1b71",
-   "title": "Nvidia's Colette Kress tells Cramer: Employees and customers are not going anywhere",
-   "link": "https://www.cnbc.com/2026/11/17/nvidias-colette-kress-tells-cramer-customers-and-employees-are-not-going-anywhere.html",
-   "pubDate": "2026-11-18T01:02:38.000Z",
-   "source": "CNBC",
-   "category": "global",
-   "contentSnippet": "Interim CEO Colette Kress said exclusively on \"Mad Money\" that the chipmaker's customers and employees remain committed to the company."
-  },
-  {
-   "id": "58f6e493c3906ebb79599a652f9ca78e",
-   "title": "Oil Prices Today: Brent Hovers Near $93 Despite Hormuz Attacks, Why Supply Glut Is Keeping Bulls In Check",
-   "link": "https://www.ndtvprofit.com/markets/oil-prices-today-november-18-brent-crude-oil-hovers-near-93-despite-hormuz-attacks-why-supply-glut-is-keeping-bulls-in-check-us-iran-commodity-prices-12341539",
-   "pubDate": "2026-11-18T00:38:51.000Z",
-   "source": "NDTV Profit",
-   "category": "indian",
-   "contentSnippet": "Oil prices settled higher on Tuesday as attacks on vessels in the Strait of Hormuz raised concerns over supply disruptions. Brent crude futures rose 0.76% to settle at $93.14 a barrel, while US West Texas Intermediate (WTI) gained 0.34% to $86.01."
-  },
-  {
-   "id": "faae7d98d5129791d50219b0f7e77bb7",
-   "title": "Cramer's lightning round: This sports stock is not for me",
-   "link": "https://www.cnbc.com/2026/11/17/cramers-lightning-round-this-sports-stock-is-not-for-me-.html",
-   "pubDate": "2026-11-18T00:12:21.000Z",
-   "source": "CNBC",
-   "category": "global",
-   "contentSnippet": "\"Mad Money\" host Jim Cramer rings the lightning round bell, which means he's giving his answers to callers' stock questions at rapid speed."
+   "contentSnippet": "Both phones feature a privacy display that limits side-angle visibility and a rear secondary OLED screen for checking notifications, accessing widgets, controlling music, and framing selfies using the primary cameras."
   }
  ],
  "regulatory": [
+  {
+   "id": "e1c8df012a5967174dcffdc46b5fa0f7",
+   "title": "91-Day, 182-Day and 364-Day T-Bill Auction Result: Cut-off",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63994",
+   "pubDate": "2026-11-18T07:55:00.000Z",
+   "source": "rbi"
+  },
+  {
+   "id": "f41f8eb1f2240df09f2e500c2b243b9d",
+   "title": "Result of the Overnight Variable Rate Reverse Repo (VRRR) auction held on November 18, 2026",
+   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63993",
+   "pubDate": "2026-11-18T05:05:00.000Z",
+   "source": "rbi"
+  },
   {
    "id": "8bbf79293dae671af40fcdd2bfe7eb4a",
    "title": "Money Market Operations as on November 17, 2026",
@@ -3514,20 +3496,6 @@
    "title": "Premature redemption under Sovereign Gold Bond (SGB) Scheme - Redemption Price for premature redemption of SGB 2020-21 Series VIII due on November 18, 2026",
    "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63990",
    "pubDate": "2026-11-17T12:30:00.000Z",
-   "source": "rbi"
-  },
-  {
-   "id": "5d535f69a766dcd38b4a17a85e59f770",
-   "title": "State Government Securities - Full Auction Result",
-   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63989",
-   "pubDate": "2026-11-17T11:10:00.000Z",
-   "source": "rbi"
-  },
-  {
-   "id": "5eb1702842836643cbf3d2dfa57a703c",
-   "title": "Directions under Section 35A read with Section 56 of the Banking Regulation Act, 1949 – Nagar Sahakari Bank Ltd., Etawah – Extension of Period",
-   "link": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63988",
-   "pubDate": "2026-11-17T09:45:00.000Z",
    "source": "rbi"
   }
  ],
