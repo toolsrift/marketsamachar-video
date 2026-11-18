@@ -10,18 +10,20 @@ An episode file (faceoff/episodes/<slug>.json) is written per video around ONE a
                "tag", "title", "spec": {...}, "lines": [[speaker, text] | ["pause", seconds]]}]}
 Every line (and pause) is a beat; scene specs refer to beats by index.
 """
-import json, sys, random, hashlib, pathlib, argparse, datetime, os
+import json, sys, re, random, hashlib, pathlib, argparse, datetime, os
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 REPO = ROOT.parent
 KDIR = pathlib.Path(os.environ.get("KOKORO_DIR", REPO))
-FORMATS = ["documentary", "debate", "quiz", "newsdesk"]
+FORMATS = {1: ["documentary", "bullbear", "quiz", "newsdesk"],      # single-stock deep dive
+           2: ["documentary", "debate", "quiz", "newsdesk"],      # face-off
+           3: ["panel", "countdown", "documentary", "quiz"]}      # three-stock industry round-up
 OPENINGS = ["stat", "question", "invest", "chart"]
 LOOKS = ["glass", "paper", "blueprint", "neon", "flat"]
 MOTIONS = ["canvas", "cards", "split"]
 VOICES = {"female": ["af_heart", "af_bella", "bf_emma"], "male": ["am_michael", "am_fenrir", "am_puck"]}
 MUSIC = {"glass": "pulse", "paper": "marimba", "blueprint": "cinematic", "neon": "lofi", "flat": "bright"}
-SPEED = {"documentary": 1.06, "debate": 1.1, "quiz": 1.08, "newsdesk": 1.16}
-GAP = {"documentary": .34, "debate": .42, "quiz": .3, "newsdesk": .22}
+SPEED = {"documentary": 1.06, "debate": 1.1, "quiz": 1.08, "newsdesk": 1.16, "bullbear": 1.1, "panel": 1.1, "countdown": 1.12}
+GAP = {"documentary": .34, "debate": .42, "quiz": .3, "newsdesk": .22, "bullbear": .4, "panel": .38, "countdown": .3}
 
 
 def recent(hist, key, n):
@@ -33,7 +35,9 @@ def pick(args):
     seed = args.seed if args.seed is not None else int(hashlib.md5(f"{args.pair}{datetime.datetime.now():%Y%m%d%H}".encode()).hexdigest(), 16) % 10**6
     rng = random.Random(seed)
     choose = lambda opts, key, n: rng.choice([o for o in opts if o not in recent(hist, key, n)] or opts)
-    fmt = args.format or choose(FORMATS, "format", 3)
+    D = json.load(open(ROOT / "data" / f"{args.pair}.json"))
+    ns = sum(1 for k in "abc" if k in D)
+    fmt = args.format or choose(FORMATS[ns], "format", 3)
     out = dict(seed=seed, format=fmt, opening=choose(OPENINGS, "opening", 3), look=choose(LOOKS, "look", 3),
                motion=choose(MOTIONS, "motion", 1))
     lastv = set(recent(hist, "voice", 1)) | set((hist[-1].get("voices") or {}).values() if hist else [])
@@ -42,8 +46,15 @@ def pick(args):
     if fmt == "debate":
         n = rng.choice(fem)
         out["voices"] = {"n": n, "a": rng.choice(mal), "b": rng.choice([v for v in VOICES["female"] if v != n])}
+    elif fmt == "bullbear":   # Arjun argues the bull case, Meera the bear case, Priya moderates
+        n = rng.choice(fem)
+        out["voices"] = {"n": n, "a": rng.choice(mal), "b": rng.choice([v for v in VOICES["female"] if v != n])}
+    elif fmt == "panel":      # one analyst per stock (Arjun, Meera, Kabir) + Priya moderating
+        n = rng.choice(fem); a, c = rng.sample(mal, 2)
+        out["voices"] = {"n": n, "a": a, "b": rng.choice([v for v in VOICES["female"] if v != n]), "c": c}
     else:
         out["voices"] = {"n": rng.choice(fem + mal)}
+    out["stocks"] = ns
     print(json.dumps(out))
 
 
@@ -67,7 +78,8 @@ def build(args):
     env = {}; t = 0.0; scenes = []
     for i, sc in enumerate(ep["scenes"]):
         cur = LEAD; beats = []; clips = []; said = []; prev = None
-        for j, (who, txt) in enumerate(sc["lines"]):
+        for j, ln in enumerate(sc["lines"]):
+            who, txt, opt = ln[0], ln[1], (ln[2] if len(ln) > 2 else {})
             if who == "pause":
                 beats.append(round(cur, 3)); cur += float(txt); continue
             if prev and prev != who: cur += .15          # a beat of air when the speaker changes
@@ -80,7 +92,7 @@ def build(args):
                 a, sr = K.create(sp, voice=v, speed=SPEED[fmt] * (1.08 if v.startswith("am_") else 1), lang="en-gb" if v.startswith("b") else "en-us")
                 a = np.asarray(a, dtype=np.float32); nz = np.where(np.abs(a) > .004)[0]; a = a[max(0, nz[0] - 240): nz[-1] + 1200]
                 fn = f"v{i:02d}_{j}.wav"; sf.write(od / fn, a, sr); d = len(a) / sr; env[fn] = envelope(a, sr)
-                clips.append([fn, round(cur, 3), round(d, 3), who])
+                clips.append([fn, round(cur, 3), round(d, 3), who, opt.get("g")])
             cur += d + GAP[fmt]; prev = who
         dur = max(cur - GAP[fmt] + TAIL + sc.get("hold", 0), 3.5 if sc["type"] != "cta" else 5.5)
         dur = round(dur * 30) / 30
@@ -88,7 +100,12 @@ def build(args):
         scenes.append(dict(key=key, type=sc["type"], tag=sc.get("tag", ""), title=sc.get("title", ""), spec=sc.get("spec", {}),
                            start=round(t, 4), dur=dur, beats=beats, clips=clips, said=said, num=None, part=None, result=None))
         t += dur
-    spec = dict(mode="episode", pair=ep["pair"], slug=ep["slug"], angle=ep.get("angle"), show=ep.get("show", "STOCK FACE-OFF"),
+    # icons: every "icon" named anywhere in the episode, embedded as SVG (Lucide, ISC licence)
+    names = set(re.findall(r'"icons?":\s*"([a-z0-9-]+)"', json.dumps(ep)))
+    for m in re.findall(r'"icons":\s*\[([^\]]*)\]', json.dumps(ep)): names |= set(re.findall(r'"([a-z0-9-]+)"', m))
+    idir = REPO / "node_modules" / "lucide-static" / "icons"
+    icons = {n: (idir / f"{n}.svg").read_text().split("-->")[-1].strip() for n in names if (idir / f"{n}.svg").exists()}
+    spec = dict(mode="episode", industry=ep.get("industry"), icons=icons, pair=ep["pair"], slug=ep["slug"], angle=ep.get("angle"), show=ep.get("show", "STOCK FACE-OFF"),
                 format=fmt, opening=ep.get("opening"), look=ep["look"], motion=ep["motion"], music=MUSIC[ep["look"]],
                 voices=ep["voices"], hosts=ep.get("hosts", {}), total=round(t, 4), scenes=scenes, var={}, env=env)
     (od / "spec.json").write_text(json.dumps(spec, indent=1, ensure_ascii=False))

@@ -4,7 +4,11 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent; ENG = ROOT / "engine"
 pair, mode = sys.argv[1], sys.argv[2]; OD = ROOT / "out" / pair
 spec = json.load(open(OD / "spec.json")); FPS = 30; W, H = 1920, 1080
 page = ENG / f"page_{pair}.html"
-page.write_text((ENG / "page.html").read_text().replace('src="SPEC"', f'src="../out/{pair}/spec.js"'))
+extra = "".join((ENG / f).read_text() + "\n" for f in ("hosts.js", "packs.js"))
+custom = ROOT / "episodes" / f"{spec.get('slug', '')}.js"
+if spec.get("mode") == "episode" and custom.exists(): extra += custom.read_text()
+html = (ENG / "page.html").read_text().replace('src="SPEC"', f'src="../out/{pair}/spec.js"')
+page.write_text(html.replace("/*@@EXTRA@@*/", extra if spec.get("mode") == "episode" else "const PK=null;"))
 def open_page(p):
     b = p.chromium.launch(args=["--disable-gpu"]); pg = b.new_page(viewport=dict(width=W, height=H))
     errs = []; pg.on("pageerror", lambda e: errs.append(str(e))); pg.on("console", lambda m: m.type == "error" and errs.append(m.text))

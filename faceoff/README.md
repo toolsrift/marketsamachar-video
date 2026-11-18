@@ -42,6 +42,15 @@ python3 faceoff/engine/mix.py <slug>
 - **No-repeat:** format, opening and look never repeat within the last 3 videos; motion and voices differ from the last video. Record each finished video in `history.json` (format, opening, look, motion, voices).
 - Pick 7–13 scenes that serve the angle. Not every metric belongs in every video.
 
+## Hosts, industry packs, sound (Phase 3.1)
+
+- **Hosts** (`engine/hosts.js`): three original flat-vector presenters (Arjun, Meera, Priya). Scene type `desk` is a full-screen cutaway; the camera pushes in on whoever speaks; lip-sync from the voice loudness, blinks, breathing, gaze toward the speaker. Gesture per line: `["a", "text", {"g": "point" | "raise" | "surprise"}]`. Hosts never share the frame with a chart.
+- **Industry packs** (`engine/packs.js`, set `"industry"` in the episode): `banking` (vault + marble columns, weighty motion, coin/vault sounds, cinematic bed), `it` (wall of code screens, typed reveals, blips/keys, pulse bed), `auto` (dashboard + road, skid-in motion with blur, revs/shifts, bright bed). Each pack also draws a faint ambient layer behind data scenes.
+- **Signature charts:** `vault` and `stacks` (banking), `racks` (IT), `speedo` and `race` (auto).
+- **Icons:** any `"icon"` / `"icons"` in an episode is embedded from Lucide (ISC licence, `npm i lucide-static`).
+- **Signature moment:** put one-off scene code in `episodes/<slug>.js` (see `hdfc-icici-v2.js`, the merger animation) and use its type in the episode.
+- **Sound:** `engine/sfxgen.py` synthesises industry effects into `faceoff/sfx/`. The mix ducks music under every voice, keeps it lower under desk talk and lifts it for the close.
+
 ## Data
 
 One JSON per pair in `faceoff/data/` (see `tcs-infy.json`): price, market cap, 52-week range, P/E, P/B, dividend yield, ROE, debt/equity,
@@ -68,3 +77,11 @@ No-repeat rules in `build.py → pick()`: never either of the last 2 looks, neve
 - `engine/page.html` – all looks, scene components, chart forms and motion; `seek(t)` draws any frame deterministically
 - `engine/render.py` – Playwright frame capture → ffmpeg chunks
 - `engine/mix.py` – audio mix (voice, music by look, transition SFX by motion)
+
+## Phase 3.2 — one, two or three stocks
+The data file decides the count: keys `a`, `b`, `c` (single stock = `a` only; add `benchLabel`/`benchShort`/`benchNote` for an industry benchmark).
+- **1 stock (deep dive):** formats documentary · bullbear · quiz · newsdesk. Bull vs Bear = Arjun (bull, host colour `up`), Meera (bear, `dn`), Priya moderating.
+  `duel` rows with a `bench` value become stock-vs-benchmark; `chartzoom` takes a dashed `bench` series; `split` takes `cols` (bull case / bear case); `quiz` takes custom `options`; new `timeline` scene for milestones.
+- **3 stocks (industry round-up):** formats panel · countdown · documentary · quiz. Panel = Arjun (a), Meera (b), Kabir (c), Priya moderating at a 4-seat desk.
+  New `podium` (ranks on ONE metric, labelled "ranked on this metric only") and `scorecard` (stocks × metrics grid). `duel` becomes a table.
+- Every scene type and the banking/IT/auto signature charts lay out for 1–3 stocks. Third-stock colour `--c` per look. No overall winner, ever.
