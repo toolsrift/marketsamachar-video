@@ -1,0 +1,382 @@
+{
+ "date": "2026-11-18",
+ "slot": "0900",
+ "feed": "feed/2026-11-18_0908.json",
+ "videos": [
+  {
+   "id": "s1-close",
+   "kind": "short",
+   "stamp": "18 NOV · 9 AM IST",
+   "title": "Nifty ends at 25,387.40 and Sensex at 82,532.19 on 17 November",
+   "hook": "Nifty closes at *25,387*",
+   "thumb": "Nifty *25,387* close",
+   "sources": [
+    "NSE",
+    "BSE"
+   ],
+   "beats": [
+    {
+     "host": "ghanti",
+     "say": "The Nifty 50 closed at 25,387.40 on Tuesday, up 0.38 percent.",
+     "scene": {
+      "kind": "indices",
+      "name": "Nifty 50",
+      "value": "25,387.40",
+      "pct": 0.38,
+      "chart_label": "Daily close",
+      "points": [
+       {
+        "label": "6 Nov",
+        "value": "25,030.35"
+       },
+       {
+        "label": "9 Nov",
+        "value": "25,044.65"
+       },
+       {
+        "label": "11 Nov",
+        "value": "25,255.05"
+       },
+       {
+        "label": "12 Nov",
+        "value": "25,299.35"
+       },
+       {
+        "label": "13 Nov",
+        "value": "25,144.30"
+       },
+       {
+        "label": "16 Nov",
+        "value": "25,291.10"
+       },
+       {
+        "label": "17 Nov",
+        "value": "25,387.40"
+       }
+      ],
+      "extra": [
+       {
+        "label": "Change",
+        "value": "+96.30 pts"
+       }
+      ],
+      "source": "NSE"
+     }
+    },
+    {
+     "host": "ghanti",
+     "title": "Sensex *up 0.52%*",
+     "say": "The Sensex ended at 82,532.19, a gain of 0.52 percent.",
+     "scene": {
+      "kind": "indices",
+      "name": "Sensex",
+      "value": "82,532.19",
+      "pct": 0.52,
+      "chart_label": "Daily close",
+      "points": [
+       {
+        "label": "6 Nov",
+        "value": "81,028.02"
+       },
+       {
+        "label": "9 Nov",
+        "value": "81,106.65"
+       },
+       {
+        "label": "11 Nov",
+        "value": "81,879.40"
+       },
+       {
+        "label": "12 Nov",
+        "value": "81,911.01"
+       },
+       {
+        "label": "13 Nov",
+        "value": "81,592.45"
+       },
+       {
+        "label": "16 Nov",
+        "value": "82,104.79"
+       },
+       {
+        "label": "17 Nov",
+        "value": "82,532.19"
+       }
+      ],
+      "extra": [
+       {
+        "label": "Change",
+        "value": "+427.40 pts"
+       }
+      ],
+      "source": "BSE"
+     }
+    },
+    {
+     "host": "ghanti",
+     "title": "Nifty Bank *leads*",
+     "say": "Nifty Bank rose 1.13 percent to 62,273.25, the biggest gain of the three.",
+     "scene": {
+      "kind": "indices",
+      "name": "Nifty Bank",
+      "value": "62,273.25",
+      "pct": 1.13,
+      "chart_label": "Daily close",
+      "points": [
+       {
+        "label": "6 Nov",
+        "value": "59,086.00"
+       },
+       {
+        "label": "9 Nov",
+        "value": "59,741.25"
+       },
+       {
+        "label": "11 Nov",
+        "value": "60,792.40"
+       },
+       {
+        "label": "12 Nov",
+        "value": "61,518.50"
+       },
+       {
+        "label": "13 Nov",
+        "value": "61,034.10"
+       },
+       {
+        "label": "16 Nov",
+        "value": "61,575.90"
+       },
+       {
+        "label": "17 Nov",
+        "value": "62,273.25"
+       }
+      ],
+      "extra": [
+       {
+        "label": "Change",
+        "value": "+697.35 pts"
+       }
+      ],
+      "source": "NSE"
+     }
+    }
+   ],
+   "description": "Closing levels on 17 November 2026: Nifty 50 at 25,387.40 (+0.38%), Sensex at 82,532.19 (+0.52%) and Nifty Bank at 62,273.25 (+1.13%), with daily closes from 6 to 17 November.",
+   "caption": "Nifty 50 closed at 25,387.40 and Sensex at 82,532.19 on 17 Nov 2026 (NSE, BSE).",
+   "tags": [
+    "nifty",
+    "sensex",
+    "nifty bank",
+    "market close",
+    "stock market today",
+    "indian stock market",
+    "marketsamachar"
+   ]
+  },
+  {
+   "id": "s2-movers",
+   "kind": "short",
+   "stamp": "18 NOV · 9 AM IST",
+   "title": "Top movers on 17 Nov: PNB, Adani Enterprises lead; ICICI Pru Life falls most",
+   "hook": "Biggest *movers* of Tuesday",
+   "thumb": "Top *gainers* & losers",
+   "sources": [
+    "NSE"
+   ],
+   "beats": [
+    {
+     "host": "teji",
+     "say": "Punjab National Bank led the gainers on Tuesday, rising 3.74 percent. Adani Enterprises gained 3.24, and Eicher Motors 3.01.",
+     "scene": {
+      "kind": "movers",
+      "gainers": [
+       {
+        "name": "Punjab National Bank",
+        "pct": 3.74,
+        "price": 150
+       },
+       {
+        "name": "Adani Enterprises",
+        "pct": 3.24,
+        "price": 2745.1
+       },
+       {
+        "name": "Eicher Motors",
+        "pct": 3.01,
+        "price": 7828
+       }
+      ],
+      "source": "NSE"
+     }
+    },
+    {
+     "host": "mandi",
+     "title": "Biggest *fallers*",
+     "say": "ICICI Prudential Life fell the most, down 4.22 percent. Polycab lost 3.19, and Oracle Financial Services 2.23.",
+     "scene": {
+      "kind": "movers",
+      "losers": [
+       {
+        "name": "ICICI Prudential Life",
+        "pct": -4.22,
+        "price": 431
+       },
+       {
+        "name": "Polycab India",
+        "pct": -3.19,
+        "price": 7702
+       },
+       {
+        "name": "Oracle Fin Services",
+        "pct": -2.23,
+        "price": 9741
+       }
+      ],
+      "source": "NSE"
+     }
+    },
+    {
+     "host": "teji",
+     "title": "Most *active* stock",
+     "say": "Punjab National Bank was also the most actively traded stock of the day, closing at 150 rupees.",
+     "scene": {
+      "kind": "stat",
+      "label": "PNB close",
+      "value": "150",
+      "prefix": "₹",
+      "tone": "up",
+      "note": "Most active on NSE · +3.74%",
+      "source": "NSE"
+     }
+    }
+   ],
+   "description": "Top gainers and losers on NSE on 17 November 2026: Punjab National Bank (+3.74%), Adani Enterprises (+3.24%) and Eicher Motors (+3.01%) led; ICICI Prudential Life (-4.22%) fell the most.",
+   "caption": "Top movers on NSE on 17 Nov 2026: PNB +3.74%, ICICI Prudential Life -4.22% (NSE).",
+   "tags": [
+    "top gainers",
+    "top losers",
+    "nse",
+    "stock market today",
+    "pnb",
+    "adani enterprises",
+    "marketsamachar"
+   ]
+  },
+  {
+   "id": "s3-flows",
+   "kind": "short",
+   "stamp": "18 NOV · 9 AM IST",
+   "title": "FIIs net buyers of ₹4,195 crore on 17 Nov; DIIs net buyers of ₹197 crore",
+   "hook": "FIIs bought *4,195 crore*",
+   "thumb": "FII · DII *flows*",
+   "sources": [
+    "NSE (provisional)"
+   ],
+   "beats": [
+    {
+     "host": "videshi",
+     "say": "Foreign investors were net buyers of 4,195 crore rupees on Tuesday, going by provisional NSE data.",
+     "scene": {
+      "kind": "flows",
+      "days": [
+       {
+        "date": "5 Nov",
+        "fii": 14974.68,
+        "dii": -10444.54
+       },
+       {
+        "date": "6 Nov",
+        "fii": 13749.82,
+        "dii": -5968.7
+       },
+       {
+        "date": "9 Nov",
+        "fii": 7212.22,
+        "dii": -7172.53
+       },
+       {
+        "date": "11 Nov",
+        "fii": 12563.33,
+        "dii": -8434.53
+       },
+       {
+        "date": "12 Nov",
+        "fii": 7830.6,
+        "dii": -6331.17
+       },
+       {
+        "date": "13 Nov",
+        "fii": 5736.55,
+        "dii": -2253.58
+       },
+       {
+        "date": "16 Nov",
+        "fii": 4864.68,
+        "dii": -3519.05
+       },
+       {
+        "date": "17 Nov",
+        "fii": 4195.38,
+        "dii": 196.93
+       }
+      ],
+      "source": "NSE (provisional)"
+     }
+    },
+    {
+     "host": "desi",
+     "title": "DIIs *turn buyers*",
+     "say": "Domestic institutions bought a net 197 crore. A day earlier, they had sold 3,519 crore.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {
+        "label": "DII, 17 Nov",
+        "value": "+₹197 cr",
+        "tone": "up"
+       },
+       {
+        "label": "DII, 16 Nov",
+        "value": "−₹3,519 cr",
+        "tone": "down"
+       }
+      ],
+      "source": "NSE (provisional)"
+     }
+    },
+    {
+     "host": "videshi",
+     "title": "Buying every *session*",
+     "say": "Foreign investors bought on all eight days in the chart. The biggest was 5 November, at 14,975 crore.",
+     "scene": {
+      "kind": "facts",
+      "items": [
+       {
+        "label": "FII buying days",
+        "value": "8 of 8",
+        "tone": "up"
+       },
+       {
+        "label": "Biggest day, 5 Nov",
+        "value": "₹14,975 cr"
+       }
+      ],
+      "source": "NSE (provisional)"
+     }
+    }
+   ],
+   "description": "FII/DII cash-market flows for 17 November 2026 per provisional NSE data: FIIs net bought ₹4,195 crore and DIIs net bought ₹197 crore. Eight-day chart from 5 to 17 November.",
+   "caption": "FIIs net bought ₹4,195 crore and DIIs ₹197 crore on 17 Nov 2026 (NSE, provisional).",
+   "tags": [
+    "fii",
+    "dii",
+    "fii dii data",
+    "institutional flows",
+    "stock market today",
+    "nse",
+    "marketsamachar"
+   ]
+  }
+ ]
+}
