@@ -69,6 +69,14 @@ body.look-flat{--bg:#FFE14D;--ink:#111111;--sub:#5B5020;--card:#FFFFFF;--cardb:#
 .stamp{position:absolute;right:130px;top:140px;padding:14px 30px;border:6px solid var(--gt);color:var(--gt);font-family:var(--fh);font-size:48px;letter-spacing:2px;border-radius:14px;transform:rotate(-7deg);opacity:0;background:var(--bg)}
 .look-paper .stamp{border-radius:2px}
 svg text{font-family:Inter;font-weight:700}
+#hdrbg{left:0;right:0;top:0;height:150px;z-index:9;display:none;background:linear-gradient(var(--bg) 55%,transparent)}.mode-episode #hdrbg{display:block}
+#spk{left:50%;top:40px;transform:translateX(-50%);z-index:12;display:flex;align-items:center;gap:16px;padding:8px 26px 8px 8px;border:3px solid var(--gt);border-radius:999px;background:var(--card);opacity:0;white-space:nowrap}
+#spk .av{width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Heavy;font-size:30px;color:#fff}
+#spk .nm{font-weight:800;font-size:26px;line-height:1.1}#spk .fr{font-family:Mono;font-weight:700;font-size:17px;letter-spacing:2px;text-transform:uppercase}
+#tick{left:0;right:0;top:1036px;height:44px;background:var(--ink);color:var(--bg);display:none;align-items:center;overflow:hidden;z-index:11}
+#tick .tl{flex:0 0 auto;height:44px;display:flex;align-items:center;padding:0 22px;background:var(--g);color:#07070e;font-family:Mono;font-weight:700;font-size:20px;letter-spacing:3px;z-index:2}
+#tickw{flex:1;overflow:hidden;white-space:nowrap}#tickt{display:inline-block;font-family:Mono;font-weight:700;font-size:21px;letter-spacing:1px;white-space:nowrap}
+.fmt-newsdesk #tick{display:flex}.fmt-newsdesk #foot{top:1004px}
 .look-blueprint .card{border-style:dashed;border-radius:6px}
 .look-blueprint .ttl .t{text-transform:uppercase;letter-spacing:5px;font-weight:700}
 .look-blueprint .ttl .k{border-style:dashed;border-radius:2px}
@@ -89,18 +97,19 @@ svg text{font-family:Inter;font-weight:700}
  <div class="ab glow" id="gB" style="background:radial-gradient(circle,rgba(255,181,71,.12),transparent 62%)"></div>
  <div id="world"></div><div id="wipe"></div><div id="scan"></div>
  <div class="ab" id="hdr"><img src="../../assets/logo-icon.png"><div class="wm"><span class="m">MARKET</span> <span class="s">SAMACHAR</span></div><div id="hsec"></div></div>
- <div class="ab" id="foot"></div>
+ <div class="ab" id="foot"></div><div class="ab" id="spk"></div><div class="ab" id="hdrbg"></div><div class="ab" id="tick"><span class="tl">MARKET DESK</span><div id="tickw"><span id="tickt"></span></div></div>
 </div>
 <script src="SPEC"></script>
 <script>
 const A=D.a,B=D.b,SC=V.scenes,VAR=V.var;
-document.body.className=`look-${V.look} mo-${V.motion} st-${V.structure}`;
+document.body.className=`look-${V.look} mo-${V.motion} st-${V.structure} fmt-${V.format||'classic'} mode-${V.mode||'classic'}`;
 const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),P=(t,s,d)=>cl((t-s)/d);
 const eo=x=>1-Math.pow(1-x,3),eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,eb=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
 const $=id=>document.getElementById(id);
 const st=(e,o)=>{if(typeof e==='string')e=$(e);if(!e)return;for(const k in o)e.style[k]=o[k]};
 const inr=(v,d=0)=>Number(v).toLocaleString('en-IN',{minimumFractionDigits:d,maximumFractionDigits:d});
 const Lc=v=>(v/1e5).toFixed(2), Kc=v=>(v/1e3).toFixed(1);
+const QR=()=>D.qRow||{key:'qOpm',short:'OPM',fmt:'pct',label:'operating margin %'};const fQ=v=>QR().fmt==='pct'?v+'%':(v/1e3).toFixed(1);
 function rise(e,t,s,d=.5,dy=40){const p=eo(P(t,s,d));st(e,{opacity:p,transform:`translateY(${(1-p)*dy}px)`})}
 function pop(e,t,s,d=.45,f=.4){const p=P(t,s,d);st(e,{opacity:cl(p*3),transform:`scale(${f+(1-f)*eb(p)})`})}
 function slide(e,t,s,d=.5,dx=-60){const p=eo(P(t,s,d));st(e,{opacity:p,transform:`translateX(${(1-p)*dx}px)`})}
@@ -125,7 +134,7 @@ C.intro=(v,S)=>{
  return {html:`<div class="ab" id="in_a" style="left:260px;top:250px;width:520px;height:520px;border-radius:50%;border:14px solid var(--a);display:flex;flex-direction:column;align-items:center;justify-content:center">
    <div class="tk ca" style="font-size:150px;line-height:1">${A.tick}</div><div class="cs" style="font-weight:700;font-size:28px;margin-top:14px;text-align:center">${A.name}</div></div>
   <div class="ab" id="in_b" style="left:1140px;top:250px;width:520px;height:520px;border-radius:50%;border:14px solid var(--b);display:flex;flex-direction:column;align-items:center;justify-content:center">
-   <div class="tk cb" style="font-size:130px;line-height:1">${B.tick}</div><div class="cs" style="font-weight:700;font-size:28px;margin-top:14px">${B.name} Ltd</div></div>
+   <div class="tk cb" style="font-size:130px;line-height:1">${B.tick}</div><div class="cs" style="font-weight:700;font-size:28px;margin-top:14px">${B.name}</div></div>
   <div class="ab" id="in_vs" style="left:860px;top:410px;width:200px;height:200px;border-radius:50%;background:var(--g);display:flex;align-items:center;justify-content:center"><span class="tk" style="font-size:80px;color:var(--onG);font-family:Slab">VS</span></div>
   <div class="ab" style="left:0;width:1920px;top:830px;display:flex;justify-content:center;gap:26px">
    <span class="chip card" id="in_c0" style="font-size:32px;padding:16px 30px">Combined value <span class="num cg" style="font-size:40px">₹${((A.mcap+B.mcap)/1e5).toFixed(1)} L Cr</span></span>
@@ -143,10 +152,10 @@ C.size=(v,S)=>{if(v===2)return C.size2(S);const ra=A.sales10[9]/B.sales10[9],rm=
     <div class="tk" style="font-size:64px">${B.tick}</div><div class="num" style="font-size:50px">₹<span id="sz_bv">0</span> L Cr</div></div>
    <div class="ab chip" id="sz_x" style="left:760px;top:300px;font-size:34px;padding:12px 26px;background:var(--g);color:var(--onG)">${rm.toFixed(1)}× bigger</div>
    <div class="ab card" id="sz_r" style="left:1360px;top:330px;width:450px;height:560px;padding:40px">
-    <div class="lbl">Revenue · FY26</div>
+    <div class="lbl">Revenue · ${D.years10[9]}</div>
     <div class="tk ca" style="font-size:44px;margin-top:30px">${A.tick}</div><div class="num" style="font-size:72px">₹${Lc(A.sales10[9])}<span class="cs" style="font-size:32px"> L Cr</span></div>
     <div class="tk cb" style="font-size:44px;margin-top:24px">${B.tick}</div><div class="num" style="font-size:72px">₹${Lc(B.sales10[9])}<span class="cs" style="font-size:32px"> L Cr</span></div>
-    <div class="chip" style="margin-top:30px;font-size:28px;padding:10px 22px;border:3px solid var(--gt);color:var(--gt)">${ra.toFixed(1)}× Infosys</div></div>`,
+    <div class="chip" style="margin-top:30px;font-size:28px;padding:10px 22px;border:3px solid var(--gt);color:var(--gt)">${ra.toFixed(1)}× ${B.short||B.tick}</div></div>`,
   anim(t,b){pop('sz_a',t,b[0]+.2,.6,.2);pop('sz_b',t,b[0]+2.2,.6,.2);rise('sz_l',t,.6);count('sz_av',t,b[0]+.4,1.2,A.mcap/1e5,x=>x.toFixed(2));count('sz_bv',t,b[0]+2.4,1.2,B.mcap/1e5,x=>x.toFixed(2));
    pop('sz_x',t,b[0]+4,.45,.5);slide('sz_r',t,b[1],.6,120)}};}
  const bar=(id,S,val,max,lab,y)=>`<div class="ab" style="left:110px;top:${y}px;width:1700px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span class="tk" style="font-size:40px;color:var(--${S===A?'a':'b'})">${S.tick}</span><span class="num" style="font-size:46px">${lab}</span></div>
@@ -167,10 +176,10 @@ function range52(id,x,y){const f=(S,k,yy)=>{const pos=(S.price-S.low)/(S.high-S.
 function range52anim(id,t,s){slide(id,t,s,.6,120);[[A,'a'],[B,'b']].forEach(([S,k])=>{const pos=(S.price-S.low)/(S.high-S.low);const p=eio(P(t,s+.5,1.3));const c=1-(1-pos)*p;st(id+k+'f',{width:c*100+'%'});st(id+k+'m',{left:c*100+'%'})})}
 // ---- returns
 C.returns=(v,S)=>{if(v===2)return C.returns2(S);const per=['1Y','3Y','5Y','10Y'];
- if(v===0){const z=560,k=13;let h='';per.forEach((p,i)=>{const x=170+i*260;[[A,'a',0],[B,'b',1]].forEach(([S2,c,j])=>{const val=S2.ret[p],hh=Math.abs(val)*k;
+ if(v===0){const allR=[...Object.values(A.ret),...Object.values(B.ret)],mP=Math.max(1,...allR),mN=Math.max(1,...allR.map(x=>-x)),k=Math.min(13,480/(mP+mN)),z=Math.round(410+mP*k);let h='';per.forEach((p,i)=>{const x=170+i*260;[[A,'a',0],[B,'b',1]].forEach(([S2,c,j])=>{const val=S2.ret[p],hh=Math.abs(val)*k;
    h+=`<div class="ab" id="rt_${c}${i}" style="left:${x+j*96}px;width:84px;top:${val>=0?z-hh:z}px;height:${hh}px;background:var(--${c});border-radius:${val>=0?'10px 10px 2px 2px':'2px 2px 10px 10px'};transform-origin:${val>=0?'bottom':'top'}"></div>
    <div class="ab num" id="rt_l${c}${i}" style="left:${x+j*96-20}px;width:124px;text-align:center;top:${val>=0?z-hh-52:z+hh+8}px;font-size:36px;color:var(--${val>=0?'up':'dn'})">${val>0?'+':''}${val}%</div>`});
-   h+=`<div class="ab lbl" style="left:${x}px;width:180px;text-align:center;top:320px;color:var(--ink);font-size:26px">${p}</div>`});
+   h+=`<div class="ab lbl" style="left:${x}px;width:180px;text-align:center;top:316px;color:var(--ink);font-size:26px">${p}</div>`});
   return {html:`<div class="ab lbl" style="left:110px;top:270px">Share price CAGR · per year</div><div class="ab" style="left:150px;width:1030px;top:${z}px;height:3px;background:var(--ink);opacity:.5"></div>${h}${range52('rt_r',1270,330)}`,
    anim(t,b){const g=[[0],[1,2],[3]];g.forEach((ii,gi)=>ii.forEach(i=>['a','b'].forEach((c,j)=>{const p=eo(P(t,b[gi+1]+.2+j*.25,.6));st(`rt_${c}${i}`,{transform:`scaleY(${p})`});st(`rt_l${c}${i}`,{opacity:P(t,b[gi+1]+.6+j*.25,.3)})})));range52anim('rt_r',t,b[4])}};}
  const x0=180,x1=1120,lo=-30,hi=15,X=v=>x0+(v-lo)/(hi-lo)*(x1-x0);let h='';
@@ -205,6 +214,7 @@ C.valuation=(v,S)=>{if(v===2)return C.valuation2(S);
 function series(pre,yrs,va,vb,fmt,unit,v,ca,cb,beatsFn){
  const x0=200,x1=1790,y0=900,y1=360,mx=Math.max(...va,...vb)*1.08,n=yrs.length,gw=(x1-x0)/n,Y=val=>y0-(val/mx)*(y0-y1);
  let h=`<div class="ab lbl" style="left:110px;top:275px">${unit}</div>`;
+ if(D.note10&&yrs===D.years10)h+=`<div class="ab" style="right:110px;top:270px;font-weight:700;font-size:22px;color:var(--sub);max-width:900px;text-align:right">ⓘ ${D.note10}</div>`;
  for(let g=0;g<=4;g++){const val=mx/4*g;h+=`<div class="ab" style="left:${x0}px;width:${x1-x0}px;top:${Y(val)}px;height:2px;background:var(--grid)"></div><div class="ab num cs" style="left:90px;width:96px;text-align:right;top:${Y(val)-18}px;font-size:24px">${fmt(val)}</div>`}
  yrs.forEach((yy,i)=>{h+=`<div class="ab lbl" style="left:${x0+i*gw}px;width:${gw}px;text-align:center;top:${y0+16}px;font-size:22px">${yy}</div>`});
  if(v===0){const bw=gw*.34;yrs.forEach((yy,i)=>[[va,'a',0],[vb,'b',1]].forEach(([arr,c,j])=>{const x=x0+i*gw+gw*.14+j*(bw+gw*.04);
@@ -233,30 +243,30 @@ C.profit=(v,S)=>{const ix=v===2;const s=series('pf',D.years10,ix?IX(A.profit10):
  return {html:s.html,anim(t,b){s.anim(t,b[0]+.3,b[0]+2.6,b[1]+.4)}}};
 // ---- quarterly
 C.quarterly=(v,S)=>{if(v===2)return C.quarterly2(S);const q=D.quarters;
- if(v===0){const x0=200,x1=1790,y0=900,y1=470,mx=Math.max(...A.qSales)*1.08,gw=(x1-x0)/8,Y=val=>y0-val/mx*(y0-y1),bw=gw*.34;let h=`<div class="ab lbl" style="left:110px;top:275px">Quarterly revenue · ₹ thousand crore  ·  operating margin %</div>`;
+ if(v===0){const x0=200,x1=1790,y0=900,y1=470,mx=Math.max(...A.qSales)*1.08,gw=(x1-x0)/8,Y=val=>y0-val/mx*(y0-y1),bw=gw*.34;let h=`<div class="ab lbl" style="left:110px;top:275px">${D.qLabel||'Quarterly revenue · ₹ thousand crore'}  ·  ${QR().label}</div>`;
   q.forEach((qq,i)=>{h+=`<div class="ab lbl" style="left:${x0+i*gw}px;width:${gw}px;text-align:center;top:${y0+16}px;font-size:22px">${qq}</div>`;
    [[A,'a',0],[B,'b',1]].forEach(([S2,c,j])=>{const x=x0+i*gw+gw*.14+j*(bw+gw*.04);h+=`<div class="ab" id="qt_${c}${i}" style="left:${x}px;width:${bw}px;top:${Y(S2.qSales[i])}px;height:${y0-Y(S2.qSales[i])}px;background:var(--${c});border-radius:8px 8px 2px 2px;transform-origin:bottom;transform:scaleY(0)"></div>
     <div class="ab num" id="qt_v${c}${i}" style="left:${x-20}px;width:${bw+40}px;text-align:center;top:${Y(S2.qSales[i])-36}px;font-size:24px;color:var(--${c});opacity:0">${Math.round(S2.qSales[i]/1e3)}</div>
-    <div class="ab num" id="qt_m${c}${i}" style="left:${x0+i*gw}px;width:${gw}px;text-align:center;top:${330+j*58}px;font-size:34px;color:var(--${c});opacity:0">${S2.qOpm[i]}%</div>`})});
-  h+=`<div class="ab tk ca" style="left:110px;top:336px;font-size:26px;width:90px">OPM</div><div class="ab tk cb" style="left:110px;top:394px;font-size:26px;width:90px">OPM</div>`;
+    <div class="ab num" id="qt_m${c}${i}" style="left:${x0+i*gw}px;width:${gw}px;text-align:center;top:${330+j*58}px;font-size:34px;color:var(--${c});opacity:0">${fQ(S2[QR().key][i])}</div>`})});
+  h+=`<div class="ab tk ca" style="left:110px;top:336px;font-size:22px;width:90px">${QR().short}</div><div class="ab tk cb" style="left:110px;top:394px;font-size:22px;width:90px">${QR().short}</div>`;
   return {html:h,anim(t,b){for(let i=0;i<8;i++)['a','b'].forEach((c,j)=>{st(`qt_${c}${i}`,{transform:`scaleY(${eo(P(t,b[0]+.3+i*.15+j*.06,.5))})`});st(`qt_v${c}${i}`,{opacity:P(t,b[1]+(j?1.6:0)+i*.06,.3)});st(`qt_m${c}${i}`,{opacity:P(t,b[2]+(j?1.8:.2)+i*.08,.3)})})}};}
  let h='';[[A,'a',110],[B,'b',990]].forEach(([S2,c,x])=>{const mx=Math.max(...S2.qSales)*1.1,gw=760/8;
-  h+=`<div class="ab card" id="qt_p${c}" style="left:${x}px;top:290px;width:820px;height:650px;padding:30px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span class="tk" style="font-size:46px;color:var(--${c})">${S2.tick}</span><span class="lbl">₹ '000 Cr · OPM</span></div>
+  h+=`<div class="ab card" id="qt_p${c}" style="left:${x}px;top:290px;width:820px;height:650px;padding:30px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span class="tk" style="font-size:46px;color:var(--${c})">${S2.tick}</span><span class="lbl">₹ '000 Cr · ${QR().short}</span></div>
    <div style="position:relative;height:500px;margin-top:20px">${q.map((qq,i)=>{const hh=S2.qSales[i]/mx*360;return `<div id="qt_${c}${i}" style="position:absolute;left:${i*gw+12}px;width:${gw-24}px;bottom:44px;height:${hh}px;background:var(--${c});border-radius:8px 8px 2px 2px;transform-origin:bottom;transform:scaleY(0)"></div>
     <div class="num" id="qt_v${c}${i}" style="position:absolute;left:${i*gw}px;width:${gw}px;text-align:center;bottom:${44+hh+8}px;font-size:26px;opacity:0">${Math.round(S2.qSales[i]/1e3)}</div>
-    <div class="num" id="qt_m${c}${i}" style="position:absolute;left:${i*gw}px;width:${gw}px;text-align:center;top:0;font-size:26px;color:var(--${c});opacity:0">${S2.qOpm[i]}%</div>
+    <div class="num" id="qt_m${c}${i}" style="position:absolute;left:${i*gw}px;width:${gw}px;text-align:center;top:0;font-size:24px;color:var(--${c});opacity:0">${fQ(S2[QR().key][i])}</div>
     <div class="lbl" style="position:absolute;left:${i*gw}px;width:${gw}px;text-align:center;bottom:0;font-size:17px;letter-spacing:1px">${qq}</div>`}).join('')}</div></div>`});
  return {html:h,anim(t,b){rise('qt_pa',t,b[0],.5);rise('qt_pb',t,b[0]+.3,.5);for(let i=0;i<8;i++)['a','b'].forEach((c,j)=>{st(`qt_${c}${i}`,{transform:`scaleY(${eo(P(t,b[0]+.5+i*.12+j*.3,.5))})`});st(`qt_v${c}${i}`,{opacity:P(t,b[1]+(j?1.6:0)+i*.06,.3)});st(`qt_m${c}${i}`,{opacity:P(t,b[2]+(j?1.8:.2)+i*.08,.3)})})}};
 };
 // ---- roce
 C.roce=(v,S)=>{const r=v===2?C.roce2(S):C.roce0(v,S);const ex=`<div class="ab card" id="rc_ex" style="left:460px;top:430px;width:1000px;height:260px;padding:44px;text-align:center;opacity:0;z-index:3">
-  <div style="font-family:var(--fh);font-size:58px">ROCE = Operating profit ÷ Capital employed</div><div class="cs" style="font-weight:700;font-size:30px;margin-top:22px">Profit earned on every ₹100 put to work in the business</div></div>`;
+  <div style="font-family:var(--fh);font-size:58px">${D.ratio.name} = ${D.ratio.formula}</div><div class="cs" style="font-weight:700;font-size:30px;margin-top:22px">${D.ratio.explain}</div></div>`;
  return {html:r.html+ex,anim(t,b){const pi=eo(P(t,b[0]+.3,.5)),po=P(t,b[1]-.5,.4);st('rc_ex',{opacity:pi*(1-po),transform:`scale(${.9+.1*pi-.05*po})`});r.anim(t,b)}}};
 C.roce0=(v,S)=>{
- if(v===0){const s=series('rc',D.years10,A.roce10,B.roce10,x=>Math.round(x)+'%','ROCE · % per year',1,null,null);return {html:s.html,anim(t,b){s.anim(t,b[1],b[2],null)}}}
- const lo=25,hi=66;const col=(c,val)=>`color-mix(in srgb,var(--${c}) ${Math.round(25+75*(val-lo)/(hi-lo))}%,var(--bg))`;let h=`<div class="ab lbl" style="left:110px;top:280px">ROCE · % per year · darker = higher</div>`;
+ if(v===0){const s=series('rc',D.years10,A.ratio10,B.ratio10,x=>Math.round(x)+'%',D.ratio.name+' · % per year',1,null,null);return {html:s.html,anim(t,b){s.anim(t,b[1],b[2],null)}}}
+ const all=[...A.ratio10,...B.ratio10],lo=Math.min(...all)-4,hi=Math.max(...all)+2;const col=(c,val)=>`color-mix(in srgb,var(--${c}) ${Math.round(25+75*(val-lo)/(hi-lo))}%,var(--bg))`;let h=`<div class="ab lbl" style="left:110px;top:280px">${D.ratio.name} · % per year · darker = higher</div>`;
  [[A,'a',380],[B,'b',640]].forEach(([S2,c,y])=>{h+=`<div class="ab tk" style="left:110px;top:${y+60}px;font-size:44px;color:var(--${c})">${S2.tick}</div>`;
-  S2.roce10.forEach((val,i)=>{h+=`<div class="ab" id="rc_${c}${i}" style="left:${300+i*151}px;top:${y}px;width:141px;height:180px;border-radius:12px;background:${col(c,val)};display:flex;align-items:center;justify-content:center;opacity:0"><span class="num" style="font-size:44px;color:${val>(c==='a'?50:36)?'#fff':'var(--ink)'}">${val}</span></div>`})});
+  S2.ratio10.forEach((val,i)=>{h+=`<div class="ab" id="rc_${c}${i}" style="left:${300+i*151}px;top:${y}px;width:141px;height:180px;border-radius:12px;background:${col(c,val)};display:flex;align-items:center;justify-content:center;opacity:0"><span class="num" style="font-size:44px;color:${(val-lo)/(hi-lo)>.55?'#fff':'var(--ink)'}">${val}</span></div>`})});
  D.years10.forEach((yy,i)=>{h+=`<div class="ab lbl" style="left:${300+i*151}px;width:141px;text-align:center;top:850px;font-size:22px">${yy}</div>`});
  return {html:h,anim(t,b){for(let i=0;i<10;i++){pop('rc_a'+i,t,b[1]+.1+i*.13,.4,.5);pop('rc_b'+i,t,b[2]+.1+i*.13,.4,.5)}}};
 };
@@ -283,6 +293,18 @@ C.cash=(v,S)=>{
   anim(t,b){[['cs_ra',110,b[1],Math.min(ccA,100)],['cs_pa',520,b[3]+.2,A.payout10[9]],['cs_rb',1010,b[2],Math.min(ccB,100)],['cs_pb',1420,b[3]+3.2,B.payout10[9]]].forEach(([id,x,s,pct])=>{st(id,{left:x+'px',top:'400px'});rise(id,t,s,.5,30);
    const Cc=2*Math.PI*130;$(id+'c').setAttribute('stroke-dashoffset',Cc*(1-pct/100*eio(P(t,s+.2,1.2))))})}};
 };
+// ---- asset quality (banks)
+C.asset=(v,S)=>{const M=[['gnpa','Gross NPA'],['nnpa','Net NPA']];let h='';
+ [[A,'a',110],[B,'b',990]].forEach(([S2,c,x])=>{const mx=Math.max(...A.asset.gnpa,...B.asset.gnpa)*1.15;
+  h+=`<div class="ab card" id="aq_p${c}" style="left:${x}px;top:290px;width:820px;height:520px;padding:30px 36px;opacity:0"><div style="display:flex;justify-content:space-between;align-items:baseline"><span class="tk" style="font-size:46px;color:var(--${c})">${S2.tick}</span><span class="lbl" style="font-size:18px">% of loans · lower is better</span></div>
+   <div style="display:flex;gap:40px;margin-top:20px;height:360px">${M.map(([k,l],m)=>`<div style="flex:1;display:flex;flex-direction:column"><div style="flex:1;display:flex;align-items:flex-end;justify-content:center;gap:22px">
+    ${S2.asset[k].map((val,j)=>`<div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div class="num" id="aq_v${c}${m}${j}" style="font-size:${j?44:32}px;opacity:0;${j?'':'color:var(--sub)'}">${val.toFixed(2)}%</div>
+     <div id="aq_${c}${m}${j}" style="width:110px;height:${val/mx*250}px;margin-top:8px;border-radius:10px 10px 2px 2px;background:var(--${c});${j?'':'opacity:.35;'}transform-origin:bottom;transform:scaleY(0)"></div><div class="lbl" style="font-size:16px;margin-top:10px">${D.assetLabels[j]}</div></div>`).join('')}</div>
+    <div style="text-align:center;font-weight:800;font-size:28px;margin-top:12px">${l}</div></div>`).join('')}</div></div>`});
+ h+=`<div class="ab card" id="aq_nim" style="left:110px;top:840px;width:1700px;height:110px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;opacity:0"><span style="font-weight:800;font-size:30px">${D.nimLabel}</span>
+  <span><span class="num ca" style="font-size:46px">${A.tick} ${A.asset.nim.toFixed(2)}%</span><span class="num cb" style="font-size:46px;margin-left:50px">${B.tick} ${B.asset.nim.toFixed(2)}%</span></span></div>`;
+ return {html:h,anim(t,b){[['a',b[1]],['b',b[2]]].forEach(([c,s])=>{rise('aq_p'+c,t,s-.3,.5);for(let m=0;m<2;m++)for(let j=0;j<2;j++){st(`aq_${c}${m}${j}`,{transform:`scaleY(${eo(P(t,s+.3+m*.9+j*.3,.5))})`});st(`aq_v${c}${m}${j}`,{opacity:P(t,s+.6+m*.9+j*.3,.3)})}});pop('aq_nim',t,(b[3]!=null?b[3]:b[2]+4)+.2,.45,.7)}};
+};
 // ---- ownership
 const SH=[['prom','Promoters','var(--prom)'],['fii','Foreign (FII)','var(--a)'],['dii','Domestic inst. (DII)','var(--b)'],['pub','Public','var(--sub)']];
 C.ownership=(v,S)=>{const legend=`<div class="ab" id="ow_lg" style="left:110px;top:280px;display:flex;gap:30px">${SH.map(([k,l,c])=>`<span style="font-weight:700;font-size:24px;display:flex;align-items:center;gap:10px"><span style="width:22px;height:22px;background:${c};"></span>${l}</span>`).join('')}</div>`;
@@ -303,16 +325,16 @@ C.ownership=(v,S)=>{const legend=`<div class="ab" id="ow_lg" style="left:110px;t
  return {html:h,anim(t,b){rise('ow_lg',t,.6);rise('ow_pa',t,b[0],.5);rise('ow_pb',t,b[1],.5);for(let i=0;i<100;i++){st('ow_ac'+i,{opacity:P(t,b[0]+.3+i*.02,.2)});st('ow_bc'+i,{opacity:P(t,b[1]+.3+i*.02,.2)})}}};
 };
 // ---- latest quarter
-C.latest=(v,S)=>{const rows=S2=>[['Revenue','₹'+inr(S2.q2.rev)+' Cr','+'+S2.q2.revYoy+'% YoY'],['Net profit','₹'+inr(S2.q2.np)+' Cr','+'+S2.q2.npYoy+'% YoY'],[S2.q2.dealLabel,S2.q2.deal,'Q2 FY27'],[S2.q2.aiLabel,S2.q2.ai,''],[S2.q2.extraLabel,S2.q2.extra,'']];
- if(v===0){let h='';[[A,'a',110],[B,'b',990]].forEach(([S2,c,x])=>{h+=`<div class="ab tk" id="lt_h${c}" style="left:${x}px;top:280px;font-size:48px;color:var(--${c})">${S2.tick} <span class="cs" style="font-family:Inter;font-weight:700;font-size:26px">Jul–Sep 2026</span></div>`;
-  rows(S2).slice(0,4).concat(c==='b'?[rows(S2)[4]]:[]).forEach((r,i)=>{const w=i<2?400:820,xx=i<2?x+i*420:x,yy=i<2?350:i===2?560:i===3?700:840;const neg=c==='b'&&i===4;
+C.latest=(v,S)=>{const rows=S2=>S2.q2.rows.slice(0,5),n5=b=>b[3]!=null?b[3]+.2:b[2]+3.8;
+ if(v===0){let h='';[[A,'a',110],[B,'b',990]].forEach(([S2,c,x])=>{h+=`<div class="ab tk" id="lt_h${c}" style="left:${x}px;top:280px;font-size:48px;color:var(--${c})">${S2.tick} <span class="cs" style="font-family:Inter;font-weight:700;font-size:26px">${S2.q2.period}</span></div>`;
+  rows(S2).forEach((r,i)=>{const w=i<2?400:820,xx=i<2?x+i*420:x,yy=i<2?350:i===2?560:i===3?700:840;const neg=r[3]==='dn';
    h+=`<div class="ab card" id="lt_${c}${i}" style="left:${xx}px;top:${yy}px;width:${w}px;height:${i<2?190:120}px;padding:${i<2?'26px 30px':'18px 30px'};${i<2?'':'display:flex;align-items:center;justify-content:space-between'};${neg?'border-color:var(--dn)':''}">
-    <div class="lbl" style="font-size:19px">${r[0]}</div><div class="num" style="font-size:${i<2?52:50}px;${neg?'color:var(--dn)':''}">${r[1]}</div>${r[2]?`<div class="num cup" style="font-size:28px">${r[2]}</div>`:''}</div>`})});
-  return {html:h,anim(t,b){rise('lt_ha',t,b[1]-.2,.4);rise('lt_hb',t,b[2]-.2,.4);for(let i=0;i<5;i++){pop('lt_a'+i,t,b[1]+.4+i*.7,.4,.7);pop('lt_b'+i,t,b[2]+.4+i*.7,.4,.7)}pop('lt_b4',t,b[3]+.2,.45,.6)}};}
- let h='';[[A,'a',110],[B,'b',990]].forEach(([S2,c,x])=>{const hd=c==='a'?`Revenue up ${S2.q2.revYoy}%, profit up ${S2.q2.npYoy}%`:`Profit up ${S2.q2.npYoy}%; guidance cut to ${S2.q2.extra}`;
-  h+=`<div class="ab" id="lt_p${c}" style="left:${x}px;top:280px;width:820px;opacity:0"><div style="border-top:8px solid var(--${c});padding-top:18px"><span class="tk" style="font-size:40px;color:var(--${c})">${S2.tick}</span><span class="lbl" style="margin-left:18px">Q2 FY27 · Jul–Sep 2026</span></div>
-   <div style="font-family:var(--fh);font-size:62px;line-height:1.08;margin-top:18px">${hd}</div><div style="height:3px;background:var(--grid);margin:26px 0 10px"></div>
-   ${rows(S2).map((r,i)=>`<div id="lt_${c}${i}" style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:2px solid var(--grid);opacity:0"><span style="font-weight:700;font-size:28px">${r[0]}</span><span><span class="num" style="font-size:40px">${r[1]}</span> <span class="num cup" style="font-size:26px">${r[2]}</span></span></div>`).join('')}</div>`});
+    <div class="lbl" style="font-size:19px">${r[0]}</div><div class="num" style="font-size:${i<2?52:50}px;${neg?'color:var(--dn)':''}">${r[1]}</div>${r[2]?`<div class="num ${neg?'cdn':'cup'}" style="font-size:28px">${r[2]}</div>`:''}</div>`})});
+  return {html:h,anim(t,b){rise('lt_ha',t,b[1]-.2,.4);rise('lt_hb',t,b[2]-.2,.4);for(let i=0;i<4;i++){pop('lt_a'+i,t,b[1]+.4+i*.7,.4,.7);pop('lt_b'+i,t,b[2]+.4+i*.7,.4,.7)}pop('lt_a4',t,b[1]+3.2,.4,.7);pop('lt_b4',t,n5(b),.45,.6)}};}
+ let h='';[[A,'a',110],[B,'b',990]].forEach(([S2,c,x])=>{
+  h+=`<div class="ab" id="lt_p${c}" style="left:${x}px;top:280px;width:820px;opacity:0"><div style="border-top:8px solid var(--${c});padding-top:18px"><span class="tk" style="font-size:40px;color:var(--${c})">${S2.tick}</span><span class="lbl" style="margin-left:18px">${S2.q2.period}</span></div>
+   <div style="font-family:var(--fh);font-size:58px;line-height:1.08;margin-top:18px">${S2.q2.head}</div><div style="height:3px;background:var(--grid);margin:26px 0 10px"></div>
+   ${rows(S2).map((r,i)=>`<div id="lt_${c}${i}" style="display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:2px solid var(--grid);opacity:0"><span style="font-weight:700;font-size:28px">${r[0]}</span><span><span class="num" style="font-size:40px;${r[3]==='dn'?'color:var(--dn)':''}">${r[1]}</span> <span class="num ${r[3]==='dn'?'cdn':'cup'}" style="font-size:26px">${r[2]||''}</span></span></div>`).join('')}</div>`});
  return {html:h,anim(t,b){rise('lt_pa',t,b[1]-.2,.5);rise('lt_pb',t,b[2]-.2,.5);for(let i=0;i<5;i++){slide('lt_a'+i,t,b[1]+.4+i*.6,.4,-30);slide('lt_b'+i,t,b[2]+.4+i*.6,.4,-30)}}};
 };
 // ---- strengths & watch-outs
@@ -322,7 +344,7 @@ C.risks=(v,S)=>{let h='';[[A,'a',110],[B,'b',990]].forEach(([S2,c,x])=>{h+=`<div
  return {html:h,anim(t,b){rise('rk_a',t,b[1]-.3,.5);rise('rk_b',t,b[2]-.3,.5);[['a',b[1]],['b',b[2]]].forEach(([c,s])=>{for(let i=0;i<3;i++)slide(`rk_${c}s${i}`,t,s+.3+i*.9,.4,-30);for(let i=0;i<2;i++)slide(`rk_${c}w${i}`,t,s+3.6+i*1.1,.4,-30)})}};
 };
 // ---- summary
-C.summary=(v,S)=>{const cards=[[A,'a',110,'BIGGER · MORE EFFICIENT',['1.9× the market cap','ROCE 63% vs 40%','Stable owner: Tata Sons, 72%']],[B,'b',990,'CHEAPER · HIGHER YIELD',['P/E 14.7 vs 16.2','Dividend yield 4.2% vs 2.6%','Sales CAGR 11% vs 9% (10 yrs)']]];
+C.summary=(v,S)=>{const cards=[[A,'a',110,D.summary.a.head,D.summary.a.rows],[B,'b',990,D.summary.b.head,D.summary.b.rows]];
  let h='';cards.forEach(([S2,c,x,hd,rows])=>{h+=`<div class="ab card" id="sm_${c}" style="left:${x}px;top:290px;width:820px;height:460px;padding:40px;opacity:0;border-top:10px solid var(--${c})"><span class="tk" style="font-size:56px;color:var(--${c})">${S2.tick}</span>
   <div style="font-family:var(--fh);font-size:46px;margin-top:10px">${hd}</div>${rows.map((r,i)=>`<div id="sm_${c}${i}" style="display:flex;gap:18px;align-items:center;margin-top:20px;opacity:0"><span class="ck">✓</span><span style="font-weight:800;font-size:34px">${r}</span></div>`).join('')}</div>`});
  h+=`<div class="ab" id="sm_q" style="left:110px;top:790px;width:1700px;height:150px;background:var(--g);color:var(--onG);display:flex;align-items:center;gap:30px;padding:0 50px;border-radius:var(--rad);opacity:0">
@@ -346,10 +368,10 @@ C.cta=(v,S)=>({html:`<div class="ab" id="ct_l" style="left:760px;top:170px;width
 
 /* ======================= THIRD CHART FORMS ======================= */
 const revCard=()=>`<div class="ab card" id="sz_r" style="left:1360px;top:330px;width:450px;height:560px;padding:40px">
-    <div class="lbl">Revenue · FY26</div>
+    <div class="lbl">Revenue · ${D.years10[9]}</div>
     <div class="tk ca" style="font-size:44px;margin-top:30px">${A.tick}</div><div class="num" style="font-size:72px">₹${Lc(A.sales10[9])}<span class="cs" style="font-size:32px"> L Cr</span></div>
     <div class="tk cb" style="font-size:44px;margin-top:24px">${B.tick}</div><div class="num" style="font-size:72px">₹${Lc(B.sales10[9])}<span class="cs" style="font-size:32px"> L Cr</span></div>
-    <div class="chip" style="margin-top:30px;font-size:28px;padding:10px 22px;border:3px solid var(--gt);color:var(--gt)">${(A.sales10[9]/B.sales10[9]).toFixed(1)}× Infosys</div></div>`;
+    <div class="chip" style="margin-top:30px;font-size:28px;padding:10px 22px;border:3px solid var(--gt);color:var(--gt)">${(A.sales10[9]/B.sales10[9]).toFixed(1)}× ${B.short||B.tick}</div></div>`;
 C.size2=(S)=>{const sq=(S2,c,x,id)=>{const n=Math.round(S2.mcap/1e4);let h=`<div class="ab" id="${id}h" style="left:${x}px;top:300px;opacity:0"><span class="tk" style="font-size:46px;color:var(--${c})">${S2.tick}</span><span class="num" style="font-size:46px;margin-left:16px">₹${Lc(S2.mcap)} L Cr</span></div><div class="ab" style="left:${x}px;top:380px;display:grid;grid-template-columns:repeat(10,48px);gap:7px">`;
   for(let k=0;k<n;k++)h+=`<div id="${id}${k}" style="width:48px;height:48px;border-radius:calc(var(--rad) / 3);background:var(--${c});opacity:0"></div>`;return h+'</div>'};
  const nA=Math.round(A.mcap/1e4),nB=Math.round(B.mcap/1e4);
@@ -371,17 +393,159 @@ C.valuation2=(S)=>{const MX={pe:25,pb:10,dy:6};let h='';
   S['_d'+i]=[180*va/MX[k],180*vb/MX[k]]});
  return {html:h,anim(t,b){VM.forEach((m,i)=>{rise('va_r'+i,t,b[i+1]-.2,.5,50);const pa=eb(P(t,b[i+1]+.2,.9)),pb=eb(P(t,b[i+1]+.6,.9));
   const na=$('va_na'+i),nb=$('va_nb'+i);if(na)na.setAttribute('transform',`rotate(${S['_d'+i][0]*pa} 270 290)`);if(nb)nb.setAttribute('transform',`rotate(${S['_d'+i][1]*pb} 270 290)`)})}}};
-C.quarterly2=(S)=>{const s=series('qx',D.quarters,A.qSales,B.qSales,x=>(x/1e3).toFixed(1),'Quarterly revenue · ₹ thousand crore',1,null,null);const av=a=>(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1);
- const ch=`<div class="ab card" id="qx_m" style="left:1250px;top:250px;width:560px;height:90px;display:flex;align-items:center;justify-content:space-around;opacity:0"><span class="lbl" style="font-size:18px">Avg OPM</span><span class="num ca" style="font-size:38px">${A.tick} ${av(A.qOpm)}%</span><span class="num cb" style="font-size:38px">${B.tick} ${av(B.qOpm)}%</span></div>`;
+C.quarterly2=(S)=>{const s=series('qx',D.quarters,A.qSales,B.qSales,x=>(x/1e3).toFixed(1),D.qLabel||'Quarterly revenue · ₹ thousand crore',1,null,null);const av=a=>{const m=a.reduce((x,y)=>x+y,0)/a.length;return QR().fmt==='pct'?m.toFixed(1)+'%':'₹'+(m/1e3).toFixed(1)+'K Cr'};
+ const ch=`<div class="ab card" id="qx_m" style="left:1250px;top:250px;width:560px;height:90px;display:flex;align-items:center;justify-content:space-around;opacity:0"><span class="lbl" style="font-size:18px">Avg ${QR().short}</span><span class="num ca" style="font-size:34px">${A.tick} ${av(A[QR().key])}</span><span class="num cb" style="font-size:34px">${B.tick} ${av(B[QR().key])}</span></div>`;
  return {html:s.html+ch,anim(t,b){s.anim(t,b[0]+.3,b[1]+1.5,null);pop('qx_m',t,b[2]+.2,.45,.6)}}};
-C.roce2=(S)=>{const lo=20,hi=70,Y=v=>900-(v-lo)/(hi-lo)*560,xL=520,xR=1380;
- let h=`<div class="ab lbl" style="left:110px;top:280px">ROCE · FY17 vs FY26</div>
-  <div class="ab lbl" style="left:${xL-100}px;width:200px;text-align:center;top:925px;color:var(--ink);font-size:28px">FY17</div><div class="ab lbl" style="left:${xR-100}px;width:200px;text-align:center;top:925px;color:var(--ink);font-size:28px">FY26</div>
+C.roce2=(S)=>{const all=[...A.ratio10,...B.ratio10],lo=Math.floor(Math.min(...all)/5)*5-5,hi=Math.ceil(Math.max(...all)/5)*5+5,Y=v=>900-(v-lo)/(hi-lo)*560,xL=520,xR=1380;
+ let h=`<div class="ab lbl" style="left:110px;top:280px">${D.ratio.name} · ${D.years10[0]} vs ${D.years10[9]}</div>
+  <div class="ab lbl" style="left:${xL-100}px;width:200px;text-align:center;top:925px;color:var(--ink);font-size:28px">${D.years10[0]}</div><div class="ab lbl" style="left:${xR-100}px;width:200px;text-align:center;top:925px;color:var(--ink);font-size:28px">${D.years10[9]}</div>
   <div class="ab" style="left:${xL-1}px;top:330px;width:3px;height:580px;background:var(--grid)"></div><div class="ab" style="left:${xR-1}px;top:330px;width:3px;height:580px;background:var(--grid)"></div>
-  <svg class="ab" style="left:0;top:0" width="1920" height="1080">${[[A,'a'],[B,'b']].map(([S2,c])=>{const y1=Y(S2.roce10[0]),y2=Y(S2.roce10[9]),L=Math.hypot(xR-xL,y2-y1).toFixed(1);return `<line id="rs_${c}" x1="${xL}" y1="${y1}" x2="${xR}" y2="${y2}" stroke-dasharray="${L}" stroke-dashoffset="${L}" style="stroke:var(--${c});stroke-width:10;stroke-linecap:round"/><circle id="rs_d1${c}" cx="${xL}" cy="${y1}" r="16" style="fill:var(--${c});opacity:0"/><circle id="rs_d2${c}" cx="${xR}" cy="${y2}" r="16" style="fill:var(--${c});opacity:0"/>`}).join('')}</svg>`;
- [[A,'a'],[B,'b']].forEach(([S2,c])=>{const y1=Y(S2.roce10[0]),y2=Y(S2.roce10[9]);h+=`<div class="ab num" id="rs_l1${c}" style="left:${xL-270}px;width:230px;text-align:right;top:${y1-36}px;font-size:56px;color:var(--${c});opacity:0">${S2.roce10[0]}%</div>
-  <div class="ab" id="rs_l2${c}" style="left:${xR+40}px;top:${y2-42}px;opacity:0;display:flex;align-items:center;gap:16px"><span class="num" style="font-size:64px;color:var(--${c})">${S2.roce10[9]}%</span><span class="tk" style="font-size:36px;color:var(--${c})">${S2.tick}</span><span class="chip" style="font-size:26px;padding:6px 14px;background:var(--hl)">+${S2.roce10[9]-S2.roce10[0]} pts</span></div>`});
+  <svg class="ab" style="left:0;top:0" width="1920" height="1080">${[[A,'a'],[B,'b']].map(([S2,c])=>{const y1=Y(S2.ratio10[0]),y2=Y(S2.ratio10[9]),L=Math.hypot(xR-xL,y2-y1).toFixed(1);return `<line id="rs_${c}" x1="${xL}" y1="${y1}" x2="${xR}" y2="${y2}" stroke-dasharray="${L}" stroke-dashoffset="${L}" style="stroke:var(--${c});stroke-width:10;stroke-linecap:round"/><circle id="rs_d1${c}" cx="${xL}" cy="${y1}" r="16" style="fill:var(--${c});opacity:0"/><circle id="rs_d2${c}" cx="${xR}" cy="${y2}" r="16" style="fill:var(--${c});opacity:0"/>`}).join('')}</svg>`;
+ const sep=(ya,yb)=>{const d=Math.abs(ya-yb);if(d>=72)return[ya,yb];const m=(72-d)/2;return ya<yb?[ya-m,yb+m]:[ya+m,yb-m]};
+ const L1=sep(Y(A.ratio10[0]),Y(B.ratio10[0])),L2=sep(Y(A.ratio10[9]),Y(B.ratio10[9]));
+ [[A,'a',0],[B,'b',1]].forEach(([S2,c,q])=>{const y1=L1[q],y2=L2[q];h+=`<div class="ab num" id="rs_l1${c}" style="left:${xL-270}px;width:230px;text-align:right;top:${y1-36}px;font-size:56px;color:var(--${c});opacity:0">${S2.ratio10[0]}%</div>
+  <div class="ab" id="rs_l2${c}" style="left:${xR+40}px;top:${y2-42}px;opacity:0;display:flex;align-items:center;gap:16px"><span class="num" style="font-size:64px;color:var(--${c})">${S2.ratio10[9]}%</span><span class="tk" style="font-size:36px;color:var(--${c})">${S2.tick}</span><span class="chip" style="font-size:26px;padding:6px 14px;background:var(--hl)">${S2.ratio10[9]>=S2.ratio10[0]?'+':'−'}${Math.abs(S2.ratio10[9]-S2.ratio10[0]).toFixed(0)} pts</span></div>`});
  return {html:h,anim(t,b){[['a',b[1]],['b',b[2]]].forEach(([c,s])=>{st('rs_d1'+c,{opacity:P(t,s,.3)});st('rs_l1'+c,{opacity:P(t,s,.3)});const e=$('rs_'+c);if(e){const L=+e.getAttribute('stroke-dasharray');e.setAttribute('stroke-dashoffset',L*(1-eio(P(t,s+.3,1.2))))}st('rs_d2'+c,{opacity:P(t,s+1.4,.3)});pop('rs_l2'+c,t,s+1.4,.4,.7)})}}};
+
+/* ======================= PHASE 3: EPISODE SCENE TYPES ======================= */
+const E={};const SCOL=s=>s==='a'?'var(--a)':s==='b'?'var(--b)':s==='g'?'var(--gt)':s==='dn'?'var(--dn)':s==='up'?'var(--up)':'var(--ink)';
+const NUMRE=/^([^\d−-]*?)(-|−)?([\d,]*\.?\d+)(.*)$/;
+function countStr(id,t,s,d,str){const e=$(id);if(!e)return;const m=String(str).match(NUMRE);if(!m){e.textContent=str;return}
+ const raw=m[3].replace(/,/g,''),dec=(raw.split('.')[1]||'').length,v=parseFloat(raw)*eo(P(t,s,d));
+ let txt=dec?v.toFixed(dec):String(Math.round(v));if(m[3].includes(','))txt=Number(txt).toLocaleString('en-IN',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+ e.textContent=m[1]+(m[2]||'')+txt+m[4]}
+const BT=(b,k)=>b.length?b[Math.min(k||0,b.length-1)]:0;
+const NM=c=>c==='a'?(A.say||A.tick):(B.say||B.tick);
+
+// one or two giant numbers
+E.hero=(sp,S)=>{const it=sp.items,two=it.length>1;let h='';
+ it.forEach((x,k)=>{const L=two?(k?990:110):110,W=two?820:1700;
+  h+=`<div class="ab" id="hr_${k}" style="left:${L}px;top:${two?290:250}px;width:${W}px;text-align:center;opacity:0">
+   ${x.side?`<div class="tk" style="font-size:${two?52:46}px;color:${SCOL(x.side)}">${NM(x.side)}</div>`:''}
+   <div class="num" id="hr_v${k}" style="font-size:${two?180:250}px;line-height:1.05;color:${SCOL(x.color||x.side)}">${x.value}</div>
+   <div style="font-weight:800;font-size:${two?36:44}px;margin-top:10px">${x.label||''}</div>
+   ${x.sub?`<div class="cs" style="font-weight:600;font-size:28px;margin-top:8px">${x.sub}</div>`:''}</div>`});
+ if(two)h+=`<div class="ab tk" id="hr_vs" style="left:910px;width:100px;top:430px;text-align:center;font-size:44px;color:var(--sub);opacity:0">vs</div>`;
+ if(sp.caption)h+=`<div class="ab" id="hr_c" style="left:160px;width:1600px;top:${two?770:780}px;text-align:center;font-family:var(--fh);font-size:50px;line-height:1.2;opacity:0"><span class="hl">${sp.caption}</span></div>`;
+ return {html:h,anim(t,b){it.forEach((x,k)=>{const s=BT(b,x.beat)+.1;pop('hr_'+k,t,s,.5,.6);countStr('hr_v'+k,t,s,1.1,x.value)});
+  if(two)pop('hr_vs',t,BT(b,it[1].beat),.4,.5);if(sp.caption)rise('hr_c',t,BT(b,sp.captionBeat)+.2,.5,30)}}};
+
+// kinetic typography — words land one by one, key words highlighted
+E.kinetic=(sp,S)=>{const L=sp.lines,tot=L.length;let h=`<div class="ab" style="left:150px;width:1620px;top:${sp.top||120}px;height:${sp.h||860}px;display:flex;flex-direction:column;justify-content:center;gap:${sp.gap||28}px;text-align:${sp.align||'center'}">`;
+ const clean=w=>w.replace(/[^\w₹%.−-]/g,'').toLowerCase();
+ L.forEach((ln,k)=>{const sz=ln.size||(ln.sub?38:tot>2?84:104),words=ln.text.split(' ');
+  h+=`<div style="${ln.sub?'font-family:Inter;font-weight:700;color:var(--sub);':'font-family:var(--fh);'}font-size:${sz}px;line-height:1.14">`+words.map((w,j)=>{const em=(ln.emph||[]).some(e=>clean(w)===e.toLowerCase());
+   return `<span id="kw_${S._i}_${k}_${j}" style="display:inline-block;opacity:0;${em?`color:${SCOL(ln.ec||'g')};`:''}">${em?`<span class="hl">${w}</span>`:w}</span>`}).join(' ')+`</div>`});
+ h+='</div>';
+ return {html:h,anim(t,b){L.forEach((ln,k)=>{const s=BT(b,ln.beat)+.05,n=ln.text.split(' ').length,step=ln.step||Math.min(.12,1.5/n);
+  for(let j=0;j<n;j++){const p=eo(P(t,s+j*step,.35));st(`kw_${S._i}_${k}_${j}`,{opacity:p,transform:`translateY(${(1-p)*36}px) scale(${.92+.08*p})`})}})}}};
+
+// permanent split-screen duel with metric rows
+E.duel=(sp,S)=>{const R=sp.rows;const fmt=(v,f)=>f==='pct'?v.toFixed(Math.abs(v)<10?2:1)+'%':f==='x'?v.toFixed(1)+'×':f==='inr'?'₹'+inr(v):f==='L'?'₹'+(v/1e5).toFixed(2)+' L Cr':f==='int'?String(Math.round(v)):String(v);
+ let h=`<div class="ab" style="left:0;top:0;width:960px;height:1080px;background:linear-gradient(90deg,color-mix(in srgb,var(--a) 16%,transparent),transparent 85%)"></div><div class="ab" style="left:960px;top:0;width:960px;height:1080px;background:linear-gradient(270deg,color-mix(in srgb,var(--b) 16%,transparent),transparent 85%)"></div>
+  <div class="ab" style="left:958px;top:250px;width:4px;height:640px;background:var(--grid)"></div>
+  <div class="ab" id="du_ha${S._i}" style="left:110px;width:760px;top:250px;text-align:center;opacity:0"><div class="tk" style="font-size:80px;color:var(--a)">${A.tick}</div><div class="cs" style="font-weight:700;font-size:26px">${A.name}</div></div>
+  <div class="ab" id="du_hb${S._i}" style="left:1050px;width:760px;top:250px;text-align:center;opacity:0"><div class="tk" style="font-size:80px;color:var(--b)">${B.tick}</div><div class="cs" style="font-weight:700;font-size:26px">${B.name}</div></div>`;
+ const y0=440,dy=Math.min(130,460/R.length);
+ R.forEach((r,k)=>{const y=y0+k*dy,mx=Math.max(Math.abs(r.a),Math.abs(r.b))||1,w=r.better==='low'?(r.a<r.b?'a':'b'):r.better==='high'?(r.a>r.b?'a':'b'):null,id=`du${S._i}_`;
+  h+=`<div class="ab" id="${id}r${k}" style="left:0;top:${y}px;width:1920px;height:${dy}px;opacity:0">
+   <div style="position:absolute;left:820px;width:280px;top:14px;text-align:center"><span class="chip" style="font-size:23px;padding:8px 18px;background:var(--card);border:2px solid var(--cardb)">${r.label}</span></div>
+   <div class="num" style="position:absolute;right:${1920-790}px;top:0;font-size:60px;color:${w==='a'?'var(--gt)':'var(--ink)'};white-space:nowrap">${w==='a'?'✓ ':''}${fmt(r.a,r.f)}</div>
+   <div class="num" style="position:absolute;left:1130px;top:0;font-size:60px;color:${w==='b'?'var(--gt)':'var(--ink)'};white-space:nowrap">${fmt(r.b,r.f)}${w==='b'?' ✓':''}</div>
+   <div id="${id}ba${k}" data-w="${Math.abs(r.a)/mx*560}" style="position:absolute;right:${1920-790}px;top:${dy-36}px;height:16px;width:0;border-radius:8px;background:var(--a)"></div>
+   <div id="${id}bb${k}" data-w="${Math.abs(r.b)/mx*560}" style="position:absolute;left:1130px;top:${dy-36}px;height:16px;width:0;border-radius:8px;background:var(--b)"></div></div>`});
+ return {html:h,anim(t,b){rise('du_ha'+S._i,t,.4,.5);rise('du_hb'+S._i,t,.55,.5);R.forEach((r,k)=>{const s=BT(b,r.beat),id=`du${S._i}_`;rise(id+'r'+k,t,s,.45,25);const p=eio(P(t,s+.2,.8));
+  ['a','b'].forEach(c=>{const e=$(id+'b'+c+k);if(e)e.style.width=(+e.dataset.w*p)+'px'})})}}};
+
+// big chart; the camera flies to each callout
+E.chartzoom=(sp,S)=>{const xs=D[sp.x||'years10'],va0=A[sp.series],vb0=B[sp.series],ix=sp.index,id=`cz${S._i}`;
+ const va=ix?va0.map(x=>x/va0[0]*100):va0,vb=ix?vb0.map(x=>x/vb0[0]*100):vb0;
+ const fmt=sp.fmt==='pct'?(v=>Math.round(v)+'%'):sp.fmt==='L'?(v=>(v/1e5).toFixed(2)):sp.fmt==='k'?(v=>(v/1e3).toFixed(1)):(v=>String(Math.round(v)));
+ const x0=240,x1=1700,y0=870,y1=360,n=xs.length,all=[...va,...vb],lo=sp.zero===false?Math.floor(Math.min(...all)*0.8):0,hi=Math.max(...all)*1.1,gw=(x1-x0)/(n-1),X=i=>x0+i*gw,Y=v=>y0-(v-lo)/(hi-lo)*(y0-y1);
+ const pth=arr=>arr.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)).join(' ');
+ let g='';for(let k=0;k<=4;k++){const v=lo+(hi-lo)/4*k;g+=`<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" style="stroke:var(--grid);stroke-width:2"/><text x="${x0-22}" y="${Y(v)+8}" text-anchor="end" style="fill:var(--sub);font-size:22px">${fmt(v)}</text>`}
+ xs.forEach((l,i)=>{g+=`<text x="${X(i)}" y="${y0+44}" text-anchor="middle" style="fill:var(--sub);font-size:22px;font-family:Mono">${l}</text>`});
+ const CO=sp.callouts||[];
+ let h=`<div class="ab" id="${id}w" style="left:0;top:0;width:1920px;height:1080px;transform-origin:0 0">
+  <div class="ab lbl" style="left:110px;top:262px">${sp.unit||''}</div>${D.note10&&(sp.x||'years10')==='years10'&&!sp.noNote?`<div class="ab" style="right:110px;top:258px;font-weight:700;font-size:21px;color:var(--sub);max-width:860px;text-align:right">ⓘ ${D.note10}</div>`:''}
+  <div class="ab" style="left:${x0}px;top:300px;display:flex;gap:30px"><span class="tk" style="font-size:32px;color:var(--a)">● ${A.tick}</span><span class="tk" style="font-size:32px;color:var(--b)">● ${B.tick}</span></div>
+  <svg class="ab" style="left:0;top:0" width="1920" height="1080"><defs><clipPath id="${id}cp"><rect id="${id}cr" x="0" y="0" width="0" height="1080"/></clipPath></defs>${g}
+   <g clip-path="url(#${id}cp)">${[[va,'a'],[vb,'b']].map(([arr,c])=>`<path d="${pth(arr)}" style="fill:none;stroke:var(--${c});stroke-width:8;stroke-linejoin:round;stroke-linecap:round"/>${arr.map((v,i)=>`<circle cx="${X(i)}" cy="${Y(v)}" r="9" style="fill:var(--bg);stroke:var(--${c});stroke-width:5"/>`).join('')}`).join('')}</g></svg>`;
+ CO.forEach((c,k)=>{const arr=c.who==='a'?va:vb,px=X(c.i),py=Y(arr[c.i]),left=px>1250;c._p=[px,py];const up=c.below?false:py>470;
+  h+=`<div class="ab" id="${id}c${k}" style="left:${left?px-420:px+34}px;top:${up?py-150:py+34}px;width:380px;opacity:0"><div class="card" style="padding:14px 18px;border-color:${SCOL(c.who)};border-width:3px"><div class="num" style="font-size:36px;color:${SCOL(c.who)}">${c.big||fmt(arr[c.i])}</div><div style="font-weight:700;font-size:21px;line-height:1.25">${c.text}</div></div></div>
+  <div class="ab" id="${id}d${k}" style="left:${px-24}px;top:${py-24}px;width:48px;height:48px;border-radius:50%;border:5px solid ${SCOL(c.who)};opacity:0"></div>`});
+ h+='</div>';
+ return {html:h,anim(t,b){const s0=BT(b,sp.drawBeat||0)+.2,e=$(id+'cr');if(e)e.setAttribute('width',(x0+(x1-x0)*eio(P(t,s0,1.8))+30).toFixed(0));
+  const ks=[[0,null]];CO.forEach((c,k)=>ks.push([BT(b,c.beat),k]));ks.push([sp.outBeat!=null?BT(b,sp.outBeat):S.dur-1.7,null]);
+  let cur={x:960,y:540,s:1,t:0},prev=cur;
+  for(const [kt,k] of ks){if(t>=kt){prev=cur;cur=k==null?{x:960,y:540,s:1,t:kt}:{x:CO[k]._p[0],y:CO[k]._p[1],s:sp.zoom||1.45,t:kt}}}
+  const p=eio(P(t,cur.t,.9)),zs=prev.s+(cur.s-prev.s)*p,zx=prev.x+(cur.x-prev.x)*p,zy=prev.y+(cur.y-prev.y)*p;
+  const cx=Math.min(Math.max(zx,960/zs),1920-960/zs),cy=Math.min(Math.max(zy,540/zs),1080-540/zs);
+  st(id+'w',{transform:`translate(${960-cx*zs}px,${540-cy*zs}px) scale(${zs})`});
+  const fade=1-cl((zs-1)/.3),te=$('tt'+S._i);if(te)te.style.opacity=(parseFloat(te.style.opacity)||0)*fade;st('tr'+S._i,{opacity:fade});
+  const outT=sp.outBeat!=null?BT(b,sp.outBeat):S.dur-1.7;
+  CO.forEach((c,k)=>{pop(id+'d'+k,t,BT(b,c.beat)+.35,.35,.3);const s=BT(b,c.beat)+.5,end=k<CO.length-1?BT(b,CO[k+1].beat):outT,p=eo(P(t,s,.4))*(1-P(t,end,.3));
+   st(id+'c'+k,{opacity:p,transform:`translateY(${(1-cl(P(t,s,.4)))*20}px)`})})}}};
+
+// ₹1 lakh invested N years ago
+E.invest=(sp,S)=>{const Y=sp.years||5,amt=sp.amount||100000,va=amt*Math.pow(1+A.ret[Y+'Y']/100,Y),vb=amt*Math.pow(1+B.ret[Y+'Y']/100,Y),mx=Math.max(va,vb,amt)*1.05;
+ const L=v=>'₹'+(v/1e5).toFixed(2)+' L';
+ let h=`<div class="ab" id="iv_q${S._i}" style="left:110px;width:1700px;top:250px;text-align:center;font-family:var(--fh);font-size:60px;opacity:0">${sp.title||`₹1 lakh invested ${Y} years ago`}</div>`;
+ [[A,'a',va,600],[B,'b',vb,1320]].forEach(([S2,c,v,cx])=>{const ch=(v/amt-1)*100;S['_iv'+c]=v;
+  h+=`<div class="ab" id="iv_${c}${S._i}" style="left:${cx-300}px;width:600px;top:350px;height:580px;opacity:0">
+   <div style="text-align:center"><span class="tk" style="font-size:48px;color:var(--${c})">${S2.tick}</span></div>
+   <div style="position:absolute;left:190px;width:220px;bottom:130px;height:370px;display:flex;align-items:flex-end"><div id="iv_b${c}${S._i}" data-h0="${amt/mx*370}" data-h1="${v/mx*370}" style="width:220px;height:${amt/mx*370}px;background:repeating-linear-gradient(0deg,var(--${c}) 0 28px,color-mix(in srgb,var(--${c}) 65%,var(--bg)) 28px 32px);border-radius:10px 10px 4px 4px"></div></div>
+   <div style="position:absolute;left:0;width:600px;bottom:50px;text-align:center;white-space:nowrap"><span class="num" id="iv_v${c}${S._i}" style="font-size:64px">${L(amt)}</span> <span class="num" id="iv_p${c}${S._i}" style="font-size:36px;color:var(--${ch>=0?'up':'dn'});opacity:0">${ch>=0?'+':'−'}${Math.abs(ch).toFixed(0)}%</span></div></div>`});
+ h+=`<div class="ab cs" id="iv_n${S._i}" style="left:110px;width:1700px;top:930px;text-align:center;font-weight:700;font-size:21px;opacity:0">From each stock's ${Y}-year share-price CAGR · excludes dividends · past returns don't predict future returns</div>`;
+ return {html:h,anim(t,b){const i=S._i;rise('iv_q'+i,t,BT(b,0),.5,30);rise('iv_a'+i,t,BT(b,0)+.3,.5);rise('iv_b'+i,t,BT(b,0)+.45,.5);st('iv_n'+i,{opacity:P(t,BT(b,0)+.8,.4)});
+  [['a',BT(b,sp.beatA??1)],['b',BT(b,sp.beatB??2)]].forEach(([c,s])=>{const p=eio(P(t,s+.2,1.5)),e=$('iv_b'+c+i);if(e)e.style.height=(+e.dataset.h0+(e.dataset.h1-e.dataset.h0)*p)+'px';
+   $('iv_v'+c+i).textContent=L(amt+(S['_iv'+c]-amt)*p);st('iv_p'+c+i,{opacity:P(t,s+1.6,.3)})})}}};
+
+// myth vs fact
+E.mythfact=(sp,S)=>{const vd=sp.verdict||'FALSE',vc=vd==='TRUE'?'var(--up)':vd==='FALSE'?'var(--dn)':'var(--b)',i=S._i;
+ return {html:`<div class="ab card" id="mf_c${i}" style="left:240px;top:250px;width:1440px;padding:44px 56px;opacity:0">
+   <div class="lbl" style="font-size:26px">Myth</div><div style="font-family:var(--fh);font-size:62px;line-height:1.14;margin-top:10px;position:relative">“${sp.myth}”${vd==='FALSE'?`<div id="mf_x${i}" style="position:absolute;left:0;top:52%;height:8px;width:0;background:${vc};border-radius:4px"></div>`:''}</div>
+   <div id="mf_f${i}" style="opacity:0;margin-top:34px;border-top:3px solid var(--grid);padding-top:26px"><div class="lbl" style="font-size:26px;color:${vc}">Fact</div><div style="font-weight:800;font-size:40px;line-height:1.28;margin-top:8px">${sp.fact}</div></div></div>
+  <div class="stamp" id="mf_s${i}" style="right:170px;top:190px;border-color:${vc};color:${vc};font-size:62px">${vd}</div>`,
+  anim(t,b){rise('mf_c'+i,t,BT(b,0),.5,40);const s=BT(b,sp.factBeat??1),p=P(t,s,.35);st('mf_s'+i,{opacity:cl(p*4),transform:`rotate(-8deg) scale(${2.2-1.2*eo(p)})`});
+   st('mf_x'+i,{width:eo(P(t,s+.1,.4))*100+'%'});rise('mf_f'+i,t,s+.4,.5,30)}}};
+
+// quiz with countdown
+E.quiz=(sp,S)=>{const R=120,Cc=2*Math.PI*R,i=S._i;
+ return {html:`<div class="ab" id="qz_q${i}" style="left:160px;width:1600px;top:240px;text-align:center;font-family:var(--fh);font-size:58px;line-height:1.15;opacity:0"><span class="lbl" style="display:block;font-size:26px;margin-bottom:14px;color:var(--gt)">Quick quiz · ${sp.n||''}</span>${sp.q}</div>
+  ${[[A,'a',250],[B,'b',1070]].map(([S2,c,x])=>`<div class="ab card" id="qz_${c}${i}" style="left:${x}px;top:520px;width:600px;height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;border-width:4px">
+   <div class="tk" style="font-size:80px;color:var(--${c})">${S2.tick}</div><div class="cs" style="font-weight:700;font-size:28px">${S2.name}</div>
+   <div id="qz_k${c}${i}" class="ck" style="position:absolute;right:-24px;top:-24px;width:68px;height:68px;font-size:40px;opacity:0">✓</div></div>`).join('')}
+  <div class="ab" id="qz_t${i}" style="left:${960-R-20}px;top:${640-R-20}px;width:${2*R+40}px;height:${2*R+40}px;opacity:0"><svg width="${2*R+40}" height="${2*R+40}"><circle cx="${R+20}" cy="${R+20}" r="${R}" style="fill:var(--bg);stroke:var(--grid);stroke-width:14"/><circle id="qz_tc${i}" cx="${R+20}" cy="${R+20}" r="${R}" transform="rotate(-90 ${R+20} ${R+20})" stroke-dasharray="${Cc}" stroke-dashoffset="0" style="fill:none;stroke:var(--g);stroke-width:14;stroke-linecap:round"/></svg>
+   <div class="num" id="qz_n${i}" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:110px"></div></div>
+  <div class="ab" id="qz_r${i}" style="left:160px;width:1600px;top:810px;text-align:center;font-weight:800;font-size:42px;line-height:1.25;opacity:0">${sp.reveal}</div>`,
+ anim(t,b){rise('qz_q'+i,t,BT(b,0),.5,30);const cs=BT(b,sp.countBeat??1),cd=sp.count||3,rv=BT(b,sp.revealBeat??2),w=sp.answer,l=w==='a'?'b':'a';
+  if(t<rv){pop('qz_a'+i,t,BT(b,0)+.6,.4,.7);pop('qz_b'+i,t,BT(b,0)+.8,.4,.7)}
+  else{const pr=eo(P(t,rv,.4));st('qz_'+w+i,{opacity:1,transform:`scale(${1+.06*pr})`,borderColor:'var(--g)',boxShadow:'0 0 60px color-mix(in srgb,var(--g) 45%,transparent)'});st('qz_'+l+i,{opacity:1-.6*pr,transform:`scale(${1-.04*pr})`})}
+  st('qz_t'+i,{opacity:t>=cs&&t<rv+.25?cl(P(t,cs,.2))*(1-P(t,rv,.25)):0,transform:`scale(${.8+.2*eo(P(t,cs,.3))})`});
+  const left=cl(cd-(t-cs),0,cd);$('qz_n'+i).textContent=left>0?Math.ceil(left):'';$('qz_tc'+i).setAttribute('stroke-dashoffset',Cc*(1-left/cd));
+  pop('qz_k'+w+i,t,rv+.1,.35,.2);rise('qz_r'+i,t,rv+.3,.45,25)}}};
+
+// two coloured halves for the closing
+E.split=(sp,S)=>{let h='';const i=S._i;[['a',A,0],['b',B,960]].forEach(([c,S2,x])=>{const q=sp[c];
+  h+=`<div class="ab" id="sv_${c}${i}" style="left:${x}px;top:0;width:960px;height:1080px;background:color-mix(in srgb,var(--${c}) 14%,transparent);opacity:0"></div>
+  <div class="ab" id="sv_t${c}${i}" style="left:${x+110}px;width:760px;top:240px;opacity:0"><div class="tk" style="font-size:70px;color:var(--${c})">${S2.tick}</div><div style="font-family:var(--fh);font-size:44px;margin-top:6px">${q.head}</div></div>
+  ${q.rows.map((r,k)=>`<div class="ab" id="sv_${c}${k}_${i}" style="left:${x+110}px;width:780px;top:${420+k*84}px;display:flex;gap:18px;align-items:center;opacity:0"><span class="ck">✓</span><span style="font-weight:800;font-size:33px">${r}</span></div>`).join('')}`});
+ if(sp.q)h+=`<div class="ab" id="sv_q${i}" style="left:110px;top:790px;width:1700px;height:140px;background:var(--g);color:var(--onG);display:flex;align-items:center;gap:30px;padding:0 50px;border-radius:var(--rad);opacity:0"><svg width="80" height="80" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="currentColor"/></svg><div><div style="font-family:var(--fh);font-size:50px;line-height:1">${sp.q}</div><div style="font-weight:800;font-size:26px;margin-top:8px">Not a buy or sell call</div></div></div>`;
+ return {html:h,anim(t,b){['a','b'].forEach(c=>{const s=BT(b,sp[c].beat);st('sv_'+c+i,{opacity:P(t,s,.5)});rise('sv_t'+c+i,t,s+.1,.5,30);sp[c].rows.forEach((r,k)=>slide(`sv_${c}${k}_${i}`,t,s+.7+k*.6,.4,-30))});if(sp.q)pop('sv_q'+i,t,BT(b,sp.qBeat),.5,.7)}}};
+
+E.classic=(sp,S)=>C[sp.key](sp.variant||0,S);
+E.cta=(sp,S)=>C.cta(0,S);
+
+// overlays: debate speaker pill, news-desk ticker
+function speakerPill(S,t){const el=$('spk');if(V.format!=='debate'||!S.clips){el.style.opacity=0;return}
+ let best=null,bo=0;for(const c of S.clips){const o=cl((t-(c[1]-.2))/.2)*(1-cl((t-(c[1]+c[2]+.15))/.3));if(o>bo){bo=o;best=c}}
+ if(!best){el.style.opacity=0;return}
+ const H=V.hosts[best[3]]||{},col=best[3]==='a'?'var(--a)':best[3]==='b'?'var(--b)':'var(--gt)',env=(V.env||{})[best[0]]||[],lv=env[Math.max(0,Math.floor((t-best[1])*30))]||0;
+ el.innerHTML=`<div class="av" style="background:${col};box-shadow:0 0 0 ${4+lv*16}px color-mix(in srgb,${col} 35%,transparent)">${H.init||'•'}</div><div><div class="nm">${H.name||''}</div><div class="fr" style="color:${col}">${H.role||''}</div></div>`;
+ el.style.opacity=bo;el.style.borderColor=col}
+const TICK=(()=>{if(V.format!=='newsdesk')return '';const r=(S2,k)=>`${S2.tick} ₹${inr(S2.price)}  ${S2.ret['1Y']>=0?'▲':'▼'} ${Math.abs(S2.ret['1Y'])}% 1Y`;
+ return [r(A),r(B),`P/E ${A.pe} vs ${B.pe}`,`ROE ${A.roe}% vs ${B.roe}%`,`Div yield ${A.dy}% vs ${B.dy}%`,`M-cap ₹${Lc(A.mcap)} L Cr vs ₹${Lc(B.mcap)} L Cr`].join('   ◆   ')+'   ◆   '})();
 
 /* ======================= SCENES + FRAMES ======================= */
 const world=$('world'),GAPX=280,GAPY=240,COLS=4;
@@ -389,9 +553,9 @@ const POS=SC.map((s,i)=>V.motion==='canvas'?{x:(i%COLS)*(1920+GAPX)+(Math.floor(
 if(V.motion==='canvas'){const mx=Math.max(...POS.map(p=>p.x))+1920*2,my=Math.max(...POS.map(p=>p.y))+1080*2;st(world,{width:mx+'px',height:my+'px'});POS.forEach(p=>{p.x+=960;p.y+=540})}
 else st(world,{width:'1920px',height:'1080px'});
 const NSC=SC.filter(s=>s.num).length;
-const EL=SC.map((S,i)=>{const d=document.createElement('div');d.className='scn';st(d,{left:POS[i].x+'px',top:POS[i].y+'px',display:'none'});
- const comp=C[S.key](VAR[S.key]||0,S);let fr='';
- if(S.title){const k=S.part?S.part:S.key==='intro'&&V.structure!=='rounds'?D.sector.toUpperCase():V.structure==='rounds'?(S.num?`ROUND ${S.num}`:(S.key==='intro'?'MAIN EVENT':'FINAL')):(S.num?`CHAPTER ${String(S.num).padStart(2,'0')}`:'');
+const EL=SC.map((S,i)=>{const d=document.createElement('div');d.className='scn';st(d,{left:POS[i].x+'px',top:POS[i].y+'px',display:'none'});S._i=i;
+ const comp=V.mode==='episode'?E[S.type](S.spec||{},S):C[S.key](VAR[S.key]||0,S);let fr='';
+ if(S.title){const k=V.mode==='episode'?(S.tag||''):S.part?S.part:S.key==='intro'&&V.structure!=='rounds'?D.sector.toUpperCase():V.structure==='rounds'?(S.num?`ROUND ${S.num}`:(S.key==='intro'?'MAIN EVENT':'FINAL')):(S.num?`CHAPTER ${String(S.num).padStart(2,'0')}`:'');
   fr=`<div class="ttl" id="tt${i}">${k?`<span class="k">${k}</span>`:''}<span class="t">${S.title}</span></div><div class="rl" id="tr${i}"></div>`}
  if(V.structure==='rounds'&&S.result){const lab=S.result==='a'?`ROUND → ${A.tick}`:S.result==='b'?`ROUND → ${B.tick}`:S.result==='even'?'EVEN ROUND':'NOT SCORED';
   fr+=`<div class="stamp" id="sp${i}" style="${S.result==='none'?'border-color:var(--sub);color:var(--sub)':S.result==='even'?'':''}">${lab}</div>`}
@@ -412,9 +576,11 @@ window.seek=function(T){let i=0;while(i<SC.length-1&&T>=SC[i+1].start)i++;const 
   st(EL[i],{transform:i>0?`translateX(${(1-p)*1300}px) rotateY(${-(1-p)*38}deg) scale(${.82+.18*p})`:'none',opacity:i>0?p:1})}
  if(i>0&&p<1)frame(i-1,T-SC[i-1].start);frame(i,t);
  const ph=S.key==='cta'?1-P(t,0,.5):(i===0?P(t,1.4,.6):1);st('hdr',{opacity:ph});
- $('hsec').innerHTML=V.structure==='timeline'?['THEN','NOW','NEXT'].map(x=>x===S.part||(x==='NEXT'&&S.part==='WRAP')?`<b>● ${x}</b>`:`○ ${x}`).join(' ── ')+` · ${A.tick} vs ${B.tick}`
+ if(V.mode==='episode')$('hsec').innerHTML=`${S.tag?`<b>${S.tag}</b>`:V.show} · ${A.tick} vs ${B.tick}`;
+ else $('hsec').innerHTML=V.structure==='timeline'?['THEN','NOW','NEXT'].map(x=>x===S.part||(x==='NEXT'&&S.part==='WRAP')?`<b>● ${x}</b>`:`○ ${x}`).join(' ── ')+` · ${A.tick} vs ${B.tick}`
   :V.structure==='case'&&S.part?`<b>${S.part}</b> · ${A.tick} vs ${B.tick}`
   :S.num?(V.structure==='rounds'?`ROUND <b>${S.num}</b> / ${NSC}`:`CHAPTER <b>${S.num}</b> / ${NSC}`)+` · ${A.tick} vs ${B.tick}`:`STOCK FACE-OFF · ${A.tick} vs ${B.tick}`;
+ speakerPill(S,t);if(TICK){const tk=$('tickt');if(!tk.textContent)tk.textContent=TICK+TICK;st(tk,{transform:`translateX(${-((T*110)%(tk.scrollWidth/2))}px)`})}
  st('gA',{left:(-300+Math.sin(T*.2)*120)+'px',top:(-200+Math.cos(T*.17)*90)+'px'});st('gB',{left:(1200+Math.cos(T*.19)*120)+'px',top:(300+Math.sin(T*.15)*90)+'px'});
 };
 window.ready=document.fonts.ready.then(()=>new Promise(r=>{const im=[...document.images];Promise.all(im.map(x=>x.complete?1:new Promise(z=>x.onload=z))).then(r)}));

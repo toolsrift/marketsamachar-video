@@ -99,18 +99,6 @@
    94,
    81
   ],
-  "roce10": [
-   44,
-   39,
-   47,
-   47,
-   49,
-   54,
-   59,
-   64,
-   65,
-   63
-  ],
   "cfo5": [
    39949,
    41965,
@@ -183,16 +171,35 @@
    ]
   },
   "q2": {
-   "rev": 73188,
-   "revYoy": 11.2,
-   "np": 13884,
-   "npYoy": 15.0,
-   "deal": "$9.6 B",
-   "dealLabel": "Total deal wins (TCV)",
-   "ai": "$3.1 B",
-   "aiLabel": "Annualised AI revenue",
-   "extra": "₹12 / share",
-   "extraLabel": "Interim dividend (Oct 2026)"
+   "period": "Jul–Sep 2026",
+   "head": "Revenue up 11.2%, profit up 15%",
+   "rows": [
+    [
+     "Revenue",
+     "₹73,188 Cr",
+     "+11.2% YoY"
+    ],
+    [
+     "Net profit",
+     "₹13,884 Cr",
+     "+15.0% YoY"
+    ],
+    [
+     "Total deal wins (TCV)",
+     "$9.6 B",
+     "Q2 FY27"
+    ],
+    [
+     "Annualised AI revenue",
+     "$3.1 B",
+     ""
+    ],
+    [
+     "Interim dividend (Oct 2026)",
+     "₹12 / share",
+     ""
+    ]
+   ]
   },
   "strengths": [
    "ROE ~52% · ROCE 63%",
@@ -202,7 +209,21 @@
   "watch": [
    "Sales growth ~10% a year over 5 years",
    "Trades at 7.4× book value"
-  ]
+  ],
+  "ratio10": [
+   44,
+   39,
+   47,
+   47,
+   49,
+   54,
+   59,
+   64,
+   65,
+   63
+  ],
+  "short": "TCS",
+  "say": "TCS"
  },
  "b": {
   "tick": "INFY",
@@ -270,18 +291,6 @@
    73,
    67,
    66
-  ],
-  "roce10": [
-   30,
-   30,
-   32,
-   32,
-   35,
-   37,
-   40,
-   40,
-   38,
-   40
   ],
   "cfo5": [
    23885,
@@ -355,16 +364,36 @@
    ]
   },
   "q2": {
-   "rev": 49244,
-   "revYoy": 10.7,
-   "np": 7823,
-   "npYoy": 6.2,
-   "deal": "$5.2 B",
-   "dealLabel": "Large-deal wins (TCV)",
-   "ai": "10.5%",
-   "aiLabel": "AI share of revenue",
-   "extra": "1–2%",
-   "extraLabel": "FY27 growth guidance (cut)"
+   "period": "Jul–Sep 2026",
+   "head": "Profit up 6.2%; guidance cut to 1–2%",
+   "rows": [
+    [
+     "Revenue",
+     "₹49,244 Cr",
+     "+10.7% YoY"
+    ],
+    [
+     "Net profit",
+     "₹7,823 Cr",
+     "+6.2% YoY"
+    ],
+    [
+     "Large-deal wins (TCV)",
+     "$5.2 B",
+     "Q2 FY27"
+    ],
+    [
+     "AI share of revenue",
+     "10.5%",
+     ""
+    ],
+    [
+     "FY27 growth guidance (cut)",
+     "1–2%",
+     "",
+     "dn"
+    ]
+   ]
   },
   "strengths": [
    "Lower P/E and P/B",
@@ -374,6 +403,183 @@
   "watch": [
    "FY27 guidance cut to 1–2%",
    "Promoter holding only 13.9%"
-  ]
- }
+  ],
+  "ratio10": [
+   30,
+   30,
+   32,
+   32,
+   35,
+   37,
+   40,
+   40,
+   38,
+   40
+  ],
+  "short": "Infosys",
+  "say": "Infosys"
+ },
+ "kind": "general",
+ "ratio": {
+  "name": "ROCE",
+  "formula": "Operating profit ÷ Capital employed",
+  "explain": "Profit earned on every ₹100 put to work in the business"
+ },
+ "summary": {
+  "a": {
+   "head": "BIGGER · MORE EFFICIENT",
+   "rows": [
+    "1.9× the market cap",
+    "ROCE 63% vs 40%",
+    "Stable owner: Tata Sons, 72%"
+   ]
+  },
+  "b": {
+   "head": "CHEAPER · HIGHER YIELD",
+   "rows": [
+    "P/E 14.7 vs 16.2",
+    "Dividend yield 4.2% vs 2.6%",
+    "Sales CAGR 11% vs 9% (10 yrs)"
+   ]
+  }
+ },
+ "script": [
+  {
+   "key": "intro",
+   "title": "THE FACE-OFF",
+   "lines": [
+    "TCS and Infosys. India's two largest IT services companies.",
+    "Together they're worth over 13.5 lakh crore rupees, and both have fallen more than 20 percent in the last year.",
+    "So how do they really compare? Let's go through the numbers, one by one."
+   ]
+  },
+  {
+   "key": "size",
+   "title": "SIZE",
+   "winner": "a",
+   "lines": [
+    "On size, TCS has a market cap of 8.8 lakh crore. Infosys, 4.6 lakh crore.",
+    "TCS also earns about 2.67 lakh crore in yearly revenue, around 1.5 times Infosys."
+   ]
+  },
+  {
+   "key": "returns",
+   "title": "SHARE PRICE",
+   "winner": "even",
+   "lines": [
+    "The share price has had a tough stretch for both.",
+    "Over one year, TCS is down 22 percent, and Infosys 24 percent.",
+    "Even over five years, both have returned around minus 7 to minus 8 percent a year.",
+    "Only the ten-year view is positive: about 9 percent a year for TCS, and 10 for Infosys.",
+    "Today, TCS trades 27 percent below its 52-week high. Infosys, 34 percent below."
+   ]
+  },
+  {
+   "key": "valuation",
+   "title": "VALUATION",
+   "winner": "b",
+   "lines": [
+    "Here's what you pay for each.",
+    "TCS trades at 16.2 times earnings. Infosys, at 14.7.",
+    "On book value, TCS is at 7.4 times, Infosys at 4.7.",
+    "And Infosys pays a higher dividend yield: 4.2 percent, versus 2.6 for TCS."
+   ]
+  },
+  {
+   "key": "revenue",
+   "title": "REVENUE GROWTH",
+   "winner": "b",
+   "lines": [
+    "Since financial year 2017, TCS grew revenue from 1.18 lakh crore to 2.67 lakh crore.",
+    "Infosys grew faster, from 68 thousand crore to 1.79 lakh crore.",
+    "Over ten years, that's about 9 percent a year for TCS, and 11 for Infosys."
+   ]
+  },
+  {
+   "key": "profit",
+   "title": "PROFIT GROWTH",
+   "winner": "even",
+   "lines": [
+    "On profit, TCS earned 49 thousand crore last year. Infosys, 29 thousand crore.",
+    "Ten-year profit growth is about 8 percent a year for both."
+   ]
+  },
+  {
+   "key": "quarterly",
+   "title": "LAST 8 QUARTERS",
+   "winner": "even",
+   "lines": [
+    "Over the last eight quarters, both have kept revenue rising.",
+    "TCS reached 73 thousand crore in the September quarter. Infosys, 49 thousand crore.",
+    "Operating margins are steady: around 26 to 27 percent for TCS, and 24 for Infosys."
+   ]
+  },
+  {
+   "key": "roce",
+   "title": "EFFICIENCY",
+   "winner": "a",
+   "lines": [
+    "Return on capital employed shows how much profit each rupee in the business earns.",
+    "TCS has lifted it from 44 percent to 63 percent over ten years.",
+    "Infosys improved too, from 30 to 40 percent. Both are strong, but TCS is far ahead."
+   ]
+  },
+  {
+   "key": "cash",
+   "title": "CASH & DIVIDENDS",
+   "winner": "even",
+   "lines": [
+    "Profits matter most when cash actually comes in.",
+    "Last year, TCS generated 52 thousand crore in operating cash, more than its net profit.",
+    "Infosys generated 34 thousand crore, also above its profit.",
+    "Both return most of it. TCS paid out 81 percent of profit as dividends. Infosys, 66 percent."
+   ]
+  },
+  {
+   "key": "ownership",
+   "title": "WHO OWNS IT",
+   "winner": "none",
+   "lines": [
+    "Tata Sons holds about 72 percent of TCS, unchanged for two years.",
+    "Infosys promoters hold just 14 percent. Domestic institutions, like mutual funds and insurers, own the biggest share, at nearly 43 percent.",
+    "One shared trend: foreign investors have been selling both, while domestic institutions keep buying."
+   ]
+  },
+  {
+   "key": "latest",
+   "title": "LATEST QUARTER",
+   "winner": "a",
+   "lines": [
+    "The latest quarter covers July to September 2026.",
+    "TCS grew revenue 11 percent and profit 15 percent from a year ago, and signed 9.6 billion dollars of new deals.",
+    "Infosys grew revenue nearly 11 percent and profit 6 percent. Its large-deal wins hit 5.2 billion dollars.",
+    "But Infosys also cut its full-year growth guidance, to 1 to 2 percent in constant currency."
+   ]
+  },
+  {
+   "key": "risks",
+   "title": "STRENGTHS & WATCH-OUTS",
+   "lines": [
+    "So, what are the strengths, and what should you watch?",
+    "TCS: top-tier return ratios, strong cash generation, and steady margins. The watch-outs: slower sales growth, and a high price to book.",
+    "Infosys: a lower valuation, a higher dividend yield, and faster long-term growth. The watch-outs: the guidance cut, and low promoter holding."
+   ]
+  },
+  {
+   "key": "summary",
+   "title": "THE SUMMARY",
+   "lines": [
+    "TCS is the bigger, more efficient company, with a stable owner.",
+    "Infosys is cheaper, pays a higher yield, and has grown a little faster.",
+    "This is not a buy or sell call. Which one suits your style? Tell us in the comments."
+   ]
+  },
+  {
+   "key": "cta",
+   "title": "",
+   "lines": [
+    "Follow Market Samachar for more stock face-offs. Full data on marketsamachar dot in."
+   ]
+  }
+ ]
 }

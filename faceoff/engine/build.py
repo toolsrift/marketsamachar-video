@@ -15,134 +15,64 @@ STRUCTURES = ["chapters", "rounds", "case", "timeline"]
 MOTIONS = ["canvas", "cards", "split"]
 VOICES = ["af_heart", "af_bella", "bf_emma", "am_michael"]
 VARIANTS = {"size": 3, "returns": 3, "valuation": 3, "revenue": 3, "profit": 3, "quarterly": 3,
-            "roce": 3, "cash": 2, "ownership": 3, "latest": 2}
+            "roce": 3, "cash": 2, "asset": 1, "ownership": 3, "latest": 2}
 MUSIC = {"glass": "pulse", "paper": "marimba", "blueprint": "cinematic", "neon": "lofi", "flat": "bright"}
 
 
-def L(v):  # lakh crore, spoken
-    return f"{v / 1e5:.1f} lakh crore"
-
-
-def K(v):
-    return f"{round(v / 1e3)} thousand crore"
+NUM = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"]
+INTRO_LINE = {"rounds": "{n} rounds, one stat sheet. Let's get into the ring.",
+              "case": "We'll make the case for each one, then put them head to head.",
+              "timeline": "We'll go from {y0} to today, then look at what's next."}
+THEN, NEXT = ["revenue", "profit", "roce"], ["latest", "risks"]
 
 
 def content(D):
-    a, b = D["a"], D["b"]
-    return [
-        ("intro", "THE FACE-OFF", [
-            f"{a['tick']} and Infosys. India's two largest IT services companies.",
-            f"Together they're worth over {(a['mcap'] + b['mcap']) / 1e5:.1f} lakh crore rupees, and both have fallen more than 20 percent in the last year.",
-            "So how do they really compare? Let's go through the numbers, one by one."], None),
-        ("size", "SIZE", [
-            f"Start with size. TCS has a market cap of {L(a['mcap'])}. Infosys, {L(b['mcap'])}.",
-            f"TCS also earns about {a['sales10'][-1] / 1e5:.2f} lakh crore in yearly revenue, around {a['sales10'][-1] / b['sales10'][-1]:.1f} times Infosys."], "a"),
-        ("returns", "SHARE PRICE", [
-            "Now the share price. It's been a tough stretch for both.",
-            f"Over one year, TCS is down {-a['ret']['1Y']} percent, and Infosys {-b['ret']['1Y']} percent.",
-            f"Even over five years, both have returned around minus 7 to minus 8 percent a year.",
-            f"Only the ten-year view is positive: about {a['ret']['10Y']} percent a year for TCS, and {b['ret']['10Y']} for Infosys.",
-            f"Today, TCS trades {round((1 - a['price'] / a['high']) * 100)} percent below its 52-week high. Infosys, {round((1 - b['price'] / b['high']) * 100)} percent below."], "even"),
-        ("valuation", "VALUATION", [
-            "After that fall, here's what you pay for each.",
-            f"TCS trades at {a['pe']} times earnings. Infosys, at {b['pe']}.",
-            f"On book value, TCS is at {a['pb']:.1f} times, Infosys at {b['pb']:.1f}.",
-            f"And Infosys pays a higher dividend yield: {b['dy']:.1f} percent, versus {a['dy']:.1f} for TCS."], "b"),
-        ("revenue", "REVENUE GROWTH", [
-            f"Next, growth. Since financial year 2017, TCS grew revenue from {a['sales10'][0] / 1e5:.2f} lakh crore to {a['sales10'][-1] / 1e5:.2f} lakh crore.",
-            f"Infosys grew faster, from {K(b['sales10'][0])} to {b['sales10'][-1] / 1e5:.2f} lakh crore.",
-            f"Over ten years, that's about {a['salesCagr10']} percent a year for TCS, and {b['salesCagr10']} for Infosys."], "b"),
-        ("profit", "PROFIT GROWTH", [
-            f"Profits followed a similar path. TCS earned {K(a['profit10'][-1])} last year. Infosys, {K(b['profit10'][-1])}.",
-            f"Ten-year profit growth is about {a['profitCagr10']} percent a year for both."], "even"),
-        ("quarterly", "LAST 8 QUARTERS", [
-            "Zooming into the last eight quarters, both have kept revenue rising.",
-            f"TCS reached {K(a['qSales'][-1])} in the September quarter. Infosys, {K(b['qSales'][-1])}.",
-            "Operating margins are steady: around 26 to 27 percent for TCS, and 24 for Infosys."], "even"),
-        ("roce", "EFFICIENCY", [
-            "Now, efficiency. Return on capital employed shows how much profit each rupee in the business earns.",
-            f"TCS has lifted it from {a['roce10'][0]} percent to {a['roce10'][-1]} percent over ten years.",
-            f"Infosys improved too, from {b['roce10'][0]} to {b['roce10'][-1]} percent. Both are strong, but TCS is far ahead."], "a"),
-        ("cash", "CASH & DIVIDENDS", [
-            "Profits matter most when cash actually comes in.",
-            f"Last year, TCS generated {K(a['cfo5'][-1])} in operating cash, more than its net profit.",
-            f"Infosys generated {K(b['cfo5'][-1])}, also above its profit.",
-            f"Both return most of it. TCS paid out {a['payout10'][-1]} percent of profit as dividends. Infosys, {b['payout10'][-1]} percent."], "even"),
-        ("ownership", "WHO OWNS IT", [
-            f"Who owns these companies? Tata Sons holds about {round(a['share']['prom'][-1])} percent of TCS, unchanged for two years.",
-            f"Infosys promoters hold just {round(b['share']['prom'][-1])} percent. Domestic institutions, like mutual funds and insurers, own the biggest share, at nearly {round(b['share']['dii'][-1])} percent.",
-            "One shared trend: foreign investors have been selling both, while domestic institutions keep buying."], "none"),
-        ("latest", "LATEST QUARTER", [
-            "Now, the latest quarter, July to September 2026.",
-            f"TCS grew revenue {round(a['q2']['revYoy'])} percent and profit {round(a['q2']['npYoy'])} percent from a year ago, and signed 9.6 billion dollars of new deals.",
-            f"Infosys grew revenue nearly {round(b['q2']['revYoy'])} percent and profit {round(b['q2']['npYoy'])} percent. Its large-deal wins hit 5.2 billion dollars.",
-            "But Infosys also cut its full-year growth guidance, to 1 to 2 percent in constant currency."], "a"),
-        ("risks", "STRENGTHS & WATCH-OUTS", [
-            "So, what are the strengths, and what should you watch?",
-            "TCS: top-tier return ratios, strong cash generation, and steady margins. The watch-outs: slower sales growth, and a high price to book.",
-            "Infosys: a lower valuation, a higher dividend yield, and faster long-term growth. The watch-outs: the guidance cut, and low promoter holding."], None),
-        ("summary", "THE SUMMARY", [
-            "To sum up. TCS is the bigger, more efficient company, with a stable owner.",
-            "Infosys is cheaper, pays a higher yield, and has grown a little faster.",
-            "This is not a buy or sell call. Which one suits your style? Tell us in the comments."], None),
-        ("cta", "", ["Follow Market Samachar for more stock face-offs. Full data on marketsamachar dot in."], None),
-    ]
-
-
-NUM = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"]
-
-
-ORDER = {
-    "case": [("intro", None), ("size", "CASE FOR TCS"), ("roce", "CASE FOR TCS"), ("cash", "CASE FOR TCS"),
-             ("valuation", "CASE FOR INFY"), ("revenue", "CASE FOR INFY"), ("profit", "CASE FOR INFY"),
-             ("returns", "HEAD TO HEAD"), ("quarterly", "HEAD TO HEAD"), ("ownership", "HEAD TO HEAD"), ("latest", "HEAD TO HEAD"),
-             ("risks", "BOTH SIDES"), ("summary", "CLOSING"), ("cta", None)],
-    "timeline": [("intro", None), ("revenue", "THEN"), ("profit", "THEN"), ("roce", "THEN"),
-                 ("size", "NOW"), ("returns", "NOW"), ("valuation", "NOW"), ("quarterly", "NOW"), ("cash", "NOW"), ("ownership", "NOW"),
-                 ("latest", "NEXT"), ("risks", "NEXT"), ("summary", "WRAP"), ("cta", None)],
-}
-OVR = {
-    "case": {("intro", 2): "We'll make the case for each one, then put them head to head.",
-             ("size", 0): "First, the case for TCS. Start with size. TCS has a market cap of {am}. Infosys, {bm}.",
-             ("valuation", 0): "Now, the case for Infosys. It starts with price: here's what you pay for each.",
-             ("returns", 0): "Now, head to head. First, the share price. It's been a tough stretch for both."},
-    "timeline": {("intro", 2): "We'll go from 2017 to today, and then look at what's next.",
-                 ("revenue", 0): "Let's start in 2017. Since then, TCS grew revenue from {as0} lakh crore to {as9} lakh crore.",
-                 ("size", 0): "Fast forward to today. TCS has a market cap of {am}. Infosys, {bm}.",
-                 ("returns", 0): "The share price, though, has had a tough stretch.",
-                 ("valuation", 0): "After that fall, here's what you pay for each.",
-                 ("latest", 0): "So what comes next? Start with the latest quarter, July to September 2026."},
-}
+    """The script lives in the data file: [{key, title, lines, winner}] — winner is a / b / even / none, or absent for
+    framing scenes. Lines must read well in any order (no 'next', 'after that'); structures add their own lead-ins."""
+    return [dict(key=s["key"], title=s.get("title", ""), lines=list(s["lines"]), winner=s.get("winner")) for s in D["script"]]
 
 
 def scenes_for(structure, D):
     a, b = D["a"], D["b"]
-    fmt = dict(am=L(a["mcap"]), bm=L(b["mcap"]), as0=f"{a['sales10'][0] / 1e5:.2f}", as9=f"{a['sales10'][-1] / 1e5:.2f}")
-    base = {k: (t, l, r) for k, t, l, r in content(D)}
+    sc = content(D)
+    by = {s["key"]: s for s in sc}
+    data_keys = [s["key"] for s in sc if s["winner"] is not None]
+    mk = lambda s, **kw: {**dict(key=s["key"], title=s["title"], lines=list(s["lines"]), lead=None, result=None, num=None, part=None), **kw}
+    if structure in INTRO_LINE and len(by["intro"]["lines"]) > 2:
+        by["intro"]["lines"][2] = INTRO_LINE[structure].format(n=NUM[len(data_keys) - 1].capitalize(), y0="20" + D["years10"][0][2:])
+    if structure == "case":
+        parts = [("a", f"CASE FOR {a['tick']}", f"First, the case for {a.get('say', a['tick'])}."),
+                 ("b", f"CASE FOR {b['tick']}", f"Now, the case for {b.get('say', b['tick'])}."),
+                 (None, "HEAD TO HEAD", "Now, head to head.")]
+        order = [mk(by["intro"])]
+        for w, label, lead in parts:
+            ks = [k for k in data_keys if (by[k]["winner"] == w if w else by[k]["winner"] not in ("a", "b"))]
+            for n, k in enumerate(ks):
+                order.append(mk(by[k], part=label)); order[-1]["lead"] = lead if n == 0 else None
+        order += [mk(by["risks"], part="BOTH SIDES"), mk(by["summary"], part="CLOSING"), mk(by["cta"])]
+        return order
+    if structure == "timeline":
+        now = [k for k in data_keys if k not in THEN + NEXT]
+        groups = [("THEN", [k for k in THEN if k in by], f"Let's start with the long view, from 20{D['years10'][0][2:]}."),
+                  ("NOW", now, "Fast forward to today."), ("NEXT", [k for k in NEXT if k in by], "So, what comes next?")]
+        order = [mk(by["intro"])]
+        for label, ks, lead in groups:
+            for n, k in enumerate(ks):
+                order.append(mk(by[k], part=label)); order[-1]["lead"] = lead if n == 0 else None
+        order += [mk(by["summary"], part="WRAP"), mk(by["cta"])]
+        return order
     out = []; r = 0
-    if structure in ORDER:
-        for key, part in ORDER[structure]:
-            title, lines, res = base[key]; lines = list(lines)
-            for (k, j), txt in OVR[structure].items():
-                if k == key: lines[j] = txt.format(**fmt)
-            if key == "summary" and structure == "case": title = "THE CLOSING"
-            out.append(dict(key=key, title=title, lines=lines, lead=None, result=None, num=None, part=part))
-        return out
-    for key, title, lines, res in content(D):
-        s = dict(key=key, title=title, lines=list(lines), lead=None, result=None, num=None, part=None)
+    for s0 in sc:
+        s = mk(s0)
         if structure == "rounds":
-            if key == "intro":
+            if s["key"] == "intro":
                 s["title"] = "TALE OF THE TAPE"
-                s["lines"][2] = "Ten rounds, one stat sheet. Let's get into the ring."
-            elif res is not None:
-                r += 1; s["num"] = r; s["lead"] = f"Round {NUM[r - 1]}."
-                s["result"] = res
-            elif key == "summary":
-                s["title"] = "THE DECISION"
-                s["lines"][0] = "The judges' card? A split decision. TCS is the bigger, more efficient company, with a stable owner."
-        else:
-            if res is not None or key in ("risks", "summary"):
-                r += 1; s["num"] = r
+            elif s0["winner"] is not None:
+                r += 1; s["num"] = r; s["lead"] = f"Round {NUM[r - 1]}."; s["result"] = s0["winner"]
+            elif s["key"] == "summary":
+                s["title"] = "THE DECISION"; s["lead"] = "The judges' card? A split decision."
+        elif s0["winner"] is not None or s["key"] in ("risks", "summary"):
+            r += 1; s["num"] = r
         out.append(s)
     return out
 
@@ -175,7 +105,7 @@ def main():
     if args.var: var.update(json.loads(args.var))
     sc = scenes_for(structure, D)
     od = pathlib.Path(args.out) if args.out else ROOT / "out" / args.pair; od.mkdir(parents=True, exist_ok=True)
-    LEAD, GAP, TAIL = 0.95, 0.28, 0.9
+    LEAD, GAP, TAIL = 0.85, 0.26, 0.75
     if not args.no_voice:
         import numpy as np, soundfile as sf
         from kokoro_onnx import Kokoro
@@ -189,7 +119,7 @@ def main():
                 d = len(ln.split()) / 2.7
             else:
                 sp = ln.replace("P/E", "P E").replace("FY", "F Y ")
-                a, sr = Kk.create(sp, voice=voice, speed=1.08, lang="en-gb" if voice.startswith("b") else "en-us")
+                a, sr = Kk.create(sp, voice=voice, speed=1.21 if voice.startswith("am_") else 1.08, lang="en-gb" if voice.startswith("b") else "en-us")
                 a = np.asarray(a, dtype=np.float32); nz = np.where(np.abs(a) > .004)[0]; a = a[max(0, nz[0] - 240): nz[-1] + 1200]
                 fn = od / f"v{i:02d}_{j}.wav"; sf.write(fn, a, sr); d = len(a) / sr; clips.append((fn.name, cur))
             beats.append(round(cur, 3)); cur += d + GAP

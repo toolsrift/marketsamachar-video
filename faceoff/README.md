@@ -1,5 +1,7 @@
 # Stock face-off videos
 
+Data files hold the numbers (and, for the older template mode, the script). Bank pairs use `"kind": "bank"`: ROE instead of ROCE, an asset-quality scene (gross/net NPA + NIM) instead of cash flow, quarterly profit instead of OPM.
+
 Two stocks from the same sector compared in a ~5-minute 1920×1080 video. Every video gets its own look, story structure, motion style, chart forms, narrator voice and music. The brand (logo, green, disclaimer, follow CTA) never changes.
 
 Educational only. Never a buy/sell call: the scripts and the final card say so, and the footer on every frame carries the disclaimer and data source.
@@ -20,6 +22,25 @@ Then add the result to `faceoff/history.json` (look, structure, motion, var, voi
 
 Useful flags for `build.py`: `--look`, `--structure`, `--motion`, `--voice`, `--var '{"size":2}'`, `--seed N`, `--no-voice` (fast layout test), `--out DIR`.
 Stills for checking: `python3 faceoff/engine/render.py <pair> snap 12.5 40 95`.
+
+## Phase 3: story-first episodes (use this for new videos)
+
+Every video is written around ONE angle in the data, with its own scene list, narration format and opening.
+
+```bash
+python3 faceoff/engine/episode.py pick hdfcbank-icicibank            # → format, opening, look, motion, voices (no-repeat)
+# write faceoff/episodes/<slug>.json for that pick (see hdfc-icici-debate.json)
+python3 faceoff/engine/episode.py build faceoff/episodes/<slug>.json # voices every line → faceoff/out/<slug>/spec.json
+python3 faceoff/engine/render.py <slug> full 3
+python3 faceoff/engine/mix.py <slug>
+```
+
+- **Formats:** `documentary` (one narrator), `debate` (moderator + two hosts, each arguing for one stock; speaker pill with a voice-reactive avatar), `quiz` (questions with a 3-second countdown before each reveal), `newsdesk` (fast anchor read + scrolling stats ticker).
+- **Openings:** `stat` (one shocking number), `question`, `invest` ("₹1 lakh invested 5 years ago"), `chart` (open on the most surprising chart).
+- **Scene types:** `hero` (one or two giant numbers), `kinetic` (word-by-word text), `duel` (split-screen metric rows), `chartzoom` (big chart; camera flies to each callout), `invest`, `mythfact` (TRUE / FALSE / HALF TRUE stamp), `quiz`, `split` (closing halves), `classic` (any chart scene below, e.g. `{"key": "latest", "variant": 1}`), `cta`.
+- **Lines:** `[speaker, text]` with speaker `n` / `a` / `b`, or `["pause", seconds]`. Each line is a beat; scene specs reference beats by index.
+- **No-repeat:** format, opening and look never repeat within the last 3 videos; motion and voices differ from the last video. Record each finished video in `history.json` (format, opening, look, motion, voices).
+- Pick 7–13 scenes that serve the angle. Not every metric belongs in every video.
 
 ## Data
 

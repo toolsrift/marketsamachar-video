@@ -9,10 +9,20 @@ for i, s in enumerate(spec["scenes"]):
     st = s["start"]
     if i: ev.append((st + .05, {"canvas": "whoosh", "cards": "whoosh-short", "split": "whoosh-cinematic"}[spec["motion"]] if spec["look"] != "neon" else "glitch-1", .35))
     if s["key"] == "intro": ev.append((st + .85, "impact-bass-1", .55))
-    if spec["structure"] == "rounds" and s.get("num") and s.get("result"): ev.append((st + .55, "ping", .5))
-    if spec["structure"] == "rounds" and s.get("result"): ev.append((st + s["dur"] - 2.05, "impact-bass-2", .35 if s["result"] != "none" else .2))
+    if spec.get("structure") == "rounds" and s.get("num") and s.get("result"): ev.append((st + .55, "ping", .5))
+    if spec.get("structure") == "rounds" and s.get("result"): ev.append((st + s["dur"] - 2.05, "impact-bass-2", .35 if s["result"] != "none" else .2))
     if s["key"] == "summary": ev.append((st + s["beats"][-1] + .2, "chime", .4))
     if s["key"] == "cta": ev += [(st + 2.4, "click", .8), (st + 2.5, "sparkle", .4)]
+    if spec.get("mode") == "episode":
+        sp, b = s.get("spec", {}), s["beats"] or [0]
+        B = lambda k: b[min(k or 0, len(b) - 1)]
+        if s["type"] == "hero": ev.append((st + B(sp["items"][0].get("beat")) + .1, "impact-bass-1", .45))
+        if s["type"] == "mythfact": ev.append((st + B(sp.get("factBeat", 1)), "impact-bass-2", .45))
+        if s["type"] == "quiz":
+            cs, rv = st + B(sp.get("countBeat", 1)), st + B(sp.get("revealBeat", 2))
+            ev += [(cs + k, "click-soft", .6) for k in range(int(sp.get("count", 3)))] + [(rv, "chime", .5)]
+        if s["type"] == "chartzoom": ev += [(st + B(c["beat"]) + .1, "whoosh-short", .25) for c in sp.get("callouts", [])]
+        if s["type"] == "invest": ev += [(st + B(sp.get("beatA", 1)) + .2, "riser", .25)]
 voices = [(OD / c[0], s["start"] + c[1]) for s in spec["scenes"] for c in s["clips"]]
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(OD / "concat.txt"), "-c", "copy", str(OD / "video.mp4")], check=True)
 inp = ["-i", str(OD / "video.mp4"), "-stream_loop", "-1", "-i", str(AS / "music" / f"{spec['music']}.mp3")]

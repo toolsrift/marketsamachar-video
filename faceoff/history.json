@@ -47,5 +47,43 @@
   },
   "voice": "af_bella",
   "date": "2026-11-18"
+ },
+ {
+  "pair": "hdfcbank-icicibank",
+  "fmt": "long",
+  "look": "flat",
+  "structure": "rounds",
+  "motion": "canvas",
+  "var": {
+   "size": 0,
+   "returns": 0,
+   "valuation": 1,
+   "revenue": 0,
+   "profit": 2,
+   "quarterly": 1,
+   "roce": 2,
+   "cash": 0,
+   "asset": 0,
+   "ownership": 1,
+   "latest": 0
+  },
+  "voice": "am_michael",
+  "date": "2026-11-18"
+ },
+ {
+  "pair": "hdfcbank-icicibank",
+  "slug": "hdfc-icici-debate",
+  "fmt": "long",
+  "mode": "episode",
+  "format": "debate",
+  "opening": "stat",
+  "look": "glass",
+  "motion": "cards",
+  "voices": {
+   "n": "af_heart",
+   "a": "am_fenrir",
+   "b": "bf_emma"
+  },
+  "date": "2026-11-18"
  }
 ]

@@ -1,0 +1,574 @@
+{
+ "pair": "hdfcbank-icicibank",
+ "kind": "bank",
+ "sector": "Private Banks",
+ "asof": "Prices as of 17 Nov 2026",
+ "source": "Screener.in (standalone) · Bank Q2 FY27 releases",
+ "years10": [
+  "FY17",
+  "FY18",
+  "FY19",
+  "FY20",
+  "FY21",
+  "FY22",
+  "FY23",
+  "FY24",
+  "FY25",
+  "FY26"
+ ],
+ "quarters": [
+  "Dec 24",
+  "Mar 25",
+  "Jun 25",
+  "Sep 25",
+  "Dec 25",
+  "Mar 26",
+  "Jun 26",
+  "Sep 26"
+ ],
+ "note10": "HDFC Ltd merged into HDFC Bank on 1 Jul 2023 (FY24), so HDFC Bank's figures jump from FY24",
+ "ratio": {
+  "name": "ROE",
+  "formula": "Net profit ÷ Shareholders' equity",
+  "explain": "Profit earned on every ₹100 of shareholders' money"
+ },
+ "qLabel": "Quarterly revenue (interest earned) · ₹ thousand crore",
+ "qRow": {
+  "key": "qProfit",
+  "short": "Profit",
+  "fmt": "k",
+  "label": "net profit, ₹ thousand crore"
+ },
+ "assetLabels": [
+  "Sep 2025",
+  "Sep 2026"
+ ],
+ "nimLabel": "Net interest margin · Q2 FY27 (on interest-earning assets)",
+ "a": {
+  "tick": "HDFC",
+  "short": "HDFC Bank",
+  "say": "HDFC Bank",
+  "name": "HDFC Bank",
+  "price": 815,
+  "mcap": 1257664,
+  "low": 669,
+  "high": 1018,
+  "pe": 16.4,
+  "pb": 2.17,
+  "dy": 1.6,
+  "roe": 14.0,
+  "de": 0,
+  "ret": {
+   "1Y": -18,
+   "3Y": 3,
+   "5Y": 1,
+   "10Y": 10
+  },
+  "sales10": [
+   69306,
+   80241,
+   98972,
+   114813,
+   120858,
+   127753,
+   161586,
+   258341,
+   300517,
+   307522
+  ],
+  "profit10": [
+   14550,
+   17487,
+   21078,
+   26257,
+   31117,
+   36961,
+   44109,
+   60812,
+   67347,
+   74671
+  ],
+  "payout10": [
+   19,
+   19,
+   19,
+   5,
+   12,
+   23,
+   24,
+   24,
+   25,
+   32
+  ],
+  "ratio10": [
+   18,
+   18,
+   16,
+   16,
+   17,
+   17,
+   17,
+   17,
+   14,
+   14
+  ],
+  "salesCagr10": 18,
+  "profitCagr10": 20,
+  "qSales": [
+   76007,
+   77460,
+   77470,
+   76691,
+   76751,
+   76610,
+   79363,
+   83427
+  ],
+  "qProfit": [
+   16736,
+   17616,
+   18155,
+   18641,
+   18654,
+   19221,
+   19060,
+   19510
+  ],
+  "share": {
+   "prom": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "fii": [
+    49.21,
+    48.3,
+    48.84,
+    48.38,
+    47.67,
+    44.05,
+    41.82,
+    39.39
+   ],
+   "dii": [
+    34.37,
+    35.68,
+    35.77,
+    36.07,
+    37.0,
+    40.14,
+    41.75,
+    43.44
+   ],
+   "pub": [
+    16.41,
+    16.02,
+    15.37,
+    15.51,
+    15.29,
+    15.82,
+    16.45,
+    17.15
+   ]
+  },
+  "asset": {
+   "gnpa": [
+    1.24,
+    1.11
+   ],
+   "nnpa": [
+    0.42,
+    0.37
+   ],
+   "nim": 3.32
+  },
+  "q2": {
+   "period": "Jul–Sep 2026",
+   "head": "NII up 9.7%, profit up 4.7%",
+   "rows": [
+    [
+     "Net interest income",
+     "₹34,619 Cr",
+     "+9.7% YoY"
+    ],
+    [
+     "Net profit",
+     "₹19,510 Cr",
+     "+4.7% YoY"
+    ],
+    [
+     "Deposits",
+     "₹33.27 L Cr",
+     "+18.8% YoY"
+    ],
+    [
+     "Gross advances",
+     "₹32.20 L Cr",
+     "+16.3% YoY"
+    ],
+    [
+     "Treasury gains",
+     "₹780 Cr",
+     "−67.4% YoY",
+     "dn"
+    ]
+   ]
+  },
+  "strengths": [
+   "Biggest balance sheet: revenue 1.8×",
+   "P/E 16.4 · P/B 2.2",
+   "Gross NPA 1.11%, the lower of the two"
+  ],
+  "watch": [
+   "Q2 profit growth only 4.7%",
+   "ROE down to 14% since the merger"
+  ]
+ },
+ "b": {
+  "tick": "ICICI",
+  "short": "ICICI Bank",
+  "say": "ICICI Bank",
+  "name": "ICICI Bank",
+  "price": 1599,
+  "mcap": 1149217,
+  "low": 1188,
+  "high": 1617,
+  "pe": 21.0,
+  "pb": 3.21,
+  "dy": 0.75,
+  "roe": 15.8,
+  "de": 0,
+  "ret": {
+   "1Y": 16,
+   "3Y": 20,
+   "5Y": 16,
+   "10Y": 21
+  },
+  "sales10": [
+   54156,
+   54966,
+   63401,
+   74798,
+   79118,
+   86375,
+   109231,
+   142891,
+   163264,
+   169946
+  ],
+  "profit10": [
+   9801,
+   6777,
+   3363,
+   7931,
+   16193,
+   23339,
+   31896,
+   40888,
+   47227,
+   50147
+  ],
+  "payout10": [
+   15,
+   14,
+   19,
+   0,
+   9,
+   15,
+   18,
+   17,
+   17,
+   17
+  ],
+  "ratio10": [
+   10,
+   7,
+   3,
+   7,
+   12,
+   15,
+   17,
+   19,
+   18,
+   16
+  ],
+  "salesCagr10": 12,
+  "profitCagr10": 18,
+  "qSales": [
+   41300,
+   42431,
+   42947,
+   41758,
+   41966,
+   43275,
+   45671,
+   49110
+  ],
+  "qProfit": [
+   11792,
+   12630,
+   12768,
+   12359,
+   11318,
+   13702,
+   14804,
+   14843
+  ],
+  "share": {
+   "prom": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "fii": [
+    45.7,
+    45.83,
+    46.77,
+    45.56,
+    43.87,
+    34.48,
+    33.79,
+    34.68
+   ],
+   "dii": [
+    44.95,
+    44.77,
+    43.91,
+    45.06,
+    46.74,
+    39.94,
+    42.32,
+    41.77
+   ],
+   "pub": [
+    9.35,
+    9.39,
+    9.33,
+    9.38,
+    9.4,
+    25.58,
+    23.9,
+    23.54
+   ]
+  },
+  "asset": {
+   "gnpa": [
+    1.58,
+    1.2
+   ],
+   "nnpa": [
+    0.39,
+    0.3
+   ],
+   "nim": 4.18
+  },
+  "q2": {
+   "period": "Jul–Sep 2026",
+   "head": "Profit up 20.1%, NII up 17.7%",
+   "rows": [
+    [
+     "Net interest income",
+     "₹25,339 Cr",
+     "+17.7% YoY"
+    ],
+    [
+     "Net profit",
+     "₹14,843 Cr",
+     "+20.1% YoY"
+    ],
+    [
+     "Deposits",
+     "₹20.50 L Cr",
+     "+27.1% YoY"
+    ],
+    [
+     "Total loans",
+     "₹18.32 L Cr",
+     "+30% YoY"
+    ],
+    [
+     "NIM",
+     "4.18%",
+     "4.36% in Q1",
+     "dn"
+    ]
+   ]
+  },
+  "strengths": [
+   "Q2 profit +20%, NII +17.7%",
+   "ROE 15.8% · net NPA 0.30%",
+   "Share price +16% in a year"
+  ],
+  "watch": [
+   "Pricier: P/E 21, P/B 3.2",
+   "NIM slipped to 4.18%"
+  ]
+ },
+ "summary": {
+  "a": {
+   "head": "BIGGER · CHEAPER",
+   "rows": [
+    "Revenue 1.8× ICICI Bank",
+    "P/E 16.4 vs 21.0",
+    "Dividend yield 1.6% vs 0.75%"
+   ]
+  },
+  "b": {
+   "head": "FASTER · HIGHER ROE",
+   "rows": [
+    "Q2 profit +20% vs +4.7%",
+    "ROE 15.8% vs 14.0%",
+    "Share price +16% vs −18% (1 yr)"
+   ]
+  }
+ },
+ "script": [
+  {
+   "key": "intro",
+   "title": "THE FACE-OFF",
+   "lines": [
+    "HDFC Bank and ICICI Bank. India's two largest private banks.",
+    "Together they're worth over 24 lakh crore. But in the past year, ICICI Bank's share rose 16 percent, while HDFC Bank's fell 18.",
+    "So how do they really compare? Let's go through the numbers, one by one."
+   ]
+  },
+  {
+   "key": "size",
+   "title": "SIZE",
+   "winner": "a",
+   "lines": [
+    "On size, HDFC Bank has a market cap of 12.6 lakh crore. ICICI Bank, 11.5 lakh crore.",
+    "HDFC Bank's yearly revenue is 3.08 lakh crore, about 1.8 times ICICI Bank, helped by its merger with HDFC Limited."
+   ]
+  },
+  {
+   "key": "returns",
+   "title": "SHARE PRICE",
+   "winner": "b",
+   "lines": [
+    "The two share prices have gone in opposite directions.",
+    "Over one year, ICICI Bank is up 16 percent. HDFC Bank, down 18.",
+    "Over three and five years: 16 to 20 percent a year for ICICI Bank, just 1 to 3 for HDFC Bank.",
+    "Over ten years: 21 percent a year, against 10.",
+    "Today, ICICI Bank is 1 percent below its 52-week high. HDFC Bank, 20 percent."
+   ]
+  },
+  {
+   "key": "valuation",
+   "title": "VALUATION",
+   "winner": "a",
+   "lines": [
+    "Here's what you pay for each.",
+    "HDFC Bank trades at 16.4 times earnings. ICICI Bank, at 21.",
+    "On book value, HDFC Bank is at 2.2 times, ICICI Bank at 3.2.",
+    "And HDFC Bank's dividend yield is 1.6 percent, about double ICICI Bank's 0.75."
+   ]
+  },
+  {
+   "key": "revenue",
+   "title": "REVENUE GROWTH",
+   "winner": "a",
+   "lines": [
+    "Since 2017, HDFC Bank's revenue grew from 69 thousand crore to 3.08 lakh crore, with a jump after its 2023 merger with HDFC Limited.",
+    "ICICI Bank grew from 54 thousand crore to 1.70 lakh crore.",
+    "That's about 18 percent a year for HDFC Bank, against 12 for ICICI Bank."
+   ]
+  },
+  {
+   "key": "profit",
+   "title": "PROFIT GROWTH",
+   "winner": "even",
+   "lines": [
+    "On profit, HDFC Bank earned 74.7 thousand crore last year. ICICI Bank, 50.1 thousand crore.",
+    "Ten-year profit growth: 20 percent a year at HDFC Bank, 18 at ICICI Bank. Over five years, ICICI Bank was faster, at 25."
+   ]
+  },
+  {
+   "key": "quarterly",
+   "title": "LAST 8 QUARTERS",
+   "winner": "b",
+   "lines": [
+    "Over the last eight quarters, both banks kept growing.",
+    "Quarterly revenue reached 83 thousand crore at HDFC Bank, and 49 thousand crore at ICICI Bank.",
+    "Quarterly profit grew 17 percent at HDFC Bank over two years, and 26 percent at ICICI Bank."
+   ]
+  },
+  {
+   "key": "roce",
+   "title": "RETURN ON EQUITY",
+   "winner": "b",
+   "lines": [
+    "For banks, the key efficiency measure is return on equity.",
+    "HDFC Bank held 16 to 18 percent for years, then slipped to 14 after the merger.",
+    "ICICI Bank climbed from 3 percent in 2019 to 16 today, now ahead of HDFC Bank."
+   ]
+  },
+  {
+   "key": "asset",
+   "title": "BAD LOANS",
+   "winner": "even",
+   "lines": [
+    "For any bank, the biggest risk is bad loans.",
+    "HDFC Bank's gross NPA fell from 1.24 to 1.11 percent of loans, with net NPA at 0.37.",
+    "ICICI Bank's fell faster, from 1.58 to 1.20 percent, with net NPA at 0.30.",
+    "ICICI Bank also earns a wider margin: 4.18 percent, against 3.32."
+   ]
+  },
+  {
+   "key": "ownership",
+   "title": "WHO OWNS IT",
+   "winner": "none",
+   "lines": [
+    "Neither bank has a promoter. Institutions and the public own them.",
+    "At HDFC Bank, foreign investors cut their stake from 49 to 39 percent in two years, as domestic institutions rose to 43.",
+    "At ICICI Bank, foreign investors hold 35 percent, and domestic institutions 42."
+   ]
+  },
+  {
+   "key": "latest",
+   "title": "LATEST QUARTER",
+   "winner": "b",
+   "lines": [
+    "The latest quarter covers July to September 2026.",
+    "HDFC Bank's net interest income rose 9.7 percent, but profit just 4.7, as treasury gains fell.",
+    "ICICI Bank's net interest income rose 17.7 percent, profit 20 percent, and loans 30 percent.",
+    "But ICICI Bank's margin slipped to 4.18 percent, from 4.36."
+   ]
+  },
+  {
+   "key": "risks",
+   "title": "STRENGTHS & WATCH-OUTS",
+   "lines": [
+    "So, the strengths, and what to watch.",
+    "HDFC Bank: the biggest balance sheet, a lower valuation, and lower gross NPA. Watch: slow profit growth, and a lower return on equity.",
+    "ICICI Bank: faster profit growth, a higher return on equity, and a strong share price. Watch: a richer valuation, and a slipping margin."
+   ]
+  },
+  {
+   "key": "summary",
+   "title": "THE SUMMARY",
+   "lines": [
+    "HDFC Bank is the bigger bank, and the cheaper stock today.",
+    "ICICI Bank is growing faster, earns more on equity, and its share price shows it.",
+    "This is not a buy or sell call. Which one suits your style? Tell us in the comments."
+   ]
+  },
+  {
+   "key": "cta",
+   "title": "",
+   "lines": [
+    "Follow Market Samachar for more stock face-offs. Full data on marketsamachar dot in."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,552 @@
+{
+ "pair": "hdfcbank-icicibank",
+ "slug": "hdfc-icici-debate",
+ "angle": "The giant vs the comeback: HDFC Bank is bigger and cheaper; ICICI Bank rebuilt its returns from 3% to 16% ROE and the market rewarded it.",
+ "show": "THE DEBATE",
+ "format": "debate",
+ "opening": "stat",
+ "look": "glass",
+ "motion": "cards",
+ "voices": {
+  "n": "af_heart",
+  "a": "am_fenrir",
+  "b": "bf_emma"
+ },
+ "hosts": {
+  "n": {
+   "name": "Priya",
+   "role": "Moderator",
+   "init": "P"
+  },
+  "a": {
+   "name": "Arjun",
+   "role": "argues for HDFC Bank",
+   "init": "A"
+  },
+  "b": {
+   "name": "Meera",
+   "role": "argues for ICICI Bank",
+   "init": "M"
+  }
+ },
+ "scenes": [
+  {
+   "type": "hero",
+   "tag": "",
+   "title": "",
+   "spec": {
+    "items": [
+     {
+      "side": "a",
+      "value": "−18%",
+      "label": "Share price · last 1 year",
+      "beat": 1,
+      "color": "dn"
+     },
+     {
+      "side": "b",
+      "value": "+16%",
+      "label": "Share price · last 1 year",
+      "beat": 1,
+      "color": "up"
+     }
+    ],
+    "caption": "Same industry. Opposite years.",
+    "captionBeat": 2
+   },
+   "lines": [
+    [
+     "n",
+     "Same industry. Same economy. And yet, opposite years."
+    ],
+    [
+     "n",
+     "HDFC Bank's share price is down 18 percent. ICICI Bank's is up 16."
+    ],
+    [
+     "n",
+     "So which story holds up? Today, two of us argue it out."
+    ]
+   ]
+  },
+  {
+   "type": "kinetic",
+   "tag": "THE DEBATE",
+   "title": "",
+   "spec": {
+    "lines": [
+     {
+      "text": "Arjun argues for HDFC Bank",
+      "emph": [
+       "arjun"
+      ],
+      "ec": "a",
+      "beat": 0
+     },
+     {
+      "text": "Meera argues for ICICI Bank",
+      "emph": [
+       "meera"
+      ],
+      "ec": "b",
+      "beat": 2
+     },
+     {
+      "text": "Numbers: Screener.in and the banks' Q2 FY27 results · Not a buy or sell call",
+      "sub": true,
+      "beat": 3
+     }
+    ]
+   },
+   "lines": [
+    [
+     "n",
+     "I'm Priya, your moderator. Arjun will make the case for HDFC Bank."
+    ],
+    [
+     "a",
+     "Happy to. Size, value and steadiness are all on my side."
+    ],
+    [
+     "b",
+     "And I'm Meera, for ICICI Bank. I'll show you a comeback story."
+    ],
+    [
+     "n",
+     "Every number here comes from Screener and the banks' latest results. And this is not a buy or sell call."
+    ]
+   ]
+  },
+  {
+   "type": "duel",
+   "tag": "ROUND 1",
+   "title": "THE BASICS",
+   "spec": {
+    "rows": [
+     {
+      "label": "Market cap",
+      "a": 1257664,
+      "b": 1149217,
+      "f": "L",
+      "better": "high",
+      "beat": 1
+     },
+     {
+      "label": "Revenue FY26",
+      "a": 307522,
+      "b": 169946,
+      "f": "L",
+      "better": "high",
+      "beat": 1
+     },
+     {
+      "label": "P/E",
+      "a": 16.4,
+      "b": 21.0,
+      "f": "num",
+      "better": "low",
+      "beat": 2
+     },
+     {
+      "label": "Dividend yield",
+      "a": 1.6,
+      "b": 0.75,
+      "f": "pct",
+      "better": "high",
+      "beat": 3
+     }
+    ]
+   },
+   "lines": [
+    [
+     "n",
+     "Arjun, start with the basics."
+    ],
+    [
+     "a",
+     "HDFC Bank is the bigger bank. Twelve point six lakh crore in market value, and about 1.8 times ICICI's revenue, after its merger with HDFC Limited."
+    ],
+    [
+     "a",
+     "It's also cheaper. Sixteen times earnings, against twenty-one for ICICI."
+    ],
+    [
+     "a",
+     "And it pays about double the dividend yield."
+    ],
+    [
+     "b",
+     "Cheaper, yes. But ask why it's cheaper."
+    ]
+   ]
+  },
+  {
+   "type": "chartzoom",
+   "tag": "ROUND 2",
+   "title": "THE COMEBACK",
+   "spec": {
+    "series": "ratio10",
+    "fmt": "pct",
+    "unit": "Return on equity · % per year",
+    "noNote": true,
+    "zoom": 1.5,
+    "callouts": [
+     {
+      "who": "b",
+      "i": 2,
+      "text": "FY19: ICICI Bank earns just 3% on equity",
+      "beat": 2
+     },
+     {
+      "who": "b",
+      "i": 9,
+      "text": "FY26: 16%, now ahead of HDFC Bank",
+      "beat": 3
+     },
+     {
+      "who": "a",
+      "i": 8,
+      "text": "FY25: HDFC Bank slips to 14% after the merger",
+      "beat": 4
+     }
+    ]
+   },
+   "lines": [
+    [
+     "n",
+     "Meera, why is it cheaper?"
+    ],
+    [
+     "b",
+     "Look at return on equity: how much profit a bank makes on its shareholders' money."
+    ],
+    [
+     "b",
+     "In 2019, ICICI Bank earned just 3 percent."
+    ],
+    [
+     "b",
+     "Today it earns 16. That's a five-fold jump."
+    ],
+    [
+     "a",
+     "HDFC Bank held 16 to 18 percent for years. It slipped to 14 after the merger. I'd call that a merger reset, not a decline."
+    ]
+   ]
+  },
+  {
+   "type": "invest",
+   "tag": "ROUND 3",
+   "title": "",
+   "spec": {
+    "years": 5,
+    "title": "₹1 lakh invested 5 years ago",
+    "beatA": 1,
+    "beatB": 2
+   },
+   "lines": [
+    [
+     "n",
+     "So what did shareholders actually get?"
+    ],
+    [
+     "n",
+     "One lakh rupees in HDFC Bank five years ago is worth about 1.05 lakh today."
+    ],
+    [
+     "n",
+     "The same amount in ICICI Bank: about 2.1 lakh."
+    ],
+    [
+     "a",
+     "That's the past. And low expectations are exactly why HDFC Bank trades cheaper today."
+    ]
+   ]
+  },
+  {
+   "type": "chartzoom",
+   "tag": "ROUND 4",
+   "title": "WHO'S GROWING FASTER",
+   "spec": {
+    "series": "qProfit",
+    "x": "quarters",
+    "fmt": "k",
+    "zero": false,
+    "unit": "Quarterly net profit · ₹ thousand crore",
+    "zoom": 1.4,
+    "callouts": [
+     {
+      "who": "b",
+      "i": 7,
+      "big": "+26%",
+      "text": "ICICI Bank: ₹11.8K Cr → ₹14.8K Cr in two years",
+      "beat": 1
+     },
+     {
+      "who": "a",
+      "i": 7,
+      "big": "+17%",
+      "text": "HDFC Bank: ₹16.7K Cr → ₹19.5K Cr in two years",
+      "beat": 2,
+      "below": true
+     }
+    ]
+   },
+   "lines": [
+    [
+     "n",
+     "Who's growing faster?"
+    ],
+    [
+     "b",
+     "ICICI Bank's quarterly profit rose from 11.8 to 14.8 thousand crore in two years. That's 26 percent."
+    ],
+    [
+     "a",
+     "HDFC Bank still earns more every quarter: 19.5 thousand crore, up 17 percent."
+    ],
+    [
+     "n",
+     "A bigger base growing slower, against a smaller base growing faster."
+    ]
+   ]
+  },
+  {
+   "type": "mythfact",
+   "tag": "FACT CHECK",
+   "title": "",
+   "spec": {
+    "myth": "ICICI Bank now has fewer bad loans than HDFC Bank.",
+    "verdict": "HALF TRUE",
+    "factBeat": 1,
+    "fact": "Gross NPA: HDFC Bank is lower, 1.11% vs 1.20%. Net NPA: ICICI Bank is lower, 0.30% vs 0.37%. Both improved over the year."
+   },
+   "lines": [
+    [
+     "b",
+     "And ICICI Bank now has fewer bad loans too."
+    ],
+    [
+     "n",
+     "Let's fact-check that."
+    ],
+    [
+     "n",
+     "On gross bad loans, HDFC Bank is lower: 1.11 percent against 1.20. After provisions, ICICI Bank is lower: 0.30 against 0.37. And both improved over the year."
+    ]
+   ]
+  },
+  {
+   "type": "quiz",
+   "tag": "YOUR TURN",
+   "title": "",
+   "spec": {
+    "n": "for you",
+    "q": "Which bank earns a wider margin on its loans?",
+    "answer": "b",
+    "countBeat": 1,
+    "revealBeat": 2,
+    "count": 3,
+    "reveal": "ICICI Bank · net interest margin 4.18% vs 3.32% (Q2 FY27)"
+   },
+   "lines": [
+    [
+     "n",
+     "A quick quiz for you. Which bank earns a wider margin on its loans?"
+    ],
+    [
+     "pause",
+     3
+    ],
+    [
+     "n",
+     "It's ICICI Bank: a net interest margin of 4.18 percent, against 3.32 for HDFC Bank."
+    ],
+    [
+     "b",
+     "And that margin is how a bank makes its money."
+    ],
+    [
+     "a",
+     "True, but it's slipping at ICICI. Margins don't stay high forever."
+    ]
+   ]
+  },
+  {
+   "type": "classic",
+   "tag": "ROUND 5",
+   "title": "LATEST QUARTER",
+   "spec": {
+    "key": "latest",
+    "variant": 1
+   },
+   "lines": [
+    [
+     "n",
+     "Now the latest quarter, July to September."
+    ],
+    [
+     "a",
+     "HDFC Bank grew deposits almost 19 percent, and net interest income nearly 10. Profit was held back by lower treasury gains."
+    ],
+    [
+     "b",
+     "ICICI Bank grew profit 20 percent, and its loans 30 percent."
+    ],
+    [
+     "a",
+     "But its margin slipped, from 4.36 to 4.18 percent."
+    ]
+   ]
+  },
+  {
+   "type": "duel",
+   "tag": "ROUND 6",
+   "title": "WHO OWNS THEM",
+   "spec": {
+    "rows": [
+     {
+      "label": "Foreign investors",
+      "a": 39.39,
+      "b": 34.68,
+      "f": "pct",
+      "beat": 1
+     },
+     {
+      "label": "Domestic institutions",
+      "a": 43.44,
+      "b": 41.77,
+      "f": "pct",
+      "beat": 1
+     },
+     {
+      "label": "Promoter",
+      "a": 0,
+      "b": 0,
+      "f": "pct",
+      "beat": 0
+     }
+    ]
+   },
+   "lines": [
+    [
+     "n",
+     "Who owns these banks? Neither one has a promoter."
+    ],
+    [
+     "a",
+     "At HDFC Bank, domestic institutions raised their stake from 34 to 43 percent in two years, while foreign investors sold."
+    ],
+    [
+     "b",
+     "At ICICI Bank, foreign investors hold 35 percent, and domestic institutions 42."
+    ]
+   ]
+  },
+  {
+   "type": "kinetic",
+   "tag": "THE RISKS",
+   "title": "",
+   "spec": {
+    "lines": [
+     {
+      "text": "What could go wrong?",
+      "emph": [
+       "wrong"
+      ],
+      "beat": 0
+     },
+     {
+      "text": "HDFC Bank: slow profit growth keeps the discount",
+      "emph": [
+       "hdfc"
+      ],
+      "ec": "a",
+      "beat": 1,
+      "size": 62
+     },
+     {
+      "text": "ICICI Bank: a premium price leaves little room for mistakes",
+      "emph": [
+       "icici"
+      ],
+      "ec": "b",
+      "beat": 2,
+      "size": 62
+     }
+    ]
+   },
+   "lines": [
+    [
+     "n",
+     "So, what could go wrong for each?"
+    ],
+    [
+     "b",
+     "For HDFC Bank, if profit growth stays slow, the discount could stay too."
+    ],
+    [
+     "a",
+     "And for ICICI Bank, a premium valuation leaves very little room for mistakes."
+    ]
+   ]
+  },
+  {
+   "type": "split",
+   "tag": "CLOSING",
+   "title": "",
+   "spec": {
+    "a": {
+     "head": "The case for HDFC Bank",
+     "rows": [
+      "Bigger: revenue 1.8× ICICI Bank",
+      "Cheaper: P/E 16.4 vs 21",
+      "Lower gross bad loans"
+     ],
+     "beat": 1
+    },
+    "b": {
+     "head": "The case for ICICI Bank",
+     "rows": [
+      "ROE up from 3% to 16%",
+      "Q2 profit +20% vs +4.7%",
+      "₹1 lakh → ₹2.1 lakh in 5 yrs"
+     ],
+     "beat": 2
+    },
+    "q": "Whose case convinced you?",
+    "qBeat": 3
+   },
+   "lines": [
+    [
+     "n",
+     "Closing statements. Arjun?"
+    ],
+    [
+     "a",
+     "Bigger, cheaper, and lower gross bad loans. If the merger reset is behind it, the numbers have room to improve."
+    ],
+    [
+     "b",
+     "Higher returns on equity, faster growth, and a share price that reflects it. ICICI Bank has earned its premium."
+    ],
+    [
+     "n",
+     "Two strong banks, two different stories. Whose case convinced you? Tell us in the comments. And remember, this is not a buy or sell call."
+    ]
+   ]
+  },
+  {
+   "type": "cta",
+   "tag": "",
+   "title": "",
+   "spec": {},
+   "lines": [
+    [
+     "n",
+     "Follow Market Samachar for more debates like this."
+    ]
+   ]
+  }
+ ]
+}
